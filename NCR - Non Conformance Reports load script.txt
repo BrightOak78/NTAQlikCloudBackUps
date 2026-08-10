@@ -1,0 +1,2212 @@
+///$tab Main
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$#,##0.00;-$#,##0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+
+
+
+
+/*****************************************************************
+ NCR - Unified Cloud Script
+ Combines:
+ 1. Raw extraction + helper QVDs
+ 2. DW / Final NCR_Report build
+******************************************************************/
+
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY hh:mm:ss[.fff]';
+
+LET pType = 'NCR';
+LET vMailIDRemove = '-99999999';
+SET vSend2Excel=0;
+
+
+
+LET vToday=Today();
+LET vTodayLastMonth=AddMonths(Today(),-1);
+
+
+
+
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = NCR; //Free Document Name
+SET pWorkApp = NCR; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+
+
+///$tab Inline
+NCR_Levels:
+LOAD *
+INLINE [
+Ncr Level,Ncr Level Desc, NCR_Level_Num
+1,1 - One, 1
+2,2 -Two, 2
+3,3 - Three, 3
+];
+
+NCR_State:
+LOAD *
+INLINE [
+Ncr State, NCR_State_ID
+Closed, 1
+Initial, 2
+InProgress, 3
+];
+
+
+///$tab 1. NCR_View
+ LIB CONNECT TO 'API & Connections:AconexSQL';
+
+
+
+[NCR_View]:
+LOAD
+     rowno() as RowNumber,
+    projectId, 
+	projectName, 
+	Line, 
+	[mail type ID], 
+	[mail type], 
+	Timestamp([sent date]) as [sent date], 
+	[To User], 
+	ToRecipients, 
+	CcRecipients, 
+	[To Organization Name], 
+	[mail no], 
+	[From Organization Name] as Sender_Organization_Name, 
+	"from (user)" as Sender_User_ID,
+	subject, 
+	[Reference Number ID], 
+	[Reference Number], 
+	Status, 
+	Attribute1, 
+	[Attribute1 CODE], 
+	Attribute2, 
+	[Attribute2 CODE], 
+	Attribute3, 
+	[Attribute3 CODE], 
+	Attribute4, 
+	[Attribute4 CODE], 
+	[Reason for Issue], 
+	Body, 
+	[mail ID], 
+	[NCR Type], 
+	[Drawing/Reference], 
+	[Spec./Contract Reference], 
+	[NCR Contractor Sys Code], 
+	[Opened by], 
+	[Responsible Person], 
+	Date(floor([Date Opened])) as [Date Opened] , 
+	[NCR Status], 
+	Date(floor([Expected Closing Date])) as [Expected Closing Date], 
+	Date(floor([Date Closed])) as [Date Closed], 
+	[NCR Level], 
+	[Element Name/Code], 
+	[Description of the Deficiency], 
+	[Cause of Deficiency], 
+	[Proposed Corrective Action], 
+	[Proposed Disposition], 
+	[Engineer-QA CA Decision], 
+	[Engineer-QA CA Person], 
+	[Engineer-QA CA Date], 
+	[Engineer-QA CA comments], 
+	[Designer CA Decision], 
+	[Designer CA Person], 
+	[Designer CA Date], 
+	[Designer CA Comments], 
+	[Corrective Action Taken], 
+	[Corrective Actions Comments], 
+	[Engineer-QA Closed out Decision], 
+	[Engineer-QA Closed out Person], 
+	[Engineer-QA Closed out Date], 
+	[Engineer-QA Closed out comments], 
+	[Designer Closed out Decision], 
+	[Designer Closed out Person], 
+	[Designer Closed out Date], 
+	[Designer Closed out comments], 
+	[Main Contractor], 
+	[Phase Code], 
+	[Work Type], 
+	[Work Type Code], 
+	emailFetchDate;
+
+SELECT projectId,
+	projectName,
+	Line,
+	"mail type ID",
+	"mail type",
+	"sent date",
+	"To User",
+	ToRecipients,
+	CcRecipients,
+	"To Organization Name",
+	"mail no",
+	"From Organization Name",
+	"from (user)",
+	subject,
+	"Reference Number ID",
+	"Reference Number",
+	Status,
+	Attribute1,
+	"Attribute1 CODE",
+	Attribute2,
+	"Attribute2 CODE",
+	Attribute3,
+	"Attribute3 CODE",
+	Attribute4,
+	"Attribute4 CODE",
+	"Reason for Issue",
+	Body,
+	"mail ID",
+	"NCR Type",
+	"Drawing/Reference",
+	"Spec./Contract Reference",
+	"NCR Contractor Sys Code",
+	"Opened by",
+	"Responsible Person",
+	"Date Opened",
+	"NCR Status",
+	"Expected Closing Date",
+	"Date Closed",
+	"NCR Level",
+	"Element Name/Code",
+	"Description of the Deficiency",
+	"Cause of Deficiency",
+	"Proposed Corrective Action",
+	"Proposed Disposition",
+	"Engineer-QA CA Decision",
+	"Engineer-QA CA Person",
+	"Engineer-QA CA Date",
+	"Engineer-QA CA comments",
+	"Designer CA Decision",
+	"Designer CA Person",
+	"Designer CA Date",
+	"Designer CA Comments",
+	"Corrective Action Taken",
+	"Corrective Actions Comments",
+	"Engineer-QA Closed out Decision",
+	"Engineer-QA Closed out Person",
+	"Engineer-QA Closed out Date",
+	"Engineer-QA Closed out comments",
+	"Designer Closed out Decision",
+	"Designer Closed out Person",
+	"Designer Closed out Date",
+	"Designer Closed out comments",
+	"Main Contractor",
+	"Phase Code",
+	"Work Type",
+	"Work Type Code",
+	emailFetchDate
+FROM AconexMailDB.dbo."NCR_View";
+
+
+STORE [NCR_View] INTO [$(vLibDataFiles_RAW)/NCR_View.qvd](qvd);
+drop table NCR_View; 
+
+
+
+
+///$tab 2. Data
+////////*****************************************************
+
+NCR_StatusFix:
+LOAD DISTINCT
+
+	UPPER(TEXT(TRIM(Reference_Number))) AS Reference_Number,
+	NUM(Reference_ID) AS Reference_ID,
+	UPPER(TEXT(TRIM(Mail_No))) AS Mail_No,
+	NUM(Mail_ID) AS Mail_ID,
+	TEXT(TRIM(Status_Value)) AS NCR_StatusFix,
+	TEXT(TRIM(Status_Value)) AS Status_Value
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/NCR_StatusFix.xlsx]
+(ooxml, embedded labels, table is NCR_StatusFix)
+WHERE NOT ISNULL(TRIM(Status_Value)) AND NOT ISNULL(TRIM(Mail_No));
+
+STORE [NCR_StatusFix] INTO [$(vLibDataFiles_DW)/NCR_StatusFix.qvd](qvd);
+DROP TABLE NCR_StatusFix;
+////////*****************************************************
+
+
+$(pType)_Status_Table:
+LOAD DISTINCT
+	TEXT(TRIM(Status_Name)) AS Status_Name,
+	NUM(Status_ID) AS Status_ID,
+	TEXT(TRIM(Status_Value)) AS Status_Value,
+	TEXT(TRIM(Status_Description)) AS Status_Description
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/NCR_AddOn.xlsx]
+(ooxml, embedded labels, table is Status_Table)
+WHERE NOT ISNULL(Status_Value);
+STORE * FROM $(pType)_Status_Table INTO   [$(vLibDataFiles_DW)/$(pType)_Status_Table.QVD] (QVD); 
+DROP TABLE $(pType)_Status_Table;
+////////*****************************************************
+
+$(pType)_General_Table:
+LOAD 
+	TEXT(TRIM(Field_Name)) AS Field_Name,
+	NUM(Field_ID) AS Field_ID,
+	TEXT(TRIM(Field_Value)) AS Field_Value,
+	TEXT(TRIM(Field_Code)) AS Field_Code,
+	TEXT(TRIM(Field_Description)) AS Field_Description    
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/NCR_AddOn.xlsx]
+
+(ooxml,embedded labels,table is General_Table)
+WHERE NOT ISNULL(Field_Name);
+STORE * FROM $(pType)_General_Table INTO [$(vLibDataFiles_DW)/$(pType)_General_Table.QVD] (QVD); 
+DROP TABLE $(pType)_General_Table;
+////////*****************************************************
+
+$(pType)_IntervalDays:
+LOAD 
+	TEXT(TRIM(Interval_Type)) AS Interval_Type,
+ 	NUM(Interval_ID) AS Interval_ID,
+    NUM(Interval_Days_Min) AS Interval_Days_Min,
+    NUM(Interval_Days_Max) AS Interval_Days_Max,
+    TEXT(TRIM(Interval_Name)) AS Interval_Name,
+    TEXT(TRIM(Interval_Description)) AS Interval_Description
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/NCR_AddOn.xlsx] (ooxml,embedded labels,table is IntervalDays)
+WHERE NOT ISNULL(Interval_ID);
+STORE * FROM $(pType)_IntervalDays INTO [$(vLibDataFiles_DW)/$(pType)_IntervalDays.QVD] (QVD); 
+DROP TABLE $(pType)_IntervalDays;
+////////*****************************************************
+
+$(pType)_DynamicReport_Table:
+LOAD 
+	TEXT(TRIM(Dim_Type)) AS Dim_Type,
+	TEXT(TRIM(Dim_Class)) AS Dim_Class,
+	NUM(Dim_Num,'00') AS Dim_Num,
+	TEXT(TRIM(Dim_Name)) AS Dim_Name
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/NCR_AddOn.xlsx]
+(ooxml, embedded labels, table is DynamicReport_Table)
+WHERE NOT ISNULL(Dim_Num) AND NOT ISNULL(Dim_Name);
+STORE * FROM $(pType)_DynamicReport_Table INTO [$(vLibDataFiles_DW)/$(pType)_DynamicReport_Table.QVD] (QVD); 
+DROP TABLE $(pType)_DynamicReport_Table;
+////////*****************************************************
+
+Package_Fix:
+LOAD DISTINCT
+	Project_ID,
+    TEXT(TRIM(Package_EN)) AS Package,
+    TEXT(TRIM(Package_EN_Fix)) AS Package_Fix    
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/LinesGeography.xlsx] 
+
+(ooxml, embedded labels, table is Package_Fix)
+WHERE NOT ISNULL(Package_EN);
+STORE * FROM Package_Fix INTO [$(vLibDataFiles_DW)/$(pType)_Package_Fix.QVD] (QVD); 
+DROP TABLE Package_Fix;
+////////*****************************************************
+
+Package_Table:
+LOAD DISTINCT
+	Project_ID,
+    TEXT(TRIM(Package_EN)) AS Package,
+//  TEXT(TRIM(Package_HE)) AS Package_HE,
+    TEXT(TRIM(Managing_Company_EN)) AS Managing_Company
+//  TEXT(TRIM(Managing_Company_HE)) AS Managing_Company_HE
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/LinesGeography.xlsx] (ooxml, embedded labels, table is Package_Table)
+WHERE NOT ISNULL(Package_EN);
+STORE * FROM Package_Table INTO [$(vLibDataFiles_DW)/$(pType)_Package_Table.QVD] (QVD); 
+DROP TABLE Package_Table;
+////////*****************************************************
+
+Geography_Fix:
+LOAD DISTINCT 
+	Project_ID,
+    TEXT(TRIM(Geography_EN)) AS Geography,
+    TEXT(TRIM(Geography_EN_Fix)) AS Geography_Fix
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/LinesGeography.xlsx] (ooxml, embedded labels, table is Geography_Fix)
+WHERE NOT ISNULL(Geography_EN);
+STORE * FROM Geography_Fix INTO [$(vLibDataFiles_DW)/Geography_Fix.QVD] (QVD); 
+DROP TABLE Geography_Fix;
+////////*****************************************************
+
+Geography_Table:
+LOAD DISTINCT
+	Project_ID,
+    TEXT(TRIM(Geography_EN)) AS Geography,
+//  TEXT(TRIM(Geography_HE)) AS Geography_HE,
+    TEXT(TRIM(Station_EN)) AS Station,
+//  TEXT(TRIM(Station_HE)) AS Station_HE,
+    TEXT(TRIM(SubStation_EN)) AS SubStation,
+//  TEXT(TRIM(SubStation_HE)) AS SubStation_HE,
+    TEXT(TRIM(Section_EN)) AS Section,
+//  TEXT(TRIM(Section_HE)) AS Section_HE,
+    TEXT(TRIM(Geography_Type_EN)) AS Geography_Type,
+//  TEXT(TRIM(Geography_Type_HE)) AS Geography_Type_HE,
+    TEXT(TRIM(Geography_Site_EN)) AS Geography_Site
+//  TEXT(TRIM(Geography_Site_HE)) AS Geography_Site_HE
+FROM [lib://API & Connections:Sharepoint365/BIDB/NCR/LinesGeography.xlsx] (ooxml, embedded labels, table is Geography_Table)
+WHERE NOT ISNULL(Geography_EN);
+STORE * FROM Geography_Table INTO [$(vLibDataFiles_DW)/Geography_Table.QVD] (QVD); 
+DROP TABLE Geography_Table;
+////////*****************************************************
+
+Geography_Station_Map:
+LOAD 
+	Project_ID,
+	TEXT(TRIM(StationName)) AS Station, 
+    NUM(StationX) AS StationX, 
+    NUM(StationY) AS StationY
+FROM  [lib://API & Connections:Sharepoint365/BIDB/NCR/LinesGeography.xlsx] (ooxml, embedded labels, table is Geography_Station_Map)
+WHERE NOT ISNULL(StationName);
+STORE * FROM Geography_Station_Map INTO [$(vLibDataFiles_DW)/Geography_Station_Map.QVD] (QVD); 
+DROP TABLE Geography_Station_Map;
+////////*****************************************************
+
+
+
+
+
+
+///$tab 3. Reload Time
+TempDate:
+LOAD
+  Timestamp(
+      Max(emailFetchDate), 'DD/MM/YYYY hh:mm'
+   ) as UpdateDate
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+
+Let vReloadTime = Peek('UpdateDate', 0, 'TempUpdate');
+
+
+
+drop table TempDate;
+///$tab 4. Dims
+/////*****************************************************
+//// Remove MailID That are test or not needed
+MailID_RemoveList_Temp:
+LOAD DISTINCT
+     Mail_ID
+FROM [$(vLibDataFiles_DW)/NCR_StatusFix.qvd]
+(qvd)
+WHERE NOT MATCH(Status_Value,'Open','Closed');
+
+
+
+
+MailID_RemoveList:
+LOAD 
+	replace(concat('~'&Mail_ID&'~',','),'~',chr(39)) AS MailID_RemoveList_Field
+RESIDENT MailID_RemoveList_Temp;
+DROP TABLE MailID_RemoveList_Temp;
+
+LET vMailIDRemove=peek('MailID_RemoveList_Field',0,'MailID_RemoveList');
+DROP TABLE MailID_RemoveList;
+/////*****************************************************
+
+$(pType)_Project_Details9:
+LOAD 
+	 projectId, 
+	[mail type ID],
+    [mail ID],
+   projectId &'/'&[mail type ID]  &'/'& [mail ID]  as Key_MailTypeMailID,
+	NUM(projectId) AS Project_ID,
+	NUM([mail type ID]) AS MailType_ID,
+	NUM([mail ID]) AS Mail_ID,
+	NUM(projectId) &'/'& NUM([mail ID]) AS Key_Mail_ID,
+	////
+	TEXT(projectName) AS Project_Name
+//     TEXT(TRIM(address1)) AS Project_Address,
+//     TEXT(TRIM(city)) AS Project_City,
+//     TEXT(TRIM(country)) AS Project_Country
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd)
+WHERE NOT MATCH(NUM([mail ID]),$(vMailIDRemove)); 
+Left Join
+
+LOAD * Inline [
+
+Project_ID  , Project 
+
+268440115 , Red Line ,  
+
+268440770 , Purple Line ,  
+
+268440772 , Green Line , 
+
+];
+
+
+
+STORE * FROM $(pType)_Project_Details9 INTO [$(vLibDataFiles_DW)/$(pType)_Project_Details9.QVD];
+DROP TABLE $(pType)_Project_Details9;
+/////*****************************************************
+
+$(pType)_Report_Senders9:
+LOAD DISTINCT 
+	 projectId, 
+	[mail type ID],
+    [mail ID],
+   projectId &'/'&[mail type ID]  &'/'& [mail ID]  as Key_MailTypeMailID,
+	NUM(projectId) AS Project_ID,
+	NUM([mail type ID]) AS MailType_ID,
+	NUM([mail ID]) AS Mail_ID,
+	NUM(projectId) &'/'& NUM([mail ID]) AS Key_Mail_ID,
+	////
+	NUM(TRIM(Sender_User_ID)) AS Sender_User_ID,
+	
+	CAPITALIZE(TRIM(Sender_Organization_Name)) AS Sender_Organization_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd)
+WHERE NOT MATCH(NUM([mail ID]),$(vMailIDRemove));
+STORE * FROM $(pType)_Report_Senders9 INTO  [$(vLibDataFiles_DW)/$(pType)_Report_Senders9.QVD];
+DROP TABLE $(pType)_Report_Senders9;
+/////*****************************************************
+
+$(pType)_Report_Recipients9:
+LOAD DISTINCT
+	
+   projectId &'/'&[mail type ID]  &'/'& [mail ID]  as Key_MailTypeMailID,
+	NUM(projectId) AS Project_ID,
+	NUM([mail type ID]) AS MailType_ID,
+	NUM([mail ID]) AS Mail_ID,
+	NUM(projectId) &'/'& NUM([mail ID]) AS Key_Mail_ID,
+	////
+	//TEXT(TRIM(DistributionType)) AS Recipient_DistributionType,
+   // IF(DistributionType='TO','1','2') AS Recipient_DistributionTypeSort,
+	NUM(TRIM([To User])) AS Recipient_User_ID,
+	//CAPITALIZE(TRIM(FirstName)) & ' ' & CAPITALIZE(TRIM(LastName)) AS Recipient_User_Name,
+//	NUM(TRIM(OrganizationId)) AS Recipient_Organization_ID,
+	CAPITALIZE(TRIM([To Organization Name])) AS Recipient_Organization_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd)
+WHERE NOT MATCH(NUM([mail ID]),$(vMailIDRemove)); 
+STORE * FROM $(pType)_Report_Recipients9 INTO  [$(vLibDataFiles_DW)/$(pType)_Report_Recipients9.QVD];
+DROP TABLE $(pType)_Report_Recipients9;
+/////*****************************************************
+
+
+
+///$tab 5. New Script
+[$(pType)_Project_Details9]:
+LOAD DISTINCT
+    NUM(projectId) as Project_ID,
+    Text(Trim(Line)) as Project,
+    Text(Trim(projectName)) as Project_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd] (qvd);
+
+STORE [$(pType)_Project_Details9]
+INTO [$(vLibDataFiles_DW)/$(pType)_Project_Details9.qvd] (qvd);
+
+DROP TABLE [$(pType)_Project_Details9];
+
+/*****************************************************************
+ TAB 9 - REPORT SENDERS
+******************************************************************/
+
+[$(pType)_Report_Senders9]:
+LOAD DISTINCT
+    NUM([Reference Number ID]) &'/'& NUM([mail ID]) as Key_Reference_ID,
+    NUM(projectId) &'/'& NUM([mail ID]) as Key_Mail_ID,
+    NUM(projectId) as Project_ID,
+    NUM([mail ID]) as Mail_ID,
+    Text(Trim(Sender_User_ID)) as Sender_User_ID,
+    Text(Trim(Sender_Organization_Name)) as Sender_Organization_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd] (qvd);
+
+STORE [$(pType)_Report_Senders9]
+INTO [$(vLibDataFiles_DW)/$(pType)_Report_Senders9.qvd] (qvd);
+
+DROP TABLE [$(pType)_Report_Senders9];
+
+/*****************************************************************
+ TAB 10 - REPORT RECIPIENTS
+******************************************************************/
+
+[$(pType)_Report_Recipients9]:
+LOAD DISTINCT
+    NUM([Reference Number ID]) &'/'& NUM([mail ID]) as Key_Reference_ID,
+    NUM(projectId) &'/'& NUM([mail ID]) as Key_Mail_ID,
+    NUM(projectId) as Project_ID,
+    NUM([mail ID]) as Mail_ID,
+    Text(Trim([To User])) as Recipient_User_ID,
+    Text(Trim([To Organization Name])) as Recipient_Organization_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd] (qvd);
+
+STORE [$(pType)_Report_Recipients9]
+INTO [$(vLibDataFiles_DW)/$(pType)_Report_Recipients9.qvd] (qvd);
+
+DROP TABLE [$(pType)_Report_Recipients9];
+
+
+///$tab 6. Reports Details
+/*****************************************************************
+ TAB 11 - REPORT DETAILS
+******************************************************************/
+
+[$(pType)_Report_Details]:
+Load *,
+ '<url>https://uk1.aconex.co.uk/Logon?Action=View&ENTITY=MAIL&ID='& [mail ID] as LinkToAconex,
+ Project_ID & '-' & Attribute1Detail as ProjectPackageKey,
+ Project_ID & '-' & GeographyDetail as ProjectGeographyKey;
+LOAD DISTINCT
+     RowNumber,
+   //  Line,
+     TEXT(TRIM(subject)) AS subject,
+    NUM(projectId) &'/'& NUM([mail ID]) as Key_Mail_ID,
+    [Reference Number ID] as Reference_ID,
+  //  NUM(projectId) as  ProjectID,
+    NUM(projectId) as  Project_ID,
+    Sender_Organization_Name, 
+	 Sender_User_ID,
+    [Reason for Issue], 
+	Body, 
+	[mail ID], 
+	[NCR Type], 
+	
+    	Attribute1 as Attribute1Detail,
+        Attribute1 as PackageDetail, 
+   	[Reference Number ID], 
+   TEXT(TRIM( [Reference Number])) as [Reference Number], 
+	
+	
+    Attribute2 as DisciplineDetail, 
+	
+
+    Attribute3 as GeographyDetail, 
+	
+	Attribute4 as Attribute4Detail, 
+	
+    Text(Trim([NCR Type])) as NCR_Type,
+  num( num#([NCR Level])) as NCR_Level_Num,
+    Text(Trim([NCR Level])) as NCR_Level,
+    1 as NCR_Level_Flag,
+
+   
+    1 as NCR_Opened_By_Flag,
+
+    Text(Trim(Status)) as NCR_Status,
+    1 as NCR_Status_Flag,
+
+    Timestamp([Date Opened]) as Open_Date,
+    1 as Open_Date_Flag,
+
+    Timestamp([Date Closed]) as Close_Date,
+  //  1 as Close_Date_Flag,
+
+  //  Timestamp([Expected Closing Date]) as [Expected Closing Date],
+  //  1 as Expected_Closing_Date_Flag,
+
+    Text(Trim([Cause of Deficiency])) as Cause_Of_Deficiency,
+    1 as Cause_Of_Deficiency_Flag,
+
+    Text(Trim([Description of the Deficiency])) as [Description Of The Deficiency],
+    1 as Description_Of_The_Deficiency_Flag,
+
+   
+    
+
+    Text(Trim([NCR Contractor Sys Code])) as [NCR Contractor Sys Code],
+
+    Text(Trim([Drawing/Reference])) as [Drawing/Reference],
+    1 as DrawingReference_Flag,
+
+    Text(Trim([Spec./Contract Reference])) as [Spec/Contract Reference],
+    1 as SpecContract_Reference_Flag,
+
+    Text(Trim([Element Name/Code])) as [Element Name/Code],
+    1 as Element_NameCode_Flag,
+
+    Text(Trim([Proposed Corrective Action])) as [Proposed Corrective Action],
+    1 as Proposed_Corrective_Action_Flag,
+
+    Text(Trim([Proposed Disposition])) as [Proposed Disposition],
+    1 as Proposed_Disposition_Flag,
+
+    Text(Trim([Engineer-QA CA Decision])) as [Engineer-QA CA Decision],
+    Text(Trim([Engineer-QA CA Person])) as [Engineer-QA CA Person],
+    Timestamp([Engineer-QA CA Date]) as [Engineer-QA CA Date],
+    Text(Trim([Engineer-QA CA comments])) as [Engineer-QA CA Comments],
+
+    Text(Trim([Designer CA Decision])) as [Designer CA Decision],
+    Text(Trim([Designer CA Person])) as [Designer CA Person],
+    Timestamp([Designer CA Date]) as [Designer CA Date],
+    Text(Trim([Designer CA Comments])) as [Designer CA Comments],
+
+    Text(Trim([Corrective Action Taken])) as [Corrective Action Taken],
+    Text(Trim([Corrective Actions Comments])) as [Corrective Actions Comments],
+
+    Text(Trim([Engineer-QA Closed out Decision])) as [Engineer-QA Closed-Out Decision],
+    Text(Trim([Engineer-QA Closed out Person])) as [Engineer-QA Closed-Out Person],
+    Timestamp([Engineer-QA Closed out Date]) as [Engineer-QA Closed-Out Date],
+    Text(Trim([Engineer-QA Closed out comments])) as [Engineer-QA Closed-Out Comments],
+
+    Text(Trim([Designer Closed out Decision])) as [Designer Closed-Out Decision],
+    Text(Trim([Designer Closed out Person])) as [Designer Closed-Out Person],
+    Timestamp([Designer Closed out Date]) as [Designer Closed-Out Date],
+    Text(Trim([Designer Closed out comments])) as [Designer Closed-Out Comments]
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd] (qvd);
+
+
+STORE [$(pType)_Report_Details]
+INTO [$(vLibDataFiles_DW)/$(pType)_Report_Details.qvd] (qvd);
+
+//DROP TABLE [$(pType)_Report_Details9];
+
+
+///$tab 7. Managing Company
+LOAD
+    Project_ID & '-' & Package as ProjectPackageKey,
+    Managing_Company
+FROM [$(vLibDataFiles_DW)/NCR_Package_Table.QVD]
+(qvd);
+
+
+///$tab 8. Mail Logic
+NcrLogicTemp:
+LOAD
+  "Reference Number ID",today() as Load_Date,
+   COUNT(DISTINCT("mail ID")) AS Reference_Count,
+   MIN([sent date]) AS Mail_ID_ReportFirst,
+	MAX([sent date]) AS Mail_ID_ReportLast
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd)
+group by  "Reference Number ID";
+
+left Join
+
+LOAD
+ Text(Trim([Responsible Person])) as [Responsible Person],
+ [Main Contractor] ,projectId as ProjectID,
+  Text(Trim([Opened by])) as NCR_Opened_By,
+  Sender_Organization_Name as [Organization Name],
+  "Reference Number ID",
+   SubField([To User],',',1) as [To User], 
+	ToRecipients, 
+  SubField(Attribute1,';',1) as Attribute1,
+     SubField(Attribute1,';',1)  as Package,
+     Attribute2 , 
+  
+	[Attribute1 CODE], 
+    Attribute2 as Discipline, 
+	[Attribute2 CODE], 
+	 SubField(Attribute3,';',1) as  Attribute3, 
+    Attribute3 as Geography, 
+	[Attribute3 CODE], 
+	Attribute4, 
+	[Attribute4 CODE],
+   [Work Type], 
+	[Work Type Code], 
+     [sent date] as  Mail_ID_ReportLast,
+  //  "mail ID" as  Mail_ID_ReportFirst,
+    TEXT(TRIM( TRIM(REPLACE(REPLACE(subject,'Re:',' '),'Fwd:',' ')))) AS Mail_Subject,
+     "sent date" as [Reporting Date]
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+
+Left join
+
+
+LOAD
+  "Reference Number ID",
+ 
+  	Sender_Organization_Name as [Last Sender Organization],
+	Sender_User_ID as [Last Sender User],
+  IF(LEN(TRIM([Expected Closing Date]))>'0','0','1') AS Expected_Closing_Date_Flag,
+    IF(LEN(TRIM([Date Closed] ))>'0','0','1') AS Close_Date_Flag,
+    
+ [sent date] as  Mail_ID_ReportLast,
+ "mail ID" as [Last Mail Number],
+ "sent date" as [Last Sender Date],
+ CAPITALIZE(TRIM([To Organization Name])) as Last_Recipient_Organization,
+ 	"To User" as [Last Recipient Date],
+	 [NCR Status],
+     
+     [Date Closed] as Close_Date_Original,
+    [Date Opened] as Open_Date_Original,
+    [Expected Closing Date] as Expected_Closing_Date_Fix, [Expected Closing Date],
+    // Timestamp([Expected Closing Date]) as [Expected Closing Date],
+    IF(	[NCR Status]='Open' and  [Expected Closing Date] <= date(today()), 1, 0) as Expected_Closing_Flag
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+
+left join
+
+Load  "Reference Number ID",
+IF(Open_Date_Original > [Reporting Date],[Reporting Date],Open_Date_Original) AS [Date Opened], 
+IF([NCR Status]='Closed' AND Close_Date_Flag='1',[Last Sender Date],
+   		IF([NCR Status]='Closed' AND Close_Date_Flag='0' AND Close_Date_Original > [Last Sender Date],[Last Sender Date],
+   			IF([NCR Status]='Open' AND Close_Date_Flag='0',NULL(),Close_Date_Original))) AS [Date Closed] 
+
+resident NcrLogicTemp;
+
+left Join
+
+LOAD distinct
+    "Reference Number ID",
+    "Line"
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+
+left join
+LOAD Distinct 
+	 Project_ID as ProjectID,
+     ProjectSort
+FROM [$(vAconex_AddOn)ProjectSort.qvd](qvd);
+
+
+NcrLogicTemp2:
+Load *,
+if([NCR Status]='Closed',
+	if(Expected_Closing_Date_Flag=0 and ([Date Closed]-[Expected Closing Date])<=0,1,
+	if(Expected_Closing_Date_Flag=0 and ([Date Closed]-[Expected Closing Date])>0,0))) as NCR_Closed_On_TimeFlag, //NEW: new flag for closed on time/ else
+	if([NCR Status]='Open',
+	if(Expected_Closing_Date_Flag=0 and DATE(TODAY(),'DD/MM/YYYY')-[Expected Closing Date]>0,3,
+	if(Expected_Closing_Date_Flag=0 and DATE(TODAY(),'DD/MM/YYYY')-[Expected Closing Date]<=0,2))) as NCR_Open_and_On_TimeFlag, //NEW: new flag for opened and on time
+ IF( [NCR Status]='Open', IF( [NCR Status]='Open' AND Reference_Count='1','1', IF([NCR Status]='Open' AND Reference_Count>'1','2')),3) AS NCR_State_ID
+ resident NcrLogicTemp;
+ drop table NcrLogicTemp;
+ 
+ NcrLogic:
+ Load *,
+   AutoNumber(
+        ProjectID & '|' &
+        Line  & '|' &
+       "Attribute1 CODE" & '|' &
+        "Attribute3 CODE" & '|' &
+        "Attribute4 CODE" & '|' &
+      [Work Type Code]
+    ) as Key,
+  Num(Duration_Interval) as Duration_Interval_Num;
+ load *,
+ IF([NCR Status]='Open' and Expected_Closing_Date_Flag=0 and [Expected Closing Date]<=Load_Date, NUM(FLOOR(INTERVAL((Load_Date- [Expected Closing Date])+1,'D'))),0) AS Expected_Closing_Days_Overdue,
+
+NUM(FLOOR(INTERVAL((IF([NCR Status]='Closed',[Date Closed],IF([NCR Status]='Open',Load_Date,NULL()))-[Date Opened])+1 ,'D'))) AS Duration_Interval,
+ 
+ if(Expected_Closing_Flag=1, 'Overdue NCR') as [NCR Overdue],
+  if([NCR Status]='Closed', NCR_Closed_On_TimeFlag,
+	if([NCR Status]='Open', NCR_Open_and_On_TimeFlag)) as NCR_OnTime_Flag,
+ 
+ if([NCR Status]='Closed', 
+	IF(NCR_Closed_On_TimeFlag=0,'Delayed Closing','Closed On Time'),
+	if([NCR Status]='Open', if(NCR_Open_and_On_TimeFlag=3,'Open Overdue','Open - Not Overdue'))) as NCR_OnTime_Desc
+    resident NcrLogicTemp2;
+    drop table NcrLogicTemp2;
+
+
+
+STORE [NcrLogic]
+INTO [$(vLibDataFiles_DW)/NcrLogic.qvd] (qvd);
+
+// IF(Open_Date > Reporting_Date,Reporting_Date,Open_Date) AS Open_Date_Fixed, 
+//   	IF(Open_Date > Reporting_Date,'2',Open_Date_Flag) AS Open_Date_Fixed_Status_ID,
+//    	////
+//     Close_Date AS Close_Date_Original,
+//    	Close_Date_Flag AS Close_Date_Original_Flag,	 
+//    	IF(NCR_Status='Closed' AND Close_Date_Flag='1',Last_Date_Sent,
+//    		IF(NCR_Status='Closed' AND Close_Date_Flag='0' AND Close_Date > Last_Date_Sent,Last_Date_Sent,
+//    			IF(NCR_Status='Open' AND Close_Date_Flag='0',NULL(),Close_Date))) AS Close_Date_Fixed, 
+
+///$tab 9. Interval
+
+
+Interval_Duration:
+LOAD
+    Num(Interval_Days_Min) as Duration_Days_Min,
+    Num(Interval_Days_Max) as Duration_Days_Max,
+    Interval_ID as Duration_Interval_ID,
+    Interval_Name as Duration_Interval_Name,
+    Interval_Description as Duration_Interval_Description
+FROM [$(vLibDataFiles_DW)/NCR_IntervalDays.QVD]
+(qvd)
+WHERE Trim(Interval_Type) = 'Duration';
+
+
+IntervalMatch_Duration:
+IntervalMatch (Duration_Interval_Num)
+LOAD
+    Duration_Days_Min,
+    Duration_Days_Max
+Resident Interval_Duration;
+
+
+LEFT JOIN (IntervalMatch_Duration)
+LOAD
+    Duration_Days_Min,
+    Duration_Days_Max,
+    Duration_Interval_ID,
+    Duration_Interval_Name,
+    Duration_Interval_Description
+Resident Interval_Duration;
+
+
+LEFT JOIN (NcrLogic)
+LOAD
+    Duration_Interval_Num,
+    Duration_Interval_ID,
+    Duration_Interval_Name,
+    Duration_Interval_Description
+Resident IntervalMatch_Duration;
+
+
+DROP TABLE IntervalMatch_Duration;
+DROP TABLE Interval_Duration;
+
+
+
+////******
+
+
+Interval_Overdue:
+LOAD
+    Num(Interval_Days_Min) as Overdue_Days_Min,
+    Num(Interval_Days_Max) as Overdue_Days_Max,
+    Interval_ID as Overdue_Interval_ID,
+    Interval_Name as Overdue_Interval_Name,
+    Interval_Description as Overdue_Interval_Description
+FROM [$(vLibDataFiles_DW)/NCR_IntervalDays.QVD]
+(qvd)
+WHERE Trim(Interval_Type) = 'Overdue';
+
+
+IntervalMatch_Overdue:
+IntervalMatch (Expected_Closing_Days_Overdue)
+LOAD
+    Overdue_Days_Min,
+    Overdue_Days_Max
+Resident Interval_Overdue;
+
+
+LEFT JOIN (IntervalMatch_Overdue)
+LOAD
+    Overdue_Days_Min,
+   Overdue_Days_Max,
+    Overdue_Interval_ID,
+    Overdue_Interval_Name,
+    Overdue_Interval_Description
+Resident Interval_Overdue;
+
+
+LEFT JOIN (NcrLogic)
+LOAD
+    Expected_Closing_Days_Overdue,
+    Overdue_Interval_ID,
+    Overdue_Interval_Name,
+   Overdue_Interval_Description
+Resident IntervalMatch_Overdue;
+
+
+DROP TABLE IntervalMatch_Overdue;
+DROP TABLE Interval_Overdue;
+
+
+///$tab 10. Movement
+// =====================================================
+// NCR Monthly Backlog by Line
+// =====================================================
+
+
+
+
+
+// // 1. תנועות פתיחה
+NCR_Movements:
+LOAD distinct
+    "Reference Number ID",
+    Line,
+    MonthStart([Date Opened]) as NCR_Date,
+    1 as Open_Qty,
+    0 as Close_Qty
+FROM [$(vLibDataFiles_DW)/NcrLogic.qvd]
+(qvd)
+ Where Len(Trim( [Date Opened])) > 0;
+
+
+// // 2. תנועות סגירה
+Concatenate (NCR_Movements)
+LOAD distinct
+    "Reference Number ID",
+    Line,
+     MonthStart([Date Closed])  as NCR_Date,
+   0 as Open_Qty,
+    1 as Close_Qty
+FROM [$(vLibDataFiles_DW)/NcrLogic.qvd]
+(qvd)
+Where Len(Trim([Date Closed])) > 0;
+
+
+
+// // 3. סיכום חודשי לפי Line
+NCR_Monthly_Summary:
+LOAD
+    Line,
+    
+    NCR_Date as  NCR_Date_backlog,
+    Sum(Open_Qty) as NCR_Opened,
+    Sum(Close_Qty) as NCR_Closed,
+    Sum(Open_Qty) - Sum(Close_Qty) as NCR_Net_Change
+Resident NCR_Movements
+Group By
+    Line,
+    NCR_Date;
+
+
+// // 4. מלאי מצטבר לפי Line
+NCR_Monthly_Backlog:
+NoConcatenate
+LOAD
+    Line,
+   Year(NCR_Date_backlog)&num(Month(NCR_Date_backlog),'00') as YYYMM_Backlog,
+    NCR_Date_backlog,
+    NCR_Opened,
+    NCR_Closed,
+    NCR_Net_Change,
+
+    If(
+        Line = Previous(Line),
+       RangeSum(Peek('NCR_Open_Backlog'), NCR_Net_Change),
+        NCR_Net_Change
+    ) as NCR_Open_Backlog
+
+Resident NCR_Monthly_Summary
+Order By
+    Line,
+    NCR_Date_backlog;
+
+
+// // 5. ניקוי טבלאות ביניים
+ Drop Table NCR_Movements;
+Drop Table NCR_Monthly_Summary;
+
+
+///$tab 11. Calendar
+/////*****************************************************
+
+$(pType)_Calendar_Key:
+LOAD DISTINCT
+    [Date Opened] AS NCR_Date,
+    '1' AS NCR_Date_ID,RowNumber,
+    'Open' AS NCR_Date_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+
+CONCATENATE ($(pType)_Calendar_Key)
+
+LOAD DISTINCT
+    [Date Closed] AS NCR_Date,
+    '2' AS NCR_Date_ID,RowNumber,
+    'Close' AS NCR_Date_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+
+// Expected Closing Date
+CONCATENATE ($(pType)_Calendar_Key)
+LOAD DISTINCT
+   [Expected Closing Date] AS NCR_Date,
+    '3' AS NCR_Date_ID,RowNumber,
+    'Expected' AS NCR_Date_Name
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+STORE * from [$(pType)_Calendar_Key]
+INTO [$(vLibDataFiles_DW)/$(pType)_Calendar_Key.QVD] (qvd);
+
+//DROP TABLE $(pType)_Calendar_Key;
+
+/////-----------------------------------------------------
+
+$(pType)_Dates_Temp:
+LOAD DISTINCT
+    DATE(MIN(NCR_Date), 'DD/MM/YYYY') AS NCR_DateMin,
+    IF(
+        DATE(MAX(NCR_Date), 'DD/MM/YYYY') > DATE(TODAY(), 'DD/MM/YYYY'),
+        DATE(MAX(NCR_Date), 'DD/MM/YYYY'),
+        DATE(TODAY(), 'DD/MM/YYYY')
+    ) AS NCR_DateMax
+FROM [$(vLibDataFiles_DW)/$(pType)_Calendar_Key.QVD] (qvd);
+
+LET vNCR_DateMin = FieldValue('NCR_DateMin', 1);
+LET vNCR_DateMax = FieldValue('NCR_DateMax', 1);
+
+DROP TABLE $(pType)_Dates_Temp;
+
+/////-----------------------------------------------------
+
+$(pType)_Calendar:
+LOAD DISTINCT
+    Year AS [NCR Year],
+    Year,
+    Year & '-' & רבעון AS [NCR Year-Quarter],
+    Year & CHR(10) & רבעון AS [NCR Year Quarter],
+    YearQuarterSort AS [NCR YearQuarterSort],
+    Year & '-' & [שם חודש קצר אנגלית] AS [NCR Year-Month],
+    Year & CHR(10) & [שם חודש קצר אנגלית] AS [NCR Year Month],
+    YearMonthSort AS NCR_YearMonth,
+    YearMonthSort AS [NCR YearMonthSort],
+    רבעון AS [NCR Quarter],
+    רבעון AS Quarter,
+    QuarterSort AS [NCR QuarterSort],
+    MonthNum AS [NCR Month],
+    [שם חודש קצר אנגלית] AS [NCR MonthName],
+    [שם חודש קצר אנגלית] AS Month,
+    [שם חודש ארוך אנגלית] AS [NCR MonthNameL],
+    Date AS NCR_Date,
+    [שנה/שבוע] AS [NCR YearWeek],
+    שבוע AS [NCR WeekNum],
+    YYYYMM
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/General/Calendar/Qvd/Calendar.QVD]
+(qvd)
+
+WHERE Date >= '$(vNCR_DateMin)'
+  AND Date <= '$(vNCR_DateMax)';
+
+STORE * from  [$(pType)_Calendar]
+INTO [$(vLibDataFiles_DW)/$(pType)_Calendar.QVD] (qvd);
+
+//DROP TABLE $(pType)_Calendar;
+
+/////*****************************************************
+
+$(pType)_Dates_Temp:
+LOAD DISTINCT
+    DATE(MIN( [Date Opened]), 'DD/MM/YYYY') AS NCR_DateMin_Open,
+    DATE(TODAY(), 'DD/MM/YYYY') AS NCR_DateMax_Open,
+    DATE(MIN( [Date Closed]), 'DD/MM/YYYY') AS NCR_DateMin_Close,
+    DATE(TODAY(), 'DD/MM/YYYY') AS NCR_DateMax_Close,
+    DATE(MIN( [Expected Closing Date]), 'DD/MM/YYYY') AS NCRExpected_DateMin_Close,
+    DATE(MAX( [Expected Closing Date]), 'DD/MM/YYYY') AS NCRExpected_DateMax_Close
+FROM [$(vLibDataFiles_RAW)/NCR_View.qvd]
+(qvd);
+LET vNCR_DateMin_Open = FieldValue('NCR_DateMin_Open', 1);
+LET vNCR_DateMax_Open = FieldValue('NCR_DateMax_Open', 1);
+LET vNCR_DateMin_Close = FieldValue('NCR_DateMin_Close', 1);
+LET vNCR_DateMax_Close = FieldValue('NCR_DateMax_Close', 1);
+LET vNCRExpected_DateMin_Close = FieldValue('NCRExpected_DateMin_Close', 1);
+LET vNCRExpected_DateMax_Close = FieldValue('NCRExpected_DateMax_Close', 1);
+
+DROP TABLE $(pType)_Dates_Temp;
+
+/////-----------------------------------------------------
+
+$(pType)_Calendar_Open:
+LOAD DISTINCT
+    [שנה/שבוע] AS [Open Year/WeekNum],
+    שבוע AS [Open WeekNum],
+    Year AS [Open Year],
+    Year & '-' & רבעון AS [Open Year-Quarter],
+    Year & CHR(10) & רבעון AS [Open Year Quarter],
+    YearQuarterSort AS [Open YearQuarterSort],
+    Year & '-' & [שם חודש קצר אנגלית] AS [Open Year-Month],
+    Year & CHR(10) & [שם חודש קצר אנגלית] AS [Open Year Month],
+    YearMonthSort AS Open_YearMonth,
+    YearMonthSort AS [Open YearMonthSort],
+    רבעון AS [Open Quarter],
+    QuarterSort AS [Open QuarterSort],
+    MonthNum AS [Open Month],
+    [שם חודש קצר אנגלית] AS [Open MonthName],
+    [שם חודש ארוך אנגלית] AS [Open MonthNameL],
+    Date AS Open_Date
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/General/Calendar/Qvd/Calendar.QVD]
+(qvd)
+WHERE Date >= '$(vNCR_DateMin_Open)'
+  AND Date <= '$(vNCR_DateMax_Open)';
+
+STORE * from  [$(pType)_Calendar_Open]
+INTO [$(vLibDataFiles_DW)/$(pType)_Calendar_Open.QVD] (qvd);
+
+//DROP TABLE $(pType)_Calendar_Open;
+
+/////-----------------------------------------------------
+
+$(pType)_Calendar_Close:
+LOAD DISTINCT
+    [שנה/שבוע] AS [Close Year/WeekNum],
+    שבוע AS [Close WeekNum],
+    Year AS [Close Year],
+    Year & '-' & רבעון AS [Close Year-Quarter],
+    Year & CHR(10) & רבעון AS [Close Year Quarter],
+    YearQuarterSort AS [Close YearQuarterSort],
+    Year & '-' & [שם חודש קצר אנגלית] AS [Close Year-Month],
+    Year & CHR(10) & [שם חודש קצר אנגלית] AS [Close Year Month],
+    YearMonthSort AS Close_YearMonth,
+    YearMonthSort AS [Close YearMonthSort],
+    רבעון AS [Close Quarter],
+    QuarterSort AS [Close QuarterSort],
+    MonthNum AS [Close Month],
+    [שם חודש קצר אנגלית] AS [Close MonthName],
+    [שם חודש ארוך אנגלית] AS [Close MonthNameL],
+    Date AS Close_Date
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/General/Calendar/Qvd/Calendar.QVD]
+(qvd)
+WHERE Date >= '$(vNCR_DateMin_Close)'
+  AND Date <= '$(vNCR_DateMax_Close)';
+
+STORE  * from [$(pType)_Calendar_Close]
+INTO [$(vLibDataFiles_DW)/$(pType)_Calendar_Close.QVD] (qvd);
+
+//DROP TABLE $(pType)_Calendar_Close;
+
+///////*****************************************************
+
+$(pType)_Calendar_ExpectedClose:
+LOAD DISTINCT
+    [שנה/שבוע] AS [Expected Close Year/WeekNum],
+    שבוע AS [Expected Close WeekNum],
+    Year AS [Expected Close Year],
+    IF(Year <= (Year(Today()) + 1), Year) AS [Calc Expected Close Year],
+    Year & '-' & רבעון AS [Expected Close Year-Quarter],
+    Year & CHR(10) & רבעון AS [Expected Close Year Quarter],
+    YearQuarterSort AS [Expected Close YearQuarterSort],
+    Year & '-' & [שם חודש קצר אנגלית] AS [Expected Close Year-Month],
+    Year & CHR(10) & [שם חודש קצר אנגלית] AS [Expected Close Year Month],
+    YearMonthSort AS [Expected Close_YearMonth],
+    YearMonthSort AS [Expected Close YearMonthSort],
+    רבעון AS [Expected Close Quarter],
+    QuarterSort AS [Expected Close QuarterSort],
+    MonthNum AS [Expected Close Month],
+    [שם חודש קצר אנגלית] AS [Expected Close MonthName],
+    [שם חודש ארוך אנגלית] AS [Expected Close MonthNameL],
+    Date AS [Expected Closing Date]
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/General/Calendar/Qvd/Calendar.QVD]
+(qvd)
+WHERE Date >= '$(vNCRExpected_DateMin_Close)'
+  AND Date <= '$(vNCRExpected_DateMax_Close)';
+
+STORE [$(pType)_Calendar_ExpectedClose]
+INTO [$(vLibDataFiles_DW)/$(pType)_Calendar_ExpectedClose.QVD] (qvd);
+
+//DROP TABLE $(pType)_Calendar_ExpectedClose;
+
+///////*****************************************************
+
+
+
+
+
+///$tab 12. Geography
+Geography_Table_Temp:
+LOAD DISTINCT
+	 NUM(SUBFIELD(Key_Mail_ID,'/',1)) AS Project_ID,
+     GeographyDetail as Geography
+FROM [$(vLibDataFiles_DW)/NCR_Report_Details.qvd]
+(qvd);
+
+
+
+
+LEFT JOIN (Geography_Table_Temp)
+LOAD DISTINCT 
+	Project_ID,
+	Geography,
+    Geography_Type,
+    Geography_Site,
+    Station,
+    Section
+FROM [$(vLibDataFiles_DW)/Geography_Table.QVD]
+(qvd);
+
+
+Geography_Table:
+NOCONCATENATE
+LOAD DISTINCT
+    Project_ID & '-' & Geography as ProjectGeographyKey,
+    IF(NOT ISNULL(Geography_Type),Geography_Type,'Undefined') AS [Geography Type],
+    IF(NOT ISNULL(Geography_Site),Geography_Site,'Undefined') AS [Geography Site],
+    IF(NOT ISNULL(Station),Station,'Undefined') AS Station,
+    IF(NOT ISNULL(Section),Section,'Undefined') AS Section
+RESIDENT Geography_Table_Temp;
+DROP TABLE Geography_Table_Temp;
+
+
+///$tab 13. UI
+/////*****************************************************
+
+$(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iColors2026_HEX_only.txt);
+
+// $(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iobjects.txt);
+
+cGenericRed=;
+cGenericYellow=;
+cGenericGreen=;
+//////-----------------------------------------------------
+
+SET cNCRStatusOpen = =cBlue;
+SET cNCRStatusClose = =cTeal;
+
+SET cNCRStateInitial = =cBlueLight;
+SET cNCRStateInProgress = =cBlueDark;
+
+SET cNCRTypeQuality = =cYellowLight;
+SET cNCRTypeEnvironment = =cGreenLight;
+
+SET cNCRLevelOne = =cYellow;
+SET cNCRLevelTwo = =cOrange;
+SET cNCRLevelThree = =cRed;
+
+SET cNCRAgentQC = =cPurple;
+SET cNCRAgentQA = =cPurpleLight;
+
+/////*****************************************************
+
+Let cBronze =rgb(205,127,50);
+Let cMahagony =rgb(192,64,0);
+Let cWheat =rgb(245,222,179);
+Let cUmber =rgb(99,81,71);
+Let cTan =rgb(209,180,140);
+LET cDelivery=rgb(142,102,71);
+LET cDisposal=rgb(178,84,77);
+
+//////-----------------------------------------------------
+
+SET cNCRStatusOpen = =cBlue;
+SET cNCRStatusClose = =cTeal;
+
+
+LET vDisplayAll = 0;
+LET vDisplayButtons = 0;
+
+LET vDisplayDim = 1;
+LET vDisplayDetailsSH01 = 0;
+LET vDisplayDetailsSH11 = 0;
+LET vDisplayDetailsSH12 = 0;
+LET vDisplayDetailsSH13 = 0;
+LET vDisplayDetailsSH14 = 0;
+LET vDisplayDetailsSH15 = 0;
+LET vDisplayDetailsSH21 = 0;
+LET vDisplayDetailsSH22 = 0;
+LET vDisplayDetailsSH23 = 0;
+LET vDisplayDetailsSH24 = 0;
+LET vDisplayDetailsSH25 = 0;
+//////-----------------------------------------------------
+
+LET cGeneric1=null();
+
+
+///$tab Menifa_Hierarchy
+
+/*******************************************************
+  בניית KeyBase לפי ההיררכיה החדשה
+*******************************************************/
+
+RawTableTemp:
+
+LOAD Distinct
+    Key,
+    "Line" as [Line Code],
+    "Attribute1 CODE" as [Work package Code],
+    "Attribute3 CODE" as [NBS LEVEL 1 Code],
+    "Attribute4 CODE" as [NBS LEVEL 2 Code],
+    [Work Type Code] as [Work Type CodeT],
+
+    Attribute1   	  as [Work package],
+    Attribute3   	  as [NBS LEVEL 1],
+    Attribute4   	  as [NBS LEVEL 2],
+    [Work Type] 	  as [Work TypeT],
+
+    'ML' & '|'   &  Line & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+
+Resident NcrLogic;
+// DROP Table KeyTable;
+//op Fields [Line Code T] From KeyTable;
+/*******************************************************
+  יצירת KeyBase_Select לפי כל רמה בהיררכיה
+*******************************************************/
+
+Left Join (RawTableTemp)
+LOAD DISTINCT
+    Key,
+
+    // שדה הבחירה היחיד: ערכי KeyBase "מרופדים" לפי רמה
+    If(IterNo()=1,
+        SubField(KeyBase,'|',1) & Repeat('|',5),
+
+    If(IterNo()=2,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & Repeat('|',4),
+
+    If(IterNo()=3,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & Repeat('|',3),
+
+    If(IterNo()=4,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & '|' & SubField(KeyBase,'|',4) & Repeat('|',2),
+
+    If(IterNo()=5,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & '|' & SubField(KeyBase,'|',4) & '|' & SubField(KeyBase,'|',5) & Repeat('|',1),
+
+        // IterNo()=6 => full
+        KeyBase
+    ))))) as KeyBase_Select,
+
+    IterNo() as LevelOrder
+// LOAD DISTINCT
+//     Key,
+
+//     If(IterNo() = 1,
+//         SubField(KeyBase, '|', 1) & Repeat('|', 4),
+
+//     If(IterNo() = 2,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & Repeat('|', 3),
+
+//     If(IterNo() = 3,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & '|' &
+//         SubField(KeyBase, '|', 3) & Repeat('|', 2),
+
+//     If(IterNo() = 4,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & '|' &
+//         SubField(KeyBase, '|', 3) & '|' &
+//         SubField(KeyBase, '|', 4) & Repeat('|', 1),
+
+//         // IterNo() = 5
+//         KeyBase
+//     )))) as KeyBase_Select,
+
+//     IterNo() as LevelOrder
+
+Resident RawTableTemp
+While Len(Trim(KeyBase)) > 0
+  and IterNo() <= 6;
+  
+RawTable:
+NoConcatenate
+LOAD
+    *,
+    RecNo() as RowID
+Resident RawTableTemp;
+DROP Table RawTableTemp;
+
+/********************************************************************
+  3) Reverse: הופכים את KeyBase תו-תו
+*********************************************************************/
+Chars:
+LOAD
+    RowID,
+    IterNo() as Idx,
+    Mid(KeyBase_Select, Len(KeyBase_Select) - IterNo() + 1, 1) as Ch
+Resident RawTable
+While IterNo() <= Len(KeyBase_Select);
+
+/********************************************************************
+  4) Key_Reversed: מאגדים חזרה למחרוזת
+*********************************************************************/
+KeyRev:
+NoConcatenate
+LOAD
+    RowID,
+    Concat(Ch, '', Idx) as Key_Reversed
+Resident Chars
+Group By RowID;
+
+DROP Table Chars;
+
+/********************************************************************
+  5) Key_Encrypted: החלפות אחרי ההיפוך בלבד
+     M = Y3PLD
+     W = 4RZZ
+     IN = 7UP   (כל הופעה של IN)
+*********************************************************************/
+Enc:
+NoConcatenate
+LOAD
+    RowID,
+    Key_Reversed,
+    Replace(
+        Replace(
+            Replace(Key_Reversed, 'IN', '7UP'),
+            'M', 'Y3PLD'
+        ),
+        'W', '4RZZ'
+    ) as %Key_Encrypted
+Resident KeyRev;
+
+DROP Table KeyRev;
+
+/********************************************************************
+  6) Join + Final
+*********************************************************************/
+/*******************************************************
+  טבלת מניפה / היררכיה סופית
+/********************************************************/
+
+Left Join (RawTable)
+LOAD
+    RowID,
+    Key_Reversed,
+    %Key_Encrypted
+Resident Enc;
+DROP Table Enc;
+
+Menifa_Hierarchy:
+NoConcatenate
+LOAD
+
+    AutoNumber(Key & [Line Code]) as %MenifaTable,
+
+    Key,
+    KeyBase,
+    KeyBase_Select,
+    Key_Reversed,
+    %Key_Encrypted,// as Key_Encrypted,
+//     LevelOrder,
+
+    [Line Code],
+    [Work package Code],
+    [NBS LEVEL 1 Code],
+    [NBS LEVEL 2 Code],
+    [Work Type CodeT],
+
+	[Work package],
+    [NBS LEVEL 1],
+    [NBS LEVEL 2],
+    [Work TypeT]
+
+Resident RawTable;
+DROP Table RawTable;
+
+
+///$tab 14. Section Access
+//////*****************************************************
+
+// Show User Name
+Display_Users:
+LOAD Distinct
+	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
+	[שם משתמש] AS UserName_Full
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM $(vQvdSecurityDB)Authenticated_User.QVD (qvd);
+////---------------------------------------------------
+
+
+
+////*****************************************************
+
+STAR is *;
+Section Access;
+LOAD 
+	 Upper(NTNAME & '@nta.co.il') as USERID,
+     Upper(ACCESS) as ACCESS,
+     Upper(USERNAME_DOCGROUP) as USERNAME_DOCGROUP,
+     Upper(USERNAME_DEPARTMENT) as USERNAME_DEPARTMENT,
+     Upper(USERNAME_DIVISION) as USERNAME_DIVISION,
+     Upper(USERDATA_OS) as USERDATA_OS
+FROM [$(vQvdSecurityDW)Security_NCR.QVD](qvd);
+
+
+
+
+
+Section Application;
+Authenticated_Project:
+LOAD 
+	 DOCGROUP as USERNAME_DOCGROUP
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd)
+Where Project_ID='*';
+Left Join
+LOAD Distinct 
+	 Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd);
+LOAD 
+	 DOCGROUP as USERNAME_DOCGROUP, 
+     Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd)
+Where Project_ID<>'*';
+
+
+////*****************************************************
+
+///$tab exit
+exit script;
+///$tab Report
+/////*****************************************************
+
+//// Step 1 - Getting Header Table,Adding Fields from lines,Adding Package
+$(pType)_Report9:
+// LOAD Distinct Key_MailTypeMailID
+// FROM [$(pQvdTemp)$(pType)LastRecipient_Organization2Remove.QVD](qvd)
+// Where FirstMailFlag=0 or (FirstMailFlag=1	and (not Match(NUM(TRIM(Recipient_Organization_ID)), $(vConcatLastRecOrg2Remove))));
+// Left Join
+LOAD DISTINCT
+	Key_MailTypeMailID,
+	NUM(SUBFIELD(Key_MailTypeMailID,'/',1)) AS Project_ID,
+	NUM(SUBFIELD(Key_MailTypeMailID,'/',2)) AS MailType_ID,
+	NUM(SUBFIELD(Key_MailTypeMailID,'/',3)) AS Mail_ID,
+	NUM(SUBFIELD(Key_MailTypeMailID,'/',1)) &'/'& NUM(SUBFIELD(Key_MailTypeMailID,'/',3)) AS Key_Mail_ID,
+	////
+	TEXT(TRIM(CorrespondenceType)) AS Mail_CorrespondenceType_Name,
+	NUM(InRefToMailId) AS Reference_ID,
+    IF(InRefToMailId=MailId,InRefToMailId,NULL()) AS Mail_ID_First,
+//	IF(WILDMATCH(UPPER(TRIM(CorrespondenceType)),'*NCR*'),'NCR','O') AS Mail_Type,
+	TEXT(TRIM(MailNo)) AS Mail_Number,
+	SentDate AS Mail_SentDate ,
+// 	DATE(FLOOR(Timestamp#(SentDate)),'DD/MM/YYYY') AS Mail_SentDate ,
+    TIMESTAMP(FLOOR(Timestamp#(SentDate)) + FLOOR(FRAC(Timestamp#(SentDate)),1/(24*60)),'DD/MM/YYYY HH:mm') AS Mail_SentTimeStamp,
+    TEXT(TRIM(Subject)) AS Mail_Subject
+FROM [$(pAconexDB)$(pWorkApp)\MailID_Header_$(pType).QVD] (qvd)
+WHERE NOT MATCH(NUM(SUBFIELD(Key_MailTypeMailID,'/',3)),$(vMailIDRemove)); //// Test Mails
+//// A
+//// Getting Mail Number for Reference_ID
+LEFT JOIN ($(pType)_Report9)
+LOAD DISTINCT
+	Mail_ID_First AS Reference_ID,
+	Mail_Number AS Reference_Number
+RESIDENT $(pType)_Report9;
+//// B
+//// Getting Min Mail_ID for fixing Reference_ID & Reference Number,Ref that started with different CorrespondenceType
+LEFT JOIN ($(pType)_Report9)
+LOAD DISTINCT
+	Reference_ID,
+	MIN(Mail_ID) AS Reference_ID_Min
+RESIDENT $(pType)_Report9
+GROUP BY Reference_ID;
+LEFT JOIN ($(pType)_Report9)
+//// 	Getting Reference Number Of Min Mail_ID
+LOAD DISTINCT
+	Mail_ID AS Reference_ID_Min,
+	Mail_Number AS Reference_Number_Min
+RESIDENT $(pType)_Report9;
+STORE * FROM $(pType)_Report9 INTO $(pQvdTemp)$(pType)_Report9.QVD;
+DROP TABLE $(pType)_Report9;
+
+//// Step 2 - Set Mail Ref Number & Mail Ref ID,Fixing Missing with data from the Min(Mail_ID)
+$(pType)_Report8:
+LOAD DISTINCT
+	Key_MailTypeMailID,
+	Key_Mail_ID,
+	Project_ID,
+	MailType_ID,
+	Mail_ID,
+    Mail_CorrespondenceType_Name,
+//// A + B  
+    IF(NOT ISNULL(Reference_Number),Reference_ID,Reference_ID_Min) AS Reference_ID,
+    Reference_ID AS Reference_ID_Original,
+    Reference_ID_Min,
+//// A + B  
+    IF(NOT ISNULL(Reference_Number),Reference_Number,Reference_Number_Min) AS Reference_Number,
+    Reference_Number AS Reference_Number_Original,
+    Reference_Number_Min,
+    Mail_ID_First,
+//// Other   
+//  Mail_Type,
+    Mail_Number,
+    Mail_SentDate,
+    Mail_SentTimeStamp,
+    Mail_Subject
+FROM [$(pQvdTemp)$(pType)_Report9.QVD] (qvd);
+//// Making Kry for Reference_ID
+LEFT JOIN ($(pType)_Report8)
+LOAD DISTINCT
+	Reference_ID,
+	Project_ID &'/'& Reference_ID AS Key_Reference_ID
+RESIDENT $(pType)_Report8;
+//// Marking First & Last Mail + Count mails per Reference_ID
+LEFT JOIN ($(pType)_Report8)
+LOAD DISTINCT
+	Key_Reference_ID,
+	MIN(Mail_ID) AS Mail_ID_ReportFirst,
+	MAX(Mail_ID) AS Mail_ID_ReportLast,
+	COUNT(DISTINCT(Mail_ID)) AS Reference_Count
+RESIDENT $(pType)_Report8
+GROUP BY Key_Reference_ID;
+LEFT JOIN ($(pType)_Report8)
+//// making Keys for other tables
+LOAD DISTINCT
+	Key_Reference_ID,
+    Project_ID &'/'& Mail_ID_ReportFirst AS Key_Mail_ID_Min,
+    Project_ID &'/'& Mail_ID_ReportLast AS Key_Mail_ID_Max
+RESIDENT $(pType)_Report8;
+STORE * FROM $(pType)_Report8 INTO $(pQvdTemp)$(pType)_Report8.QVD;
+DROP TABLE $(pType)_Report8;
+
+//// Step 3 - Creating Report Header + Adding fields
+$(pType)_Report7:
+//// First Mail - Report Header
+LOAD DISTINCT
+	Key_Reference_ID,
+    Project_ID, 
+    MailType_ID,
+    Reference_ID,
+    Reference_Number,
+	Reference_Count,    
+    Mail_SentDate AS Reporting_Date,
+    DATE(TODAY(),'DD/MM/YYYY') AS Load_Date, 
+    TRIM(REPLACE(REPLACE(Mail_Subject,'Re:',' '),'Fwd:',' ')) AS NCR_Subject_First, 
+    Mail_ID_ReportFirst, 
+    Mail_ID_ReportLast, 
+    Key_Mail_ID_Min, 
+    Key_Mail_ID_Max
+FROM [$(pQvdTemp)$(pType)_Report8.QVD] (qvd)
+WHERE Mail_ID=Mail_ID_ReportFirst;
+//// First Mail - Report_Sender - Adding First Sender info
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+	Key_Mail_ID AS Key_Mail_ID_Min, 
+    Sender_User_Name AS Reporting_Sender_User, 
+    Sender_Organization_Name AS Reporting_Sender_Organization
+FROM [$(pQvdTemp)$(pType)_Report_Senders9.QVD] (qvd);
+//// Last Mail - Report Header
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+	Key_Reference_ID,
+    Key_Mail_ID,
+    Mail_ID,
+    Mail_Number, 
+    TRIM(REPLACE(REPLACE(Mail_Subject,'Re:',' '),'Fwd:',' ')) AS NCR_Subject, 
+    Mail_SentDate AS Last_Date_Sent
+FROM [$(pQvdTemp)$(pType)_Report8.QVD] (qvd)
+WHERE Mail_ID=Mail_ID_ReportLast;
+//// First Mail - Report Details - Adding Open date
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+	Key_Mail_ID AS Key_Mail_ID_Min, 
+	Open_Date, 
+    Open_Date_Flag
+FROM [$(pQvdTemp)$(pType)_Report_Details8.QVD] (qvd);
+//// Last Mail - Report Details
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+	Key_Mail_ID AS Key_Mail_ID_Max,
+    Close_Date, 
+    Close_Date_Flag,
+    [Expected Closing Date], 
+	Expected_Closing_Date_Flag,
+    NCR_Status, 
+    NCR_Status_Flag,
+	NCR_Status_Original, 
+    NCR_Status_Original_Flag,
+	NCR_Opened_By, 
+    NCR_Opened_By_Flag,
+    NCR_Type, 
+    NCR_Type_Flag, 
+    NCR_Level, 
+    NCR_Level_Flag
+FROM [$(pQvdTemp)$(pType)_Report_Details8.QVD] (qvd);
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+     Key_Mail_ID AS Key_Mail_ID_Max, 
+     Package
+FROM [$(pQvdDB)$(pType)_Package_Fixed.QVD] (qvd);
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+     Key_Mail_ID AS Key_Mail_ID_Max, 
+     Discipline
+FROM [$(pQvdDB)$(pType)_Discipline_Fixed.QVD] (qvd);
+LEFT JOIN ($(pType)_Report7)
+LOAD DISTINCT
+     Key_Mail_ID AS Key_Mail_ID_Max, 
+     Geography
+FROM [$(pQvdDB)$(pType)_Geography_Fixed.QVD] (qvd);
+STORE * FROM $(pType)_Report7 INTO $(pQvdTemp)$(pType)_Report7.QVD;
+DROP TABLE $(pType)_Report7;
+
+$(pType)_Report6:
+LOAD DISTINCT
+	Key_Reference_ID,
+    Key_Mail_ID,
+    Key_Mail_ID_Min, 
+    Key_Mail_ID_Max,
+    Project_ID, 
+    MailType_ID, 
+    Reference_ID, 
+    Reference_Number, 
+    Reference_Count, 
+    Mail_ID, 
+    Mail_Number,
+    //// 
+	Load_Date,
+   	Open_Date AS Open_Date_Original,
+    Open_Date_Flag AS Open_Date_Original_Flag,
+  	IF(Open_Date > Reporting_Date,Reporting_Date,Open_Date) AS Open_Date_Fixed, 
+  	IF(Open_Date > Reporting_Date,'2',Open_Date_Flag) AS Open_Date_Fixed_Status_ID,
+   	////
+    Close_Date AS Close_Date_Original,
+   	Close_Date_Flag AS Close_Date_Original_Flag,	 
+   	IF(NCR_Status='Closed' AND Close_Date_Flag='1',Last_Date_Sent,
+   		IF(NCR_Status='Closed' AND Close_Date_Flag='0' AND Close_Date > Last_Date_Sent,Last_Date_Sent,
+   			IF(NCR_Status='Open' AND Close_Date_Flag='0',NULL(),Close_Date))) AS Close_Date_Fixed, 
+    IF(NCR_Status='Closed' AND Close_Date_Flag='1','2',
+   		IF(NCR_Status='Closed' AND Close_Date_Flag='0' AND Close_Date > Last_Date_Sent,'3',
+   			IF(NCR_Status='Open' AND Close_Date_Flag='0','4',Close_Date_Flag))) AS Close_Date_Fixed_Status_ID, 
+	[Expected Closing Date], 
+	Expected_Closing_Date_Flag,
+	////
+    Reporting_Date,
+    Reporting_Sender_User, 
+    Reporting_Sender_Organization,
+	Last_Date_Sent, 
+    NCR_Status, 
+    NCR_Status_Flag,
+	NCR_Status_Original, 
+    NCR_Status_Original_Flag, 
+	NCR_Type, 
+    NCR_Type_Flag, 
+    NCR_Level, 
+    NCR_Level_Flag, 
+    NCR_Opened_By, 
+    NCR_Opened_By_Flag, 
+    NCR_Subject, 
+    Package, 
+    IF(LEN(TRIM(Package))>'0','0','1') AS Package_Flag, 
+    Discipline, 
+    IF(LEN(TRIM(Discipline))>'0','0','1') AS Discipline_Flag, 
+    Geography, 
+    IF(LEN(TRIM([Geography]))>'0','0','1') AS Geography_Flag
+FROM [$(pQvdTemp)$(pType)_Report7.QVD] (qvd);
+//// Calculating Duration Interval
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+	Key_Reference_ID,
+	NUM(FLOOR(INTERVAL((IF(NCR_Status='Closed',Close_Date_Fixed,IF(NCR_Status='Open',Load_Date,NULL()))-Open_Date_Fixed)+1 ,'D'))) AS Duration_Interval,
+	NUM(IF(NCR_Status='Closed','0',IF(NCR_Status='Open','1','2'))) AS Duration_Interval_Status_ID,
+	IF(NCR_Status='Open' AND Reference_Count='1',NUM(FLOOR(INTERVAL((Load_Date-Open_Date_Fixed)+1,'D'))),NULL()) AS Initial_Interval,
+	IF(NCR_Status='Open' AND Reference_Count='1','1','2') AS Initial_Interval_Status_ID,
+	IF(NCR_Status='Open', IF(NCR_Status='Open' AND Reference_Count='1','1', IF(NCR_Status='Open' AND Reference_Count>'1','2')),3) AS NCR_State_ID,
+	IF(NCR_Status='Open' and Expected_Closing_Date_Flag=0 and [Expected Closing Date]<=Load_Date, NUM(FLOOR(INTERVAL((Load_Date- [Expected Closing Date])+1,'D'))),0) AS Expected_Closing_Days_Overdue,
+	IF(NCR_Status='Open' and Expected_Closing_Date_Flag=0 and [Expected Closing Date]<=Load_Date, 1, 0) as Expected_Closing_Flag 
+RESIDENT $(pType)_Report6;
+//// Adding Status NCR Status
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Field_Value AS NCR_Status, 
+     Field_ID AS NCR_Status_ID
+FROM [$(pQvdDB)$(pType)_General_Table.QVD] (qvd)
+WHERE Field_Name='NCR_Status';
+//// Adding Status NCR_State
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Status_ID AS NCR_State_ID,
+     Status_Value AS NCR_State,
+     Status_Description AS NCR_State_Description
+FROM [$(pQvdDB)$(pType)_Status_Table.QVD] (qvd)
+WHERE Status_Name='State';
+//// Adding Status Open Date
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Status_ID AS Open_Date_Fixed_Status_ID,
+     Status_Value AS Open_Date_Fixed_Status_Name,
+     Status_Description AS Open_Date_Fixed_Status_Description
+FROM [$(pQvdDB)$(pType)_Status_Table.QVD] (qvd)
+WHERE Status_Name='Open';
+//// Adding Status Close Date
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Status_ID AS Close_Date_Fixed_Status_ID,
+     Status_Value AS Close_Date_Fixed_Status_Name,
+     Status_Description AS Close_Date_Fixed_Status_Description
+FROM [$(pQvdDB)$(pType)_Status_Table.QVD] (qvd)
+WHERE Status_Name='Close';
+//// Adding Status Duration Interval
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Status_ID AS Duration_Interval_Status_ID,
+     Status_Value AS Duration_Interval_Status_Name,
+     Status_Description AS Duration_Interval_Status_Description
+FROM [$(pQvdDB)$(pType)_Status_Table.QVD] (qvd)
+WHERE Status_Name='Duration';
+//// Adding Status Initial Interval
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Status_ID AS Initial_Interval_Status_ID,
+     Status_Value AS Initial_Interval_Status_Name,
+     Status_Description AS Initial_Interval_Status_Description
+FROM [$(pQvdDB)$(pType)_Status_Table.QVD] (qvd)
+WHERE Status_Name='Initial';
+//// Adding Status Initial Interval
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Field_Value AS NCR_Type, 
+     Field_ID AS NCR_Type_ID
+FROM [$(pQvdDB)$(pType)_General_Table.QVD] (qvd)
+WHERE Field_Name='NCR_Type';
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Field_Value AS NCR_Level, 
+     NUM(Field_ID) AS NCR_Level_ID
+FROM [$(pQvdDB)$(pType)_General_Table.QVD] (qvd)
+WHERE Field_Name='NCR_Level';
+LEFT JOIN ($(pType)_Report6)
+LOAD DISTINCT
+     Field_Value AS NCR_Opened_By, 
+     Field_ID AS NCR_Opened_By_ID
+FROM [$(pQvdDB)$(pType)_General_Table.QVD] (qvd)
+WHERE Field_Name='NCR_OpenedBy';
+STORE * FROM $(pType)_Report6 INTO $(pQvdTemp)$(pType)_Report6.QVD;
+//DROP TABLE $(pType)_Report6;
+////---------------------------------------------------
+
+Duration_IntervalMATCH:
+LOAD DISTINCT
+	Interval_ID AS Duration_Interval_ID,
+    Interval_Days_Min AS Duration_Interval_Min,
+    Interval_Days_Max AS Duration_Interval_Max 
+FROM [$(pQvdDB)$(pType)_IntervalDays.QVD] (qvd)
+WHERE Interval_Type='Duration';
+
+Overdue_IntervalMATCH:
+LOAD DISTINCT
+	Interval_ID AS Overdue_Interval_ID,
+    Interval_Days_Min AS Overdue_Interval_Min,
+    Interval_Days_Max AS Overdue_Interval_Max 
+FROM [$(pQvdDB)$(pType)_IntervalDays.QVD] (qvd)
+WHERE Interval_Type='Overdue';
+
+$(pType)_Report6_Duration:
+LOAD DISTINCT
+	Duration_Interval
+RESIDENT $(pType)_Report6;
+LEFT JOIN (Duration_IntervalMATCH)
+INTERVALMATCH(Duration_Interval) LOAD Duration_Interval_Min,Duration_Interval_Max 
+RESIDENT Duration_IntervalMATCH;
+DROP TABLE $(pType)_Report6_Duration;
+
+$(pType)_Report6_Overdue:
+LOAD DISTINCT
+	Expected_Closing_Days_Overdue
+RESIDENT $(pType)_Report6;
+LEFT JOIN (Overdue_IntervalMATCH)
+INTERVALMATCH(Expected_Closing_Days_Overdue) LOAD Overdue_Interval_Min,Overdue_Interval_Max 
+RESIDENT Overdue_IntervalMATCH;
+DROP TABLE $(pType)_Report6_Overdue;
+////---------------------------------------------------
+
+$(pType)_Report5:
+LOAD DISTINCT
+	'$(pType)' AS Event_Type,
+	NUM('1') AS $(pType)Counter,
+	Key_Reference_ID,
+    Key_Mail_ID,
+    Key_Mail_ID_Min, 
+    Key_Mail_ID_Max,  
+    Project_ID, 
+    MailType_ID, 
+    Reference_ID, 
+    Reference_Number, 
+    Reference_Count,
+    Mail_ID, 
+    Mail_Number,
+    //// 
+	Load_Date,
+	Initial_Interval,
+	Initial_Interval_Status_ID,
+	Initial_Interval_Status_Name,
+	Initial_Interval_Status_Description,
+	////
+   	Open_Date_Original,
+    Open_Date_Original_Flag,
+   	Open_Date_Fixed, 
+  	Open_Date_Fixed_Status_ID,
+  	Open_Date_Fixed_Status_Name,
+   	////
+    Close_Date_Original,
+   	Close_Date_Original_Flag,	 
+   	Close_Date_Fixed, 
+    Close_Date_Fixed_Status_ID,
+    Close_Date_Fixed_Status_Name, 
+    ////
+    [Expected Closing Date], 
+	Expected_Closing_Date_Flag,
+	Expected_Closing_Days_Overdue,
+	Expected_Closing_Flag, 
+	////
+	Duration_Interval,
+	Duration_Interval_Status_ID,
+	Duration_Interval_Status_Name,
+	////
+    Reporting_Date,
+    Reporting_Sender_User, 
+    Reporting_Sender_Organization,
+	Last_Date_Sent, 
+	///
+    NCR_State_ID,
+    NCR_State,
+    NCR_State_Description, 
+    NCR_Status,
+    NCR_Status_ID, 
+    NCR_Status_Flag,
+	NCR_Status_Original, 
+    NCR_Status_Original_Flag, 
+	NCR_Type,
+    NCR_Type_ID,  
+    NCR_Type_Flag,
+    NCR_Level,
+    NCR_Level_ID,
+    NCR_Level_Flag,
+    NCR_Opened_By,
+    NCR_Opened_By_ID, 
+    NCR_Opened_By_Flag, 
+    NCR_Subject, 
+    Package, 
+    Package_Flag, 
+    Discipline, 
+    Discipline_Flag, 
+    Geography, 
+    Geography_Flag
+RESIDENT $(pType)_Report6;
+LEFT JOIN ($(pType)_Report5)
+LOAD DISTINCT
+	* 	
+RESIDENT Duration_IntervalMATCH;
+DROP FIELDS Duration_Interval_Min,Duration_Interval_Max;
+DROP TABLES Duration_IntervalMATCH;
+LEFT JOIN ($(pType)_Report5)
+LOAD DISTINCT
+	* 	
+RESIDENT Overdue_IntervalMATCH;
+DROP FIELDS Overdue_Interval_Min,Overdue_Interval_Max;
+DROP TABLES $(pType)_Report6,Overdue_IntervalMATCH;
+LEFT JOIN ($(pType)_Report5)
+LOAD DISTINCT
+	Interval_ID AS Duration_Interval_ID,
+    Interval_Name AS Duration_Interval_Name,
+    Interval_Description AS Duration_Interval_Description
+FROM [$(pQvdDB)$(pType)_IntervalDays.QVD] (qvd)
+WHERE Interval_Type='Duration';
+LEFT JOIN ($(pType)_Report5)
+LOAD DISTINCT
+	Interval_ID AS Overdue_Interval_ID,
+    Interval_Name AS Overdue_Interval_Name,
+    Interval_Description AS Overdue_Interval_Description
+FROM [$(pQvdDB)$(pType)_IntervalDays.QVD] (qvd)
+WHERE Interval_Type='Overdue';
+STORE * FROM $(pType)_Report5 INTO $(pQvdTemp)$(pType)_Report5.QVD;
+DROP TABLE $(pType)_Report5;
+
+$(pType)_Report:
+LOAD DISTINCT
+	if(NCR_Status='Closed',
+	if(Expected_Closing_Date_Flag=0 and (Close_Date_Fixed-[Expected Closing Date])<=0,1,
+	if(Expected_Closing_Date_Flag=0 and (Close_Date_Fixed-[Expected Closing Date])>0,0))) as NCR_Closed_On_TimeFlag, //NEW: new flag for closed on time/ else
+	if(NCR_Status='Open',
+	if(Expected_Closing_Date_Flag=0 and DATE(TODAY(),'DD/MM/YYYY')-[Expected Closing Date]>0,3,
+	if(Expected_Closing_Date_Flag=0 and DATE(TODAY(),'DD/MM/YYYY')-[Expected Closing Date]<=0,2))) as NCR_Open_and_On_TimeFlag, //NEW: new flag for opened and on time
+	Event_Type,
+	NCRCounter,
+	Key_Reference_ID,
+    Key_Mail_ID, 
+    Key_Mail_ID_Min, 
+    Key_Mail_ID_Max,   
+    Project_ID, 
+    MailType_ID, 
+    Reference_ID, 
+    Reference_Number, 
+    Reference_Count, 
+    Mail_ID, 
+    Mail_Number,
+    //// 
+	Load_Date,
+	Initial_Interval,
+	Initial_Interval_Status_ID,
+	Initial_Interval_Status_Name,
+	Initial_Interval_Status_Description,
+	if(Expected_Closing_Flag=1, 'Overdue NCR') as [NCR Overdue],
+	////
+   	Open_Date_Original,
+    Open_Date_Original_Flag,
+   	Open_Date_Fixed, 
+  	Open_Date_Fixed_Status_ID,
+  	Open_Date_Fixed_Status_Name,
+   	////
+    Close_Date_Original,
+   	Close_Date_Original_Flag,	 
+   	Close_Date_Fixed, 
+    Close_Date_Fixed_Status_ID,
+    Close_Date_Fixed_Status_Name, 
+	////
+	[Expected Closing Date], 
+	Expected_Closing_Date_Flag,
+	Expected_Closing_Days_Overdue,
+	Expected_Closing_Flag,
+	Overdue_Interval_ID,
+    Overdue_Interval_Name,
+    Overdue_Interval_Description,
+	////
+	ROWNO() AS RowNumber,
+	////
+	Duration_Interval,
+	Duration_Interval_Status_ID,
+	Duration_Interval_Status_Name,
+	Duration_Interval_ID,
+	Duration_Interval_Name,
+	Duration_Interval_Description,
+	////
+    Reporting_Date,
+    Reporting_Sender_User, 
+    Reporting_Sender_Organization,
+	Last_Date_Sent, 
+    NCR_State_ID,
+    NCR_State,
+    NCR_State_Description, 
+    NCR_Status,
+    NCR_Status_ID, 
+    NCR_Status_Flag,
+	NCR_Status_Original, 
+    NCR_Status_Original_Flag, 
+	NCR_Type,
+    NCR_Type_ID,  
+    NCR_Type_Flag,
+    NCR_Level,
+    NCR_Level_ID,
+    NCR_Level_Flag,
+    NCR_Opened_By,
+    NCR_Opened_By_ID, 
+    NCR_Opened_By_Flag, 
+    NCR_Subject, 
+    Package, 
+    Package_Flag,
+    Discipline, 
+    Discipline_Flag, 
+    Geography, 
+    Geography_Flag , 
+    	TRIM(SUBFIELD(Duration_Interval_Description,' ',1) & ' ' & SUBFIELD(Duration_Interval_Description,' ',2) & ' ' & SUBFIELD(Duration_Interval_Description,' ',3) & CHR(10) & SUBFIELD(Duration_Interval_Description,' ',4) & ' ' & SUBFIELD(Duration_Interval_Description,' ',5) & ' ' & SUBFIELD(Duration_Interval_Description,' ',6)) AS [Duration Interval Description],
+	TRIM(SUBFIELD(Overdue_Interval_Description,' ',1) & ' ' & SUBFIELD(Overdue_Interval_Description,' ',2) & ' ' & SUBFIELD(Overdue_Interval_Description,' ',3) & CHR(10) & SUBFIELD(Overdue_Interval_Description,' ',4) & ' ' & SUBFIELD(Overdue_Interval_Description,' ',5) & ' ' & SUBFIELD(Overdue_Interval_Description,' ',6)) AS [Overdue Interval Description]
+FROM [$(pQvdTemp)$(pType)_Report5.QVD] (qvd);
+STORE * FROM $(pType)_Report INTO $(pQvd)$(pType)_Report.QVD;
+//DROP TABLE $(pType)_Report;
+/////*****************************************************
+
+
+///$tab DW Final
+/*****************************************************************
+ TAB 12 - DW FINAL
+******************************************************************/
+
+$(pType)_Project_Details:
+LOAD DISTINCT
+    Project_ID,
+    Project,
+    Project_Name
+FROM [lib://DataFiles/General/NCR/Qvd/$(pType)_Project_Details9.QVD] (qvd);
+
+$(pType)_Report_Senders:
+LOAD DISTINCT
+    Key_Mail_ID,
+    Project_ID,
+    Mail_ID,
+    Sender_User_ID as Reporting_Sender_User,
+    Sender_Organization_Name as Reporting_Sender_Organization
+FROM [lib://DataFiles/General/NCR/Qvd/$(pType)_Report_Senders9.QVD] (qvd);
+
+$(pType)_Report_Recipients:
+LOAD DISTINCT
+    Key_Mail_ID,
+    Project_ID,
+    Mail_ID,
+    Recipient_User_ID as Last_Recipient_User_ID,
+    Recipient_Organization_Name as Last_Recipient_Organization
+FROM [lib://DataFiles/General/NCR/Qvd/$(pType)_Report_Recipients9.QVD] (qvd);
+
+$(pType)_Report_Details:
+LOAD DISTINCT
+    Key_Mail_ID,
+    Reference_ID,
+    NCR_Type,
+    NCR_Type_Flag,
+    NCR_Level_Num,
+    NCR_Level,
+    NCR_Level_Flag,
+    NCR_Status,
+    NCR_Status_Flag,
+    NCR_Opened_By,
+    NCR_Opened_By_Flag,
+    Open_Date,
+    Open_Date_Flag,
+    Close_Date,
+    Close_Date_Flag,
+    [Expected Closing Date],
+    Expected_Closing_Date_Flag,
+    Cause_Of_Deficiency,
+    Cause_Of_Deficiency_Flag,
+    [Description Of The Deficiency],
+    Description_Of_The_Deficiency_Flag,
+    [Responsible Person],
+    Responsible_Person_Flag,
+    [NCR Contractor Sys Code],
+    [Drawing/Reference],
+    DrawingReference_Flag,
+    [Spec/Contract Reference],
+    SpecContract_Reference_Flag,
+    [Element Name/Code],
+    Element_NameCode_Flag,
+    [Proposed Corrective Action],
+    Proposed_Corrective_Action_Flag,
+    [Proposed Disposition],
+    Proposed_Disposition_Flag,
+    [Engineer-QA CA Decision],
+    [Engineer-QA CA Person],
+    [Engineer-QA CA Date],
+    [Engineer-QA CA Comments],
+    [Designer CA Decision],
+    [Designer CA Person],
+    [Designer CA Date],
+    [Designer CA Comments],
+    [Corrective Action Taken],
+    [Corrective Actions Comments],
+    [Engineer-QA Closed-Out Decision],
+    [Engineer-QA Closed-Out Person],
+    [Engineer-QA Closed-Out Date],
+    [Engineer-QA Closed-Out Comments],
+    [Designer Closed-Out Decision],
+    [Designer Closed-Out Person],
+    [Designer Closed-Out Date],
+    [Designer Closed-Out Comments]
+FROM [lib://DataFiles/General/NCR/Qvd/$(pType)_Report_Details9.QVD] (qvd);
+
+$(pType)_Package_Table:
+LOAD DISTINCT
+    Project_ID,
+    Package,
+    Managing_Company as [Managing Company]
+FROM [lib://DataFiles/General/NCR/Qvd/$(pType)_Package_Table.QVD] (qvd);
+
+$(pType)_Geography_Table:
+LOAD DISTINCT
+    Project_ID,
+    Geography,
+    Station,
+    SubStation,
+    Section,
+    Geography_Type as [Geography Type],
+    Geography_Site as [Geography Site]
+FROM [lib://DataFiles/General/NCR/Qvd/Geography_Table.QVD] (qvd);
+
+$(pType)_StatusFix:
+LOAD DISTINCT
+    Reference_ID,
+    Mail_ID,
+    NCR_StatusFix
+FROM [lib://DataFiles/General/NCR/Qvd/NCR_StatusFix.qvd] (qvd);
+
+
+
