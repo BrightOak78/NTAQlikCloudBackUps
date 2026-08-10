@@ -1,0 +1,471 @@
+
+SHEETS
+{"qInfo":{"qId":"2e59f182-3065-4050-9460-df63ada4ab1a","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"2e59f182-3065-4050-9460-df63ada4ab1a","approved":true,"published":true,"publishTime":"2026-06-24T12:10:45.709Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.239Z","modifiedDate":"2026-08-10T12:53:23.239Z","encrypted":true,"privileges":["read","publish"],"title":"OverDue","description":""},"qData":[]}
+{"qInfo":{"qId":"5905d159-dec7-47a1-98bf-eec708b8b4b5","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5905d159-dec7-47a1-98bf-eec708b8b4b5","approved":false,"published":true,"publishTime":"2026-08-10T14:58:21.039Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.222Z","modifiedDate":"2026-08-10T14:58:20.811Z","encrypted":true,"privileges":["read","publish"],"title":"HomePage","description":""},"qData":[]}
+{"qInfo":{"qId":"5fb9ddb6-7009-48dd-b949-ee9fc588a347","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5fb9ddb6-7009-48dd-b949-ee9fc588a347","approved":true,"published":true,"publishTime":"2026-06-11T09:53:47.119Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.226Z","modifiedDate":"2026-08-10T12:53:23.226Z","encrypted":true,"privileges":["read","publish"],"title":"Dynamic Sheet","description":""},"qData":[]}
+{"qInfo":{"qId":"6d6ef693-f495-4680-936d-dd68a9fd162e","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6d6ef693-f495-4680-936d-dd68a9fd162e","approved":true,"published":true,"publishTime":"2026-06-24T12:24:40.833Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.231Z","modifiedDate":"2026-08-10T12:53:23.231Z","encrypted":true,"privileges":["read","publish"],"title":"Duration","description":""},"qData":[]}
+{"qInfo":{"qId":"e440b2ed-86ae-4367-9a88-051ed4f5025f","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"e440b2ed-86ae-4367-9a88-051ed4f5025f","approved":true,"published":true,"publishTime":"2026-06-24T14:10:50.980Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.218Z","modifiedDate":"2026-08-10T12:53:23.218Z","encrypted":true,"privileges":["read","publish"],"title":"General","description":""},"qData":[]}
+{"qInfo":{"qId":"f75eb27f-c0de-4819-bc81-2fef423b0c72","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"f75eb27f-c0de-4819-bc81-2fef423b0c72","approved":true,"published":true,"publishTime":"2026-06-10T16:04:03.673Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.214Z","modifiedDate":"2026-08-10T12:53:23.214Z","encrypted":true,"privileges":["read","publish"],"title":"Trends","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"7b8a24dd-8e5a-4586-9bfe-2dd3fa8f45a1","type":"sn-tabbed-container","col":0,"row":42,"colspan":84,"rowspan":21,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
+{"name":"e5463002-3837-407a-a415-46cd4c4ac45d","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":4.761904761904762}}
+{"name":"fc5e34d9-ce8b-4eef-a472-6d89aac4562b","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":7.936507936507936,"x":0,"width":100,"height":7.936507936507936}}
+{"name":"f328f5a4-7877-4a90-bd6e-72f877441a22","type":"combochart","col":0,"row":11,"colspan":42,"rowspan":31,"bounds":{"y":17.46031746031746,"x":0,"width":50,"height":49.2063492063492}}
+{"name":"35750b9a-f5da-4bcb-9f11-8290b175e049","type":"combochart","col":42,"row":11,"colspan":42,"rowspan":15,"bounds":{"y":17.46031746031746,"x":50,"width":50,"height":23.809523809523807}}
+{"name":"a5127d3f-7eba-4330-b438-554825f4d8a0","type":"barchart","col":42,"row":27,"colspan":42,"rowspan":15,"bounds":{"y":42.857142857142854,"x":50,"width":50,"height":23.809523809523807}}
+{"name":"44ad7997-6f88-4687-8fde-af6c803f683b","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.761904761904762,"x":0,"width":100,"height":3.1746031746031744}}
+{"name":"ae516afa-08f3-4672-81e0-abd6dd2c11b5","type":"sn-tabbed-container","col":0,"row":42,"colspan":84,"rowspan":21,"bounds":{"x":0,"y":66.66666666666666,"width":100,"height":33.33333333333333}}
+{"name":"f81a7f59-3116-48a8-b5ec-c7b09df49b06","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":4.761904761904762}}
+{"name":"8e8c41fb-fc20-4fe2-9a84-f2bc47c466ea","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.761904761904762,"x":0,"width":100,"height":3.1746031746031744}}
+{"name":"12ffd3f7-7ea8-43c6-9e75-40023e3dd96d","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"x":0,"y":7.936507936507937,"width":100,"height":7.936507936507937}}
+{"name":"9fbcfaef-f1b2-4344-83f3-9cf99baf423a","type":"barchart","col":0,"row":11,"colspan":42,"rowspan":15,"bounds":{"x":0,"y":17.46031746031746,"width":50,"height":23.80952380952381}}
+{"name":"13c49086-f2ad-4a3d-9895-34422d3b158f","type":"barchart","col":0,"row":26,"colspan":42,"rowspan":16,"bounds":{"y":41.269841269841265,"x":0,"width":50,"height":25.396825396825395}}
+{"name":"ff40b939-caf8-4fe7-b434-e99c8c8a6fd1","type":"barchart","col":42,"row":11,"colspan":42,"rowspan":15,"bounds":{"y":17.46031746031746,"x":50,"width":50,"height":23.809523809523807}}
+{"name":"d7af0dc7-eaa8-4612-a4de-034aa0f51f09","type":"barchart","col":42,"row":26,"colspan":42,"rowspan":8,"bounds":{"y":41.269841269841265,"x":50,"width":50,"height":12.698412698412698}}
+{"name":"ec16b061-27e1-4449-a324-6643270b698d","type":"barchart","col":42,"row":34,"colspan":42,"rowspan":8,"bounds":{"y":53.96825396825397,"x":50,"width":50,"height":12.698412698412698}}
+{"name":"0be2fbe1-2099-45af-9101-8b5cd6be8f76","type":"sn-tabbed-container","col":0,"row":42,"colspan":84,"rowspan":21,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
+{"name":"40e3b825-2270-4689-a392-c6ce76e5326c","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":4.761904761904762}}
+{"name":"b5951029-5be4-4db0-ae71-d1797af2a3da","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":4,"bounds":{"y":7.936507936507936,"x":0,"width":100,"height":6.349206349206349}}
+{"name":"EZJcJLE","type":"sn-table","col":0,"row":9,"colspan":84,"rowspan":33,"bounds":{"y":14.285714285714285,"x":0,"width":100,"height":52.38095238095239}}
+{"name":"VamUn","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.761904761904762,"x":0,"width":100,"height":3.1746031746031744}}
+{"name":"1307e021-53fc-4717-84e4-0164dd987a5b","type":"sn-tabbed-container","col":0,"row":42,"colspan":84,"rowspan":21,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
+{"name":"a73631ba-cec6-4bfe-ba4d-0e40f64cb3a9","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":4.761904761904762}}
+{"name":"dab08d8a-9df9-4ce9-9db7-5fdb54cad948","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":7.936507936507936,"x":0,"width":100,"height":7.936507936507936}}
+{"name":"Fwmj","type":"combochart","col":0,"row":11,"colspan":25,"rowspan":15,"bounds":{"y":17.46031746031746,"x":0,"width":29.761904761904763,"height":23.809523809523807}}
+{"name":"XzvU","type":"barchart","col":0,"row":27,"colspan":25,"rowspan":15,"bounds":{"y":42.857142857142854,"x":0,"width":29.761904761904763,"height":23.809523809523807}}
+{"name":"gxLWHM","type":"combochart","col":26,"row":11,"colspan":25,"rowspan":15,"bounds":{"y":17.46031746031746,"x":30.952380952380953,"width":29.761904761904763,"height":23.809523809523807}}
+{"name":"PRsG","type":"barchart","col":26,"row":27,"colspan":25,"rowspan":15,"bounds":{"y":42.857142857142854,"x":30.952380952380953,"width":29.761904761904763,"height":23.809523809523807}}
+{"name":"yzPjew","type":"sn-table","col":52,"row":11,"colspan":32,"rowspan":31,"bounds":{"y":17.46031746031746,"x":61.904761904761905,"width":38.095238095238095,"height":49.2063492063492}}
+{"name":"qxc","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.761904761904762,"x":0,"width":100,"height":3.1746031746031744}}
+{"name":"daea212a-8cf8-4681-a719-41ac5161311b","type":"sn-tabbed-container","col":0,"row":42,"colspan":84,"rowspan":21,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
+{"name":"ef4bd317-2279-4f53-aac9-7c60e62dce6b","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":4.761904761904762}}
+{"name":"ea33e092-d9df-48d4-865b-6b108295287e","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":7.936507936507936,"x":0,"width":100,"height":7.936507936507936}}
+{"name":"12327fd6-e4b3-436e-a233-a5a7df9d8ea9","type":"barchart","col":0,"row":11,"colspan":20,"rowspan":31,"bounds":{"y":17.46031746031746,"x":0,"width":23.809523809523807,"height":49.2063492063492}}
+{"name":"c029bc0e-105d-4c55-8eb7-8bbe11feb945","type":"barchart","col":21,"row":11,"colspan":20,"rowspan":31,"bounds":{"y":17.46031746031746,"x":25,"width":23.809523809523807,"height":49.2063492063492}}
+{"name":"faf00718-e0ac-4d27-bf11-7092210382e4","type":"sn-layout-container","col":42,"row":11,"colspan":20,"rowspan":31,"bounds":{"y":17.46031746031746,"x":50,"width":23.809523809523807,"height":49.2063492063492}}
+{"name":"f971ceda-f4ac-4c3a-a304-9541c0c89e7c","type":"sn-layout-container","col":63,"row":11,"colspan":21,"rowspan":31,"bounds":{"y":17.46031746031746,"x":75,"width":25,"height":49.2063492063492}}
+{"name":"1b595f8e-781d-4ea1-a0bf-1ab3f89d0828","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.761904761904762,"x":0,"width":100,"height":3.1746031746031744}}
+{"name":"51c4f6f4-7bf6-41aa-a4db-dccc65ac7b7e","type":"sn-tabbed-container","col":0,"row":42,"colspan":84,"rowspan":21,"bounds":{"x":0,"y":66.66666666666666,"width":100,"height":33.33333333333333}}
+{"name":"171878bb-5c36-40c5-bf88-1f2fe8fb8a34","type":"linechart","col":0,"row":27,"colspan":84,"rowspan":15,"bounds":{"x":0,"y":42.85714285714286,"width":100,"height":23.80952380952381}}
+{"name":"YpjXBR","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":4.761904761904762}}
+{"name":"aEyJPL","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"x":0,"y":7.936507936507937,"width":100,"height":7.936507936507937}}
+{"name":"JKeXvj","type":"sn-layout-container","col":0,"row":10,"colspan":42,"rowspan":17,"bounds":{"x":0,"y":15.873015873015872,"width":50,"height":26.984126984126984}}
+{"name":"zZjJ","type":"sn-layout-container","col":42,"row":10,"colspan":42,"rowspan":17,"bounds":{"y":15.873015873015872,"x":50,"width":50,"height":26.984126984126984}}
+{"name":"brujg","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.761904761904762,"x":0,"width":100,"height":3.1746031746031744}}
+
+DIMENSIONS
+{"qInfo":{"qId":"Akcuvdt","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"Akcuvdt","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.941Z","modifiedDate":"2026-07-26T09:05:42.941Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR Level","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"AuNPyE","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"AuNPyE","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.942Z","modifiedDate":"2026-07-26T09:05:42.942Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR_Calendar","description":"[NCR Year Month]\/=[NCR YearWeek]","tags":[]},"qData":[]}
+{"qInfo":{"qId":"BQLDz","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"BQLDz","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.942Z","modifiedDate":"2026-07-26T09:05:42.942Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Contractor","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"BXKQQg","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"BXKQQg","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.942Z","modifiedDate":"2026-07-26T09:05:42.942Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR Type","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"FLPFav","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"FLPFav","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.944Z","modifiedDate":"2026-07-26T09:05:42.944Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"OpenCal","description":"[Open MonthName]\/[Open WeekNum]","tags":[]},"qData":[]}
+{"qInfo":{"qId":"Frcyd","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"Frcyd","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.944Z","modifiedDate":"2026-07-26T09:05:42.944Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Discipline","description":"Attribute 2","tags":[]},"qData":[]}
+{"qInfo":{"qId":"LdJQVj","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"LdJQVj","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.944Z","modifiedDate":"2026-07-26T09:05:42.944Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR OnTime Desc","description":"NCR OnTime Desc","tags":[]},"qData":[]}
+{"qInfo":{"qId":"PEduas","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"PEduas","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.945Z","modifiedDate":"2026-07-26T09:05:42.945Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"ClosedCal","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"VMdyURf","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"VMdyURf","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.946Z","modifiedDate":"2026-07-26T09:05:42.946Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Attribute4","description":"Attribute4","tags":[]},"qData":[]}
+{"qInfo":{"qId":"Vhtxh","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"Vhtxh","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.946Z","modifiedDate":"2026-07-26T09:05:42.946Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Package","description":"Attribute1","tags":[]},"qData":[]}
+{"qInfo":{"qId":"ZPeFMsh","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"ZPeFMsh","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.946Z","modifiedDate":"2026-07-26T09:05:42.946Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR State","description":"Ncr State","tags":[]},"qData":[]}
+{"qInfo":{"qId":"dpcZTDQ","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"dpcZTDQ","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.953Z","modifiedDate":"2026-07-26T09:05:42.953Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"gPackage","description":"Package\/Managing_Company","tags":[]},"qData":[]}
+{"qInfo":{"qId":"eDQbPar","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"eDQbPar","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.958Z","modifiedDate":"2026-07-26T09:05:42.958Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Line","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"jNkMC","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"jNkMC","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.966Z","modifiedDate":"2026-07-26T09:05:42.966Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"gPackage&Geography","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"mjptJPD","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"mjptJPD","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.966Z","modifiedDate":"2026-07-26T09:05:42.966Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR Status","description":"NCR Status","tags":[]},"qData":[]}
+{"qInfo":{"qId":"pMsyvjK","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"pMsyvjK","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.966Z","modifiedDate":"2026-07-26T09:05:42.966Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"@Proj_Pack","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"qgyGKd","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"qgyGKd","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.966Z","modifiedDate":"2026-07-26T09:05:42.966Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"gGeography","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"wsrcHJP","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"wsrcHJP","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.976Z","modifiedDate":"2026-07-26T09:05:42.976Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Geography","description":"Attribute 3","tags":[]},"qData":[]}
+
+MEASURES
+{"qInfo":{"qId":"AJpwsWc","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"AJpwsWc","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.941Z","modifiedDate":"2026-07-26T09:05:42.941Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Overdue NCR","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"JFtPwN","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"JFtPwN","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.944Z","modifiedDate":"2026-07-26T09:05:42.944Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Open NCR  Level 3","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"TBmmvR","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"TBmmvR","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.945Z","modifiedDate":"2026-07-26T09:05:42.945Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NCR Reports Quantity","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"aFpmp","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"aFpmp","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.948Z","modifiedDate":"2026-07-26T09:05:42.948Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Ncr Total","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"xVmjHPw","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"xVmjHPw","approved":true,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-07-26T09:05:42.976Z","modifiedDate":"2026-07-26T09:05:42.976Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Open NCR","description":"","tags":[]},"qData":[]}
+
+VARIABLES
+{"qName":"pType","qDefinition":"NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"41d41ba2-61aa-4cca-9361-61d8b129861b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vMailIDRemove","qDefinition":"'285896404','285896727','286135385','288146714','289219895','289682217','289682248','293234649','293948402','295306905'","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2f136d4b-449e-4e0a-a7c5-81017845c965","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSend2Excel","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"05d3d7d6-9477-44e2-8927-fcdea5e66452","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vToday","qDefinition":"10\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e5125390-7a01-491f-bb18-edbdaef0324a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vTodayLastMonth","qDefinition":"10\/07\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c3962e4f-eb8c-4d77-8e28-7c8f8be872cc","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"10\/08\/2026 16:11","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2572d25a-091d-4f55-a835-b1ea39e33799","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b96e98c0-5acf-478e-899d-7633e1d29ef7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"79d9b8ca-f6ab-423b-80dd-d5b345b1ae3d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"NCR - Non Conformance Reports(1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6b3488b9-6dba-42c4-b60e-eeed15dad2af","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"81b20d20-d9b8-407b-b070-c4f8628a6eee","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7b1f74c1-f0b4-4af4-8de1-b1f9e99fffda","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a77d093b-269b-44d4-a94c-b4618aca8f16","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea62153b-24f7-42dd-9493-54f61677c004","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"16fb6c3c-6210-4bcd-ae03-4078a2abf7be","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"81244cf5-7c72-40d4-887e-67d183cb67b4","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0eb8891e-e873-4c91-801c-6835bd0dc48a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"03ada81a-c0f3-48cf-b560-1dc901397e4b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5f45d05a-d31a-430c-b7b6-a857e5cee725","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e7a54fc6-ce6f-4dd7-af78-16c71be1f628","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1a5c3f31-ce4b-42aa-870e-1506a8daf0e9","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vAconex_AddOn","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Aconex_AddOn\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c7f4c233-ecfd-49a9-a8ee-d7df27e32418","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCR_DateMin","qDefinition":"05\/12\/1923","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"85914a5e-a9db-4376-a603-14ed3476890d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCR_DateMax","qDefinition":"01\/06\/2030","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c5118430-9909-45ff-9698-ceb4cfa502db","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCR_DateMin_Open","qDefinition":"05\/12\/1923","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fbd0bf49-c7b0-4ed5-b469-89b826948dc2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCR_DateMax_Open","qDefinition":"10\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3db3074-f786-46fd-aebf-7a31f6b39675","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCR_DateMin_Close","qDefinition":"19\/01\/1970","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e49777a2-f340-4b05-b152-ca3280164ba5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCR_DateMax_Close","qDefinition":"10\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2d188168-176f-4668-92ad-4885c2da8937","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCRExpected_DateMin_Close","qDefinition":"19\/01\/1970","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc859aff-cf7a-4489-b63f-f041981ec3b5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vNCRExpected_DateMax_Close","qDefinition":"01\/06\/2030","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8636df23-25f5-4cae-811f-c42acbd42850","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRStatusOpen","qDefinition":"=cBlue","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b02e87d0-9710-48c8-9580-9278c2dd32ba","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRStatusClose","qDefinition":"=cTeal","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e1a6158d-75c3-4583-b0c3-0bd406ded624","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRStateInitial","qDefinition":"=cBlueLight","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b0392aff-d739-4f14-97ab-0529d33955b2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRStateInProgress","qDefinition":"=cBlueDark","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"76ddad8e-0f66-4e0e-b4d7-75c0ac5a04a0","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRTypeQuality","qDefinition":"=cYellowLight","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f0543c8f-8a26-4016-b35e-78421ba5025d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRTypeEnvironment","qDefinition":"=cGreenLight","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f832e81f-16b9-4423-be7b-d0d98cf383e3","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRLevelOne","qDefinition":"=cYellow","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0dafc82e-ef8d-4edc-89de-e4f1acc0e932","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRLevelTwo","qDefinition":"=cOrange","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"66d653b7-0114-468a-acdf-1944ee765e0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRLevelThree","qDefinition":"=cRed","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"abf4b419-2c8c-4b1a-bba6-405fd49e9126","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRAgentQC","qDefinition":"=cPurple","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9996a9d6-6641-4e36-9d96-90e72c7b72d7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cNCRAgentQA","qDefinition":"=cPurpleLight","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e077456a-6628-4e54-bdf7-5d6880c1a8eb","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cBronze","qDefinition":"RGB(205,127,50)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1c610ba6-7bc9-4e1e-88e6-9b89adc42a9b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cMahagony","qDefinition":"RGB(192,64,0)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9db9034b-a681-4213-a06d-42767152e779","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cWheat","qDefinition":"RGB(245,222,179)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"952684a8-9bdb-47ee-aca8-9456d3ac2fda","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cUmber","qDefinition":"RGB(99,81,71)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f647c749-6481-429c-aa8e-589980cdf088","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cTan","qDefinition":"RGB(209,180,140)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"162a6bb4-f34b-4562-a0c6-36faed4cd681","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cDelivery","qDefinition":"RGB(142,102,71)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f86128f0-4d46-4946-8c39-016c02c96084","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cDisposal","qDefinition":"RGB(178,84,77)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f9bdb6c2-24ea-497f-986a-34594102a617","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayAll","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8bacf1b1-914f-4488-8508-994d6746e18d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayButtons","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"36746ce7-7b42-41a5-a9e7-cc16535ebd3b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDim","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e49f661f-a6e2-4622-b587-d72cf456730e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH01","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"952c6869-0f3c-4e72-99e2-19cae0868414","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH11","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"542c7f43-b80e-476f-8a59-609ebf7895ea","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH12","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4ebddfd1-243c-4e4f-a5e6-c7c3f595dda8","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH13","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4a16742d-a101-4c5e-98e6-15cc68a91698","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH14","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"65a6ce3e-05f1-464c-ad05-62df64b8fed4","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH15","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5f09eb85-2b74-4ef0-9f68-d380a799c3eb","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH21","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ca27d45-1a98-4993-b50a-7357488002ec","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH22","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a6157ad4-d733-4e10-b07c-0883fd410da5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH23","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ed126fca-be50-47f6-959c-9a747cf79f14","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH24","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b1599c6b-f2b7-42ef-847f-e3a3d98530e8","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDisplayDetailsSH25","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f6e4a86a-f0a4-4982-8330-0905c41a18b6","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSheetName","qDefinition":"Home Page","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9157b5d8-009b-4ae6-9ea9-e7c2b91ad75e","qType":"variable"},"qData":[]}
+{"qName":"cGray","qDefinition":"#8A8A8A","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5d944f6d-6f4a-444b-a14e-47c137a4af6a","qType":"variable"},"qData":[]}
+{"qName":"nNTAGreenLine","qDefinition":"#418314","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"280bf068-6689-40df-8121-9b6f0bc91329","qType":"variable"},"qData":[]}
+{"qName":"cBlack","qDefinition":"#2C2C2C","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"056934fa-6b71-4fd5-97e3-ac763df74156","qType":"variable"},"qData":[]}
+{"qName":"vDate_Open_Month","qDefinition":"=MID(vDate_Open_YearMonth,5,2)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0fa933f1-232a-48e2-a789-2231f90c8452","qType":"variable"},"qData":[]}
+{"qName":"cOrangeLight","qDefinition":"#FCCC89","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d6bcf161-5f7c-463b-ab73-c556c3b623cf","qType":"variable"},"qData":[]}
+{"qName":"cNTALightBlueRGB","qDefinition":"#48ACD5","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"dfdc6495-0904-4a12-9ea9-bb01131093a3","qType":"variable"},"qData":[]}
+{"qName":"cRedNTALight","qDefinition":"#E94A4A","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2da06d22-c82d-464c-8728-77d9a3223dc1","qType":"variable"},"qData":[]}
+{"qName":"cSkyBlue","qDefinition":"#6EAEFF","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"84a3a5b0-5bb2-412a-80b8-3a2b4bee96bf","qType":"variable"},"qData":[]}
+{"qName":"cYellowLight","qDefinition":"#FDEF70","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c5f4bbd0-df5a-4d47-be5f-e95b766a3eb4","qType":"variable"},"qData":[]}
+{"qName":"cPink","qDefinition":"#FC8FA9","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef7913e0-29a8-4c84-8064-2b823c1a4bfe","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTADark","qDefinition":"#399539","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"56eb073b-c0bf-43c3-b728-39de52445077","qType":"variable"},"qData":[]}
+{"qName":"nNTAM3Line","qDefinition":"#F8C635","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"65bd00f8-4c7f-48ef-b289-d5c290a08322","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTALight","qDefinition":"#3886F0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bedff69c-2f87-437b-a07a-b3afdda3b31f","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"643fe4b0-e24f-48fb-a4fb-4cdbf13a9138","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLighter","qDefinition":"#86D5F3","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5166b998-71a2-4d74-951f-ea0531e44794","qType":"variable"},"qData":[]}
+{"qName":"cRedNTADark","qDefinition":"#C23B2C","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0ba65fa3-65b9-425b-8101-7ba267e665c4","qType":"variable"},"qData":[]}
+{"qName":"vDate_Close_Month","qDefinition":"=MID(vDate_Close_YearMonth,5,2)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a7225147-8639-4654-90b0-c8ca39fd5db7","qType":"variable"},"qData":[]}
+{"qName":"vDocumentTitle","qDefinition":"NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5d738f69-53cb-47f9-a9cf-a1496a3ed7a4","qType":"variable"},"qData":[]}
+{"qName":"cNTAtrafficGreenRGB","qDefinition":"#A3D99A","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bba08dc9-d900-446f-999f-820d4b3904e5","qType":"variable"},"qData":[]}
+{"qName":"cNTADarkBlueRGB","qDefinition":"#1F3673","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4be0671d-9cb8-4143-b370-19ce927d0c59","qType":"variable"},"qData":[]}
+{"qName":"cRedDark","qDefinition":"#C23B2C","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f16582ab-88d4-4a11-9607-2500c6f9214a","qType":"variable"},"qData":[]}
+{"qName":"cNTABrownLine","qDefinition":"#FFA84724","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0b374917-27b1-40a2-b574-b54704dc8a0d","qType":"variable"},"qData":[]}
+{"qName":"cYellowNTA","qDefinition":"#FFDA66","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"73f2ed11-96a7-4533-a529-0f440f787c12","qType":"variable"},"qData":[]}
+{"qName":"cNTARedLine","qDefinition":"#E24449","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5816d94c-e713-49e6-899a-c26915962736","qType":"variable"},"qData":[]}
+{"qName":"cWhite","qDefinition":"#FFFFFF","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"71066f90-bf23-48b8-98ea-9031a2c5cb5c","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTA","qDefinition":"#C88ACE7E","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"de2d21bb-bdd7-4c0a-bd76-31e3ed95e339","qType":"variable"},"qData":[]}
+{"qName":"vExpected_Closing_Date_Fix","qDefinition":"=max({$<[Expected Closing Date]={\"<=$(vToday)\"}>}Expected_Closing_Date_Fix)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"dc7d5af0-476b-472e-adda-3d831691990a","qType":"variable"},"qData":[]}
+{"qName":"vTrain","qDescription":"\u05de\u05d2\u05d3\u05d9\u05e8 \u05e1\u05d5\u05d2 \u05e8\u05db\u05d1\u05ea \u05e8\u05e7\u05dc \u05d0\u05d5 \u05de\u05d8\u05e8\u05d5","qDefinition":"=if(Match(Line,'Green Line','Red Line','Purple Line'),'RPG','Metro')","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"944da37e-d4b7-457f-bf8e-575bcc4d376f","qType":"variable"},"qData":[]}
+{"qName":"nNTAM2Line","qDefinition":"#F47222","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"35c4eaff-05b2-4e5d-afc3-0686a9c35718","qType":"variable"},"qData":[]}
+{"qName":"cGreenLight","qDefinition":"#ACE958","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"80287194-bbba-4724-af12-0fdcee51893a","qType":"variable"},"qData":[]}
+{"qName":"cTrafficRed","qDefinition":"#E4615D","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b59c9d66-ad70-40d2-be99-0d68b1d5ecea","qType":"variable"},"qData":[]}
+{"qName":"cBrownNTA","qDefinition":"#A84724","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"672ab614-2f14-45f6-b2f2-068b5ae614e1","qType":"variable"},"qData":[]}
+{"qName":"cNTAMetroLines","qDefinition":"#132B50","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"58a848c8-1317-47af-9083-ce6590fc9f41","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLight","qDefinition":"#48ACD5","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef759d74-b173-4d90-94ca-27c12f95722e","qType":"variable"},"qData":[]}
+{"qName":"cPurple","qDefinition":"#B02085","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4de99b8d-d5ee-4c04-9ae7-2eb7163ac4d1","qType":"variable"},"qData":[]}
+{"qName":"nNTAPurpleLine","qDefinition":"#872292","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9e8dc74d-82ca-4564-9b52-8df852ff98a1","qType":"variable"},"qData":[]}
+{"qName":"cRedLight","qDefinition":"#F67979","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f492b82d-cba3-4ac3-83b1-750e8cc07c5d","qType":"variable"},"qData":[]}
+{"qName":"cBlackNTA","qDefinition":"#494949","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"71f7ea4d-fad6-4a2a-a454-ffb29c383184","qType":"variable"},"qData":[]}
+{"qName":"cNTAGreenLine","qDefinition":"#79C357","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ccbce46e-a13a-441d-b2a7-664e53f51c02","qType":"variable"},"qData":[]}
+{"qName":"cBlueLight","qDefinition":"#59CAFA","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4739435e-47f0-44f1-a565-858f982a434b","qType":"variable"},"qData":[]}
+{"qName":"cYellow","qDefinition":"#F4D60F","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"83d495ec-8356-419e-ac79-35b3d3270e12","qType":"variable"},"qData":[]}
+{"qName":"vDate_Open_YearMonth","qDefinition":"=MAX([Open_YearMonth])","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ac16bf2f-e189-46e8-ad87-f9c412c5c0e6","qType":"variable"},"qData":[]}
+{"qName":"cNTAPurpleLine","qDefinition":"#922C92","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7d37df25-61c8-487a-84a9-39fa62124bc7","qType":"variable"},"qData":[]}
+{"qName":"cRed","qDefinition":"#E94A4A","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2b30be25-adce-455d-8d90-fcd40af85bb1","qType":"variable"},"qData":[]}
+{"qName":"cGreenLine","qDefinition":"#94C94A","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"792abed0-cbe5-482b-9bc5-7872565c9c89","qType":"variable"},"qData":[]}
+{"qName":"nNTARedLine","qDefinition":"#E02A28","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6bd02c99-db39-4ac0-9f6f-0b51d41962cd","qType":"variable"},"qData":[]}
+{"qName":"cOrange","qDefinition":"#FFB84D","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"229a22b6-a572-49b4-a374-ba29f5bc4180","qType":"variable"},"qData":[]}
+{"qName":"cPurpleNTA","qDefinition":"#B02085","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a6d95de8-54d5-4d11-a0b6-22a442855d04","qType":"variable"},"qData":[]}
+{"qName":"vExpectedCloseMonthName","qDefinition":"=month(Max({$<[Expected Closing Date]={\"<=$(vToday)\"}>}[Expected Closing Date]))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"23b082cd-d248-49f8-a5c0-36b03e521017","qType":"variable"},"qData":[]}
+{"qName":"cNTAtrafficYellowRGB","qDefinition":"#FFE287","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f2637297-b454-462a-b4d9-c4465a4a8abd","qType":"variable"},"qData":[]}
+{"qName":"cRoyalBlueDark","qDefinition":"#1F3673","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"172aa8f3-b661-4e34-8ecf-528f6d8d5957","qType":"variable"},"qData":[]}
+{"qName":"cNTATrafficLights","qDefinition":"#00919D","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"71fe2099-6933-4fc3-8e90-6cf6b18e10c5","qType":"variable"},"qData":[]}
+{"qName":"cBrown","qDefinition":"#A84724","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a0f74950-9eb8-464d-935e-4d7ad1d8f4f7","qType":"variable"},"qData":[]}
+{"qName":"vDate_Close_YearMonth","qDefinition":"=MAX({<[NCR Status]={'Closed'}>}[Close_YearMonth])","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7dbe7f00-15ed-425e-9e44-7b9f84ab91a6","qType":"variable"},"qData":[]}
+{"qName":"nNTAM1Line","qDefinition":"#2F70CC","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"894dcebf-9d3b-45d7-8a9b-ced8d30660db","qType":"variable"},"qData":[]}
+{"qName":"cGrayLight","qDefinition":"#D8D8D8","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"22f6076b-7484-4226-8c30-708ae61668e1","qType":"variable"},"qData":[]}
+{"qName":"cLink","qDefinition":"#8FA491","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e88aa800-b587-4f5b-b55d-654df5e1b89f","qType":"variable"},"qData":[]}
+{"qName":"cPurpleLight","qDefinition":"#D498C2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2f1ec4f6-1690-49a2-91d8-a078e5af913f","qType":"variable"},"qData":[]}
+{"qName":"vSubject","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fdf67194-076e-4be5-b3cd-087f29c65026","qType":"variable"},"qData":[]}
+{"qName":"nNTABeige","qDefinition":"#FCF1DC","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5c52fd5b-d814-47cb-8690-f9952a4376af","qType":"variable"},"qData":[]}
+{"qName":"nNTAOrange","qDefinition":"#F0A050","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3d625e26-875d-449a-95df-6ea1cf0bdf4b","qType":"variable"},"qData":[]}
+{"qName":"cRedNTA","qDefinition":"#FFDC3531","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"23a297fc-610e-46f0-bb0a-7f4b5e1c0602","qType":"variable"},"qData":[]}
+{"qName":"cBlue","qDefinition":"#214186","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1c0a82f1-3159-4107-a2e9-b0dc9939363f","qType":"variable"},"qData":[]}
+{"qName":"cTeal","qDefinition":"#329788","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6386aad9-078c-4ff7-ac6f-86b9d182511b","qType":"variable"},"qData":[]}
+{"qName":"cTrafficGreen","qDefinition":"#A3D99A","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"798fb9a9-5d81-43e5-8429-12c792281354","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTADark","qDefinition":"#142B51","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"12663721-8e3f-4327-919d-21955332bac9","qType":"variable"},"qData":[]}
+{"qName":"cGrayNTA","qDefinition":"#D5D5D5","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d0a44144-00b8-44db-a500-b49283a86ec6","qType":"variable"},"qData":[]}
+{"qName":"cRoyalBlue","qDefinition":"#213D92","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0a1bb935-e416-4d54-add5-ba59707cd7e4","qType":"variable"},"qData":[]}
+{"qName":"cGrayDark","qDefinition":"#555555","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e3525d24-593e-48e7-99d8-c9c1b8287c16","qType":"variable"},"qData":[]}
+{"qName":"cNTAM2Line","qDefinition":"#FEC524","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b515ade2-405c-476d-8e23-030d216abd55","qType":"variable"},"qData":[]}
+{"qName":"cNTAControlCenter","qDefinition":"#00919D","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"647954ef-3833-4cfd-9c5b-a1a59d303803","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueDark","qDefinition":"#01487E","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c1bc862f-daca-434b-a6c8-e30cbe1de1ee","qType":"variable"},"qData":[]}
+{"qName":"cGreen","qDefinition":"#759945","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7c3066ce-869b-474b-8fa1-08dfd8233a1a","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTALight","qDefinition":"#ACE958","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a558df0f-059f-4389-9ded-634afa0f32cf","qType":"variable"},"qData":[]}
+{"qName":"vDate_Open_Year","qDefinition":"=MID(vDate_Open_YearMonth,1,4)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1263e801-2ff9-4575-9bb7-deb067dfde90","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTAPositive","qDefinition":"#52BF8D","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"82d26c3c-ccf4-4e29-a215-62b46fc291cd","qType":"variable"},"qData":[]}
+{"qName":"cOrangeLighter","qDefinition":"#F9E3C4","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"35848a88-3e51-41c0-935b-fa8ed790ba96","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTALighter","qDefinition":"#3886F0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"df748a35-184b-4f89-b3a0-45bf6c2ece9f","qType":"variable"},"qData":[]}
+{"qName":"cNTAtrafficRedRGB","qDefinition":"#E4615D","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c59d4f95-b560-43a1-be4b-3f856037ed15","qType":"variable"},"qData":[]}
+{"qName":"cPinkNTA","qDefinition":"#EF569F","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e8706940-2621-43d7-9c00-4e04b1a0a6e5","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlue","qDefinition":"#2F7CAA","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bba57958-b4bc-4d35-b316-bca10f84aad0","qType":"variable"},"qData":[]}
+{"qName":"cTrafficYelllow","qDefinition":"#FFE287","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ce96f9da-e877-47c9-a0bc-89c58cbdb423","qType":"variable"},"qData":[]}
+{"qName":"cBrownLight","qDefinition":"#C89C8C","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"988d527a-b0eb-455a-b6e8-acd848999acd","qType":"variable"},"qData":[]}
+{"qName":"cOrangeNTA","qDefinition":"#C8684C","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e994a4dd-8d2f-4629-ab91-ab0b7d2bfde1","qType":"variable"},"qData":[]}
+{"qName":"cRedNTANegative","qDefinition":"#E0363B","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5e0826a2-7912-4a22-8ca1-67e958ac6876","qType":"variable"},"qData":[]}
+{"qName":"cOrangeDark","qDefinition":"#E68600","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3aa87b91-6611-4951-b701-0c89ec970b59","qType":"variable"},"qData":[]}
+{"qName":"cGrayNTALight","qDefinition":"#F6F6F6","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"08d2ca9e-d2d6-483d-9cd0-70cf171204a1","qType":"variable"},"qData":[]}
+{"qName":"cBlueDark","qDefinition":"#142B51","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6b7d00ba-252a-434d-99e1-299bdc13d56f","qType":"variable"},"qData":[]}
+{"qName":"cGreenDark","qDefinition":"#226222","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c75f4aaf-bb5f-403c-9d84-b661e28ac3ff","qType":"variable"},"qData":[]}
+{"qName":"cGrayNTADark","qDefinition":"#838383","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"83bb37d3-0dd2-46a1-a97e-2f1dbe09398f","qType":"variable"},"qData":[]}
+{"qName":"vExpectedCloseYear","qDefinition":"=Max({$<[Expected Closing Date]={\"<=$(vToday)\"}>}[Expected Close Year])","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6f63ec11-6966-46ae-9717-628aa404521b","qType":"variable"},"qData":[]}
+{"qName":"cSkyBlueLight","qDefinition":"#A7CEFF","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3bf9986f-2533-44a1-95e0-e8c4f01e9731","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTA","qDefinition":"#214186","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f8f96269-bab5-431f-9f47-64fe933786bc","qType":"variable"},"qData":[]}
+{"qName":"cNTAM1Line","qDefinition":"#2E72C8","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9c026476-51a3-4179-bf5e-fb44802d89a0","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":224,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":15,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":12,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":11,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":64,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$ascii","$text"],"qSrcTables":[]}
+{"qName":"Ncr Level","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Levels"]}
+{"qName":"Ncr Level Desc","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Levels"]}
+{"qName":"NCR_Level_Num","qCardinal":3,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_Levels","NCR_Report_Details"]}
+{"qName":"Ncr State","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_State"]}
+{"qName":"NCR_State_ID","qCardinal":3,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_State","NcrLogic"]}
+{"qName":"RowNumber","qCardinal":90327,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Key"]}
+{"qName":"subject","qCardinal":36983,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Key_Mail_ID","qCardinal":90327,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Reference_ID","qCardinal":15777,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Project_ID","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Sender_Organization_Name","qCardinal":81,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Sender_User_ID","qCardinal":637,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Reason for Issue","qCardinal":0,"qTags":[],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Body","qCardinal":76655,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"mail ID","qCardinal":90327,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR Type","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Attribute1Detail","qCardinal":86,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"PackageDetail","qCardinal":86,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Reference Number ID","qCardinal":15777,"qTags":["$ascii","$text","$key"],"qSrcTables":["NCR_Report_Details","NcrLogic"]}
+{"qName":"Reference Number","qCardinal":14896,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"DisciplineDetail","qCardinal":196,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"GeographyDetail","qCardinal":444,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Attribute4Detail","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR_Type","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR_Level","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR_Level_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR_Opened_By_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR_Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR_Status_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Open_Date","qCardinal":2551,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Open"]}
+{"qName":"Open_Date_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Close_Date","qCardinal":2322,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Close"]}
+{"qName":"Cause_Of_Deficiency","qCardinal":14,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Cause_Of_Deficiency_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Description Of The Deficiency","qCardinal":16342,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Description_Of_The_Deficiency_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR Contractor Sys Code","qCardinal":4074,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Drawing\/Reference","qCardinal":4567,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"DrawingReference_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Spec\/Contract Reference","qCardinal":2721,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"SpecContract_Reference_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Element Name\/Code","qCardinal":4947,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Element_NameCode_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Proposed Corrective Action","qCardinal":14388,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Proposed_Corrective_Action_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Proposed Disposition","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Proposed_Disposition_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Decision","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Person","qCardinal":84,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Date","qCardinal":827,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Comments","qCardinal":1423,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Decision","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Person","qCardinal":45,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Date","qCardinal":90,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Comments","qCardinal":149,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Corrective Action Taken","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Corrective Actions Comments","qCardinal":3484,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Decision","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Person","qCardinal":71,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Date","qCardinal":735,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Comments","qCardinal":857,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer Closed-Out Decision","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer Closed-Out Person","qCardinal":141,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer Closed-Out Date","qCardinal":750,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer Closed-Out Comments","qCardinal":1390,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"LinkToAconex","qCardinal":90327,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"ProjectPackageKey","qCardinal":89,"qTags":["$ascii","$text","$key"],"qSrcTables":["NCR_Report_Details","NCR_Package_Table"]}
+{"qName":"ProjectGeographyKey","qCardinal":448,"qTags":["$text","$key"],"qSrcTables":["NCR_Report_Details","Geography_Table"]}
+{"qName":"Managing_Company","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Package_Table"]}
+{"qName":"Load_Date","qCardinal":1,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Reference_Count","qCardinal":54,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Mail_ID_ReportFirst","qCardinal":15776,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Mail_ID_ReportLast","qCardinal":15777,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Responsible Person","qCardinal":2088,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Main Contractor","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"ProjectID","qCardinal":9,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NcrLogic","Authenticated_Project"]}
+{"qName":"NCR_Opened_By","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Organization Name","qCardinal":64,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"To User","qCardinal":790,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"ToRecipients","qCardinal":3534,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute1","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Package","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute2","qCardinal":165,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute1 CODE","qCardinal":55,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Discipline","qCardinal":165,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute2 CODE","qCardinal":165,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute3","qCardinal":258,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Geography","qCardinal":382,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute3 CODE","qCardinal":145,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute4","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute4 CODE","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Work Type","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Work Type Code","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Mail_Subject","qCardinal":12855,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Reporting Date","qCardinal":15777,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Sender Organization","qCardinal":64,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Sender User","qCardinal":360,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected_Closing_Date_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Close_Date_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Mail Number","qCardinal":15777,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Sender Date","qCardinal":15777,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last_Recipient_Organization","qCardinal":2022,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Recipient Date","qCardinal":8349,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR Status","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Close_Date_Original","qCardinal":2235,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Open_Date_Original","qCardinal":2543,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected_Closing_Date_Fix","qCardinal":2405,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected Closing Date","qCardinal":2405,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NcrLogic","NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected_Closing_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Date Opened","qCardinal":2597,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Date Closed","qCardinal":5168,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Line","qCardinal":7,"qTags":["$ascii","$text","$key"],"qSrcTables":["NcrLogic","NCR_Monthly_Backlog"]}
+{"qName":"ProjectSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR_Closed_On_TimeFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR_Open_and_On_TimeFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected_Closing_Days_Overdue","qCardinal":289,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Duration_Interval","qCardinal":1364,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR Overdue","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR_OnTime_Flag","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR_OnTime_Desc","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Key","qCardinal":266,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NcrLogic","Menifa_Hierarchy"]}
+{"qName":"Duration_Interval_Num","qCardinal":1364,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Duration_Interval_ID","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Duration_Interval_Name","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Duration_Interval_Description","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Overdue_Interval_ID","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Overdue_Interval_Name","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Overdue_Interval_Description","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR_Date_backlog","qCardinal":129,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Opened","qCardinal":121,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Closed","qCardinal":123,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Net_Change","qCardinal":100,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"YYYMM_Backlog","qCardinal":129,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Open_Backlog","qCardinal":233,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Date","qCardinal":3203,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Calendar_Key","NCR_Calendar"]}
+{"qName":"NCR_Date_ID","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Key"]}
+{"qName":"NCR_Date_Name","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Key"]}
+{"qName":"NCR Year","qCardinal":14,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"Year","qCardinal":14,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR Year-Quarter","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR Year Quarter","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR YearQuarterSort","qCardinal":49,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR Year-Month","qCardinal":136,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR Year Month","qCardinal":136,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR_YearMonth","qCardinal":136,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR YearMonthSort","qCardinal":136,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR Month","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR MonthName","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"Month","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR MonthNameL","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR YearWeek","qCardinal":553,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"YYYYMM","qCardinal":136,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"Open Year\/WeekNum","qCardinal":529,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year","qCardinal":11,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year-Quarter","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year Quarter","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open YearQuarterSort","qCardinal":43,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year-Month","qCardinal":126,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year Month","qCardinal":126,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open_YearMonth","qCardinal":126,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open YearMonthSort","qCardinal":126,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Month","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open MonthName","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open MonthNameL","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Close Year\/WeekNum","qCardinal":481,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Year","qCardinal":11,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Year-Quarter","qCardinal":40,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Year Quarter","qCardinal":40,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close YearQuarterSort","qCardinal":40,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Year-Month","qCardinal":113,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Year Month","qCardinal":113,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close_YearMonth","qCardinal":113,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close YearMonthSort","qCardinal":113,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close Month","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close MonthName","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Close MonthNameL","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
+{"qName":"Expected Close Year\/WeekNum","qCardinal":483,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Year","qCardinal":13,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Calc Expected Close Year","qCardinal":11,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Year-Quarter","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Year Quarter","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close YearQuarterSort","qCardinal":43,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Year-Month","qCardinal":117,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Year Month","qCardinal":117,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close_YearMonth","qCardinal":117,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close YearMonthSort","qCardinal":117,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Month","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close MonthName","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close MonthNameL","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Station","qCardinal":23,"qTags":["$ascii","$text"],"qSrcTables":["Geography_Table"]}
+{"qName":"Section","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["Geography_Table"]}
+{"qName":"Geography Type","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Geography_Table"]}
+{"qName":"Geography Site","qCardinal":105,"qTags":["$ascii","$text"],"qSrcTables":["Geography_Table"]}
+{"qName":"Line Code","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work package Code","qCardinal":55,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"NBS LEVEL 1 Code","qCardinal":145,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"NBS LEVEL 2 Code","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work Type CodeT","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work package","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"NBS LEVEL 1","qCardinal":258,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"NBS LEVEL 2","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work TypeT","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"KeyBase","qCardinal":266,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"KeyBase_Select","qCardinal":337,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Key_Reversed","qCardinal":337,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qIsHidden":true,"qName":"%Key_Encrypted","qCardinal":337,"qTags":["$hidden","$text"],"qSrcTables":[]}
+{"qIsHidden":true,"qName":"%MenifaTable","qCardinal":266,"qTags":["$hidden","$numeric","$integer"],"qSrcTables":[]}
+{"qName":"UserName_OS","qCardinal":1339,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1337,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"FULLNAME","qCardinal":1328,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"USERNAME_DOCGROUP","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Authenticated_Project"]}
