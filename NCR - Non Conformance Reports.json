@@ -1,7 +1,7 @@
 
 SHEETS
 {"qInfo":{"qId":"2e59f182-3065-4050-9460-df63ada4ab1a","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"2e59f182-3065-4050-9460-df63ada4ab1a","approved":true,"published":true,"publishTime":"2026-06-24T12:10:45.709Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.239Z","modifiedDate":"2026-08-10T12:53:23.239Z","encrypted":true,"privileges":["read","publish"],"title":"OverDue","description":""},"qData":[]}
-{"qInfo":{"qId":"5905d159-dec7-47a1-98bf-eec708b8b4b5","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5905d159-dec7-47a1-98bf-eec708b8b4b5","approved":false,"published":true,"publishTime":"2026-08-10T14:58:21.039Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.222Z","modifiedDate":"2026-08-10T14:58:20.811Z","encrypted":true,"privileges":["read","publish"],"title":"HomePage","description":""},"qData":[]}
+{"qInfo":{"qId":"5905d159-dec7-47a1-98bf-eec708b8b4b5","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5905d159-dec7-47a1-98bf-eec708b8b4b5","approved":false,"published":true,"publishTime":"2026-08-10T15:59:34.857Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.222Z","modifiedDate":"2026-08-10T15:59:34.653Z","encrypted":true,"privileges":["read","publish"],"title":"HomePage","description":""},"qData":[]}
 {"qInfo":{"qId":"5fb9ddb6-7009-48dd-b949-ee9fc588a347","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5fb9ddb6-7009-48dd-b949-ee9fc588a347","approved":true,"published":true,"publishTime":"2026-06-11T09:53:47.119Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.226Z","modifiedDate":"2026-08-10T12:53:23.226Z","encrypted":true,"privileges":["read","publish"],"title":"Dynamic Sheet","description":""},"qData":[]}
 {"qInfo":{"qId":"6d6ef693-f495-4680-936d-dd68a9fd162e","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6d6ef693-f495-4680-936d-dd68a9fd162e","approved":true,"published":true,"publishTime":"2026-06-24T12:24:40.833Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.231Z","modifiedDate":"2026-08-10T12:53:23.231Z","encrypted":true,"privileges":["read","publish"],"title":"Duration","description":""},"qData":[]}
 {"qInfo":{"qId":"e440b2ed-86ae-4367-9a88-051ed4f5025f","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"e440b2ed-86ae-4367-9a88-051ed4f5025f","approved":true,"published":true,"publishTime":"2026-06-24T14:10:50.980Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-10T12:53:23.218Z","modifiedDate":"2026-08-10T12:53:23.218Z","encrypted":true,"privileges":["read","publish"],"title":"General","description":""},"qData":[]}
@@ -87,10 +87,10 @@ VARIABLES
 {"qName":"vSend2Excel","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"05d3d7d6-9477-44e2-8927-fcdea5e66452","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vToday","qDefinition":"10\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e5125390-7a01-491f-bb18-edbdaef0324a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vTodayLastMonth","qDefinition":"10\/07\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c3962e4f-eb8c-4d77-8e28-7c8f8be872cc","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"10\/08\/2026 16:11","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2572d25a-091d-4f55-a835-b1ea39e33799","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"10\/08\/2026 18:25","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2572d25a-091d-4f55-a835-b1ea39e33799","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b96e98c0-5acf-478e-899d-7633e1d29ef7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"79d9b8ca-f6ab-423b-80dd-d5b345b1ae3d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vDocumentTitleFN","qDefinition":"NCR - Non Conformance Reports(1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6b3488b9-6dba-42c4-b60e-eeed15dad2af","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"NCR - Non Conformance Reports","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6b3488b9-6dba-42c4-b60e-eeed15dad2af","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentNameFN","qDefinition":"81b20d20-d9b8-407b-b070-c4f8628a6eee","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7b1f74c1-f0b4-4af4-8de1-b1f9e99fffda","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentName","qDefinition":"NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a77d093b-269b-44d4-a94c-b4618aca8f16","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pWorkApp","qDefinition":"NCR","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea62153b-24f7-42dd-9493-54f61677c004","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -239,7 +239,7 @@ VARIABLES
 {"qName":"cNTAM1Line","qDefinition":"#2E72C8","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9c026476-51a3-4179-bf5e-fb44802d89a0","qType":"variable"},"qData":[]}
 
 FIELDS
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":224,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":225,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":15,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":12,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":11,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
@@ -250,23 +250,23 @@ FIELDS
 {"qName":"NCR_Level_Num","qCardinal":3,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_Levels","NCR_Report_Details"]}
 {"qName":"Ncr State","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_State"]}
 {"qName":"NCR_State_ID","qCardinal":3,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_State","NcrLogic"]}
-{"qName":"RowNumber","qCardinal":90327,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Key"]}
-{"qName":"subject","qCardinal":36983,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Key_Mail_ID","qCardinal":90327,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Reference_ID","qCardinal":15777,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"RowNumber","qCardinal":90780,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Key"]}
+{"qName":"subject","qCardinal":37078,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Key_Mail_ID","qCardinal":90780,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Reference_ID","qCardinal":15850,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Project_ID","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Sender_Organization_Name","qCardinal":81,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Sender_User_ID","qCardinal":637,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Sender_User_ID","qCardinal":648,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Reason for Issue","qCardinal":0,"qTags":[],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Body","qCardinal":76655,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"mail ID","qCardinal":90327,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Body","qCardinal":77060,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"mail ID","qCardinal":90780,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"NCR Type","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Attribute1Detail","qCardinal":86,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"PackageDetail","qCardinal":86,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Reference Number ID","qCardinal":15777,"qTags":["$ascii","$text","$key"],"qSrcTables":["NCR_Report_Details","NcrLogic"]}
-{"qName":"Reference Number","qCardinal":14896,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"DisciplineDetail","qCardinal":196,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"GeographyDetail","qCardinal":444,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Attribute1Detail","qCardinal":94,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"PackageDetail","qCardinal":94,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Reference Number ID","qCardinal":15850,"qTags":["$ascii","$text","$key"],"qSrcTables":["NCR_Report_Details","NcrLogic"]}
+{"qName":"Reference Number","qCardinal":14944,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"DisciplineDetail","qCardinal":212,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"GeographyDetail","qCardinal":453,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Attribute4Detail","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"NCR_Type","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"NCR_Level","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
@@ -274,99 +274,100 @@ FIELDS
 {"qName":"NCR_Opened_By_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"NCR_Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"NCR_Status_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Open_Date","qCardinal":2551,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Open"]}
+{"qName":"Open_Date","qCardinal":2565,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Open"]}
 {"qName":"Open_Date_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Close_Date","qCardinal":2322,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Close"]}
+{"qName":"Close_Date","qCardinal":2336,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Report_Details","NCR_Calendar_Close"]}
 {"qName":"Cause_Of_Deficiency","qCardinal":14,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Cause_Of_Deficiency_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Description Of The Deficiency","qCardinal":16342,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Description Of The Deficiency","qCardinal":16414,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Description_Of_The_Deficiency_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"NCR Contractor Sys Code","qCardinal":4074,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Drawing\/Reference","qCardinal":4567,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"NCR Contractor Sys Code","qCardinal":4082,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Drawing\/Reference","qCardinal":4583,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"DrawingReference_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Spec\/Contract Reference","qCardinal":2721,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Spec\/Contract Reference","qCardinal":2751,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"SpecContract_Reference_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Element Name\/Code","qCardinal":4947,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Element Name\/Code","qCardinal":5004,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Element_NameCode_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Proposed Corrective Action","qCardinal":14388,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Proposed Corrective Action","qCardinal":14455,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Proposed_Corrective_Action_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Proposed Disposition","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Proposed_Disposition_Flag","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Engineer-QA CA Decision","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Engineer-QA CA Person","qCardinal":84,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Engineer-QA CA Date","qCardinal":827,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Engineer-QA CA Comments","qCardinal":1423,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Person","qCardinal":88,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Date","qCardinal":843,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA CA Comments","qCardinal":1462,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Designer CA Decision","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Designer CA Person","qCardinal":45,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Designer CA Date","qCardinal":90,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Designer CA Comments","qCardinal":149,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Person","qCardinal":52,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Date","qCardinal":96,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Designer CA Comments","qCardinal":159,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Corrective Action Taken","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Corrective Actions Comments","qCardinal":3484,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Corrective Actions Comments","qCardinal":3517,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Engineer-QA Closed-Out Decision","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Engineer-QA Closed-Out Person","qCardinal":71,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Engineer-QA Closed-Out Date","qCardinal":735,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"Engineer-QA Closed-Out Comments","qCardinal":857,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Person","qCardinal":74,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Date","qCardinal":759,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"Engineer-QA Closed-Out Comments","qCardinal":883,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Designer Closed-Out Decision","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Designer Closed-Out Person","qCardinal":141,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Designer Closed-Out Date","qCardinal":750,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Report_Details"]}
 {"qName":"Designer Closed-Out Comments","qCardinal":1390,"qTags":["$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"LinkToAconex","qCardinal":90327,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
-{"qName":"ProjectPackageKey","qCardinal":89,"qTags":["$ascii","$text","$key"],"qSrcTables":["NCR_Report_Details","NCR_Package_Table"]}
-{"qName":"ProjectGeographyKey","qCardinal":448,"qTags":["$text","$key"],"qSrcTables":["NCR_Report_Details","Geography_Table"]}
+{"qName":"LinkToAconex","qCardinal":90780,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Report_Details"]}
+{"qName":"ProjectPackageKey","qCardinal":101,"qTags":["$ascii","$text","$key"],"qSrcTables":["NCR_Report_Details","NCR_Package_Table"]}
+{"qName":"ProjectGeographyKey","qCardinal":457,"qTags":["$text","$key"],"qSrcTables":["NCR_Report_Details","Geography_Table"]}
 {"qName":"Managing_Company","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Package_Table"]}
 {"qName":"Load_Date","qCardinal":1,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
 {"qName":"Reference_Count","qCardinal":54,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
-{"qName":"Mail_ID_ReportFirst","qCardinal":15776,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
-{"qName":"Mail_ID_ReportLast","qCardinal":15777,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
-{"qName":"Responsible Person","qCardinal":2088,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Main Contractor","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Mail_ID_ReportFirst","qCardinal":15849,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Mail_ID_ReportLast","qCardinal":15850,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Responsible Person","qCardinal":2099,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Main Contractor","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"ProjectID","qCardinal":9,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NcrLogic","Authenticated_Project"]}
 {"qName":"NCR_Opened_By","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"Organization Name","qCardinal":64,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"To User","qCardinal":790,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"ToRecipients","qCardinal":3534,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Attribute1","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Package","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Attribute2","qCardinal":165,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Attribute1 CODE","qCardinal":55,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Discipline","qCardinal":165,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Attribute2 CODE","qCardinal":165,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Attribute3","qCardinal":258,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Geography","qCardinal":382,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Attribute3 CODE","qCardinal":145,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"NCR Description","qCardinal":15052,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"To User","qCardinal":797,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"ToRecipients","qCardinal":3570,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute1","qCardinal":45,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Package","qCardinal":45,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute2","qCardinal":176,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute1 CODE","qCardinal":60,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Discipline","qCardinal":176,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute2 CODE","qCardinal":176,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute3","qCardinal":259,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Geography","qCardinal":384,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Attribute3 CODE","qCardinal":146,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"Attribute4","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"Attribute4 CODE","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Work Type","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Work Type Code","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Mail_Subject","qCardinal":12855,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Reporting Date","qCardinal":15777,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Work Type","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Work Type Code","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Mail_Subject","qCardinal":12890,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Reporting Date","qCardinal":15850,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
 {"qName":"Last Sender Organization","qCardinal":64,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Last Sender User","qCardinal":360,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Sender User","qCardinal":369,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"Expected_Closing_Date_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"Close_Date_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
-{"qName":"Last Mail Number","qCardinal":15777,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
-{"qName":"Last Sender Date","qCardinal":15777,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
-{"qName":"Last_Recipient_Organization","qCardinal":2022,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Last Recipient Date","qCardinal":8349,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Mail Number","qCardinal":15850,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Sender Date","qCardinal":15850,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last_Recipient_Organization","qCardinal":2036,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Last Recipient Date","qCardinal":8400,"qTags":["$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR Status","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Close_Date_Original","qCardinal":2235,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
-{"qName":"Open_Date_Original","qCardinal":2543,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
-{"qName":"Expected_Closing_Date_Fix","qCardinal":2405,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
-{"qName":"Expected Closing Date","qCardinal":2405,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NcrLogic","NCR_Calendar_ExpectedClose"]}
+{"qName":"Close_Date_Original","qCardinal":2249,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Open_Date_Original","qCardinal":2557,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected_Closing_Date_Fix","qCardinal":2424,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected Closing Date","qCardinal":2424,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NcrLogic","NCR_Calendar_ExpectedClose"]}
 {"qName":"Expected_Closing_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
-{"qName":"Date Opened","qCardinal":2597,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Date Closed","qCardinal":5168,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
+{"qName":"Date Opened","qCardinal":2611,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
+{"qName":"Date Closed","qCardinal":5189,"qTags":["$numeric","$timestamp"],"qSrcTables":["NcrLogic"]}
 {"qName":"Line","qCardinal":7,"qTags":["$ascii","$text","$key"],"qSrcTables":["NcrLogic","NCR_Monthly_Backlog"]}
 {"qName":"ProjectSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR_Closed_On_TimeFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR_Open_and_On_TimeFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
-{"qName":"Expected_Closing_Days_Overdue","qCardinal":289,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
-{"qName":"Duration_Interval","qCardinal":1364,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Expected_Closing_Days_Overdue","qCardinal":296,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Duration_Interval","qCardinal":1362,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR Overdue","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR_OnTime_Flag","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR_OnTime_Desc","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
-{"qName":"Key","qCardinal":266,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NcrLogic","Menifa_Hierarchy"]}
-{"qName":"Duration_Interval_Num","qCardinal":1364,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
+{"qName":"Key","qCardinal":280,"qTags":["$numeric","$integer","$key"],"qSrcTables":["NcrLogic","Menifa_Hierarchy"]}
+{"qName":"Duration_Interval_Num","qCardinal":1362,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"Duration_Interval_ID","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["NcrLogic"]}
 {"qName":"Duration_Interval_Name","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"Duration_Interval_Description","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
@@ -375,11 +376,11 @@ FIELDS
 {"qName":"Overdue_Interval_Description","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["NcrLogic"]}
 {"qName":"NCR_Date_backlog","qCardinal":129,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["NCR_Monthly_Backlog"]}
 {"qName":"NCR_Opened","qCardinal":121,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
-{"qName":"NCR_Closed","qCardinal":123,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Closed","qCardinal":121,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
 {"qName":"NCR_Net_Change","qCardinal":100,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
 {"qName":"YYYMM_Backlog","qCardinal":129,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
-{"qName":"NCR_Open_Backlog","qCardinal":233,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
-{"qName":"NCR_Date","qCardinal":3203,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Calendar_Key","NCR_Calendar"]}
+{"qName":"NCR_Open_Backlog","qCardinal":239,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Monthly_Backlog"]}
+{"qName":"NCR_Date","qCardinal":3214,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["NCR_Calendar_Key","NCR_Calendar"]}
 {"qName":"NCR_Date_ID","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Key"]}
 {"qName":"NCR_Date_Name","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Key"]}
 {"qName":"NCR Year","qCardinal":14,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
@@ -398,19 +399,19 @@ FIELDS
 {"qName":"NCR MonthName","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
 {"qName":"Month","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
 {"qName":"NCR MonthNameL","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
-{"qName":"NCR YearWeek","qCardinal":553,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
+{"qName":"NCR YearWeek","qCardinal":554,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar"]}
 {"qName":"NCR WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
 {"qName":"YYYYMM","qCardinal":136,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar"]}
-{"qName":"Open Year\/WeekNum","qCardinal":529,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year\/WeekNum","qCardinal":531,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open Year","qCardinal":11,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open Year-Quarter","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open Year Quarter","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open YearQuarterSort","qCardinal":43,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
-{"qName":"Open Year-Month","qCardinal":126,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
-{"qName":"Open Year Month","qCardinal":126,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
-{"qName":"Open_YearMonth","qCardinal":126,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
-{"qName":"Open YearMonthSort","qCardinal":126,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year-Month","qCardinal":127,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open Year Month","qCardinal":127,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open_YearMonth","qCardinal":127,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
+{"qName":"Open YearMonthSort","qCardinal":127,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
 {"qName":"Open Month","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Open"]}
@@ -431,7 +432,7 @@ FIELDS
 {"qName":"Close Month","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_Close"]}
 {"qName":"Close MonthName","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
 {"qName":"Close MonthNameL","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_Close"]}
-{"qName":"Expected Close Year\/WeekNum","qCardinal":483,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
+{"qName":"Expected Close Year\/WeekNum","qCardinal":484,"qTags":["$ascii","$text"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
 {"qName":"Expected Close WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
 {"qName":"Expected Close Year","qCardinal":13,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
 {"qName":"Calc Expected Close Year","qCardinal":11,"qTags":["$numeric","$integer"],"qSrcTables":["NCR_Calendar_ExpectedClose"]}
@@ -452,19 +453,19 @@ FIELDS
 {"qName":"Geography Type","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Geography_Table"]}
 {"qName":"Geography Site","qCardinal":105,"qTags":["$ascii","$text"],"qSrcTables":["Geography_Table"]}
 {"qName":"Line Code","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"Work package Code","qCardinal":55,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"NBS LEVEL 1 Code","qCardinal":145,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work package Code","qCardinal":60,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"NBS LEVEL 1 Code","qCardinal":146,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
 {"qName":"NBS LEVEL 2 Code","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"Work Type CodeT","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"Work package","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"NBS LEVEL 1","qCardinal":258,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work Type CodeT","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Work package","qCardinal":45,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"NBS LEVEL 1","qCardinal":259,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
 {"qName":"NBS LEVEL 2","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"Work TypeT","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"KeyBase","qCardinal":266,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"KeyBase_Select","qCardinal":337,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qName":"Key_Reversed","qCardinal":337,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
-{"qIsHidden":true,"qName":"%Key_Encrypted","qCardinal":337,"qTags":["$hidden","$text"],"qSrcTables":[]}
-{"qIsHidden":true,"qName":"%MenifaTable","qCardinal":266,"qTags":["$hidden","$numeric","$integer"],"qSrcTables":[]}
+{"qName":"Work TypeT","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"KeyBase","qCardinal":280,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"KeyBase_Select","qCardinal":376,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qName":"Key_Reversed","qCardinal":376,"qTags":["$text"],"qSrcTables":["Menifa_Hierarchy"]}
+{"qIsHidden":true,"qName":"%Key_Encrypted","qCardinal":376,"qTags":["$hidden","$text"],"qSrcTables":[]}
+{"qIsHidden":true,"qName":"%MenifaTable","qCardinal":280,"qTags":["$hidden","$numeric","$integer"],"qSrcTables":[]}
 {"qName":"UserName_OS","qCardinal":1339,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
 {"qName":"UserName_Full","qCardinal":1337,"qTags":["$text"],"qSrcTables":["Display_Users"]}
 {"qName":"FULLNAME","qCardinal":1328,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
