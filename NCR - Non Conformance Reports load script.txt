@@ -691,6 +691,7 @@ FROM [$(vLibDataFiles_DW)/NCR_Package_Table.QVD]
 NcrLogicTemp:
 LOAD
   "Reference Number ID",today() as Load_Date,
+
    COUNT(DISTINCT("mail ID")) AS Reference_Count,
    MIN([sent date]) AS Mail_ID_ReportFirst,
 	MAX([sent date]) AS Mail_ID_ReportLast
@@ -706,6 +707,7 @@ LOAD
   Text(Trim([Opened by])) as NCR_Opened_By,
   Sender_Organization_Name as [Organization Name],
   "Reference Number ID",
+    [Description of the Deficiency] as [NCR Description], 
    SubField([To User],',',1) as [To User], 
 	ToRecipients, 
   SubField(Attribute1,';',1) as Attribute1,
