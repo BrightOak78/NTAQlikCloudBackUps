@@ -1,0 +1,35 @@
+
+SHEETS
+
+OBJECTS ON SHEETS
+
+DIMENSIONS
+
+MEASURES
+
+VARIABLES
+{"qName":"vReloadTime","qDefinition":"30\/07\/2026 14:23","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"950a8995-7e79-4c1e-8718-1782773706b6","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e411192f-fe5b-44f0-9e50-ce9943bcf549","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1660f897-c16e-40ec-b05a-5e85640f2a37","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Aconex_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1b66887c-65cf-4a2d-816d-c5b1615b71ef","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"0b004f05-e593-4812-b47f-382bffd1d172","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a5ece2b6-379a-42e2-b9fd-240d38f43366","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c9831a30-5af2-46e3-be04-1e8f3adc358d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"Aconex_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2eb67c5b-1930-4ce5-9d2f-9c48383d7c20","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Aconex_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"09dbb9dc-dc8d-431e-86ee-5ceeb33ba8db","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Aconex_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8c183b25-289b-4a3d-b44c-d9807300e994","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"73ca50fa-7032-4eb3-b222-791961f5ad30","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"731b0c63-d3f3-4c01-baa9-41747607d995","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"54d9a30f-940d-4dae-87c6-38cd5a8c51fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db55bd88-db12-471e-a402-bc65ce66a642","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bd631857-ce10-4a9d-b2d4-eedfeca58980","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":3,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":2,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":2,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":1,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":2,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$ascii","$text"],"qSrcTables":[]}
+{"qName":"DOCGROUP","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["Authenticated_Project"]}
+{"qName":"Project_ID","qCardinal":9,"qTags":["$key"],"qSrcTables":["Authenticated_Project","ProjectSort"]}
+{"qName":"ProjectSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectSort"]}
