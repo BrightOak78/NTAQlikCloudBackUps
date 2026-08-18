@@ -1,0 +1,135 @@
+
+SHEETS
+{"qInfo":{"qId":"20ec505e-daf3-43d5-9f02-c8e97b4bb957","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"20ec505e-daf3-43d5-9f02-c8e97b4bb957","approved":false,"published":true,"publishTime":"2026-05-03T12:22:35.352Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-05-03T09:52:56.373Z","modifiedDate":"2026-05-07T05:45:51.718Z","encrypted":true,"privileges":["read","publish"],"title":"\u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","description":""},"qData":[]}
+{"qInfo":{"qId":"3587313a-7816-45af-a7b8-479052400143","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"3587313a-7816-45af-a7b8-479052400143","approved":false,"published":true,"publishTime":"2026-05-04T10:16:53.432Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-05-03T09:48:30.713Z","modifiedDate":"2026-05-03T12:22:31.073Z","encrypted":true,"privileges":["read","publish"],"title":"\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd","description":""},"qData":[]}
+{"qInfo":{"qId":"60c84483-d7c9-40ef-ba8b-aa525ef8d6d0","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"60c84483-d7c9-40ef-ba8b-aa525ef8d6d0","approved":false,"published":true,"publishTime":"2026-05-03T12:22:33.315Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-05-03T09:56:27.939Z","modifiedDate":"2026-05-03T12:22:33.258Z","encrypted":true,"privileges":["read","publish"],"title":"\u05e9\u05d9\u05d5\u05da \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9","description":""},"qData":[]}
+{"qInfo":{"qId":"ada07cdd-7181-4516-8ea6-c7d6d4fcc935","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"ada07cdd-7181-4516-8ea6-c7d6d4fcc935","approved":false,"published":true,"publishTime":"2026-06-21T10:21:13.705Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-05-03T09:57:58.741Z","modifiedDate":"2026-06-21T10:21:13.641Z","encrypted":true,"privileges":["read","publish"],"title":"\u05de\u05d5\u05d3\u05dc\u05d9\u05dd","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"7c696d9b-3835-4b9d-b68b-d599c62d76c4","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"KFKFpyc","type":"sn-shape","col":61,"row":3,"colspan":4,"rowspan":39,"bounds":{"y":7.142857142857142,"x":72.61904761904762,"width":4.761904761904762,"height":92.85714285714286}}
+{"name":"LCmabe","type":"sn-pivot-table","col":65,"row":3,"colspan":18,"rowspan":39,"bounds":{"y":7.142857142857142,"x":77.38095238095238,"width":21.428571428571427,"height":92.85714285714286}}
+{"name":"CSWdyaw","type":"sn-table","col":1,"row":3,"colspan":60,"rowspan":39,"bounds":{"y":7.142857142857142,"x":1.1904761904761905,"width":71.42857142857143,"height":92.85714285714286}}
+{"name":"212272f2-f1d4-4d6d-85f5-e44ebe2fcfc3","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"PJdGJfA","type":"auto-chart","col":0,"row":3,"colspan":84,"rowspan":38,"bounds":{"y":7.142857142857142,"x":0,"width":100,"height":90.47619047619048}}
+{"name":"511d8cf4-b9f9-498e-b0d1-cb7ad5eb7573","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"dc4bd492-fb26-4462-a8db-c4261f8961d0","type":"sn-pivot-table","col":0,"row":3,"colspan":39,"rowspan":39,"bounds":{"y":7.142857142857142,"x":0,"width":46.42857142857143,"height":92.85714285714286}}
+{"name":"bbc62cf6-1cc5-4e59-a8d2-995c96089e5c","type":"sn-shape","col":44,"row":3,"colspan":3,"rowspan":39,"bounds":{"y":7.142857142857142,"x":52.38095238095239,"width":3.571428571428571,"height":92.85714285714286}}
+{"name":"430eec45-2f4a-4f20-9b98-9ab5e4e1b4eb","type":"sn-pivot-table","col":47,"row":3,"colspan":37,"rowspan":39,"bounds":{"y":7.142857142857142,"x":55.952380952380956,"width":44.047619047619044,"height":92.85714285714286}}
+{"name":"00e0b65c-29b2-47c8-9bef-cfa97d1e9890","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"b96496c2-ae09-46dc-84bd-3d79a5c8a31b","type":"sn-shape","col":53,"row":3,"colspan":4,"rowspan":39,"bounds":{"y":7.142857142857142,"x":63.095238095238095,"width":4.761904761904762,"height":92.85714285714286}}
+{"name":"jpRAMB","type":"sn-pivot-table","col":0,"row":3,"colspan":42,"rowspan":39,"bounds":{"y":7.142857142857142,"x":0,"width":50,"height":92.85714285714286}}
+{"name":"ExpcaV","type":"sn-table","col":62,"row":3,"colspan":22,"rowspan":39,"bounds":{"y":7.142857142857142,"x":73.80952380952381,"width":26.190476190476193,"height":92.85714285714286}}
+
+DIMENSIONS
+
+MEASURES
+
+VARIABLES
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"97b43271-12b0-440e-b3d3-c2aa27ba972c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a39516bd-84ed-4dd5-9ae7-d192fc4e3852","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"QA Back:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"Security","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"QV_Security","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e22743b-017d-46a0-982d-dfa4d3adad7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"\u05d4\u05e8\u05e9\u05d0\u05d5\u05ea","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f42e28f4-103e-4a11-991a-f21394b32dfd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea45f26e-5b5a-48ef-bd90-63a75bef584c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"18\/08\/2026 15:16","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"05d5b9ca-86b3-4dfc-8c18-ddf7b66c8596","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pQvdDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"114d89e3-4e18-4161-90ca-432ab3f594c2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pQvdTemp","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdTemp\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"acbf9ef6-99e2-49e7-82a0-592c123a8c45","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW_SQL","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/SAP SQL\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7b940d9c-19f9-496e-b55e-e2833ded02b7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pData","qDefinition":"lib:\/\/API & Connections:File_jqvnta01_Qlikview\/Production\/GeneralConfig\/Security\/Data\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"70a7d7df-95bd-4738-a874-4f12ccd311d0","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pQVServer","qDefinition":"lib:\/\/API & Connections:File_jqvnta01_Qlikview\/QlikViewServer\/Documents\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38bf0f90-8339-4c49-b2e1-e2b581f11474","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pQvd","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ddf7ae2e-ed6b-422d-8040-a256c1994a30","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocName","qDefinition":"Qlikview","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3dd815ba-0ff9-4881-85fa-126340ed1805","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"SAPClient","qDefinition":"400","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6417f4b8-ac87-40c2-83d8-37f1d14a1d49","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"SAPFilter","qDefinition":"X","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c760de82-e19c-4fca-b129-f996815754c3","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"SAPLanguage","qDefinition":"B","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e14ce7a2-7170-4772-aa9a-bbf4e29c1d2c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"SAPCountry","qDefinition":"IL","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b0ac347b-46b0-4cd6-b660-7a992c100f5b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"SAPCompany","qDefinition":"1000","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d4c3a24d-dcc3-40ea-827e-8298519e343a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vGetSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"67743e47-ac82-470f-9afe-dfd251dbb3ee","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Production Back:DataFiles\/RAW\/Security","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff76b12d-bbcf-4b94-9df8-67b350a2bf57","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
+{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
+{"qName":"rRunStart","qDefinition":"07\/05\/2026 8:10:30 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1a86fba4-2d62-4881-8f5e-a88b22a6da31","qType":"variable"},"qData":[]}
+{"qName":"pSecurity","qDefinition":"D:\\Qlikview\\Production\\GeneralConfig\\Security\\Qvd\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"532e4d2c-da29-41a0-a06e-bb7dd35a6394","qType":"variable"},"qData":[]}
+{"qName":"pSapDB","qDefinition":"lib:\/\/QA Back:File_jqvnta01_Qlikview\\Production\\GeneralConfig\\SAP\\QvdDB\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2b8f7b4f-d8da-46b3-a4b0-183f8077418b","qType":"variable"},"qData":[]}
+{"qName":"pSapReports","qDefinition":"D:\\Qlikview\\Production\\GeneralConfig\\SAP\\QvdReports\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3ceaa559-0686-4fa7-98af-90cdacaf258d","qType":"variable"},"qData":[]}
+{"qName":"pSapData","qDefinition":"D:\\Qlikview\\Production\\GeneralConfig\\SAP\\QvdXls\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e6138720-c478-4db9-9eeb-3b5f31493061","qType":"variable"},"qData":[]}
+{"qName":"pLib","qDefinition":"lib:\/\/QA Back:File_jqvnta01_Qlikview","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8dda5a7d-b069-47c1-9296-1181faa6147c","qType":"variable"},"qData":[]}
+{"qName":"pWorkTopic","qDefinition":"GeneralConfig","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"527600d5-86f5-4846-aeee-f5011bd7a0ff","qType":"variable"},"qData":[]}
+{"qName":"pWorkEnv","qDefinition":"Production","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"265eb6bc-ec35-4cac-a1e0-6cbd8343f882","qType":"variable"},"qData":[]}
+{"qName":"pSapQueries","qDefinition":"D:\\Qlikview\\Production\\GeneralConfig\\SAP\\QvdQueries\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9831ab95-3b08-4319-9ebb-190da211bf28","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":63,"qTags":["$hidden","$system","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":8,"qTags":["$hidden","$system","$text","$ascii","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":7,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":5,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":34,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$text","$ascii"],"qSrcTables":[]}
+{"qName":"UserName_OS","qCardinal":1350,"qTags":["$text","$ascii"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1348,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"USERNAME_DOCGROUP","qCardinal":1,"qTags":["$text","$ascii"],"qSrcTables":["Access_Groups"]}
+{"qName":"USERNAME_DOCGROUPCODE","qCardinal":1,"qTags":["$text","$ascii"],"qSrcTables":["Access_Groups"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":2547,"qTags":["$text","$ascii","$key"],"qSrcTables":["Users_Data","Users_PurchasingGroups_Exchange","Users_PurchasingGroups_CheckUp","Security_Documents"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":2489,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05e4\u05e8\u05d8\u05d9","qCardinal":1125,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05de\u05e9\u05e4\u05d7\u05d4","qCardinal":1966,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05d0\u05d9\u05de\u05d9\u05d9\u05dc","qCardinal":2142,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05d0\u05d2\u05e3","qCardinal":79,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05d0\u05d2\u05e3","qCardinal":78,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05d7\u05d8\u05d9\u05d1\u05d4","qCardinal":43,"qTags":[],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05d7\u05d8\u05d9\u05d1\u05d4","qCardinal":43,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":894,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":884,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05de\u05d5\u05d1\u05d9\u05dc \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":25,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA \u05d9\u05d7\u05d9\u05d3\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea","qCardinal":8,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA \u05e7\u05d5\u05d3 \u05d9\u05d7\u05d9\u05d3\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea","qCardinal":7,"qTags":[],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_#UserSap","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_#UserPG","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_#UserQV","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_#UserQVS","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserSap_ActiveCode","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserSap_ActiveName","qCardinal":2,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserSap_InternalCode","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserSap_InternalName","qCardinal":3,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserSap_TypeCode","qCardinal":4,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserSap_TypeName","qCardinal":4,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserPG_ActiveCode","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserPG_ActiveName","qCardinal":2,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_ActiveCode","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_ActiveName","qCardinal":2,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_InternalCode","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_InternalName","qCardinal":2,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_TypeCode","qCardinal":3,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_TypeName","qCardinal":3,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_ClassName","qCardinal":5,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_UserQv_HierarchyName","qCardinal":8,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"Exchange_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":884,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
+{"qName":"Exchange_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":894,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
+{"qName":"Exchange_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":884,"qTags":["$text"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
+{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":884,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":1085,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_UserPG_ActiveCode","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_UserPG_ActiveName","qCardinal":2,"qTags":["$text"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05de\u05d5\u05d1\u05d9\u05dc \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9 \u05d0\u05d7\u05e8\u05d5\u05e0\u05d4 \u05dc\u05de\u05e9\u05ea\u05de\u05e9 \u05e4\u05e2\u05d9\u05dc\u05d4","qCardinal":20,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05de\u05d5\u05d1\u05d9\u05dc \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9 \u05d0\u05d7\u05e8\u05d5\u05e0\u05d4 \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":25,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05db\u05de\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e8\u05db\u05e9 \u05e7\u05d9\u05d9\u05de\u05d5\u05ea \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05db\u05de\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e8\u05db\u05e9 \u05e4\u05e2\u05d9\u05dc\u05d5\u05ea \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05db\u05de\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e8\u05db\u05e9 \u05de\u05d1\u05d5\u05d8\u05dc\u05d5\u05ea \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"NTA_NTNAME","qCardinal":1168,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_ACCESS","qCardinal":2,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_CODE","qCardinal":1168,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_DOC","qCardinal":45,"qTags":["$text","$ascii","$key"],"qSrcTables":["Security_Documents","Access_Documents"]}
+{"qName":"NTA_USERNAME_DOCGROUP","qCardinal":61,"qTags":["$text","$ascii","$key"],"qSrcTables":["Security_Documents","Access_Groups-6"]}
+{"qName":"NTA_USERNAME_OS","qCardinal":2548,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_DEPARTMENT","qCardinal":80,"qTags":["$text","$numeric","$integer","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_DIVISION","qCardinal":44,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERDATA_OS","qCardinal":2548,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERDATA_DEPARTMENT","qCardinal":80,"qTags":["$text","$numeric","$integer","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERDATA_DIVISION","qCardinal":44,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_DOCGROUPNUM","qCardinal":58,"qTags":["$numeric","$integer"],"qSrcTables":["Access_Groups-6"]}
+{"qName":"NTA_USERNAME_DOCNUM","qCardinal":42,"qTags":["$numeric","$integer"],"qSrcTables":["Access_Documents"]}
