@@ -1,0 +1,274 @@
+///$tab Main & Connect
+// Binary [3e2372c4-06cb-45fd-84fd-4158c4060f06];
+
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = Workflow Control; //Free Document Name
+SET pWorkApp = WorkflowControl; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+
+
+
+///$tab Tables Load
+NoConcatenate
+WF_DW:
+LOAD
+    ProjectID,
+    ParentWorkflowId,
+    WorkflowId,
+    WorkflowNumber,
+    GraphYYYYMM,
+    ParentWorkflowNumber,
+    UpperStepName,
+    Parent_Actual_Duration,
+    Parent_Assignee_UserId,
+    Parent_Assignee_Name,
+    Parent_Assignee_OrganizationId,
+    Parent_Assignee_OrganizationName,
+    Parent_Reviewer_UserId,
+    Parent_Reviewer_Name,
+    Parent_Reviewer_OrganizationId,
+    Parent_Reviewer_OrganizationName,
+    ParentWorkflowStatus,
+    ParentWorkflowName,
+    ParentDueDate,
+    ParentDateCompleted,
+    ParentDateIn,
+    Parent_StepName,
+    Parent_StepOutcome,
+    Parent_StepStatus,
+    SubCounter,
+    DateCompleted,
+    DateDue,
+    DateIn,
+    DaysLate,
+    WF_DocumentNumber,
+    DocumentRevision,
+    "DocumentTitle",
+    WF_DocumentTrackingId,
+    WF_DocumentVersion,
+    Duration,
+    "FileName",
+    OriginalDueDate,
+    StepName,
+    StepOutcome,
+    StepStatus,
+    WorkflowName,
+    WorkflowStatus,
+    WorkflowTemplate,
+    ReasonForIssue,
+    Assignee_Name,
+    Assignee_OrganizationId,
+    Assignee_OrganizationName,
+    Assignee_UserId,
+    Reviewer_Name,
+    Reviewer_OrganizationId,
+    Reviewer_OrganizationName,
+    Reviewer_UserId,
+    Actual_Duration,
+    Initiator_Name,
+    Initiator_OrganizationName,
+    ParentDueDateMax,
+    ParentDateCompletedMax,
+    ParentDateInMin,
+    DateCompletedMax,
+    WF_OrgDueDate,
+    WF_DateIn,
+    WF_Calculated_Status,
+    ParentWF_Calculated_Status,
+    "Step Phase",
+    FaultFlag1,
+    Main_WF_No,
+    "Sub WF Detailed Status",
+    "Main WF Detailed Status",
+    MainWF_Duration,
+    Completed_YYYYMM,
+    YYYYMM,
+    "Year",
+    YearMonthSort,
+    "שנה/חודש",
+    MainWFKey,
+    SubWFKey,
+    Sub_WF_Duration,
+    Line_Owner,
+    Current_User,
+    Parent_Current_User
+FROM $(vLibDataFiles_DW)/WF_DW.qvd(qvd);
+
+NoConcatenate
+LOAD
+    Key,
+    "LINE",
+    LineCode,
+    ProjectID,
+    DocumentVersionNumber,
+    DocumentTrackingId,
+    documentid,
+    WF_DocumentNumber,
+    "Document Type",
+    title,
+    revision,
+    Discipline,
+    "Created By",
+    ReviewSource,
+    "Review Status",
+    "Document Number",
+    Package,
+    "WorkPackage Code",
+    "Sub Discipline",
+    "Program Phase",
+    "Program Phase Code",
+    WP,
+    "Work Type Code",
+    "NBS Lv1",
+    "NBS Lv1 Code",
+    "NBS Lv2",
+    "NBS Lv2 Code",
+    Destination,
+    Originator,
+    "Sub Phase"
+FROM  $(vLibDataFiles_DW)/Documents.qvd(qvd);
+
+
+
+NoConcatenate
+Acnx_Reload:
+LOAD
+    "ReloadTime"
+FROM  $(vLibDataFiles_RAW)/Acnx_Reload.qvd(qvd);
+
+NoConcatenate
+MenifaTable:
+LOAD
+    Key,
+    KeyBase_Select,
+    KeyBase,
+    Key_Reversed,
+    %Key_Encrypted
+FROM $(vLibDataFiles_DW)/MenifaTable.qvd(qvd);
+
+
+
+///$tab StepPhaseRank
+NoConcatenate
+StepPhaseRank:
+LOAD * INLINE [
+    Step Phase, StepPhaseRank
+    Quality Check,1
+    NTA Referents,2
+    Line Functional Leader,3
+    DCC,4
+    
+];
+///$tab UI
+// $(Include=d:\qlikview\$(pWorkEnv)\generalconfig\include\icolors2024.txt);
+
+SET vColor_GreenNTA=ARGB(255,0,193,51);
+SET vColor_GrayDeep =ARGB(255,110,110,110);
+SET vColor_BlueNTA =ARGB(255,33,65,134);
+SET vColor_BlackNTA =ARGB(255,73,73,73);
+SET vColor_NegetiveRed = 'RGB(226,68,73)'
+///$tab Govity
+//SET pQvd_Govity='D:\Qlikview\$(pWorkEnv)\GeneralConfig\Qlikview\Qvd\';//$(pQvd_Govity)
+//
+//Govity:
+//LOAD *,
+//     DocumentName()
+//FROM [$(pQvd_Govity)ModelsUsages.QVD](qvd)
+//where upper(DocumentName()) =  upper(DocName);
+
+///$tab Section Access
+
+
+// //************************************************************************************
+// // Show User Name
+// Display_Users:
+// LOAD 
+// 	[קוד משתמש] AS UserName_OS,
+// 	[שם משתמש] AS UserName_Full
+// // FROM [lib://Data Files:DataFiles/DEV/DW/Security/Qvd/Users_Data.QVD](qvd)
+// FROM $(vQvdSecurityDB)Users_Data.QVD (qvd)
+// WHERE #UserQV='1';
+
+// //********************************************
+
+// Section Access;
+
+// LOAD NTNAME, 
+//      ACCESS, 
+//      USERNAME_DOCGROUP, 
+//      USERNAME_DEPARTMENT, 
+//      USERNAME_DIVISION,
+//      USERDATA_OS
+// FROM $(vQvdSecurityDB)Security_WorkFlowControl.QVD (qvd);
+// //Where ACCESS='ADMIN' or Match(NTNAME,'LIATSC','LILACHB''MEIRS');
+
+
+// Section Application;
+
+// LOAD * INLINE [
+//     USERNAME_DOCGROUP,LineCode
+//     POWERUSER, M1
+//     POWERUSER, M2
+//     POWERUSER, M3
+//     POWERUSER,חסר
+//     METRO1, M1
+//     METRO2, M2
+//     METRO3, M3
+//     ADMIN, M1
+//     ADMIN, M2
+//     ADMIN, M3
+//     ADMIN, חסר
+//     USER, חסר
+// ];
+// //
+// //************************************************************************************
+
+///$tab END
+Exit Script
