@@ -1,0 +1,155 @@
+///$tab Main & Connect
+
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = מודל התחיבויות צד ג; //Free Document Name
+SET pWorkApp = ThirdPartyLiabilities; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+
+
+
+///$tab Tables Load
+
+NoConcatenate
+RFC_Contracts:
+LOAD Distinct
+    *
+FROM $(vLibDataFiles_DW)/RFC_Contracts.qvd(qvd);
+
+NoConcatenate
+RFC_Orders:
+Load Distinct
+    *
+FROM $(vLibDataFiles_DW)/RFC_Orders.qvd(qvd);
+
+NoConcatenate
+RFC_Billing:
+Load Distinct
+    *
+FROM $(vLibDataFiles_DW)/RFC_Billing.qvd(qvd);
+
+NoConcatenate
+Sums:
+Load Distinct
+    *
+FROM $(vLibDataFiles_DW)/Sums.qvd(qvd);
+
+NoConcatenate
+TPL_Reload:
+Load Distinct
+    *
+FROM $(vLibDataFiles_DW)/TPL_Reload.qvd(qvd);
+
+//****************************************************************************************
+
+NoConcatenate
+Unified_Sums:
+Load Distinct
+*
+From $(vLibDataFiles_DW)/Unified_Sums.qvd(qvd);
+
+///$tab Govity
+//SET pQvd_Govity='D:\Qlikview\$(pWorkEnv)\GeneralConfig\Qlikview\Qvd\';//$(pQvd_Govity)
+//
+//Govity:
+//LOAD *,
+//     DocumentName()
+//FROM [$(pQvd_Govity)ModelsUsages.QVD](qvd)
+//where upper(DocumentName()) =  upper(DocName);
+
+///$tab Section Access
+
+//************************************************************************************
+// Show User Name
+Display_Users:
+LOAD 
+	[קוד משתמש] AS UserName_OS,
+	[שם משתמש] AS UserName_Full
+FROM $(vQvdSecurityDB)Users_Data.QVD(qvd)
+WHERE #UserQV='1'; 
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM $(vQvdSecurityDW)Authenticated_User.QVD(qvd);
+
+//********************************************
+
+// Section Access;
+
+// LOAD NTNAME, 
+//      ACCESS, 
+//      USERNAME_DOCGROUP, 
+//      USERNAME_DEPARTMENT, 
+//      USERNAME_DIVISION,
+//      USERDATA_OS
+// FROM [$(pSecurity)Security_MetroLinesPlaning.QVD] (qvd);
+
+
+
+// Section Application;
+
+// LOAD * INLINE [
+//     USERNAME_DOCGROUP, Line Code
+//     POWERUSER, M1
+//     POWERUSER, M2
+//     POWERUSER, M3
+//     POWERUSER, ML
+//     ADMIN, M1
+//     ADMIN, M2
+//     ADMIN, M3
+//     ADMIN, ML
+//     M1, M1
+//     M2, M2
+//     M3, M3
+//     ML, ML
+// ];
+///$tab END
+Exit Script
