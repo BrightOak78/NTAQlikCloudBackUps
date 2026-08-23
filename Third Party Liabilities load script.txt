@@ -105,6 +105,50 @@ From $(vLibDataFiles_DW)/Unified_Sums.qvd(qvd);
 
 ///$tab Section Access
 
+
+// //*****************************************************
+
+// // Show User Name
+// Display_Users:
+// LOAD 
+//      USERDATA_OS
+// FROM [$(pSecurity)Security_ThirdPartyLiabilities.QVD] (qvd);
+// Left Join
+// LOAD 
+// 	[קוד משתמש] AS UserName_OS,
+// 	[קוד משתמש] AS USERDATA_OS,
+// 	[שם משתמש] AS UserName_Full
+// FROM [$(pSecurity)Users_Data.QVD] (qvd)
+// WHERE #UserQV='1';
+
+// //********************************************
+
+// Access_Groups:
+
+// LOAD DOCGROUP as USERNAME_DOCGROUP, 
+//      קו 
+// FROM [D:\Qlikview\Production\GeneralConfig\Security\Data\Security_AddOn.xlsx]
+// (ooxml, embedded labels, table is LinesGroups);
+
+// //********************************************
+
+// Section Access;
+
+// LOAD NTNAME, 
+//      ACCESS, 
+//      USERNAME_DOCGROUP, 
+//      USERNAME_DEPARTMENT, 
+//      USERNAME_DIVISION,
+//      USERDATA_OS
+// FROM [$(pSecurity)Security_ThirdPartyLiabilities.QVD] (qvd);
+
+// Section Application;
+
+// Star is *;
+// ////*****************************************************
+
+
+
 //************************************************************************************
 // Show User Name
 Display_Users:
