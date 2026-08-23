@@ -105,68 +105,78 @@ From $(vLibDataFiles_DW)/Unified_Sums.qvd(qvd);
 
 ///$tab Section Access
 
+//*****************************************************
 
-// //*****************************************************
-
-// // Show User Name
-// Display_Users:
-// LOAD 
-//      USERDATA_OS
-// FROM [$(pSecurity)Security_ThirdPartyLiabilities.QVD] (qvd);
-// Left Join
-// LOAD 
-// 	[קוד משתמש] AS UserName_OS,
-// 	[קוד משתמש] AS USERDATA_OS,
-// 	[שם משתמש] AS UserName_Full
-// FROM [$(pSecurity)Users_Data.QVD] (qvd)
-// WHERE #UserQV='1';
-
-// //********************************************
-
-// Access_Groups:
-
-// LOAD DOCGROUP as USERNAME_DOCGROUP, 
-//      קו 
-// FROM [D:\Qlikview\Production\GeneralConfig\Security\Data\Security_AddOn.xlsx]
-// (ooxml, embedded labels, table is LinesGroups);
-
-// //********************************************
-
-// Section Access;
-
-// LOAD NTNAME, 
-//      ACCESS, 
-//      USERNAME_DOCGROUP, 
-//      USERNAME_DEPARTMENT, 
-//      USERNAME_DIVISION,
-//      USERDATA_OS
-// FROM [$(pSecurity)Security_ThirdPartyLiabilities.QVD] (qvd);
-
-// Section Application;
-
-// Star is *;
-// ////*****************************************************
-
-
-
-//************************************************************************************
 // Show User Name
 Display_Users:
-LOAD 
+LOAD Distinct
 	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
 	[שם משתמש] AS UserName_Full
-FROM $(vQvdSecurityDB)Users_Data.QVD(qvd)
-WHERE #UserQV='1'; 
+FROM [$(vQvdSecurityDB)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
 Left Join
 LOAD Distinct
 //RowNumber, 
      NTNAME AS UserName_OS, 
      FULLNAME    
-FROM $(vQvdSecurityDW)Authenticated_User.QVD(qvd);
+FROM $(vQvdSecurityDW)Authenticated_User.QVD (qvd);
 
-//********************************************
+//---------------------------------------------------
 
-// Section Access;
+
+
+//*****************************************************
+
+STAR is *;
+
+Section Access;
+
+LOAD 
+	 Upper(NTNAME & '@nta.co.il') as USERID,
+     Upper(ACCESS) as ACCESS,
+     Upper(USERNAME_DOCGROUP) as USERNAME_DOCGROUP,
+     Upper(USERNAME_DEPARTMENT) as USERNAME_DEPARTMENT,
+     Upper(USERNAME_DIVISION) as USERNAME_DIVISION,
+     Upper(USERDATA_OS) as USERDATA_OS
+FROM [$(vQvdSecurityDB)Security_ThirdPartyLiabilities.QVD](qvd);
+
+
+//*****************************************************
+
+// // Show User Name
+// Display_Users:
+// LOAD 
+//      USERDATA_OS
+// FROM $(vQvdSecurityDB)Security_ThirdPartyLiabilities.QVD(qvd);
+
+// Left Join
+
+// LOAD 
+// 	[קוד משתמש] AS UserName_OS,
+// 	[קוד משתמש] AS USERDATA_OS,
+// 	[שם משתמש] AS UserName_Full
+// FROM $(vQvdSecurityDB)Users_Data.QVD(qvd)
+// WHERE #UserQV='1';
+
+// //********************************************
+
+// Access_Groups:
+// LOAD
+//     DOCGROUP as USERNAME_DOCGROUP,
+//     קו
+// FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Data/Security_AddOn.xlsx]
+// (ooxml, embedded labels, table is LinesGroups);
+
+// // LOAD DOCGROUP as USERNAME_DOCGROUP, 
+// //      קו 
+// // FROM [D:\Qlikview\Production\GeneralConfig\Security\Data\Security_AddOn.xlsx]
+// // (ooxml, embedded labels, table is LinesGroups);
+
+// //********************************************
+
+//  Section Access;
 
 // LOAD NTNAME, 
 //      ACCESS, 
@@ -174,26 +184,35 @@ FROM $(vQvdSecurityDW)Authenticated_User.QVD(qvd);
 //      USERNAME_DEPARTMENT, 
 //      USERNAME_DIVISION,
 //      USERDATA_OS
-// FROM [$(pSecurity)Security_MetroLinesPlaning.QVD] (qvd);
+// FROM $(vQvdSecurityDB)Security_ThirdPartyLiabilities.QVD(qvd);
 
 
 
-// Section Application;
 
-// LOAD * INLINE [
-//     USERNAME_DOCGROUP, Line Code
-//     POWERUSER, M1
-//     POWERUSER, M2
-//     POWERUSER, M3
-//     POWERUSER, ML
-//     ADMIN, M1
-//     ADMIN, M2
-//     ADMIN, M3
-//     ADMIN, ML
-//     M1, M1
-//     M2, M2
-//     M3, M3
-//     ML, ML
-// ];
+
+//  Section Application;
+
+// Star is *;
+
+
+// // ////*****************************************************
+
+// // Section Application;
+
+// // LOAD * INLINE [
+// //     USERNAME_DOCGROUP, Line Code
+// //     POWERUSER, M1
+// //     POWERUSER, M2
+// //     POWERUSER, M3
+// //     POWERUSER, ML
+// //     ADMIN, M1
+// //     ADMIN, M2
+// //     ADMIN, M3
+// //     ADMIN, ML
+// //     M1, M1
+// //     M2, M2
+// //     M3, M3
+// //     ML, ML
+// // ];
 ///$tab END
 Exit Script
