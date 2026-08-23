@@ -71,7 +71,7 @@ MEASURES
 
 VARIABLES
 {"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"23\/08\/2026 06:00","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"23\/08\/2026 16:42","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff76b12d-bbcf-4b94-9df8-67b350a2bf57","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pWorkApp","qDefinition":"WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentTitleFN","qDefinition":"Workflow_Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e22743b-017d-46a0-982d-dfa4d3adad7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
