@@ -1,0 +1,220 @@
+
+SHEETS
+{"qInfo":{"qId":"604d21d1-4493-4266-942b-a3e64943d238","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"604d21d1-4493-4266-942b-a3e64943d238","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-08T07:39:35.134Z","modifiedDate":"2026-07-09T16:02:01.343Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Documents Control - Tables Container","description":""},"qData":[]}
+{"qInfo":{"qId":"8e9c1c09-7dd3-46e3-a8d7-d4fbab837890","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"8e9c1c09-7dd3-46e3-a8d7-d4fbab837890","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-23T10:42:30.909Z","modifiedDate":"2026-07-23T10:42:30.909Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Documents Control (2)","description":""},"qData":[]}
+{"qInfo":{"qId":"93942cb4-167b-4510-a0ff-c435cc3f6aec","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"93942cb4-167b-4510-a0ff-c435cc3f6aec","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-08T07:38:34.144Z","modifiedDate":"2026-07-08T07:44:33.321Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Tables Copy","description":"BackUp"},"qData":[]}
+{"qInfo":{"qId":"9c732ccb-a639-4120-ada5-646a8f33aa02","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9c732ccb-a639-4120-ada5-646a8f33aa02","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T08:44:41.217Z","modifiedDate":"2026-07-08T07:45:13.545Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Sheet Template","description":""},"qData":[]}
+{"qInfo":{"qId":"NhWb","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"NhWb","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T08:43:37.981Z","modifiedDate":"2026-07-08T07:44:58.462Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Main Bar sheet actions","description":"Set vSheetName in sheet actions"},"qData":[]}
+{"qInfo":{"qId":"a71f7f9e-1362-4788-a371-8149d7593d18","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"a71f7f9e-1362-4788-a371-8149d7593d18","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-08T14:19:22.380Z","modifiedDate":"2026-07-08T14:20:12.964Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Documents Control (1)","description":""},"qData":[]}
+{"qInfo":{"qId":"b01beee8-5c9c-4625-9de0-5c31d1b664e5","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"b01beee8-5c9c-4625-9de0-5c31d1b664e5","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-05T12:34:51.864Z","modifiedDate":"2026-07-09T12:02:35.214Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Tables Only","description":"BackUp"},"qData":[]}
+{"qInfo":{"qId":"eeb8580e-6d0e-4d19-9cba-857fef212c3c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"eeb8580e-6d0e-4d19-9cba-857fef212c3c","approved":false,"published":true,"publishTime":"2026-07-27T15:07:43.660Z","owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T09:33:35.658Z","modifiedDate":"2026-07-27T15:07:43.304Z","encrypted":true,"privileges":["read","publish","change_owner"],"title":"Documents Control","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"89b65f51-8e0d-4969-bfb2-8d7cabfd7507","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":6.521739130434782}}
+{"name":"8bcc3e23-0ea4-4e5c-9378-c2a81a2844ea","type":"sn-tabbed-container","col":0,"row":5,"colspan":84,"rowspan":41,"bounds":{"y":10.869565217391305,"x":0,"width":100,"height":89.13043478260869}}
+{"name":"GNUxr","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":6.521739130434782,"x":0,"width":100,"height":4.3478260869565215}}
+{"name":"c88dffed-51d9-4ab5-b593-b9c8a5a14d6a","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.4482758620689657}}
+{"name":"df3a6c8e-9bc3-4d10-ba6b-f9410530feea","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":3.4482758620689657,"width":100,"height":2.298850574712644}}
+{"name":"7825947b-0d80-4d58-bfbe-4b30e5751e76","type":"linechart","col":0,"row":13,"colspan":39,"rowspan":14,"bounds":{"y":14.942528735632186,"x":0,"width":46.42857142857143,"height":16.091954022988507}}
+{"name":"1b47ce99-de91-423d-bd52-eb4a713b9724","type":"piechart","col":28,"row":27,"colspan":28,"rowspan":14,"bounds":{"y":31.03448275862069,"x":33.33333333333333,"width":33.33333333333333,"height":16.091954022988507}}
+{"name":"abe0925d-6e54-46a0-a6fe-155499392551","type":"piechart","col":0,"row":27,"colspan":28,"rowspan":14,"bounds":{"y":31.03448275862069,"x":0,"width":33.33333333333333,"height":16.091954022988507}}
+{"name":"2ad13c91-cca0-4637-aade-111f28bceaf5","type":"piechart","col":39,"row":13,"colspan":45,"rowspan":14,"bounds":{"y":14.942528735632186,"x":46.42857142857143,"width":53.57142857142857,"height":16.091954022988507}}
+{"name":"5af8b2ea-6001-4027-a0b1-63c677b3e328","type":"sn-layout-container","col":0,"row":5,"colspan":39,"rowspan":8,"bounds":{"y":5.747126436781609,"x":0,"width":46.42857142857143,"height":9.195402298850574}}
+{"name":"f1854f64-beba-4aa2-9cea-cb0b672b0287","type":"sn-layout-container","col":39,"row":5,"colspan":45,"rowspan":8,"bounds":{"y":5.747126436781609,"x":46.42857142857143,"width":53.57142857142857,"height":9.195402298850574}}
+{"name":"fcfd932e-b625-4801-9bf0-a22e2e8d92a0","type":"piechart","col":56,"row":27,"colspan":28,"rowspan":14,"bounds":{"y":31.03448275862069,"x":66.66666666666666,"width":33.33333333333333,"height":16.091954022988507}}
+{"name":"22c28046-b968-437c-a4e9-82ee307f583c","type":"sn-tabbed-container","col":0,"row":41,"colspan":84,"rowspan":46,"bounds":{"y":47.12643678160919,"x":0,"width":100,"height":52.87356321839081}}
+{"type":"table","name":"afd84f8f-7b4c-4afd-a833-2bf42f4d9468","bounds":{"y":7.4074074074074066,"x":0,"width":100,"height":18.51851851851852},"row":14,"rowspan":35,"col":0,"colspan":84}
+{"name":"9453c75a-c1c4-4bb9-b2c1-e5086057ef38","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":4,"bounds":{"x":0,"y":0,"width":100,"height":2.116402116402116}}
+{"name":"1bf621e7-0777-4adf-8d6f-b8cdb3e2ac8e","type":"filterpane","col":0,"row":4,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":2.116402116402116,"width":100,"height":1.058201058201058}}
+{"name":"0e308d55-0792-4115-b022-c13d615b23e2","type":"sn-table","col":0,"row":49,"colspan":84,"rowspan":35,"bounds":{"y":25.925925925925924,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"62413620-9253-494b-af52-9db25acbd24a","type":"sn-table","col":0,"row":84,"colspan":84,"rowspan":35,"bounds":{"y":44.44444444444444,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"152038bf-9fbd-4ece-95ed-a88ef67ec71f","type":"sn-table","col":0,"row":119,"colspan":84,"rowspan":35,"bounds":{"y":62.96296296296296,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"2bd71aca-adf6-4eca-81de-5dda8c77dd97","type":"sn-table","col":0,"row":154,"colspan":84,"rowspan":35,"bounds":{"y":81.48148148148148,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"9c804c46-3592-4e89-b5be-e0ad790e312b","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"xjPhy","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":7.142857142857142,"x":0,"width":100,"height":4.761904761904762}}
+{"name":"mPmUQeP","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"Kmeptbp","type":"sn-layout-container","col":0,"row":3,"colspan":84,"rowspan":3,"bounds":{"y":7.142857142857142,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"ef67417c-4cf6-4d44-ac5d-807e9772d0df","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.317073170731708}}
+{"name":"35f34def-f831-4ec3-8b9e-61be5d240606","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":7.317073170731708,"width":100,"height":4.878048780487805}}
+{"name":"35432cb6-6b02-4e18-aabc-0d8bb5b2b130","type":"linechart","col":0,"row":14,"colspan":59,"rowspan":14,"bounds":{"y":34.146341463414636,"x":0,"width":70.23809523809523,"height":34.146341463414636}}
+{"name":"97209705-9674-455d-a169-8cc18af0b9ad","type":"piechart","col":25,"row":28,"colspan":24,"rowspan":13,"bounds":{"y":68.29268292682927,"x":29.761904761904763,"width":28.57142857142857,"height":31.70731707317073}}
+{"name":"d4627a1a-801c-49db-a547-ef22db833844","type":"piechart","col":0,"row":28,"colspan":25,"rowspan":13,"bounds":{"y":68.29268292682927,"x":0,"width":29.761904761904763,"height":31.70731707317073}}
+{"name":"84b10a06-d1fa-4d86-acc1-88e8de3af5ca","type":"piechart","col":49,"row":28,"colspan":35,"rowspan":13,"bounds":{"y":68.29268292682927,"x":58.333333333333336,"width":41.66666666666667,"height":31.70731707317073}}
+{"name":"976d0b71-e32e-455a-8d6a-822d482376ae","type":"sn-layout-container","col":0,"row":5,"colspan":39,"rowspan":9,"bounds":{"x":0,"y":12.195121951219512,"width":46.42857142857143,"height":21.951219512195124}}
+{"name":"4857ae4d-c5d6-4210-8fbd-8fbc69764d35","type":"sn-layout-container","col":39,"row":5,"colspan":45,"rowspan":9,"bounds":{"x":46.42857142857143,"y":12.195121951219512,"width":53.57142857142857,"height":21.951219512195124}}
+{"name":"f7ab776c-f72e-49ad-b698-73e655b295fa","type":"piechart","col":59,"row":14,"colspan":25,"rowspan":14,"bounds":{"y":34.146341463414636,"x":70.23809523809523,"width":29.761904761904763,"height":34.146341463414636}}
+{"type":"table","name":"7797ece9-f6fe-43f7-bf8f-4ea98934eaf3","bounds":{"y":7.4074074074074066,"x":0,"width":100,"height":18.51851851851852},"row":14,"rowspan":35,"col":0,"colspan":84}
+{"name":"010c3ed6-ac07-40b7-b47b-aabbe6f6967f","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":4,"bounds":{"x":0,"y":0,"width":100,"height":2.116402116402116}}
+{"name":"a8433275-db54-4e34-b496-5aa51de111e1","type":"filterpane","col":0,"row":4,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":2.116402116402116,"width":100,"height":1.058201058201058}}
+{"name":"YdzJrp","type":"sn-table","col":0,"row":49,"colspan":84,"rowspan":35,"bounds":{"y":25.925925925925924,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"XMgaZLh","type":"sn-table","col":0,"row":84,"colspan":84,"rowspan":35,"bounds":{"y":44.44444444444444,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"JjbFP","type":"sn-table","col":0,"row":119,"colspan":84,"rowspan":35,"bounds":{"y":62.96296296296296,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"WBPzPJ","type":"sn-table","col":0,"row":154,"colspan":84,"rowspan":35,"bounds":{"y":81.48148148148148,"x":0,"width":100,"height":18.51851851851852}}
+{"name":"sxfX","type":"sn-tabbed-container","col":0,"row":6,"colspan":84,"rowspan":8,"bounds":{"y":3.1746031746031744,"x":0,"width":100,"height":4.232804232804233}}
+{"name":"8e44180b-9aa5-4ad0-8ebd-6098a0e9a459","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.4482758620689657}}
+{"name":"d85c6588-131e-4666-94d3-0cc0d21e3b9a","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":3.4482758620689657,"width":100,"height":2.298850574712644}}
+{"name":"aNULkT","type":"linechart","col":0,"row":13,"colspan":39,"rowspan":14,"bounds":{"y":14.942528735632186,"x":0,"width":46.42857142857143,"height":16.091954022988507}}
+{"name":"JXYJ","type":"piechart","col":28,"row":27,"colspan":28,"rowspan":14,"bounds":{"y":31.03448275862069,"x":33.33333333333333,"width":33.33333333333333,"height":16.091954022988507}}
+{"name":"TTLpUPP","type":"piechart","col":0,"row":27,"colspan":28,"rowspan":14,"bounds":{"y":31.03448275862069,"x":0,"width":33.33333333333333,"height":16.091954022988507}}
+{"name":"rGvYcA","type":"piechart","col":39,"row":13,"colspan":45,"rowspan":14,"bounds":{"y":14.942528735632186,"x":46.42857142857143,"width":53.57142857142857,"height":16.091954022988507}}
+{"name":"VgpjKR","type":"sn-layout-container","col":0,"row":5,"colspan":39,"rowspan":8,"bounds":{"y":5.747126436781609,"x":0,"width":46.42857142857143,"height":9.195402298850574}}
+{"name":"kqBjt","type":"sn-layout-container","col":39,"row":5,"colspan":45,"rowspan":8,"bounds":{"y":5.747126436781609,"x":46.42857142857143,"width":53.57142857142857,"height":9.195402298850574}}
+{"name":"PCJamDV","type":"piechart","col":56,"row":27,"colspan":28,"rowspan":14,"bounds":{"y":31.03448275862069,"x":66.66666666666666,"width":33.33333333333333,"height":16.091954022988507}}
+{"name":"CtmpwUv","type":"sn-tabbed-container","col":0,"row":41,"colspan":84,"rowspan":46,"bounds":{"y":47.12643678160919,"x":0,"width":100,"height":52.87356321839081}}
+
+DIMENSIONS
+{"qInfo":{"qId":"krQkQK","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"krQkQK","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-08T14:53:02.812Z","modifiedDate":"2026-07-08T14:53:12.899Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Parent_StepStatus","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"vAmrbR","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"vAmrbR","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-08T14:16:51.634Z","modifiedDate":"2026-07-08T14:20:02.858Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"WF_Calculated_Status","description":"","tags":[]},"qData":[]}
+
+MEASURES
+{"qInfo":{"qId":"uZdyJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"uZdyJ","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T11:04:18.093Z","modifiedDate":"2026-06-28T11:04:18.093Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"MainWFOpen","description":"","tags":[]},"qData":[]}
+
+VARIABLES
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"23\/08\/2026 06:00","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff76b12d-bbcf-4b94-9df8-67b350a2bf57","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Workflow_Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e22743b-017d-46a0-982d-dfa4d3adad7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"Workflow Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f42e28f4-103e-4a11-991a-f21394b32dfd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"97b43271-12b0-440e-b3d3-c2aa27ba972c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea45f26e-5b5a-48ef-bd90-63a75bef584c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a39516bd-84ed-4dd5-9ae7-d192fc4e3852","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"4a4d139c-76a8-4fd2-a6b3-70397b92a39d","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5058e7f7-01a8-4965-9556-4d9c03ece48c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9e546d65-5f60-4604-a461-742e139e9e34","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"56c74f07-e9d3-42bf-937c-30434277ab63","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vColor_NegetiveRed","qDefinition":"'RGB(226,68,73)'\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nExit Script","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8af3169a-8e3e-4a5b-8f90-9e68e77ce0d8","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vColor_GreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f583d6d2-61ab-4433-bac5-4c7b38f9e511","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vColor_GrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ea45941-e78e-4e99-ad42-ea495cc34d69","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vColor_BlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0936587c-61df-43c4-9ec6-b108acb98632","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vColor_BlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ab57f49-e121-432e-ae34-7076a2f8f6de","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
+{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2d0565fe-fc77-4f2f-96e8-ac93b618fc3c","qType":"variable"},"qData":[]}
+{"qName":"cGrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"50eccd71-c0dd-49a1-8093-d59ea8d274f8","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e3900747-aa86-4e63-b1b9-243d2fbb9b03","qType":"variable"},"qData":[]}
+{"qName":"cBlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"194c3430-aff9-443f-9952-57d4c4dbb334","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":114,"qTags":["$text","$hidden","$key","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":5,"qTags":["$ascii","$text","$hidden","$key","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":5,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":5,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":80,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$ascii","$text","$hidden","$system"],"qSrcTables":[]}
+{"qName":"ProjectID","qCardinal":6,"qTags":["$numeric","$integer","$keypart"],"qSrcTables":["WF_DW","Documents"]}
+{"qName":"ParentWorkflowId","qCardinal":119589,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowId","qCardinal":295502,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowNumber","qCardinal":1967,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"GraphYYYYMM","qCardinal":52,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWorkflowNumber","qCardinal":1945,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"UpperStepName","qCardinal":76,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Actual_Duration","qCardinal":151,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_UserId","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_Name","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_OrganizationId","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_OrganizationName","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_UserId","qCardinal":44,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_Name","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_OrganizationId","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_OrganizationName","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWorkflowStatus","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWorkflowName","qCardinal":2497,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDueDate","qCardinal":119018,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateCompleted","qCardinal":101036,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateIn","qCardinal":109573,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_StepName","qCardinal":51,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_StepOutcome","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_StepStatus","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"SubCounter","qCardinal":461,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"DateCompleted","qCardinal":265740,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DateDue","qCardinal":161755,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DateIn","qCardinal":121243,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DaysLate","qCardinal":111,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DocumentNumber","qCardinal":377222,"qTags":["$text","$keypart"],"qSrcTables":["WF_DW","Documents"]}
+{"qName":"DocumentRevision","qCardinal":85,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"DocumentTitle","qCardinal":29697,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DocumentTrackingId","qCardinal":35551,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DocumentVersion","qCardinal":53,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Duration","qCardinal":25,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"FileName","qCardinal":37950,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"OriginalDueDate","qCardinal":122656,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"StepName","qCardinal":285,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"StepOutcome","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"StepStatus","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowName","qCardinal":2530,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowStatus","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowTemplate","qCardinal":1070,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ReasonForIssue","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_Name","qCardinal":215,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_OrganizationId","qCardinal":13,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_OrganizationName","qCardinal":13,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_UserId","qCardinal":226,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_Name","qCardinal":191,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_OrganizationId","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_OrganizationName","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_UserId","qCardinal":198,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Actual_Duration","qCardinal":123,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"Initiator_Name","qCardinal":27,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Initiator_OrganizationName","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDueDateMax","qCardinal":2531,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateCompletedMax","qCardinal":2479,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateInMin","qCardinal":2531,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DateCompletedMax","qCardinal":2498,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_OrgDueDate","qCardinal":2577,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DateIn","qCardinal":2577,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_Calculated_Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWF_Calculated_Status","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Step Phase","qCardinal":5,"qTags":["$ascii","$text","$key"],"qSrcTables":["WF_DW","StepPhaseRank"]}
+{"qName":"FaultFlag1","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Main_WF_No","qCardinal":31,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Sub WF Detailed Status","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Main WF Detailed Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"MainWF_Duration","qCardinal":145,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"Completed_YYYYMM","qCardinal":52,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"YYYYMM","qCardinal":57,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Year","qCardinal":9,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"YearMonthSort","qCardinal":52,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"\u05e9\u05e0\u05d4\/\u05d7\u05d5\u05d3\u05e9","qCardinal":52,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"MainWFKey","qCardinal":2531,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"SubWFKey","qCardinal":2581,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Sub_WF_Duration","qCardinal":129,"qTags":[],"qSrcTables":["WF_DW"]}
+{"qName":"Line_Owner","qCardinal":84,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Current_User","qCardinal":78,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Current_User","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Key","qCardinal":376840,"qTags":["$text","$key"],"qSrcTables":["Documents","MenifaTable"]}
+{"qName":"LINE","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"LineCode","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"DocumentVersionNumber","qCardinal":161,"qTags":["$numeric","$integer"],"qSrcTables":["Documents"]}
+{"qName":"DocumentTrackingId","qCardinal":73274,"qTags":["$numeric","$integer"],"qSrcTables":["Documents"]}
+{"qName":"documentid","qCardinal":137986,"qTags":["$numeric","$integer"],"qSrcTables":["Documents"]}
+{"qName":"Document Type","qCardinal":141,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"title","qCardinal":301111,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"revision","qCardinal":991,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"Discipline","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Created By","qCardinal":1035,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"ReviewSource","qCardinal":47955,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Review Status","qCardinal":19,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Document Number","qCardinal":376805,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"Package","qCardinal":126,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"WorkPackage Code","qCardinal":104,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Sub Discipline","qCardinal":225,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Program Phase","qCardinal":312,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Program Phase Code","qCardinal":311,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"WP","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Work Type Code","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv1","qCardinal":206,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv1 Code","qCardinal":206,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv2","qCardinal":166,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv2 Code","qCardinal":161,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Destination","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Originator","qCardinal":21,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Sub Phase","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"ReloadTime","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["Acnx_Reload"]}
+{"qName":"KeyBase_Select","qCardinal":4437,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"KeyBase","qCardinal":2773,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Key_Reversed","qCardinal":4437,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qIsHidden":true,"qName":"%Key_Encrypted","qCardinal":4437,"qTags":["$ascii","$text","$hidden"],"qSrcTables":[]}
+{"qName":"StepPhaseRank","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["StepPhaseRank"]}
