@@ -1,0 +1,185 @@
+
+SHEETS
+{"qInfo":{"qId":"3cb8c4f2-050d-497e-a88d-ed1eb9d3ada7","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"3cb8c4f2-050d-497e-a88d-ed1eb9d3ada7","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-18T05:55:34.892Z","modifiedDate":"2026-08-23T13:33:18.334Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"\u05e8\u05d0\u05e9\u05d9 \u05d9\u05e9\u05df","description":""},"qData":[]}
+{"qInfo":{"qId":"3eada598-109f-492d-93f5-b2bbe8118fcd","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"3eada598-109f-492d-93f5-b2bbe8118fcd","approved":false,"published":true,"publishTime":"2026-08-23T13:35:38.968Z","owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-18T05:55:34.887Z","modifiedDate":"2026-08-23T13:35:38.907Z","encrypted":true,"privileges":["read","publish","change_owner"],"title":"\u05e4\u05d9\u05e8\u05d5\u05d8 \u05ea\u05e0\u05d5\u05e2\u05d5\u05ea \u05d8\u05d1\u05dc\u05d0\u05d9","description":""},"qData":[]}
+{"qInfo":{"qId":"94103550-5411-421d-9c2a-d659ecadb00b","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"94103550-5411-421d-9c2a-d659ecadb00b","approved":false,"published":true,"publishTime":"2026-08-23T13:35:32.954Z","owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-23T12:39:49.432Z","modifiedDate":"2026-08-23T13:35:32.840Z","encrypted":true,"privileges":["read","publish","change_owner"],"title":"\u05e8\u05d0\u05e9\u05d9","description":""},"qData":[]}
+{"qInfo":{"qId":"MJjmj","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"MJjmj","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-23T08:24:31.061Z","modifiedDate":"2026-08-23T08:25:51.417Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"My new sheet","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"ec3ff0c2-9464-4fc6-a17f-6bb67a0f5967","type":"filterpane","col":0,"row":3,"colspan":78,"rowspan":2,"bounds":{"x":0,"y":7.6923076923076925,"width":100,"height":5.128205128205129}}
+{"name":"2c5ebd78-47c7-4edd-b090-9bf1826ee80b","type":"sn-layout-container","col":0,"row":0,"colspan":78,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.6923076923076925}}
+{"name":"MkdAz","type":"barchart","col":0,"row":10,"colspan":50,"rowspan":15,"bounds":{"y":25.64102564102564,"x":0,"width":64.1025641025641,"height":38.46153846153847}}
+{"name":"taJjzh","type":"piechart","col":50,"row":10,"colspan":28,"rowspan":15,"bounds":{"y":25.64102564102564,"x":64.1025641025641,"width":35.8974358974359,"height":38.46153846153847}}
+{"name":"jhxEZJ","type":"barchart","col":0,"row":25,"colspan":78,"rowspan":14,"bounds":{"y":64.1025641025641,"x":0,"width":100,"height":35.8974358974359}}
+{"name":"mFraMp","type":"kpi","col":70,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":89.74358974358975,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"PLWggX","type":"kpi","col":62,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":79.48717948717949,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"dTETXzK","type":"kpi","col":54,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":69.23076923076923,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"HmhhA","type":"kpi","col":46,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":58.97435897435898,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"tSPAPY","type":"kpi","col":21,"row":7,"colspan":7,"rowspan":3,"bounds":{"y":17.94871794871795,"x":26.923076923076923,"width":8.974358974358974,"height":7.6923076923076925}}
+{"name":"fvsDec","type":"kpi","col":13,"row":7,"colspan":7,"rowspan":3,"bounds":{"y":17.94871794871795,"x":16.666666666666664,"width":8.974358974358974,"height":7.6923076923076925}}
+{"name":"uvPDYQj","type":"kpi","col":0,"row":5,"colspan":11,"rowspan":5,"bounds":{"y":12.82051282051282,"x":0,"width":14.102564102564102,"height":12.82051282051282}}
+{"name":"gLPqvb","type":"kpi","col":29,"row":7,"colspan":7,"rowspan":3,"bounds":{"y":17.94871794871795,"x":37.17948717948718,"width":8.974358974358974,"height":7.6923076923076925}}
+{"name":"jnrAXa","type":"kpi","col":37,"row":7,"colspan":7,"rowspan":3,"bounds":{"y":17.94871794871795,"x":47.43589743589743,"width":8.974358974358974,"height":7.6923076923076925}}
+{"name":"gkszeD","type":"sn-text","col":29,"row":5,"colspan":15,"rowspan":2,"bounds":{"y":12.82051282051282,"x":37.17948717948718,"width":19.230769230769234,"height":5.128205128205128}}
+{"name":"Ctycu","type":"sn-text","col":13,"row":5,"colspan":15,"rowspan":2,"bounds":{"y":12.82051282051282,"x":16.666666666666664,"width":19.230769230769234,"height":5.128205128205128}}
+{"name":"bAp","type":"sn-layout-container","col":11,"row":5,"colspan":2,"rowspan":5,"bounds":{"y":12.82051282051282,"x":14.102564102564102,"width":2.564102564102564,"height":12.82051282051282}}
+{"name":"8907de5b-61d9-48ad-8d6c-d64d8b6b0e7d","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.317073170731706}}
+{"name":"JFKkFpp","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":7.317073170731707,"x":0,"width":100,"height":4.878048780487805}}
+{"name":"GeMqwP","type":"sn-tabbed-container","col":0,"row":5,"colspan":84,"rowspan":36,"bounds":{"y":12.195121951219512,"x":0,"width":100,"height":87.8048780487805}}
+{"name":"9f243c49-1aed-409f-8345-e3ab0c38515d","type":"filterpane","col":0,"row":3,"colspan":78,"rowspan":2,"bounds":{"x":0,"y":7.6923076923076925,"width":100,"height":5.128205128205129}}
+{"name":"b42de246-60d4-4abd-8fc6-e7fa7bad4f97","type":"sn-layout-container","col":0,"row":0,"colspan":78,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.6923076923076925}}
+{"name":"504f7146-924c-4c82-8827-ad56b448dbc6","type":"barchart","col":0,"row":10,"colspan":50,"rowspan":15,"bounds":{"y":25.64102564102564,"x":0,"width":64.1025641025641,"height":38.46153846153847}}
+{"name":"254334aa-59f6-49ff-b1c1-3685c282674b","type":"piechart","col":50,"row":10,"colspan":28,"rowspan":15,"bounds":{"y":25.64102564102564,"x":64.1025641025641,"width":35.8974358974359,"height":38.46153846153847}}
+{"name":"134db26a-1d7e-4f29-80c6-bcd53c440383","type":"barchart","col":0,"row":25,"colspan":78,"rowspan":14,"bounds":{"y":64.1025641025641,"x":0,"width":100,"height":35.8974358974359}}
+{"name":"f98e4dc9-8faf-4683-832f-6d9269111266","type":"kpi","col":70,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":89.74358974358975,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"7357fe0b-f866-4e9c-83a7-7e81d63127ea","type":"kpi","col":62,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":79.48717948717949,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"13c3e4ce-ee73-471c-ac58-04cceca4d09f","type":"kpi","col":54,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":69.23076923076923,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"319bfe61-0a9e-4878-b97c-29f1a03b502a","type":"kpi","col":46,"row":5,"colspan":8,"rowspan":5,"bounds":{"y":12.82051282051282,"x":58.97435897435898,"width":10.256410256410255,"height":12.82051282051282}}
+{"name":"6c548fb0-3709-4547-8c45-537590fdf135","type":"kpi","col":0,"row":5,"colspan":11,"rowspan":5,"bounds":{"y":12.82051282051282,"x":0,"width":14.102564102564102,"height":12.82051282051282}}
+{"name":"492edaf5-b2d6-4c49-88b5-1aca18ad45aa","type":"sn-layout-container","col":12,"row":5,"colspan":16,"rowspan":5,"bounds":{"y":12.82051282051282,"x":15.384615384615385,"width":20.51282051282051,"height":12.82051282051282}}
+{"name":"beKsD","type":"sn-layout-container","col":29,"row":5,"colspan":16,"rowspan":5,"bounds":{"y":12.82051282051282,"x":37.17948717948718,"width":20.51282051282051,"height":12.82051282051282}}
+
+DIMENSIONS
+{"qInfo":{"qId":"cnPBZ","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"cnPBZ","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T13:15:58.945Z","modifiedDate":"2026-08-20T13:16:44.029Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Sums Type","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"xshmP","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"xshmP","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T13:36:51.814Z","modifiedDate":"2026-08-20T13:36:51.814Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"LineH1","description":"","tags":[]},"qData":[]}
+
+MEASURES
+{"qInfo":{"qId":"ekBxKN","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"ekBxKN","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T13:37:32.086Z","modifiedDate":"2026-08-20T13:37:32.086Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Sum for pie","description":"","tags":[]},"qData":[]}
+
+VARIABLES
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"\u05de\u05d5\u05d3\u05dc \u05d4\u05ea\u05d7\u05d9\u05d1\u05d5\u05d9\u05d5\u05ea \u05e6\u05d3 \u05d2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f42e28f4-103e-4a11-991a-f21394b32dfd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5058e7f7-01a8-4965-9556-4d9c03ece48c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"56c74f07-e9d3-42bf-937c-30434277ab63","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"ThirdPartyLiabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"23\/08\/2026 11:08","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Third Party Liabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e22743b-017d-46a0-982d-dfa4d3adad7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9e546d65-5f60-4604-a461-742e139e9e34","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"9c6f5eb2-769f-4111-9296-acfcef5699a7","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"97b43271-12b0-440e-b3d3-c2aa27ba972c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/ThirdPartyLiabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff76b12d-bbcf-4b94-9df8-67b350a2bf57","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a39516bd-84ed-4dd5-9ae7-d192fc4e3852","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/ThirdPartyLiabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea45f26e-5b5a-48ef-bd90-63a75bef584c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vColor_GrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ea45941-e78e-4e99-ad42-ea495cc34d69","qType":"variable"},"qData":[]}
+{"qName":"cOrangeLighter","qDefinition":"=RGB(249,227,196)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"44bbbc04-110d-4ee0-94ab-f65fce458ca0","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLight","qDefinition":"=RGB(72,172,213)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1434c154-60bc-4bbb-8496-a696a73898ae","qType":"variable"},"qData":[]}
+{"qName":"cTrafficGreen","qDefinition":"=RGB(163,217,154)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ae6a06f-71a8-4556-bbbd-49a85e8b7986","qType":"variable"},"qData":[]}
+{"qName":"cStatusBad","qDefinition":"=ARGB(255,224,54,59)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"da2f1d0a-40e4-42b4-bfb4-cb14740d0078","qType":"variable"},"qData":[]}
+{"qName":"vColor_BlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0936587c-61df-43c4-9ec6-b108acb98632","qType":"variable"},"qData":[]}
+{"qName":"vColor_GreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f583d6d2-61ab-4433-bac5-4c7b38f9e511","qType":"variable"},"qData":[]}
+{"qName":"vColor_BlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ab57f49-e121-432e-ae34-7076a2f8f6de","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLighter","qDefinition":"=RGB(134,213,243)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"04fe4b09-4f53-4dcd-8569-1e06368e6b75","qType":"variable"},"qData":[]}
+{"qName":"cOrangeDark","qDefinition":"=RGB(230,134,0)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"46874af7-4381-4fc7-89fa-7f8dac74b6a8","qType":"variable"},"qData":[]}
+{"qName":"cStatusGood","qDefinition":"=ARGB(255,107,189,69)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"70ba18de-4856-4d62-b309-a72af836d145","qType":"variable"},"qData":[]}
+{"qName":"cStatusFaulty","qDefinition":"=ARGB(255,138,32,36)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1574194c-d95b-468d-a68d-3538b1bc9df7","qType":"variable"},"qData":[]}
+{"qName":"vColor_NegetiveRed","qDefinition":"'RGB(226,68,73)'\r\n\r\nSET cOceanBlue = =RGB(47,124,170)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8af3169a-8e3e-4a5b-8f90-9e68e77ce0d8","qType":"variable"},"qData":[]}
+{"qName":"cRoyalBlue","qDefinition":"=RGB(33,61,146)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db7d1cbb-14db-434d-8a81-69e7d97ce392","qType":"variable"},"qData":[]}
+{"qName":"cOrange","qDefinition":"=RGB(255,184,77)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a9b87c6f-6dfd-45e0-b66a-b9a1b5a7559d","qType":"variable"},"qData":[]}
+{"qName":"cGrayDark","qDefinition":"=RGB(85,85,85)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a0cfa735-67d1-4c4f-90a5-22f50ddf24b3","qType":"variable"},"qData":[]}
+{"qName":"cObjHederMenuBack","qDefinition":"ARGB(255,0,39,80)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f451244f-ffe4-49c7-8115-3f92607ce9eb","qType":"variable"},"qData":[]}
+{"qName":"cGrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"50eccd71-c0dd-49a1-8093-d59ea8d274f8","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e3900747-aa86-4e63-b1b9-243d2fbb9b03","qType":"variable"},"qData":[]}
+{"qName":"vTrackingContractualMilestones","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4eb8d15a-421e-4d0c-b70d-e92baf3f2738","qType":"variable"},"qData":[]}
+{"qName":"cBlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"194c3430-aff9-443f-9952-57d4c4dbb334","qType":"variable"},"qData":[]}
+{"qName":"vTrackingCriticalActivitiesMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea7e5ff9-1894-477b-a6c5-6b90e0de192d","qType":"variable"},"qData":[]}
+{"qName":"vTrackingMajorMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"555cb232-2599-4902-93d5-0b4fb5bf786e","qType":"variable"},"qData":[]}
+{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
+{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2d0565fe-fc77-4f2f-96e8-ac93b618fc3c","qType":"variable"},"qData":[]}
+{"qName":"vTrackingActivitiesMilestonesType","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"90a5d3fa-8c15-46f4-afd0-86f8e95ea04a","qType":"variable"},"qData":[]}
+{"qName":"sUserNameHeb","qDefinition":"=Only({$<UserName_OS={$(=vUserName)}>}UserName_Full)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fedb4359-0cb1-4181-8162-ae8af4e0d30e","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":85,"qTags":["$text","$key","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":7,"qTags":["$ascii","$text","$key","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":7,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":6,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":40,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$ascii","$text","$hidden","$system"],"qSrcTables":[]}
+{"qName":"\u05d0\u05d7\u05d5\u05d6 \u05d1\u05d9\u05e6\u05d5\u05e2","qCardinal":39,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05d7\u05d5\u05d6 \u05d1\u05d9\u05e6\u05d5\u05e2 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u05d1\u05e9\u05d8\u05d7","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d4\u05d0\u05dd \u05d0\u05d7\u05d5\u05d6 \u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u05d2\u05d3\u05d5\u05dc \u05de\u05d0\u05d7\u05d5\u05d6 \u05d1\u05d9\u05e6\u05d5\u05e2","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d4\u05e1\u05db\u05dd","qCardinal":26,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05dc\u05e7\u05d5\u05d7","qCardinal":16,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05d5\u05d2 \u05d4\u05d4\u05e1\u05db\u05dd","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e0\u05d8\u05d5 \u05e9\u05dc \u05d4\u05d4\u05e1\u05db\u05dd","qCardinal":25,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05d8\u05d1\u05e2","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05e8\u05d2\u05d5\u05df \u05de\u05db\u05d9\u05e8\u05d5\u05ea","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05d5\u05e5 \u05d4\u05e4\u05e6\u05d4","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d4\u05ea\u05d7\u05dc\u05ea \u05d4\u05e1\u05db\u05dd","qCardinal":22,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05e1\u05d9\u05d5\u05dd \u05d4\u05e1\u05db\u05dd","qCardinal":24,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05d4\u05e1\u05db\u05dd","qCardinal":26,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05dc\u05e7\u05d5\u05d7","qCardinal":16,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05d9\u05d1\u05ea \u05d3\u05d7\u05d9\u05d9\u05d4 - \u05e9\u05d5\u05e8\u05ea \u05d7\u05d5\u05d6\u05d4","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d3\u05d7\u05d9\u05d9\u05d4 - \u05e9\u05d5\u05e8\u05ea \u05d7\u05d5\u05d6\u05d4","qCardinal":1,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d0\u05d9\u05e9 \u05e7\u05e9\u05e8","qCardinal":15,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05d5\u05e8 \u05e7\u05d5","qCardinal":4,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e7\u05d5","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05e7\u05d8\u05e2 \u05e0\u05e7\u05d9","qCardinal":11,"qTags":[],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05ea \u05de\u05e7\u05d8\u05e2 \u05e0\u05e7\u05d9","qCardinal":44,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05de\u05e7\u05d8\u05e2","qCardinal":11,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05ea\u05ea \u05de\u05e7\u05d8\u05e2","qCardinal":44,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05dc \u05d4\u05e6\u05de\u05d3\u05d4","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05dc \u05d4\u05e6\u05de\u05d3\u05d4 \u05de\u05d5\u05e8\u05d7\u05d1","qCardinal":5,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05e0\u05d0\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"ContractsKey","qCardinal":172,"qTags":["$ascii","$text","$key"],"qSrcTables":["RFC_Contracts","RFC_Orders","Sums","Unified_Sums"]}
+{"qName":"\u05de\u05e1' \u05e9\u05d5\u05e8\u05d4 \u05d1\u05d4\u05e1\u05db\u05dd","qCardinal":77,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e9\u05d9\u05e8\u05d5\u05ea","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea","qCardinal":170,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05d9\u05e2\u05d3","qCardinal":166,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05dc\u05de\u05e0\u05d8 WBS","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d1\u05e1\u05d9\u05e1 \u05e9\u05dc \u05e1\u05dc \u05d4\u05d4\u05e6\u05de\u05d3\u05d4","qCardinal":24,"qTags":[],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e9\u05e9\u05d5\u05d7\u05e8\u05e8","qCardinal":109,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d9\u05ea\u05e8\u05ea \u05d4\u05d6\u05de\u05e0\u05d5\u05ea-RFC","qCardinal":126,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e9\u05e9\u05d5\u05d7\u05e8\u05e8 - Open135","qCardinal":32,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e9\u05e9\u05d5\u05d7\u05e8\u05e8 - Bill135","qCardinal":87,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d4\u05e1\u05db\u05dd \u05e7\u05d1\u05dc\u05e0\u05d9","qCardinal":45,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05ea\u05e0\u05d0\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd","qCardinal":5,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05e1\u05dc \u05d4\u05e6\u05de\u05d3\u05d4","qCardinal":6,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"OrderKey","qCardinal":148,"qTags":["$ascii","$text","$key"],"qSrcTables":["RFC_Orders","RFC_Billing"]}
+{"qName":"\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":122,"qTags":["$text"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":137,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05e9\u05d5\u05e8\u05ea \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05e2\u05e8\u05da \u05e0\u05d8\u05d5 \u05e9\u05dc \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":140,"qTags":["$numeric"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05e4\u05d9\u05e0\u05e0\u05e1\u05d9\u05ea","qCardinal":29,"qTags":[],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05e1\u05d5\u05d2 \u05ea\u05d4\u05dc\u05d9\u05da \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":2,"qTags":["$text"],"qSrcTables":["RFC_Orders"]}
+{"qName":"BillingKey","qCardinal":118,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":96,"qTags":["$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":92,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05e9\u05d5\u05e8\u05ea \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":13,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e7\u05d5\u05d3 \u05e1\u05d5\u05d2 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d9\u05ea \u05e1\u05d5\u05d2 \u05de\u05e1\u05de\u05da \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d7\u05d9\u05d5\u05d1 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":29,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05d8\u05d8\u05d5\u05e1 \u05ea\u05e9\u05dc\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":2,"qTags":["$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d2\u05d1\u05d9\u05d9\u05d4","qCardinal":25,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d1\u05e8\u05d5\u05d8\u05d5 \u05e9\u05dc \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":112,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05e9\u05da \u05d7\u05d9\u05d9\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea - \u05d2\u05d9\u05d5\u05dc","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05d3\u05d2\u05dc \u05d0\u05d5\u05e8\u05da \u05d7\u05d9\u05d9\u05dd -\u05d2\u05d9\u05d5\u05dc","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05e0\u05d9\u05d4\u05d5\u05dc \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":8,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05ea\u05e7\u05d5\u05e8\u05d4 \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":20,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05d4\u05e6\u05de\u05d3\u05d4 \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":22,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05d4\u05e6\u05de\u05d3\u05d4 \u05e9\u05e7\u05d5\u05d6\u05d6 \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":4,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05e1\u05d5\u05e4\u05d9","qCardinal":113,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05e7\u05d9\u05d6\u05d5\u05d6 \u05de\u05d4\u05de\u05e7\u05d3\u05de\u05d4","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05d4\u05d5\u05ea \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":1,"qTags":["$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d4\u05e1\u05db\u05dd \u05dc\u05ea\u05e6\u05d5\u05d2\u05d4","qCardinal":167,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05dc\u05ea\u05e6\u05d5\u05d2\u05d4 - \u05d8\u05e8\u05dd \u05e9\u05d5\u05dc\u05de\u05d4","qCardinal":2,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05dc\u05ea\u05e6\u05d5\u05d2\u05d4 - \u05e9\u05d5\u05dc\u05de\u05d4","qCardinal":87,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05d9\u05ea\u05e8\u05ea \u05d4\u05e1\u05db\u05dd","qCardinal":109,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05d9\u05ea\u05e8\u05ea \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":35,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"AppReloadTime","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["TPL_Reload"]}
+{"qName":"DataReloadTimeDB","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["TPL_Reload"]}
+{"qName":"DataReloadDateDB","qCardinal":1,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["TPL_Reload"]}
+{"qName":"LastReloadTime","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["TPL_Reload"]}
+{"qName":"SAPClient","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["TPL_Reload"]}
+{"qName":"SAPLanguage","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["TPL_Reload"]}
+{"qName":"Type","qCardinal":4,"qTags":["$text"],"qSrcTables":["Unified_Sums"]}
+{"qName":"Sum for pie","qCardinal":230,"qTags":["$numeric"],"qSrcTables":["Unified_Sums"]}
+{"qName":"TypeSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Unified_Sums"]}
+{"qName":"UserName_OS","qCardinal":1350,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1348,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"FULLNAME","qCardinal":1339,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
