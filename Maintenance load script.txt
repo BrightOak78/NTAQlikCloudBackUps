@@ -1,0 +1,895 @@
+///$tab Main
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='M/D/YYYY';
+SET TimestampFormat='M/D/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+TRACE vReloadTime = $(vReloadTime);
+
+LET vGetSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vSpaceName = if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','QA'));//$(vSpaceName)
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD';
+TRACE vGetSpaceName = $(vGetSpaceName);
+TRACE vSpaceName = $(vSpaceName);
+TRACE vQAorProdBack = $(vQAorProdBack);
+//Exit Script
+LET pSecurity='lib://Data Files:DataFiles/'&'$(vSpaceName)'&'/DW/Security/Qvd/';
+
+//[lib://Data Files:DataFiles/DEV/DW/Security/Qvd/Security_Maintenance.QVD]
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = תחזוקה; //Free Document Name
+SET pWorkApp = Maintenance; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vSpaceName)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vSpaceName)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='QA Back:XXXXX'; //$(vConnectionName) 
+TRACE vLibDataFiles_DW = $(vLibDataFiles_DW);
+
+
+
+
+///$tab 1. DB MMIS
+
+MMIS_db:
+LOAD
+    "Service Request",
+    "Request Date",
+    Status,
+    Source,
+    Department,
+    "Service Category",
+    "Service Code",
+    "Service Code Description",
+    "Type",
+    Remarks,
+    Description,
+    "CMDB Equipment Code",
+    Equipment,
+    "Equipment Description",
+    "Actual Start",
+    "Actual End",
+    "Work Order",
+    "WO Status",
+    "Related To KPI",
+    "KPI Number",
+    "Copy to WO Comments",
+    Location,
+    "Location Description",
+    Priority,
+    "Finish Work Date"
+FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/MMIS DB/Call center 25-26.xlsx]
+(ooxml, embedded labels, table is Sheet1)
+where Department<>'NTA';
+STORE MMIS_db INTO [$(vLibDataFiles_RAW)/MMIS_db.qvd] (qvd);
+Drop Table MMIS_db;
+// FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/DB/MMIS/MMIS *.xlsx] (ooxml, embedded labels, table is Sheet1);
+
+///$tab 2. DW- MMIS_1
+
+MMIS_1:
+LOAD
+    "Service Request", // as [קריאת שירות],
+    "Request Date",
+    
+Date(Floor([Request Date]), 'DD/MM/YYYY') AS Date,
+    Status, //  as סטטוס
+    Source, //  as [מקור הקריאה]
+    If(Department='MAINT', 'TEVEL',Department) as filter_Department,
+    Department, //  as קבלן
+    "Service Category" as  "תת מערכת", //  as [קטגורית הקריאה]
+    "Service Code", //  as [קוד קריאה]
+    "Service Code Description", //  as [תיאור סוג קריאה]
+    "Type", //  as [סוג הקריאה]
+    Remarks, // as הערות
+    Description , // as [תיאור התקלה]
+    "CMDB Equipment Code" , // as [קוד הציוד התקול CMDB]
+    Equipment, // as [קוד הציוד התקול MMIS]
+    "Equipment Description", //  as [תיאור הציוד התקול]
+    "Work Order" , // as [פקודת עבודה]
+    "WO Status", //  as [סטטוס פקודת עבודה]
+    "Related To KPI", //  as [מספר מדד שירות]
+    "KPI Number",
+    Location as location_excel,
+//    "Location Description",
+    Priority, //  as [חומרת הקריאה]
+    "Finish Work Date" , // as [תאריך סיום טיפול בקריאה]
+    Date(Floor([Finish Work Date]), 'DD/MM/YYYY') AS finish_date,
+    Department&"KPI Number" as keySLA,
+    IF(
+    Match(Source, 'AFC', 'NMS', 'MSS', 'Publisher Server (ROST)', 'FSCADA', 'IMS', 'PSCADA'),
+    'Automatic',
+    'Manual'
+) AS Call_Type,
+
+// חישוב תקלה פתוחה או סגורה
+   IF( Match( Upper(Trim(Status)), 'OPEN', 'ONGOING' ) AND NOT Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH WORK') , 1,  0) as is_open_flag,
+  IF( Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH WORK'),
+        'הושלמה', 
+     IF(
+        Match(Upper(Trim(Status)), 'OPEN', 'ONGOING'),
+       'פתוחה', 
+        'בוטלה')) as status_desc,
+
+// חישוב זמן טיפול בתקלה רק לקריאות סגורות
+	Round(IF(
+    	Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH WORK'),
+    	if ( [Finish Work Date]< [Request Date], 0 ,( [Finish Work Date] - [Request Date] ) * 24 )),0.01) AS [משך טיפול בתקלה בעשרוני שעות],
+	Round(IF(
+    	Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH WORK'),
+    	if ( [Finish Work Date]< [Request Date], 0 , ( [Finish Work Date] - [Request Date] ) )),0.01) AS [משך טיפול בתקלה בעשרוני ימים],    
+  // חישוב קוד למיקום
+  Upper(Trim(PurgeChar(   
+    IF(WildMatch(Location, '*TTR_R*'),
+        'TTR_' & SubField(SubField(Location, 'TTR_R', 2), '-', 1),
+    IF(WildMatch(Location, '*ST_R*'),
+        'ST_R' & SubField(SubField(Location, 'ST_R', 2), '-', 1),        
+    IF(WildMatch(Location, 'RL-DP-*'), SubField(Location, '-', 1) & '-' &  SubField(Location, '-', 2) & '-' & SubField(Location, '-', 3),
+    IF(WildMatch(Location, 'RL-MV-V*'), 'RL-MV-'&SubField(Location, '-',  3),
+    IF(WildMatch(Location, 'OF-SCC*'), 'OF-SCC',
+       Location
+    ))))) , Chr(160)))) AS [code location],
+    
+    SubField("Service Code", '-', 1) AS "Service code starts with"
+
+FROM [$(vLibDataFiles_RAW)/MMIS_db.qvd] (qvd);
+
+left join 
+LOAD
+    Department&"KPI Number" as keySLA,
+    "דחיפות תקלה תבל",
+    "SLA hours"
+FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+(ooxml, embedded labels, table is [SLA תבל]);
+
+
+Left Join
+LOAD
+	Upper(Trim(PurgeChar("code location", Chr(160)))) as "code location",
+    "Location" ,
+    Asset
+FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+(ooxml, embedded labels, table is Location);
+
+Left Join
+LOAD
+    "תת מערכת" ,
+    מערכת
+FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+(ooxml, embedded labels, table is Category);
+
+Left Join
+LOAD
+    "Service code starts with",
+    "AFC Item"
+FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+(ooxml, embedded labels, table is AFC);
+
+///////////////////////////
+NoConcatenate
+MMIS_2:
+Load
+	*,
+//    if (IsNull(location1), 'NO Value', location1) as Location,
+// חישוב זמן השבתה רק לתקלות לא שווא
+   IF(is_open_flag=1 and status_desc<>'בוטלה', (Now() - [Request Date]) * 24, [משך טיפול בתקלה בעשרוני שעות] ) AS [זמן השבתה בשעות],
+   IF(is_open_flag=1 and status_desc<>'בוטלה', (Now() - [Request Date]), [משך טיפול בתקלה בעשרוני שעות]/24 ) AS [זמן השבתה בימים] 
+
+Resident MMIS_1;
+Drop Table MMIS_1;
+
+NoConcatenate
+MMIS_3:
+Load
+	*,
+    if ( not IsNull("SLA hours") ,  Round(if ( [זמן השבתה בשעות] > "SLA hours",  [זמן השבתה בשעות] - "SLA hours"),0.01), Null()) as hour_exception_duration  ,
+   if ( status_desc='בוטלה', Null() , if(  not IsNull("SLA hours") , if ( [זמן השבתה בשעות] > "SLA hours", 1,0))) as flag_harig_tevel,
+   if ( not IsNull("SLA hours") and status_desc='בוטלה',
+   'לא רלוונטי' , if(  not IsNull("SLA hours") , if ( [זמן השבתה בשעות] > "SLA hours", 'חריג'
+   ,'לא חריג'))) as desc_flag_harig_tevel
+Resident MMIS_2;
+Drop Table MMIS_2;
+
+NoConcatenate
+MMIS_4:
+Load
+	*,
+    Call_Type as Call_Type_for_filter,
+    status_desc as [סטטוס קריאה],
+    IF( [זמן השבתה בשעות] <=  24 ,'Day',
+    	IF( [זמן השבתה בשעות]  <=  24* 7, 'Week',
+			IF([זמן השבתה בשעות] <= 24* 30 , 'Month',
+    		if ( [זמן השבתה בשעות]> 30*24 ,	'Over 1 Month') ))) AS hashbata_group_time,
+    if ( not IsNull("SLA hours") ,IF( hour_exception_duration <= 24 ,'Day',
+    	IF(hour_exception_duration <= 24*7, 'Week',
+			IF(hour_exception_duration <= 24*30, 'Month',
+    			'Over 1 Month'  ))), Null()) AS tevel_hariga_group,
+    if (Date >= Date#('01/06/2025','DD/MM/YYYY'),  If( Department = 'MAINT' and [KPI Number] = 'KPI_151' and flag_harig_tevel = 1,
+        2500 + 500 * hour_exception_duration,
+	If(Department = 'MAINT' and [KPI Number] = 'KPI_152' and flag_harig_tevel = 1,
+        1000 + 500 * (hour_exception_duration/24),  0 ))) as tevel_fine_amount 
+  	
+Resident MMIS_3;
+Drop Table MMIS_3;
+STORE MMIS_4 INTO [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+
+//Exit Script
+
+
+
+
+
+
+
+///$tab Calender
+
+// קלנדר מאוחד
+MMIS_Calendar_Key:
+LOAD DISTINCT
+    "Date" AS mmis_Date,
+    '1' AS mmis_Date_ID,
+    "Service Request",
+    'Open' AS mmis_Date_Name
+from [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+
+CONCATENATE (MMIS_Calendar_Key)
+
+LOAD DISTINCT
+    finish_date AS mmis_Date,
+    '2' AS mmis_Date_ID,
+    "Service Request",
+    'Close' AS mmis_Date_Name
+from [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+
+STORE MMIS_Calendar_Key INTO [$(vLibDataFiles_DW)/MMIS_Calendar_Key.qvd] (qvd);
+
+//DROP TABLE $(pType)_Calendar_Key;
+
+/////-----------------------------------------------------
+NoConcatenate
+Temp_MinMax:
+LOAD
+    Min(Date) as MinDate,
+    Max(Date) as MaxDate
+from [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+LET vMinDate = Peek('MinDate', 0, 'Temp_MinMax');
+LET vMaxDate = Peek('MaxDate', 0, 'Temp_MinMax');
+
+TRACE vMinDate = $(vMinDate);
+TRACE vMaxDate = $(vMaxDate);
+
+DROP TABLE Temp_MinMax;
+//Exit Script
+/////-----------------------------------------------------
+
+MMIS_Calendar:
+LOAD DISTINCT
+  
+    Date AS mmis_Date,
+    YYYYMM as mmis_YYYYMM,
+    רבעון as mmis_Quarter, 
+    "רבעון/שנה" as mmis_Quarter_year,
+    "Date Diff" as mmis_Date_Diff,
+    "Month Diff" as mmis_month_Diff,
+    "Year" as mmis_year,
+    "Month" as mmis_month,
+    "חודש-שנה" as mmis_month_year,
+    "שם חודש קצר" as mmis_month_heb,
+    MonthNum as mmis_MonthNum,
+    YearQuarterSort as mmis_YearQuarterSort,
+    YearMonthSort as mmis_YearMonthSort,
+    YearWeekSort as mmis_YearWeekSort,
+    YearDaySort as mmis_YearDaySort,
+    MonthSort as mmis_MonthSort,
+    YearMonthDaySort as mmis_YearMonthDaySort,
+     "רבעון/שנה" as mmis_q_y
+    
+FROM [$(vCalendar)](qvd)
+Where "Date">=  $(vMinDate) and "Date"<= $(vMaxDate) ;
+
+// STORE * from  [$(pType)_Calendar]
+
+// קלנדר פתיחת תקלה
+open_Calendar:
+LOAD Distinct
+    Date,
+    YYYYMM as open_YYYYMM,
+    רבעון as open_Quarter, 
+    "רבעון/שנה" as open_Quarter_year,
+    "Date Diff" as open_Date_Diff,
+    "Month Diff" as open_month_Diff,
+    "Year" as open_year,
+    "Month" as open_month,
+    "חודש-שנה" as open_month_year,
+    "שם חודש קצר" as open_month_heb,
+    MonthNum as open_MonthNum,
+    YearQuarterSort as open_YearQuarterSort,
+    YearMonthSort as open_YearMonthSort,
+    YearWeekSort as open_YearWeekSort,
+    YearDaySort as open_YearDaySort,
+    MonthSort as open_MonthSort,
+    YearMonthDaySort as open_YearMonthDaySort,
+     "רבעון/שנה" as open_q_y,
+     WeekNum as open_WeekNum
+FROM [$(vCalendar)](qvd)
+Where "Date">=  $(vMinDate) and "Date"<= $(vMaxDate) ;
+
+
+Calendar_Finish_Work:
+LOAD Distinct
+    "Date" as finish_date,
+    YYYYMM as finish_YYYYMM,
+    רבעון as finish_Quarter, 
+    "רבעון/שנה" as finish_Quarter_year,
+    "Date Diff" as finish_Date_Diff,
+    "Month Diff" as finish_month_Diff,
+    "Year" as finish_year,
+    "Month" as finish_month,
+    "חודש-שנה" as finish_month_year,
+    "שם חודש קצר" as finish_month_heb,
+    MonthNum as finish_MonthNum,
+    YearQuarterSort as finish_YearQuarterSort,
+    YearMonthSort as finish_YearMonthSort,
+    YearWeekSort as finish_YearWeekSort,
+    YearDaySort as finish_YearDaySort,
+    MonthSort as finish_MonthSort,
+    YearMonthDaySort as finish_YearMonthDaySort,
+     "רבעון/שנה" as finish_q_y
+FROM [$(vCalendar)](qvd)
+Where "Date" >= $(vMinDate) and "Date" <= $(vMaxDate);
+
+
+
+///$tab section access
+Display_Users:
+LOAD 
+    [קוד משתמש] AS UserName_OS,
+    [שם משתמש] AS UserName_Full
+FROM [$(pSecurity)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
+Section_Access:
+
+LOAD 
+	Upper(NTNAME & '@nta.co.il') as USERID,
+    NTNAME,
+     ACCESS, 
+     USERNAME_DOCGROUP, 
+     USERNAME_DEPARTMENT, 
+     USERNAME_DIVISION,
+     USERDATA_OS
+FROM [$(pSecurity)Security_Maintenance.QVD] (qvd);
+
+
+// Exit Script
+
+
+///$tab exit script
+
+exit script
+///$tab 2. DW- MMIS_1
+
+// // MMIS_1:
+// // LOAD
+// //     "Service Request", // as [קריאת שירות],
+// //     "Request Date",
+    
+// // Date(Floor([Request Date]), 'DD/MM/YYYY') AS Date,
+// // //Date(Floor([Request Date])) AS Date, 
+// // //     Date([Request Date], 'DD/MM/YYYY') AS "Date", 
+// //     Status, //  as סטטוס
+// //     Source, //  as [מקור הקריאה]
+// //     Department, //  as קבלן
+// //     "Service Category", //  as [קטגורית הקריאה]
+// //     "Service Code", //  as [קוד קריאה]
+// //     "Service Code Description", //  as [תיאור סוג קריאה]
+// //     "Type", //  as [סוג הקריאה]
+// //     Remarks, // as הערות
+// //     Description , // as [תיאור התקלה]
+// //     "CMDB Equipment Code" , // as [קוד הציוד התקול CMDB]
+// //     Equipment, // as [קוד הציוד התקול MMIS]
+// //     "Equipment Description", //  as [תיאור הציוד התקול]
+// //     "Work Order" , // as [פקודת עבודה]
+// //     "WO Status", //  as [סטטוס פקודת עבודה]
+// //     "Related To KPI", //  as [מספר מדד שירות]
+// //     "KPI Number",
+// //     Location,
+// // //    "Location Description",
+// //     Priority, //  as [חומרת הקריאה]
+// //     "Finish Work Date" , // as [תאריך סיום טיפול בקריאה]
+// //     Date(Floor([Finish Work Date]), 'DD/MM/YYYY') AS finish_date,
+// //     Department&"KPI Number" as keysla,
+// //     IF(
+// //     Match(Source, 'AFC', 'NMS', 'Publisher Server (ROST)', 'FSCADA', 'IMS', 'PSCADA'),
+// //     'Automatic',
+// //     'Manual'
+// // ) AS Call_Type,
+
+// // // חישוב תקלה פתוחה או סגורה
+// //    IF( Match( Upper(Trim(Status)), 'OPEN', 'ONGOING' ) AND NOT Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK') , 1,  0) as is_open_flag,
+// //   IF( Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK'),
+// //         'הושלמה', 
+// //      IF(
+// //         Match(Upper(Trim(Status)), 'OPEN', 'ONGOING'),
+// //        'פתוחה', 
+// //         'בוטלה')) as status_desc,
+// // // חישוב תקלה שווא שאין צורך להתייחס בתקלות האלו במודל	
+// //    	IF( NOT IsNull("Service Request")
+// //    	 AND IsNull("Work Order")          
+// //     	AND [Type] <> 'Action',   1, 0 ) AS flag_is_false_request, //  פלג תקלות שווא
+
+// // 	IF(
+// //    	 NOT IsNull("Service Request")
+// //    	 AND IsNull("Work Order")
+// //   	  AND [Type] <> 'Action', 'כן',  'לא' ) AS is_false_request,
+// // // חישוב זמן טיפול בתקלה רק לקריאות סגורות
+// // 	Round(IF(
+// //     	Upper(Trim([WO Status])) = 'COMPLETED'
+// //     	AND Len(Trim([Finish Work Date])) > 0
+// //     	AND Len(Trim([Request Date])) > 0,
+// //     	( [Finish Work Date] - [Request Date] ) * 24 ),0.01) AS [משך טיפול בתקלה בעשרוני שעות],
+// //      IF(
+// //     	Upper(Trim([WO Status])) = 'COMPLETED'
+// //     	AND Len(Trim([Finish Work Date])) > 0
+// //     	AND Len(Trim([Request Date])) > 0,
+// //     	interval([Finish Work Date] - [Request Date], 'dd hh:mm') ) AS [משך טיפול בתקלה בימים שעות],
+// //       IF(
+// //     	Upper(Trim([WO Status])) = 'COMPLETED'
+// //     	AND Len(Trim([Finish Work Date])) > 0
+// //     	AND Len(Trim([Request Date])) > 0,
+// //     	interval([Finish Work Date] - [Request Date], 'hh:mm') ) AS [משך טיפול בתקלה שעות],
+// //   // חישוב קוד למיקום
+// //   Upper(Trim(PurgeChar(   
+// //     IF(WildMatch(Location, '*TTR_R*'),
+// //         'TTR_' & SubField(SubField(Location, 'TTR_R', 2), '-', 1),
+// //     IF(WildMatch(Location, '*ST_R*'),
+// //         'ST_R' & SubField(SubField(Location, 'ST_R', 2), '-', 1),        
+// //     IF(WildMatch(Location, 'RL-DP-*'), SubField(Location, '-', 1) & '-' &  SubField(Location, '-', 2) & '-' & SubField(Location, '-', 3),
+// //     IF(WildMatch(Location, 'RL-MV-V*'), 'RL-MV-'&SubField(Location, '-',  3),
+// //     IF(WildMatch(Location, 'OF-SCC*'), 'OF-SCC',
+// //        Location
+// //     ))))) , Chr(160)))) AS [code location],
+    
+// //     SubField("Service Code", '-', 1) AS "Service code starts with"
+
+// // FROM [$(vLibDataFiles_RAW)/MMIS_db.qvd] (qvd);
+
+
+// // left join 
+// // LOAD
+// //     Department&"KPI Number" as keysla,
+// //     "דחיפות תקלה תבל",
+// //     "SLA hours"
+// // FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// // (ooxml, embedded labels, table is [SLA תבל]);
+
+
+// // Left Join
+// // LOAD
+// // 	Upper(Trim(PurgeChar("code location", Chr(160)))) as "code location",
+// //     "Location Desc" as [תיאור המיקום]
+// // FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// // (ooxml, embedded labels, table is Location);
+
+
+// // Left Join
+// // LOAD
+// //     "Service code starts with",
+// //     "AFC Item"
+// // FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// // (ooxml, embedded labels, table is AFC);
+
+// // ///////////////////////////
+// // NoConcatenate
+// // MMIS_2:
+// // Load
+// // 	*,
+// // // חישוב זמן השבתה רק לתקלות לא שווא
+// // //    IF(is_open_flag=0 and flag_is_false_request=0, (Now() - [Request Date]) * 24) AS [זמן השבתה בשעות],
+// // //    IF(is_open_flag=0 and flag_is_false_request=0, (Now() - [Request Date]) ) AS [זמן השבתה בימים] 
+// //    IF(is_open_flag=1 and flag_is_false_request=0, (Now() - [Request Date]) * 24,if (flag_is_false_request=0, [משך טיפול בתקלה בעשרוני שעות] )) AS [זמן השבתה בשעות],
+// //    IF(is_open_flag=1 and flag_is_false_request=0, (Now() - [Request Date]), if (flag_is_false_request=0,[משך טיפול בתקלה בעשרוני שעות]/24 )) AS [זמן השבתה בימים] 
+// // Resident MMIS_1;
+// // Drop Table MMIS_1;
+
+// // NoConcatenate
+// // MMIS_3:
+// // Load
+// // 	*,
+// //   //  if ( IsNull([1תיאור המיקום]), 'אין ערך', [תיאור המיקום1]) as [תיאור המיקום],
+// //     if ( not IsNull("SLA hours") ,  Round(if ( [זמן השבתה בשעות] > "SLA hours",  [זמן השבתה בשעות] - "SLA hours"),0.01), Null()) as hour_exception_duration  ,
+// //    if ( status_desc='בוטלה', Null() , if(  not IsNull("SLA hours") , if ( [זמן השבתה בשעות] > "SLA hours", 1,0))) as flag_harig_tevel,
+// //    if ( status_desc='בוטלה',
+// //    'לא רלוונטי' , if(  not IsNull("SLA hours") , if ( [זמן השבתה בשעות] > "SLA hours", 'חריג'
+// //    ,'לא חריג'))) as desc_flag_harig_tevel
+// // Resident MMIS_2;
+// // Drop Table MMIS_2;
+
+// // NoConcatenate
+// // MMIS_4:
+// // Load
+// // 	*,
+// //     IF( [זמן השבתה בשעות] <=  24 ,'Day',
+// //     	IF( [זמן השבתה בשעות]  <=  24* 7, 'Week',
+// // 			IF([זמן השבתה בשעות] <= 24* 30 , 'Month',
+// //     		if ( [זמן השבתה בשעות]> 30*24 ,	'Over 1 Month') ))) AS hashbata_group_time,
+// //     if ( not IsNull("SLA hours") ,IF( hour_exception_duration <= 24 ,'Day',
+// //     	IF(hour_exception_duration <= 24*7, 'Week',
+// // 			IF(hour_exception_duration <= 24*30, 'Month',
+// //     			'Over 1 Month'  ))), Null()) AS tevel_hariga_group,
+// //     if (Date >= Date#('01/06/2025','DD/MM/YYYY'),  If( Department = 'MAINT' and [KPI Number] = 'KPI_151' and flag_harig_tevel = 1,
+// //         2500 + 500 * hour_exception_duration,
+// // 	If(Department = 'MAINT' and [KPI Number] = 'KPI_152' and flag_harig_tevel = 1,
+// //         1000 + 500 * (hour_exception_duration/24),  0 ))) as tevel_fine_amount 
+  	
+// // Resident MMIS_3;
+// // Drop Table MMIS_3;
+
+
+// // //Exit Script
+
+
+
+
+// MMIS_1:
+// LOAD
+//     "Service Request", // as [קריאת שירות],
+//     "Request Date",
+    
+// Date(Floor([Request Date]), 'DD/MM/YYYY') AS Date,
+//     Status, //  as סטטוס
+//     Source, //  as [מקור הקריאה]
+//     If(Department='MAINT', 'TEVEL',Department) as filter_Department,
+//     Department, //  as קבלן
+//     "Service Category" as  "תת מערכת", //  as [קטגורית הקריאה]
+//     "Service Code", //  as [קוד קריאה]
+//     "Service Code Description", //  as [תיאור סוג קריאה]
+//     "Type", //  as [סוג הקריאה]
+//     Remarks, // as הערות
+//     Description , // as [תיאור התקלה]
+//     "CMDB Equipment Code" , // as [קוד הציוד התקול CMDB]
+//     Equipment, // as [קוד הציוד התקול MMIS]
+//     "Equipment Description", //  as [תיאור הציוד התקול]
+//     "Work Order" , // as [פקודת עבודה]
+//     "WO Status", //  as [סטטוס פקודת עבודה]
+//     "Related To KPI", //  as [מספר מדד שירות]
+//     "KPI Number",
+//     Location as location_excel,
+// //    "Location Description",
+//     Priority, //  as [חומרת הקריאה]
+//     "Finish Work Date" , // as [תאריך סיום טיפול בקריאה]
+//     Date(Floor([Finish Work Date]), 'DD/MM/YYYY') AS finish_date,
+//     Department&"KPI Number" as keySLA,
+//     IF(
+//     Match(Source, 'AFC', 'NMS', 'MSS', 'Publisher Server (ROST)', 'FSCADA', 'IMS', 'PSCADA'),
+//     'Automatic',
+//     'Manual'
+// ) AS Call_Type,
+
+// // חישוב תקלה פתוחה או סגורה
+//    IF( Match( Upper(Trim(Status)), 'OPEN', 'ONGOING' ) AND NOT Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK') , 1,  0) as is_open_flag,
+//   IF( Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK'),
+//         'הושלמה', 
+//      IF(
+//         Match(Upper(Trim(Status)), 'OPEN', 'ONGOING'),
+//        'פתוחה', 
+//         'בוטלה')) as status_desc,
+// // // חישוב תקלה שווא שאין צורך להתייחס בתקלות האלו במודל	
+// //    	IF( NOT IsNull("Service Request")
+// //    	 AND IsNull("Work Order")          
+// //     	AND [Type] <> 'Action',   1, 0 ) AS flag_is_false_request, //  פלג תקלות שווא
+
+// // 	IF(
+// //    	 NOT IsNull("Service Request")
+// //    	 AND IsNull("Work Order")
+// //   	  AND [Type] <> 'Action', 'כן',  'לא' ) AS is_false_request,
+// // חישוב זמן טיפול בתקלה רק לקריאות סגורות
+// 	Round(IF(
+//     	Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK'),
+//     	( [Finish Work Date] - [Request Date] ) * 24 ),0.01) AS [משך טיפול בתקלה בעשרוני שעות],
+//      IF(
+//     	Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK'),
+//     	interval([Finish Work Date] - [Request Date], 'dd hh:mm') ) AS [משך טיפול בתקלה בימים שעות],
+//       IF(
+//     	Match( Upper(Trim([WO Status])), 'COMPLETED', 'FINISH_WORK'),
+//     	interval([Finish Work Date] - [Request Date], 'hh:mm') ) AS [משך טיפול בתקלה שעות],
+//   // חישוב קוד למיקום
+//   Upper(Trim(PurgeChar(   
+//     IF(WildMatch(Location, '*TTR_R*'),
+//         'TTR_' & SubField(SubField(Location, 'TTR_R', 2), '-', 1),
+//     IF(WildMatch(Location, '*ST_R*'),
+//         'ST_R' & SubField(SubField(Location, 'ST_R', 2), '-', 1),        
+//     IF(WildMatch(Location, 'RL-DP-*'), SubField(Location, '-', 1) & '-' &  SubField(Location, '-', 2) & '-' & SubField(Location, '-', 3),
+//     IF(WildMatch(Location, 'RL-MV-V*'), 'RL-MV-'&SubField(Location, '-',  3),
+//     IF(WildMatch(Location, 'OF-SCC*'), 'OF-SCC',
+//        Location
+//     ))))) , Chr(160)))) AS [code location],
+    
+//     SubField("Service Code", '-', 1) AS "Service code starts with"
+
+// FROM [$(vLibDataFiles_RAW)/MMIS_db.qvd] (qvd);
+
+// left join 
+// LOAD
+//     Department&"KPI Number" as keySLA,
+//     "דחיפות תקלה תבל",
+//     "SLA hours"
+// FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// (ooxml, embedded labels, table is [SLA תבל]);
+
+
+// Left Join
+// LOAD
+// 	Upper(Trim(PurgeChar("code location", Chr(160)))) as "code location",
+//     "Location" ,
+//     Asset
+// FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// (ooxml, embedded labels, table is Location);
+
+// Left Join
+// LOAD
+//     "תת מערכת" ,
+//     מערכת
+// FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// (ooxml, embedded labels, table is Category);
+
+// Left Join
+// LOAD
+//     "Service code starts with",
+//     "AFC Item"
+// FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/addons/addons MMIS.xlsx]
+// (ooxml, embedded labels, table is AFC);
+
+// ///////////////////////////
+// NoConcatenate
+// MMIS_2:
+// Load
+// 	*,
+// // חישוב זמן השבתה רק לתקלות לא שווא
+// //    IF(is_open_flag=0 and flag_is_false_request=0, (Now() - [Request Date]) * 24) AS [זמן השבתה בשעות],
+// //    IF(is_open_flag=0 and flag_is_false_request=0, (Now() - [Request Date]) ) AS [זמן השבתה בימים] 
+//    IF(is_open_flag=1 and flag_is_false_request=0, (Now() - [Request Date]) * 24,if (flag_is_false_request=0, [משך טיפול בתקלה בעשרוני שעות] )) AS [זמן השבתה בשעות],
+//    IF(is_open_flag=1 and flag_is_false_request=0, (Now() - [Request Date]), if (flag_is_false_request=0,[משך טיפול בתקלה בעשרוני שעות]/24 )) AS [זמן השבתה בימים] 
+// Resident MMIS_1;
+// Drop Table MMIS_1;
+
+// NoConcatenate
+// MMIS_3:
+// Load
+// 	*,
+//   //  if ( IsNull([1תיאור המיקום]), 'אין ערך', [תיאור המיקום1]) as [תיאור המיקום],
+//     if ( not IsNull("SLA hours") ,  Round(if ( [זמן השבתה בשעות] > "SLA hours",  [זמן השבתה בשעות] - "SLA hours"),0.01), Null()) as hour_exception_duration  ,
+//    if ( status_desc='בוטלה', Null() , if(  not IsNull("SLA hours") , if ( [זמן השבתה בשעות] > "SLA hours", 1,0))) as flag_harig_tevel,
+//    if ( status_desc='בוטלה',
+//    'לא רלוונטי' , if(  not IsNull("SLA hours") , if ( [זמן השבתה בשעות] > "SLA hours", 'חריג'
+//    ,'לא חריג'))) as desc_flag_harig_tevel
+// Resident MMIS_2;
+// Drop Table MMIS_2;
+
+// NoConcatenate
+// MMIS_4:
+// Load
+// 	*,
+//     IF( [זמן השבתה בשעות] <=  24 ,'Day',
+//     	IF( [זמן השבתה בשעות]  <=  24* 7, 'Week',
+// 			IF([זמן השבתה בשעות] <= 24* 30 , 'Month',
+//     		if ( [זמן השבתה בשעות]> 30*24 ,	'Over 1 Month') ))) AS hashbata_group_time,
+//     if ( not IsNull("SLA hours") ,IF( hour_exception_duration <= 24 ,'Day',
+//     	IF(hour_exception_duration <= 24*7, 'Week',
+// 			IF(hour_exception_duration <= 24*30, 'Month',
+//     			'Over 1 Month'  ))), Null()) AS tevel_hariga_group,
+//     if (Date >= Date#('01/06/2025','DD/MM/YYYY'),  If( Department = 'MAINT' and [KPI Number] = 'KPI_151' and flag_harig_tevel = 1,
+//         2500 + 500 * hour_exception_duration,
+// 	If(Department = 'MAINT' and [KPI Number] = 'KPI_152' and flag_harig_tevel = 1,
+//         1000 + 500 * (hour_exception_duration/24),  0 ))) as tevel_fine_amount 
+  	
+// Resident MMIS_3;
+// Drop Table MMIS_3;
+// STORE MMIS_4 INTO [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+
+// //Exit Script
+
+
+
+
+
+
+
+///$tab test calender
+
+// קלנדר מאוחד
+MMIS_Calendar_Key:
+LOAD DISTINCT
+    "Date" AS mmis_Date,
+    '1' AS mmis_Date_ID,
+    "Service Request",
+    'Open' AS mmis_Date_Name
+from [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+
+CONCATENATE (MMIS_Calendar_Key)
+
+LOAD DISTINCT
+    finish_date AS mmis_Date,
+    '2' AS mmis_Date_ID,
+    "Service Request",
+    'Close' AS mmis_Date_Name
+from [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+
+STORE MMIS_Calendar_Key INTO [$(vLibDataFiles_DW)/MMIS_Calendar_Key.qvd] (qvd);
+
+//DROP TABLE $(pType)_Calendar_Key;
+
+/////-----------------------------------------------------
+NoConcatenate
+Temp_MinMax:
+LOAD
+    Min(Date) as MinDate,
+    Max(Date) as MaxDate
+from [$(vLibDataFiles_DW)/MMIS_4.qvd] (qvd);
+LET vMinDate = Peek('MinDate', 0, 'Temp_MinMax');
+LET vMaxDate = Peek('MaxDate', 0, 'Temp_MinMax');
+
+TRACE vMinDate = $(vMinDate);
+TRACE vMaxDate = $(vMaxDate);
+
+DROP TABLE Temp_MinMax;
+//Exit Script
+/////-----------------------------------------------------
+
+MMIS_Calendar:
+LOAD DISTINCT
+  
+    Date AS mmis_Date,
+    YYYYMM as mmis_YYYYMM,
+    רבעון as mmis_Quarter, 
+    "רבעון/שנה" as mmis_Quarter_year,
+    "Date Diff" as mmis_Date_Diff,
+    "Month Diff" as mmis_month_Diff,
+    "Year" as mmis_year,
+    "Month" as mmis_month,
+    "חודש-שנה" as mmis_month_year,
+    "שם חודש קצר" as mmis_month_heb,
+    MonthNum as mmis_MonthNum,
+    YearQuarterSort as mmis_YearQuarterSort,
+    YearMonthSort as mmis_YearMonthSort,
+    YearWeekSort as mmis_YearWeekSort,
+    YearDaySort as mmis_YearDaySort,
+    MonthSort as mmis_MonthSort,
+    YearMonthDaySort as mmis_YearMonthDaySort,
+     "רבעון/שנה" as mmis_q_y
+    
+FROM [$(vCalendar)](qvd)
+Where "Date">=  $(vMinDate) and "Date"<= $(vMaxDate) ;
+
+// STORE * from  [$(pType)_Calendar]
+
+// קלנדר פתיחת תקלה
+open_Calendar:
+LOAD Distinct
+	"Date",
+    YYYYMM,
+    רבעון as Quarter, 
+    "Year-Month",
+    "Date Diff",
+    "Month Diff",
+    "Qtr Diff",
+    "Year Diff",
+    "חודש נוכחי",
+    "חודש שנה נוכחי",
+    "חודש שנה נוכחי נומרי",
+    "שם רבעון ארוך",
+    "Year",
+    שנה,
+    "שנה/רבעון",
+    "שנה/חודש",
+    "שנה/שבוע",
+    "שנה/יום בשנה",
+    YearQuarterSort,
+    YearMonthSort,
+    YearWeekSort,
+    YearDaySort,
+    YearMonthDaySort,
+    QuarterNum,
+    רבעון,
+    QuarterSort,
+    "שם רבעון",
+    "רבעון/שנה",
+    "רבעון שנה",
+    "רבעון/חודש",
+     "רבעון/שבוע",
+    "רבעון/יום בשנה",
+    "רבעון/יום ברבעון",
+    "תאריך התחלת רבעון",
+    "תאריך סיום רבעון",
+    MonthNum,
+    חודש,
+    "מספר חודש",
+    "Month",
+    MonthSort,
+    "חודש-שנה",
+    "שם חודש קצר",
+    "שם חודש ארוך",
+    "שם חודש קצר אנגלית",
+    "שם חודש ארוך אנגלית",
+    "חודש/שנה",
+    "חודש שנה",
+    "חודש/רבעון",
+    "חודש/שבוע",
+    "חודש/יום בשנה",
+    "תאריך סיום חודש",
+    "מספר ימים בחודש",
+    WeekNum,
+    שבוע,
+    "שבוע/שנה",
+    "שבוע שנה",
+    "שבוע/רבעון",
+    "שבוע/חודש",
+    "שבוע/יום בשנה",
+    "תאריך התחלת שבוע",
+    "תאריך סיום שבוע",
+    DayNum,
+    DayInYearNum,
+    "יום בשנה",
+    "יום שנה",
+    "יום בשנה/שנה",
+    "יום בשנה/חודש",
+    "יום בשנה/שבוע",
+    "יום ברבעון",
+    "יום בשנה/רבעון",
+    "יום ברבעון/רבעון",
+    WeekDayNum,
+    "יום בשבוע",
+    "שם יום בשבוע קצר",
+    "שם יום בשבוע ארוך",
+    "שם יום בשבוע קצר אנגלית",
+    "שם יום בשבוע ארוך אנגלית",
+    WeekDaySort,
+    תאריך,
+    DateNum,
+    "Day",
+    יום
+FROM [$(vCalendar)](qvd)
+Where "Date">=  $(vMinDate) and "Date"<= $(vMaxDate) ;
+
+
+Calendar_Finish_Work:
+LOAD Distinct
+    "Date" as finish_date,
+    YYYYMM as finish_YYYYMM,
+    רבעון as finish_Quarter, 
+    "רבעון/שנה" as finish_Quarter_year,
+    "Date Diff" as finish_Date_Diff,
+    "Month Diff" as finish_month_Diff,
+    "Year" as finish_year,
+    "Month" as finish_month,
+    "חודש-שנה" as finish_month_year,
+    "שם חודש קצר" as finish_month_heb,
+    MonthNum as finish_MonthNum,
+    YearQuarterSort as finish_YearQuarterSort,
+    YearMonthSort as finish_YearMonthSort,
+    YearWeekSort as finish_YearWeekSort,
+    YearDaySort as finish_YearDaySort,
+    MonthSort as finish_MonthSort,
+    YearMonthDaySort as finish_YearMonthDaySort,
+     "רבעון/שנה" as finish_q_y
+FROM [$(vCalendar)](qvd)
+Where "Date" >= $(vMinDate) and "Date" <= $(vMaxDate);
+
+
