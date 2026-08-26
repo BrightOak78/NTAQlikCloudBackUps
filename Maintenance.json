@@ -1,0 +1,231 @@
+
+SHEETS
+{"qInfo":{"qId":"3ddbe81c-7d0b-4be1-9ea2-faa127f24732","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"3ddbe81c-7d0b-4be1-9ea2-faa127f24732","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T09:36:23.141Z","modifiedDate":"2026-06-28T09:36:23.141Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"\u05de\u05e6\u05d1 \u05ea\u05d7\u05d6\u05d5\u05e7\u05ea \u05e9\u05d1\u05e8 (1)","description":""},"qData":[]}
+{"qInfo":{"qId":"426dd390-8278-4a58-ac6f-f185addd4b59","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"426dd390-8278-4a58-ac6f-f185addd4b59","approved":false,"published":true,"publishTime":"2026-08-26T09:35:28.949Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-04T13:34:30.478Z","modifiedDate":"2026-08-26T09:35:28.503Z","encrypted":true,"privileges":["read","publish"],"title":"\u05de\u05e6\u05d1 \u05ea\u05d7\u05d6\u05d5\u05e7\u05ea \u05e9\u05d1\u05e8","description":""},"qData":[]}
+{"qInfo":{"qId":"606e86d2-ad5e-41bb-9c83-f5af9f9b1c19","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"606e86d2-ad5e-41bb-9c83-f5af9f9b1c19","approved":false,"published":true,"publishTime":"2026-08-26T09:34:10.196Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-20T07:52:27.392Z","modifiedDate":"2026-08-26T09:34:09.773Z","encrypted":true,"privileges":["read","publish"],"title":"\u05d1\u05d9\u05e6\u05d5\u05e2\u05d9 \u05ea\u05d1\u05dc","description":""},"qData":[]}
+{"qInfo":{"qId":"6ed801e3-828f-4630-b52c-f0bbefcaca59","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6ed801e3-828f-4630-b52c-f0bbefcaca59","approved":false,"published":true,"publishTime":"2026-08-26T09:34:07.479Z","owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-10T11:42:04.205Z","modifiedDate":"2026-08-26T09:34:07.040Z","encrypted":true,"privileges":["read","publish"],"title":"\u05e0\u05d9\u05ea\u05d5\u05d7 \u05ea\u05e7\u05dc\u05d5\u05ea","description":""},"qData":[]}
+{"qInfo":{"qId":"ekuXCA","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"ekuXCA","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-05T07:02:50.867Z","modifiedDate":"2026-07-05T07:05:16.839Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"My new sheet","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"3a0fc52e-5a15-42da-91b9-0b6e5ef3ea0b","type":"linechart","col":42,"row":10,"colspan":42,"rowspan":15,"bounds":{"y":23.809523809523807,"x":50,"width":50,"height":35.714285714285715}}
+{"name":"7d853309-a227-49f2-b575-910212cbf72f","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":11.904761904761903,"x":0,"width":100,"height":11.904761904761903}}
+{"name":"c199a346-5f55-456d-ba75-09411d5e1d02","type":"linechart","col":0,"row":10,"colspan":42,"rowspan":15,"bounds":{"y":23.809523809523807,"x":0,"width":50,"height":35.714285714285715}}
+{"name":"6246a2e2-d691-498a-b411-9d226d197a5f","type":"combochart","col":54,"row":25,"colspan":30,"rowspan":17,"bounds":{"y":59.523809523809526,"x":64.28571428571429,"width":35.714285714285715,"height":40.476190476190474}}
+{"name":"5f7b3779-b1d6-45f2-a10f-9f44bd56ab6d","type":"barchart","col":0,"row":25,"colspan":32,"rowspan":17,"bounds":{"y":59.523809523809526,"x":0,"width":38.095238095238095,"height":40.476190476190474}}
+{"name":"156ffb8b-417c-4f47-8141-f095bdcfe7f4","type":"filterpane","col":78,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":92.85714285714286,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"4c2ef622-b9fb-46ee-9fa0-ec55bdcce89e","type":"filterpane","col":72,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":85.71428571428571,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"6cfdb52e-1c5f-4827-8225-33390664ea32","type":"filterpane","col":66,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":78.57142857142857,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"a8148afd-145f-40e8-b40f-93a9ee58e3bd","type":"sn-layout-container","col":32,"row":3,"colspan":10,"rowspan":2,"bounds":{"y":7.142857142857142,"x":38.095238095238095,"width":11.904761904761903,"height":4.761904761904762}}
+{"name":"1bff8c20-13c4-42c9-bd04-f630668cd5ff","type":"sn-layout-container","col":42,"row":3,"colspan":10,"rowspan":2,"bounds":{"y":7.142857142857142,"x":50,"width":11.904761904761903,"height":4.761904761904762}}
+{"name":"71b742b8-bb6d-4326-8f71-506c261f16ed","type":"filterpane","col":59,"row":3,"colspan":7,"rowspan":2,"bounds":{"y":7.142857142857142,"x":70.23809523809523,"width":8.333333333333332,"height":4.761904761904762}}
+{"name":"e1d2fd7f-d37f-41ef-8f21-b45037739ede","type":"filterpane","col":52,"row":3,"colspan":7,"rowspan":2,"bounds":{"y":7.142857142857142,"x":61.904761904761905,"width":8.333333333333332,"height":4.761904761904762}}
+{"name":"21da8980-f08b-4677-97f1-c3b4e7dc364a","type":"piechart","col":32,"row":25,"colspan":22,"rowspan":17,"bounds":{"y":59.523809523809526,"x":38.095238095238095,"width":26.190476190476193,"height":40.476190476190474}}
+{"name":"32e298e9-fccd-4d72-8938-3acfb13a6857","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"df83d872-0aff-44f5-b3e9-e8d68aa585c9","type":"linechart","col":42,"row":10,"colspan":42,"rowspan":16,"bounds":{"y":23.809523809523807,"x":50,"width":50,"height":38.095238095238095}}
+{"name":"1e352fff-502b-47b7-8daf-4d4f3ae5f6aa","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":11.904761904761903,"x":0,"width":100,"height":11.904761904761903}}
+{"name":"ca1bfc0d-81f9-4d82-8d1f-4811c421bbaa","type":"combochart","col":54,"row":26,"colspan":30,"rowspan":16,"bounds":{"y":61.904761904761905,"x":64.28571428571429,"width":35.714285714285715,"height":38.095238095238095}}
+{"name":"kBVJSJE","type":"filterpane","col":78,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":92.85714285714286,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"rpLBTg","type":"filterpane","col":72,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":85.71428571428571,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"KaPpph","type":"sn-layout-container","col":30,"row":3,"colspan":9,"rowspan":2,"bounds":{"y":7.142857142857142,"x":35.714285714285715,"width":10.714285714285714,"height":4.761904761904762}}
+{"name":"wgQfPs","type":"sn-layout-container","col":39,"row":3,"colspan":9,"rowspan":2,"bounds":{"y":7.142857142857142,"x":46.42857142857143,"width":10.714285714285714,"height":4.761904761904762}}
+{"name":"pSJwpAp","type":"filterpane","col":54,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":64.28571428571429,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"mBpZaXB","type":"filterpane","col":48,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":57.14285714285714,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"dnsbAF","type":"piechart","col":32,"row":26,"colspan":22,"rowspan":16,"bounds":{"y":61.904761904761905,"x":38.095238095238095,"width":26.190476190476193,"height":38.095238095238095}}
+{"name":"AZEpSA","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"kVDSt","type":"barchart","col":0,"row":26,"colspan":32,"rowspan":16,"bounds":{"y":61.904761904761905,"x":0,"width":38.095238095238095,"height":38.095238095238095}}
+{"name":"bVyvD","type":"filterpane","col":60,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":71.42857142857143,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"ATkBfbp","type":"filterpane","col":66,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":78.57142857142857,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"tJJH","type":"sn-tabbed-container","col":0,"row":10,"colspan":42,"rowspan":16,"bounds":{"y":23.809523809523807,"x":0,"width":50,"height":38.095238095238095}}
+{"name":"6c51c7a7-92b9-42df-9d3a-d97934b52446","type":"filterpane","col":78,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":92.85714285714286,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"c73f6092-64ba-4b5c-9999-512daf814f44","type":"filterpane","col":47,"row":3,"colspan":7,"rowspan":2,"bounds":{"y":7.142857142857142,"x":55.952380952380956,"width":8.333333333333332,"height":4.761904761904762}}
+{"name":"03fc4dc7-5fe5-414d-bf28-4d2d5caa72dc","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":11.904761904761903,"x":0,"width":100,"height":11.904761904761903}}
+{"name":"456efc55-424d-42e3-89f8-04874436d9d7","type":"piechart","col":62,"row":25,"colspan":22,"rowspan":17,"bounds":{"y":59.523809523809526,"x":73.80952380952381,"width":26.190476190476193,"height":40.476190476190474}}
+{"name":"dfed2133-3c88-43ad-a04b-6c9c968e6664","type":"linechart","col":0,"row":10,"colspan":41,"rowspan":15,"bounds":{"y":23.809523809523807,"x":0,"width":48.80952380952381,"height":35.714285714285715}}
+{"name":"e0d68a39-04fe-405b-b515-f3c98524e3a7","type":"linechart","col":41,"row":10,"colspan":43,"rowspan":15,"bounds":{"y":23.809523809523807,"x":48.80952380952381,"width":51.19047619047619,"height":35.714285714285715}}
+{"name":"db6e1567-790d-4d27-88a9-2f7dadf21619","type":"barchart","col":0,"row":25,"colspan":31,"rowspan":17,"bounds":{"y":59.523809523809526,"x":0,"width":36.904761904761905,"height":40.476190476190474}}
+{"name":"460b4ebb-a288-4bac-a593-c771a1a5bb6b","type":"barchart","col":31,"row":25,"colspan":31,"rowspan":17,"bounds":{"y":59.523809523809526,"x":36.904761904761905,"width":36.904761904761905,"height":40.476190476190474}}
+{"name":"d12f5e30-c266-4dde-9ca7-eff679d78769","type":"filterpane","col":66,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":78.57142857142857,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"2faa52ed-6045-4812-81be-bc61a3a95aed","type":"filterpane","col":72,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":85.71428571428571,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"64f78479-dc62-4f85-9237-043dd893e4ea","type":"filterpane","col":60,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":71.42857142857143,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"44c4dace-182a-4fbd-99b3-fc050381eaf2","type":"filterpane","col":54,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":64.28571428571429,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"JmtGmJc","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"MnBjhm","type":"sn-layout-container","col":38,"row":3,"colspan":9,"rowspan":2,"bounds":{"y":7.142857142857142,"x":45.23809523809524,"width":10.714285714285714,"height":4.761904761904762}}
+{"name":"EKub","type":"sn-layout-container","col":29,"row":3,"colspan":9,"rowspan":2,"bounds":{"y":7.142857142857142,"x":34.523809523809526,"width":10.714285714285714,"height":4.761904761904762}}
+{"name":"1a96dc2b-a963-4840-99cc-3d20c50fac74","type":"filterpane","col":78,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":92.85714285714286,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"d5fa468e-1e69-406e-bb24-8f6116800084","type":"filterpane","col":72,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":85.71428571428571,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"ed81933e-cac0-41d4-911d-91f820a9d44b","type":"filterpane","col":54,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":64.28571428571429,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"344d0d94-9a37-4a21-b469-8bf2d9a4affc","type":"filterpane","col":41,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":48.80952380952381,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"964741d2-b342-4fcd-980a-3abf078aec9b","type":"filterpane","col":47,"row":3,"colspan":7,"rowspan":2,"bounds":{"y":7.142857142857142,"x":55.952380952380956,"width":8.333333333333332,"height":4.761904761904762}}
+{"name":"ktw","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":5,"bounds":{"y":11.904761904761903,"x":0,"width":100,"height":11.904761904761903}}
+{"name":"CmDjV","type":"piechart","col":61,"row":10,"colspan":23,"rowspan":15,"bounds":{"y":23.809523809523807,"x":72.61904761904762,"width":27.380952380952383,"height":35.714285714285715}}
+{"name":"UJuEAT","type":"sn-table","col":0,"row":25,"colspan":84,"rowspan":17,"bounds":{"y":59.523809523809526,"x":0,"width":100,"height":40.476190476190474}}
+{"name":"mauACF","type":"filterpane","col":35,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":41.66666666666667,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"zymDVq","type":"filterpane","col":66,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":78.57142857142857,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"JFmUEmj","type":"filterpane","col":60,"row":3,"colspan":6,"rowspan":2,"bounds":{"y":7.142857142857142,"x":71.42857142857143,"width":7.142857142857142,"height":4.761904761904762}}
+{"name":"zVmVjhg","type":"combochart","col":0,"row":10,"colspan":34,"rowspan":15,"bounds":{"y":23.809523809523807,"x":0,"width":40.476190476190474,"height":35.714285714285715}}
+{"name":"GYbSs","type":"barchart","col":34,"row":10,"colspan":27,"rowspan":15,"bounds":{"y":23.809523809523807,"x":40.476190476190474,"width":32.142857142857146,"height":35.714285714285715}}
+{"name":"amjGehF","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"y":0,"x":0,"width":100,"height":7.142857142857142}}
+{"name":"ZZYxGpX","type":"sn-layout-container","col":26,"row":3,"colspan":9,"rowspan":2,"bounds":{"y":7.142857142857142,"x":30.952380952380953,"width":10.714285714285714,"height":4.761904761904762}}
+{"name":"eQmJY","type":"sn-layout-container","col":17,"row":3,"colspan":9,"rowspan":2,"bounds":{"y":7.142857142857142,"x":20.238095238095237,"width":10.714285714285714,"height":4.761904761904762}}
+{"name":"FLjT","type":"map","col":0,"row":0,"colspan":20,"rowspan":12,"bounds":{"y":0,"x":0,"width":83.33333333333334,"height":100}}
+
+DIMENSIONS
+{"qInfo":{"qId":"017a2a5c-11e5-4a14-ad11-b4730b9d617e","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"017a2a5c-11e5-4a14-ad11-b4730b9d617e","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-13T08:13:20.278Z","modifiedDate":"2026-07-15T13:17:38.403Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e1\u05d8\u05d8\u05d5\u05e1 \u05e7\u05e8\u05d9\u05d0\u05d4","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"3cf281d9-ca0e-472e-82db-99d32f19cd65","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"3cf281d9-ca0e-472e-82db-99d32f19cd65","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-20T07:28:53.049Z","modifiedDate":"2026-07-20T07:29:43.177Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea \u05d1\u05ea\u05e7\u05dc\u05d4 \u05ea\u05d1\u05dc","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"457406fa-1acb-41e5-93b3-677be20ca9ef","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"457406fa-1acb-41e5-93b3-677be20ca9ef","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-13T08:27:39.693Z","modifiedDate":"2026-07-13T08:29:14.849Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea- \u05de\u05e9\u05da \u05d7\u05e8\u05d9\u05d2\u05d4 \u05ea\u05d1\u05dc","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"526554b4-d6ad-473d-8115-3047e21a4536","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"526554b4-d6ad-473d-8115-3047e21a4536","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-25T11:52:42.296Z","modifiedDate":"2026-07-13T05:26:06.527Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4-\u05de\u05d9\u05e7\u05d5\u05dd","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"6878f7c0-e2c5-4500-9110-4048b3ebc4a7","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"6878f7c0-e2c5-4500-9110-4048b3ebc4a7","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-09T05:08:14.257Z","modifiedDate":"2026-06-24T11:29:19.206Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"close-CycelCalendar","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"8099d5aa-4f86-4e47-aa45-3eeeb1030447","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"8099d5aa-4f86-4e47-aa45-3eeeb1030447","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-04T08:00:59.199Z","modifiedDate":"2026-06-04T08:00:59.199Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e9\u05dd \u05d7\u05d5\u05d3\u05e9 \u05e7\u05e6\u05e8","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"8340abbb-e5ea-4905-ad95-3cb5fd1db054","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"8340abbb-e5ea-4905-ad95-3cb5fd1db054","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-04T08:01:09.246Z","modifiedDate":"2026-06-04T08:01:09.246Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e8\u05d1\u05e2\u05d5\u05df","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"XkbJGf","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"XkbJGf","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-04T07:35:34.025Z","modifiedDate":"2026-07-12T07:03:12.304Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"CycelCalendar","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"YAepq","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"YAepq","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-25T11:42:44.381Z","modifiedDate":"2026-07-15T07:37:48.447Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e4\u05d9\u05dc\u05d8\u05e8 \u05de\u05ea\u05d7\u05dc\u05e3","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"ZLpgHB","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"ZLpgHB","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-16T08:08:14.722Z","modifiedDate":"2026-07-16T08:12:23.287Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05de\u05d9\u05de\u05d3 \u05de\u05ea\u05d7\u05dc\u05e3 2","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"pJXpn","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"pJXpn","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-06-04T08:00:54.172Z","modifiedDate":"2026-06-04T08:00:54.172Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e9\u05e0\u05d4","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"zKLjG","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"zKLjG","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-13T07:57:54.674Z","modifiedDate":"2026-07-13T07:59:34.856Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea- \u05de\u05e9\u05da \u05d4\u05e9\u05d1\u05ea\u05d4","description":"","tags":[]},"qData":[]}
+
+MEASURES
+{"qInfo":{"qId":"bc85af8a-4fea-4d9d-a589-a0e5a76a9d4f","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"bc85af8a-4fea-4d9d-a589-a0e5a76a9d4f","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-20T07:27:21.853Z","modifiedDate":"2026-07-20T07:27:56.980Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05d9\u05d3\u05e0\u05d9","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"eJgJJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"eJgJJ","approved":false,"published":false,"owner":"OrAK@nta.co.il","ownerId":"697f1bcd69a965cb5254a851","createdDate":"2026-07-20T07:23:14.930Z","modifiedDate":"2026-07-20T07:24:16.552Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05d0\u05d5\u05d8\u05d5\u05de\u05d8\u05d9","description":"","tags":[]},"qData":[]}
+
+VARIABLES
+{"qName":"vQAorProdBack","qDefinition":"QA","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"05c7c806-0771-44bd-b376-6df5cecc2131","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Maintenance","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f03f0ebf-4943-40ab-b47b-7f8f3fbb14a3","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"\u05ea\u05d7\u05d6\u05d5\u05e7\u05d4","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b50f0bb6-e5dc-4d93-b9b5-8dd4c787a459","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"Maintenance","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e57e461b-da64-4a8f-ac11-3f39144051f2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4a6c4682-45bd-416c-ba5c-af8c875b7bc2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vGetSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e2f9aa3-ef80-43c4-ade4-b61928b90b58","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ba7b6f4-a27e-4550-92c7-905eb5e293bf","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"QA Back:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c18c3d62-96d9-440b-bdb1-4a9d0e109eed","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"818278f5-64be-41fa-a246-965386b7a3c8","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"64bd291c-f0b3-43b6-acfa-42bfc6002252","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Maintenance","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d61fa3ea-d89c-45cc-b3e4-7ba7875006c8","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Maintenance","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c067ee67-4577-4021-98a0-d527aab97155","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/QA\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0bccad8a-e8e8-4f77-8eb9-b355bddfd4c5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vMinDate","qDefinition":"45658","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4fd9a82c-0266-4d83-8b52-d5987ac06aed","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vMaxDate","qDefinition":"46211","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ee8155e0-6661-4a93-aa3e-8c5ea8d9d314","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"24\/08\/2026 09:36","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8fde1d8f-38f7-4428-8d28-1907880a1c74","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pSecurity","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"05016bd9-539e-4849-927b-83a25db211f0","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendarNeutralizing","qDefinition":"open_Quarter=, open_month_heb=, open_year= ","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f6e49e10-06f3-4a41-b7d5-5ad12dbc7b84","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=Only({$<UserName_OS={$(=vUserOS)}>}UserName_Full)\r\n\/*\nOnly(\n    {$<\n        UserName_OS={\"$(=Upper(SubField(SubField(OSUser(),'UserId=',2),'@',1)))\"}\n    >}\n    UserName_Full\n)\n*\/\n\n\/*\nOnly(\n    {$<\n        UserName_OS={\"$(=sUserOS)\"}\n    >}\n    UserName_Full\n)\n*\/\n\n\/\/Only({$<UserName_OS={$(=sUserOS)}>}UserName_Full) \n\n\/\/=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4c086910-6f8d-4ad9-ba4f-06fd5e132dbf","qType":"variable"},"qData":[]}
+{"qName":"vStatusColor","qDefinition":"Pick(\n    Match(status_desc,\n        '\u05e4\u05ea\u05d5\u05d7\u05d4',\n        '\u05d1\u05d5\u05d8\u05dc\u05d4',\n        '\u05d4\u05d5\u05e9\u05dc\u05de\u05d4'\n    ),\n    RGB(0, 102, 120),\n    RGB(153, 0, 76),\n    RGB(0, 200, 180)\n)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"555eab06-797c-4eda-9ccd-bbef370cfcae","qType":"variable"},"qData":[]}
+{"qName":"sUserOS","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)\r\n\n\/\/Upper(SubField(SubField(OSUser(),'UserId=',2),'@',1))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"39b6eb83-f2af-437b-9618-2ae0c9fe44c3","qType":"variable"},"qData":[]}
+{"qName":"vUserOS","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)\r\n","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"74ba7669-6e6a-40ae-98a7-3db7cc458c6c","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":112,"qTags":["$hidden","$system","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":7,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":5,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":6,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":48,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$ascii","$text"],"qSrcTables":[]}
+{"qName":"Service Request","qCardinal":117105,"qTags":["$numeric","$integer","$key"],"qSrcTables":["MMIS_4","MMIS_Calendar_Key"]}
+{"qName":"Request Date","qCardinal":45616,"qTags":["$numeric","$timestamp"],"qSrcTables":["MMIS_4"]}
+{"qName":"Date","qCardinal":554,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["MMIS_4","open_Calendar"]}
+{"qName":"Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Source","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"filter_Department","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Department","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05ea\u05ea \u05de\u05e2\u05e8\u05db\u05ea","qCardinal":124,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Service Code","qCardinal":2179,"qTags":[],"qSrcTables":["MMIS_4"]}
+{"qName":"Service Code Description","qCardinal":1863,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Type","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Remarks","qCardinal":9533,"qTags":[],"qSrcTables":["MMIS_4"]}
+{"qName":"Description","qCardinal":25280,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"CMDB Equipment Code","qCardinal":9520,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Equipment","qCardinal":10664,"qTags":[],"qSrcTables":["MMIS_4"]}
+{"qName":"Equipment Description","qCardinal":4338,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Work Order","qCardinal":34232,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_4"]}
+{"qName":"WO Status","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Related To KPI","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"KPI Number","qCardinal":68,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"location_excel","qCardinal":218,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Priority","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Finish Work Date","qCardinal":21603,"qTags":["$numeric","$timestamp"],"qSrcTables":["MMIS_4"]}
+{"qName":"finish_date","qCardinal":554,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["MMIS_4","Calendar_Finish_Work"]}
+{"qName":"keySLA","qCardinal":112,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Call_Type","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"is_open_flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_4"]}
+{"qName":"status_desc","qCardinal":3,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05de\u05e9\u05da \u05d8\u05d9\u05e4\u05d5\u05dc \u05d1\u05ea\u05e7\u05dc\u05d4 \u05d1\u05e2\u05e9\u05e8\u05d5\u05e0\u05d9 \u05e9\u05e2\u05d5\u05ea","qCardinal":11360,"qTags":["$numeric"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05de\u05e9\u05da \u05d8\u05d9\u05e4\u05d5\u05dc \u05d1\u05ea\u05e7\u05dc\u05d4 \u05d1\u05e2\u05e9\u05e8\u05d5\u05e0\u05d9 \u05d9\u05de\u05d9\u05dd","qCardinal":4861,"qTags":["$numeric"],"qSrcTables":["MMIS_4"]}
+{"qName":"code location","qCardinal":72,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Service code starts with","qCardinal":1987,"qTags":[],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea \u05ea\u05e7\u05dc\u05d4 \u05ea\u05d1\u05dc","qCardinal":2,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"SLA hours","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_4"]}
+{"qName":"Location","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Asset","qCardinal":56,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05de\u05e2\u05e8\u05db\u05ea","qCardinal":16,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"AFC Item","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05d6\u05de\u05df \u05d4\u05e9\u05d1\u05ea\u05d4 \u05d1\u05e9\u05e2\u05d5\u05ea","qCardinal":12636,"qTags":["$numeric"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05d6\u05de\u05df \u05d4\u05e9\u05d1\u05ea\u05d4 \u05d1\u05d9\u05de\u05d9\u05dd","qCardinal":12636,"qTags":["$numeric"],"qSrcTables":["MMIS_4"]}
+{"qName":"hour_exception_duration","qCardinal":636,"qTags":["$numeric"],"qSrcTables":["MMIS_4"]}
+{"qName":"flag_harig_tevel","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_4"]}
+{"qName":"desc_flag_harig_tevel","qCardinal":3,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"Call_Type_for_filter","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"\u05e1\u05d8\u05d8\u05d5\u05e1 \u05e7\u05e8\u05d9\u05d0\u05d4","qCardinal":3,"qTags":["$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"hashbata_group_time","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"tevel_hariga_group","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_4"]}
+{"qName":"tevel_fine_amount","qCardinal":508,"qTags":["$numeric"],"qSrcTables":["MMIS_4"]}
+{"qName":"mmis_Date","qCardinal":554,"qTags":["$numeric","$integer","$timestamp","$date","$key"],"qSrcTables":["MMIS_Calendar_Key","MMIS_Calendar"]}
+{"qName":"mmis_Date_ID","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar_Key"]}
+{"qName":"mmis_Date_Name","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_Calendar_Key"]}
+{"qName":"mmis_YYYYMM","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_Quarter_year","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_Date_Diff","qCardinal":554,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_month_Diff","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_year","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_month","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_month_year","qCardinal":19,"qTags":["$text"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_month_heb","qCardinal":12,"qTags":["$text"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_MonthNum","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_YearQuarterSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_YearMonthSort","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_YearWeekSort","qCardinal":81,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_YearDaySort","qCardinal":62,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_MonthSort","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_YearMonthDaySort","qCardinal":554,"qTags":["$numeric","$integer"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"mmis_q_y","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["MMIS_Calendar"]}
+{"qName":"open_YYYYMM","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_Quarter_year","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_Date_Diff","qCardinal":554,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_month_Diff","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_year","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_month","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_month_year","qCardinal":19,"qTags":["$text"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_month_heb","qCardinal":12,"qTags":["$text"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_MonthNum","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_YearQuarterSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_YearMonthSort","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_YearWeekSort","qCardinal":81,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_YearDaySort","qCardinal":62,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_MonthSort","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_YearMonthDaySort","qCardinal":554,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_q_y","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["open_Calendar"]}
+{"qName":"open_WeekNum","qCardinal":53,"qTags":["$numeric","$integer"],"qSrcTables":["open_Calendar"]}
+{"qName":"finish_YYYYMM","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_Quarter_year","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_Date_Diff","qCardinal":554,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_month_Diff","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_year","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_month","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_month_year","qCardinal":19,"qTags":["$text"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_month_heb","qCardinal":12,"qTags":["$text"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_MonthNum","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_YearQuarterSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_YearMonthSort","qCardinal":19,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_YearWeekSort","qCardinal":81,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_YearDaySort","qCardinal":62,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_MonthSort","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_YearMonthDaySort","qCardinal":554,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"finish_q_y","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Calendar_Finish_Work"]}
+{"qName":"UserName_OS","qCardinal":1350,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1348,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"USERID","qCardinal":9,"qTags":["$ascii","$text"],"qSrcTables":["Section_Access"]}
+{"qName":"NTNAME","qCardinal":9,"qTags":["$ascii","$text"],"qSrcTables":["Section_Access"]}
+{"qName":"ACCESS","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["Section_Access"]}
+{"qName":"USERNAME_DOCGROUP","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["Section_Access"]}
+{"qName":"USERNAME_DEPARTMENT","qCardinal":5,"qTags":["$numeric","$integer","$ascii","$text"],"qSrcTables":["Section_Access"]}
+{"qName":"USERNAME_DIVISION","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Section_Access"]}
+{"qName":"USERDATA_OS","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["Section_Access"]}
