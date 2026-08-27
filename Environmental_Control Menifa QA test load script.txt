@@ -694,7 +694,9 @@ LOAD Distinct
     Attribute4   	  as [NBS LEVEL 2],
     [Work Type] 	  as [Work TypeT],
 
-    'ML' & '|'   & [Line Code T] & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+//    'ML' & '|'   & [Line Code T] & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+    'ML' & '|'   & [Line Code T] & '|' & [Work Type Code] & '|' & "Attribute1 CODE" & '|' & "Attribute3 CODE" & '|' & "Attribute4 CODE" as KeyBase
+
 
 Resident KeyTable
 Where DOCGROUP>0;
