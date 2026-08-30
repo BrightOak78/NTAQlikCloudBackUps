@@ -1,0 +1,1337 @@
+///$tab Main & Connect
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+// Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+// Exit Script
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = Quality Infra2; //Free Document Name
+SET pWorkApp =QualityInfra2; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:AconexSQL'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+// LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+// Exit Script
+//Sharepoint365
+// LOAD *
+// FROM [lib://API & Connections:Sharepoint365/BIDB/XXXXX/XXXXX.xlsx]
+// (ooxml, embedded labels, table is XXXXX);
+// LIB CONNECT TO '$(vConnectionName)';
+
+///$tab משתני סביבה
+LET rRunStart = Now(1);
+LET vLM_Yesterday=Date(AddMonths( Floor(Now())-1,-1),'DD/MM/YYYY'); // $(vYesterday)
+LET vToday=Date(Floor(Now()),'DD/MM/YYYY'); // $(vToday)
+LET vYesterday=Date(Floor(Now())-1,'DD/MM/YYYY'); // $(vYesterday)
+LET vCurrentYYYYMM = year(vToday)& num(month(vToday),'00'); // $(vCurrentYYYYMM)
+LET vLM_YYYYMM = year(AddMonths(vToday,-1))& num(month(AddMonths(vToday,-1)),'00'); // $(vCurrentYYYYMM)
+LET vYesterdayYYYYMM = year(vYesterday)& num(month(vYesterday),'00'); // $(vCurrentYYYYMM)
+Let vCurrentYear = year(vToday); // $(vCurrentYear)
+
+//for Prod
+SET vFileList='\\ntanas02\bi\Quality_green_IN2';
+SET vODBC='QualityIN2;DBQ=\\ntanas02\bi\Quality_green_IN2\';
+SET vNas02Temp = '\\ntanas02\bi\Quality_green_IN2' ; // $(vNas02Temp) 
+//****************************************************************************************//
+
+Set vQuantityPercentage= 'Quantity';
+///$tab TEST
+// // Exit Script
+// filename() as FileName,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+///$tab 1 DB(Excel)_Data
+AUDIT:
+// LOAD *, 'QaOnline' as Source,
+// Date(Floor(FileTime())) as FileTime,
+// filename() as FileName,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+// FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_AUDIT.xlsx]
+// (ooxml, embedded labels, table is Data);
+// Concatenate
+LOAD *, 'ViSoft' as Source,
+Date(Floor(FileTime())) as FileTime,
+filename() as FileName,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_AUDIT_ViSoft.xlsx]
+(ooxml, embedded labels, table is Data);
+STORE [AUDIT] INTO [$(vLibDataFiles_RAW)/AUDIT.qvd](qvd);
+DROP Table AUDIT;
+
+AUDIT_CARs:
+// LOAD *,'QaOnline' as Source,
+// filename() as FileName,
+// Date(Floor(FileTime())) as FileTime,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+// FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_AUDIT_CARs.xlsx]
+// (ooxml, embedded labels, table is Data);
+// Concatenate
+LOAD *,'ViSoft' as Source,
+Date(Floor(FileTime())) as FileTime,
+filename() as FileName,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_AUDIT_CARs_ViSoft.xlsx]
+(ooxml, embedded labels, table is Data);
+STORE [AUDIT_CARs] INTO [$(vLibDataFiles_RAW)/AUDIT_CARs.qvd](qvd);
+DROP Table AUDIT_CARs;
+
+POC:
+LOAD *,'QaOnline' as Source,
+filename() as FileName,
+Date(Floor(FileTime())) as FileTime,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/LRT-PL_NTA_EXPORT_POC.xlsx]
+(ooxml, embedded labels, table is Data);
+// Concatenate 
+// LOAD *,'QaOnline' as Source,
+// Date(Floor(FileTime())) as FileTime,
+// filename() as FileName,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+// FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_POC.xlsx]
+// (ooxml, embedded labels, table is Data);
+Concatenate 
+LOAD *,'ViSoft' as Source,
+Date(Floor(FileTime())) as FileTime,
+filename() as FileName,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_POC_ViSoft.xlsx]
+(ooxml, embedded labels, table is Data);
+STORE [POC] INTO [$(vLibDataFiles_RAW)/POC.qvd](qvd);
+DROP Table POC;
+
+NCR:
+LOAD *,'QaOnline' as Source,
+filename() as FileName,
+Date(Floor(FileTime())) as FileTime,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/LRT-PL_NTA_EXPORT_NCR.xlsx]
+(ooxml, embedded labels, table is Data);
+// Concatenate 
+// LOAD *,'QaOnline' as Source,
+// filename() as FileName,
+// Date(Floor(FileTime())) as FileTime,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+// FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_NCR.xlsx]
+// (ooxml, embedded labels, table is Data);
+Concatenate 
+LOAD *,'ViSoft' as Source,
+Date(Floor(FileTime())) as FileTime,
+filename() as FileName,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_NCR_ViSoft.xlsx]
+(ooxml, embedded labels, table is Data);
+STORE [NCR] INTO [$(vLibDataFiles_RAW)/NCR.qvd](qvd);
+DROP Table NCR;
+
+LABOrders:
+LOAD *,'QaOnline' as Source,
+Date(Floor(FileTime())) as FileTime,
+filename() as FileName,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/LRT-PL_NTA_EXPORT_LABOrders.xlsx]
+(ooxml, embedded labels, table is Data);
+// Concatenate
+// LOAD *,'QaOnline' as Source,
+// filename() as FileName,
+// Date(Floor(FileTime())) as FileTime,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+// FROM [lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_LABOrders.xlsx]
+// (ooxml, embedded labels, table is Data);
+Concatenate
+LOAD *,'ViSoft' as Source,
+Date(Floor(FileTime())) as FileTime,
+filename() as FileName,
+RowNo() as ExcelRowNo, 
+PurgeChar(filename(),'.xlsx') as ShortFileName
+FROM [[lib://API & Connections:NAS2_BI/Quality_green_IN2/TMTGL_NTA_EXPORT_LABOrders_ViSoft.xlsx]
+(ooxml, embedded labels, table is Data);
+STORE [LABOrders] INTO [$(vLibDataFiles_RAW)/LABOrders.qvd](qvd);
+DROP Table LABOrders;
+
+///$tab POC
+POC_T:
+LOAD 
+// 	 AutoNumber(Source&Project&[Issued by]&Section&[Sub Section]&[Entity Type]&[Entity Name]) as %Proj_Issued_Section_Subsection_EntityType_EntityName,
+//	 FileName, 
+//     ShortFileName, 
+//     ExcelRowNo, 
+	 Source,
+     FileTime,
+	 if(match(Trim(Project),'','-') or IsNull(Project), 'Undefined',Project) as Project, 
+     'QC' as [Issued by],
+     if(match(Trim(Section),'','-') or IsNull(Section), 'Undefined',Section) as Section, 
+     if(match(Trim([Sub Section]),'','-') or IsNull([Sub Section]), 'Undefined',[Sub Section]) as [Sub Section], 
+     if(match(Trim([Entity Type]),'','-') or IsNull([Entity Type]), 'Undefined',[Entity Type]) as [Entity Type], 
+     if(match(Trim([Entity Name]),'','-') or IsNull([Entity Name]), 'Undefined',[Entity Name]) as  [Entity Name], 
+     [ATTENDEES  ] as [POC Attendees],
+//     Reference, 
+//     Number, 
+     if(match(Trim([Issued by]),'','-') or IsNull([Issued by]), 'Undefined',[Issued by]) as [POC Open by],  
+     if(match(Trim(Reference),'','-') or IsNull(Reference), 'Undefined',[Reference]) as [POC Reference],
+     if(match(Trim(Discipline),'','-') or IsNull(Discipline), 'Undefined',[Discipline]) as [POC Discipline],
+     if(match(Trim([POC Title]),'','-') or IsNull([POC Title]), 'Undefined',[POC Title]) as [POC Title],
+     if(match(Trim([Description of Activity]),'','-') or IsNull([Description of Activity]), 'Undefined',[Description of Activity]) as [POC Description of Activity],
+     Date(if(match(Trim(Project),'','-') or IsNull(Project), 'Undefined',Floor([Approval Due Date]))) as [POC Approval Due Date],
+     if(match(Trim([Approval Date]),'','-') or IsNull([Approval Date]), 'POC Open','POC Approved') as [POC Status],
+     if(match(Trim([Approval Date]),'','-') or IsNull([Approval Date]), 1,2) as [POC Status Code],
+     if(match(Trim(Status),'','-') or IsNull(Status), 'Undefined',if([Status]='Open', 'POC Open',if([Status]='Approved', 'POC Approved'))) as [Origin POC Status],
+     if(match(Trim(Status),'','-') or IsNull(Status), 0,if([Status]='Open', 1,if([Status]='Approved', 2))) as [Origin POC Status Code],
+     Date(if(match(Trim([Approval Date]),'','-') or IsNull([Approval Date]), 'Undefined',Date(Floor([Approval Date])))) as [POC Approval Date],
+     Date(if(match(Trim([Approval Date]),'','-') or IsNull([Approval Date]), '$(vYesterday)',Date(Floor([Approval Date])))) as [POC Approval Date Fix],    
+     if(match(Trim([Approved By]),'','-') or IsNull([Approved By]), 'Undefined',[Approved By]) as [POC Approved By]
+FROM [$(vLibDataFiles_RAW)/POC.qvd](qvd);
+//store POC_T into $(vLibDataFiles_RAW)/POC_T.qvd;
+//DROP Table POC_T;
+POC:
+NoConcatenate
+LOAD 
+	 AutoNumber(Source&Project&[Issued by]&Section&[Sub Section]&[Entity Type]&[Entity Name]) as %Proj_Issued_Section_Subsection_EntityType_EntityName,
+	 Num#(Year([POC Approval Due Date]) *100 + Num(Month([POC Approval Due Date])),'#0') as [YYYYMM],
+	 if(Left([Project],6)='TMT-GL', 'G','P' ) as [קוד קו],
+     Project, 
+     [Issued by], 
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name], 
+	 [POC Status] as [POC Status By Approval Date],
+	 [Origin POC Status],
+	 [POC Attendees],
+	 [POC Approval Date Fix],
+//     [Origin POC Status Code],
+	 if([POC Approval Due Date]<='$(vYesterday)' and [POC Status]='POC Open', '$(vYesterday)'-[POC Approval Due Date], 
+      	if([POC Status]='POC Approved' and [POC Approval Due Date]<[POC Approval Date Fix], [POC Approval Date Fix]-[POC Approval Due Date])) as [POC Delayed Days],
+
+     if([POC Status]='POC Open', if([POC Approval Due Date]<='$(vYesterday)', 'POC Open Overdue')) as [POC Open Overdue],
+     
+     if([POC Approval Due Date]='Undefined',1,
+     if([POC Status]='POC Approved', if([POC Approval Due Date]<[POC Approval Date Fix], 4, 3), 
+	     if([POC Status]='POC Open', if([POC Approval Due Date]<'$(vYesterday)', 1, 2)))) as [POC Approve On Time Code], 
+     if([POC Approval Due Date]='Undefined','Activity Started Before POC Approval',//'POC Open Overdue',
+     if([POC Status]='POC Approved', if([POC Approval Due Date]<[POC Approval Date Fix],'Activity Started Before POC Approval','Activity Started After POC Approval'), 
+	     if([POC Status]='POC Open', if([POC Approval Due Date]<'$(vYesterday)','Activity Started Before POC Executed','Activity Not Started')))) as [POC Approve On Time],  
+//     [POC Approval Date Fix]- [NCR Opening Date] as [NCR Days Duration], //אין תאריך פתיחה 
+     [POC Approval Due Date],
+     [POC Open by], 
+     [POC Reference], 
+     [POC Discipline], 
+     [POC Title], 
+     [POC Description of Activity], 
+     
+     if([POC Status]='POC Open',if([POC Approval Due Date]<='$(vYesterday)','Activity Started Without POC Approval','Future Activities'),
+     if([POC Status]='POC Approved', if([POC Approval Due Date]<[POC Approval Date Fix],'Activity Started - POC Approved Late','Activity Started With POC Approval'))) as [POC Status], 
+     
+	 if([POC Status]='POC Open',if([POC Approval Due Date]<='$(vYesterday)',4,1),
+     if([POC Status]='POC Approved', if([POC Approval Due Date]<[POC Approval Date Fix],3,2))) as [POC Status Code],   
+       
+     if([POC Status]='POC Open',if([POC Approval Due Date]<='$(vYesterday)','cRedNTA ','cYellowNTA'),
+     if([POC Status]='POC Approved', if([POC Approval Due Date]<[POC Approval Date Fix],'cOrangeLight','cGreenNTA'))) as [POC Status Color],     
+     [POC Approval Date], 
+     [POC Approved By]
+Resident POC_T;
+store POC into $(vLibDataFiles_RAW)/POC.qvd;
+DROP Fields [YYYYMM],[קוד קו],Project, [Issued by],Section, [Sub Section], [Entity Type], [Entity Name] From POC; 
+
+
+///$tab AUDIT
+Audit_T:
+LOAD 
+
+//	 FileName, 
+//     ShortFileName, 
+//     ExcelRowNo, 
+     if(match(Trim(Project),'','-') or IsNull(Project), 'Undefined',Project) as Project, 
+     'QA' as [Issued by],
+	 Source,
+      FileTime,
+     if(match(Trim(Section),'','-') or IsNull(Section), 'Undefined',Section) as Section, 
+     if(match(Trim([Sub Section]),'','-') or IsNull([Sub Section]), 'Undefined',[Sub Section]) as [Sub Section], 
+     if(match(Trim([Entity Type]),'','-') or IsNull([Entity Type]), 'Undefined',[Entity Type]) as [Entity Type], 
+     if(match(Trim([Entity Name]),'','-') or IsNull([Entity Name]), 'Undefined',[Entity Name]) as  [Entity Name], 
+     if(match(Trim(Reference),'','-') or IsNull(Reference), 'Undefined',[Reference]) as [Audit Reference], 
+     if(match(Trim([Issued by]),'','-') or IsNull([Issued by]), 'Undefined',[Issued by]) as [Audit Open By],
+//     Number, 
+     if(match(Trim([Metier / Platform]),'','-') or IsNull([Metier / Platform]), 'Undefined',[Metier / Platform]) as [Audit Metier / Platform],
+     if(match(Trim([Issue Description]),'','-') or IsNull([Issue Description]), 'Undefined',[Issue Description]) as [Audit Issue Description],
+
+     if(match(Trim([Criticality]),'','-') or IsNull([Criticality]), 'Undefined',[Criticality]) as [Audit Criticality],
+     Date(if(match(Trim([Audit Execution Due Date]),'','-') or IsNull([Audit Execution Due Date]), 'Undefined',Floor([Audit Execution Due Date]))) as [Audit Execution Due Date],
+//     if([Audit Status]='Open', if([Audit Execution Due Date]<='$(vYesterday)',2,1), if([Audit Status]='Closed' or [Audit Status]='Executed',3,0)) as [Audit Status Code],
+     //if([Audit Status]='Open', if([Audit Execution Due Date]<='$(vYesterday)', 4,1), if([Audit Status]='Closed',2, if([Audit Status]='Executed',3,0))) as [Audit Status Code],
+	 if(match(Trim([Execution Date]),'','-') or IsNull([Execution Date]),'Open','Closed') as [Audit Fix Status],
+     [Audit Status] as [Audit Origin Status],
+     Date(if(match(Trim([Execution Date] ),'','-') or IsNull([Execution Date] ), 'Undefined',Date(Floor([Execution Date])))) as [Audit Execution Date],
+     Date(if(match(Trim([Execution Date]),'','-') or IsNull([Execution Date]),'$(vYesterday)',Floor([Execution Date]))) as  [Audit Execution Date Fix],
+     Date(if(match(Trim([Final Approval Date]),'','-') or IsNull([Final Approval Date]), 'Undefined',Date(Floor([Final Approval Date])))) as [Audit Final Approval Date],
+     Date(if(match(Trim([Final Approval Date]),'','-') or IsNull([Final Approval Date]),'$(vYesterday)',Floor([Final Approval Date]))) as [Audit Final Approval Date Fix],//'$(vYesterday)'     
+     if(match(Trim([Approved By]),'','-') or IsNull([Approved By]), 'Undefined',[Approved By]) as [Audit Approved By]
+FROM [$(vLibDataFiles_RAW)/AUDIT.qvd](qvd);
+Left Join
+LOAD 
+	 FileName, 
+     ShortFileName, 
+     ExcelRowNo,
+     Source, 
+     if(match(Trim(Project),'','-') or IsNull(Project), 'Undefined',Project) as Project, 
+     if(match(Trim([CAR Reference]),'','-') or IsNull([CAR Reference]), 'Undefined',SubField([CAR Reference],'.', 1)) as [Audit Reference],
+	 if(match(Trim([CAR Reference]),'','-') or IsNull([CAR Reference]), 'Undefined',[CAR Reference]) as [Audit CAR Reference],
+//     if(match(Trim([CAR Reference]),'','-') or IsNull([CAR Reference]), 'Undefined',[CAR Reference]) as [Audit Reference],
+     Date(if(match(Trim([Due Date]),'','-') or IsNull([Due Date]), 'Undefined',Floor([Due Date]))) as [Audit CAR Due Date],
+     Date(if(match(Trim([Due Date]),'','-') or IsNull([Due Date]) or [Due Date]>'$(vYesterday)', '$(vLM_Yesterday)',Floor([Due Date]))) as [Audit CAR Open Date],
+     if(match(Trim([Description]),'','-') or IsNull([Description]), 'Undefined',[Description]) as [Audit CAR Description],
+     if(match(Trim([Action]),'','-') or IsNull([Action]), 'Undefined',[Action]) as [Audit CAR Action],
+     if(match(Trim(Category),'','-') or IsNull(Category), 'Undefined',[Category]) as [Audit CAR Category],
+     if(match(Trim([Responsible Contact]),'','-') or IsNull([Responsible Contact]), 'Undefined',[Responsible Contact]) as [Audit CAR Responsible Contact],
+     if([Status]='סגור',2,if([Status]='פתוח',1,0)) as [Audit CAR Status Code],
+     if(match(Trim([Resolution Date]),'','-') or IsNull([Resolution Date]),'Open','Closed') as [Audit CAR Status],
+     if(match(Trim(Status),'','-') or IsNull(Status), 'Undefined',if([Status]='סגור','Closed',if([Status]='פתוח','Open',Status))) as [Audit CAR Status Origin],
+     Date(if(match(Trim([Resolution Date]),'','-') or IsNull([Resolution Date]),Floor([Due Date]),if(Floor([Resolution Date])<Floor([Due Date]),Floor([Resolution Date]),Floor([Due Date])))) as [Audit CAR Due Date Fix],
+     Date(if(match(Trim([Resolution Date]),'','-') or IsNull([Resolution Date]), 'Undefined',Floor([Resolution Date]))) as [Audit CAR Close Date],
+	 Date(if(match(Trim([Resolution Date]),'','-') or IsNull([Resolution Date]),'$(vYesterday)',Floor([Resolution Date]))) as [Audit CAR Close Date Fix],//'$(vYesterday)'     
+     if(match(Trim(Comments),'','-') or IsNull(Comments), 'Undefined',[Comments]) as [Audit CAR Comments]
+FROM [$(vLibDataFiles_RAW)/AUDIT_CARs.qvd](qvd);
+//store Audit_T into $(vLibDataFiles_RAW)/Audit_T.qvd;
+////DROP Table Audit_T;
+//EXIT SCRIPT
+//Green Line	Closed	2
+//Green Line	Executed	3
+//Green Line	Scheduled	3
+
+Audit:
+LOAD *,  if([Audit Execution Due Date]>'$(vYesterday)', 'Future Audits',[Audit Status]) as [Audit Status CEO];
+LOAD 
+	 AutoNumber(Source&Project&[Issued by]&Section&[Sub Section]&[Entity Type]&[Entity Name]) as %Proj_Issued_Section_Subsection_EntityType_EntityName,
+	 Num#(Year( [Audit Execution Due Date]) *100 + Num(Month([Audit Execution Due Date])),'#0') as [Audit YYYYMM],
+	 Num#(Year( [Audit CAR Close Date Fix]) *100 + Num(Month([Audit CAR Close Date Fix])),'#0') as [Audit CAR YYYYMM],
+	 if(Left([Project],6)='TMT-GL', 'G','P' ) as [קוד קו],
+	 [Audit CAR Open Date],
+	 [Audit Execution Date Fix],
+     [Audit Reference], 
+	 Project, 
+     [Issued by], 
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name], 
+	 [Audit CAR Close Date Fix],
+	 if([Audit CAR Due Date]<='$(vYesterday)', 1,0) as [Audit CAR Planned to Closed Until Yesterday],
+	 if([Audit CAR Status]='Closed' and [Audit CAR Close Date]<='$(vYesterday)' and [Audit CAR Close Date]<>'Undefined', 1,0) as [Audit CAR Closed Until Yesterday From Planned],
+	 if([Audit CAR Due Date]<='$(vYesterday)' and [Audit CAR Status]='Open', '$(vYesterday)'-[Audit CAR Due Date], 
+      	if([Audit CAR Status]='Closed' and [Audit CAR Due Date]<[Audit CAR Close Date Fix], [Audit CAR Close Date Fix]-[Audit CAR Due Date])) as [Audit CAR Delayed Days],
+
+     if([Audit CAR Status]='Open', if([Audit CAR Due Date]<='$(vYesterday)', 'Overdue Audit CAR')) as [Audit CAR Overdue],
+    
+     if([Audit CAR Due Date]='Undefined',1,
+     if([Audit CAR Status]='Closed', if([Audit CAR Due Date]<[Audit CAR Close Date Fix], 4, 3), 
+	     if([Audit CAR Status]='Open', if([Audit CAR Due Date]<'$(vYesterday)', 1, 2)))) as [Audit CAR Close On Time Code], 
+     if([Audit CAR Due Date]='Undefined','Open Overdue',
+     if([Audit CAR Status]='Closed', if([Audit CAR Due Date]<[Audit CAR Close Date Fix],'Closed Late','Closed On Time'), 
+	     if([Audit CAR Status]='Open', if([Audit CAR Due Date]<'$(vYesterday)','Open Overdue','Open - Not Overdue')))) as [Audit CAR Close On Time],
+	     
+//     if(match([Audit Origin Status],'Closed','Executed'), if([Audit Execution Date Fix]<[Audit Execution Due Date],'Executed Late','Executed On Time'),
+//     if([Audit Origin Status]='Open',if([Audit Execution Due Date]<'$(vYesterday)', 'Executed Late','Future Audits'))) as [Audit Status], 
+//     if(match([Audit Origin Status],'Closed','Executed'), if([Audit Execution Date Fix]<[Audit Execution Due Date],3,2),
+//     if([Audit Origin Status]='Open',if([Audit Execution Due Date]<'$(vYesterday)', 3,1))) as [Audit Status Code], 
+     [Audit Fix Status],
+     if(match([Audit Fix Status],'Closed'), if([Audit Execution Date Fix]<[Audit Execution Due Date],'Executed Late','Executed On Time'),
+     if([Audit Fix Status]='Open',if([Audit Execution Due Date]<'$(vYesterday)', 'Executed Late','Future Audits'))) as [Audit Status], 
+     if(match([Audit Fix Status],'Closed'), if([Audit Execution Date Fix]<[Audit Execution Due Date],3,2),
+     if([Audit Fix Status]='Open',if([Audit Execution Due Date]<'$(vYesterday)', 3,1))) as [Audit Status Code], 
+     
+    
+      [Audit CAR Due Date Fix],
+     [Audit Open By], 
+     [Audit CAR Status Origin],
+     [Audit Metier / Platform], 
+     [Audit Issue Description], 
+     [Audit Criticality], 
+     [Audit Execution Due Date], 
+     //if([Audit Execution Due Date]<[Audit Final Approval Date Fix], 
+	 [Audit Origin Status], 
+     [Audit Execution Date], 
+     [Audit Final Approval Date], 
+     [Audit Approved By], 
+     [Audit CAR Reference], 
+     [Audit CAR Due Date], 
+     [Audit CAR Description], 
+     [Audit CAR Action], 
+     [Audit CAR Category], 
+     [Audit CAR Responsible Contact], 
+     [Audit CAR Status], 
+     [Audit CAR Close Date], 
+     [Audit CAR Comments]
+Resident Audit_T;
+store Audit into $(vLibDataFiles_RAW)/Audit.qvd;
+DROP Fields [Audit YYYYMM],[Audit CAR YYYYMM],[קוד קו],Project, [Issued by],Section, [Sub Section],[Entity Type],[Entity Name] From Audit; 
+
+///$tab NCR
+DataT1: 
+LOAD
+	Source,
+	[NCR Reference], 
+	RowNo() as RowNo,
+	SubField(trim([NCR Title]), Chr(10)) as [SubFieldNCRTitle]
+FROM [$(vLibDataFiles_RAW)/NCR.qvd](qvd);
+
+DataT2:
+NoConcatenate
+LOAD
+	Source,
+	[NCR Reference], 
+	RowNo,
+	Text(trim(SubFieldNCRTitle)) as [SubField NCR Title]
+Resident DataT1;
+DROP Table DataT1;
+
+Data3:
+LOAD 
+	 Source,
+	 [NCR Reference], 
+	 Concat([SubField NCR Title],';') as [NCR Concat Title]
+Resident DataT2
+WHERE LEN(TRIM([SubField NCR Title]))>'0'
+Group By Source, [NCR Reference]
+Order by Source, [NCR Reference],RowNo;
+DROP Table DataT2;
+
+NCR_T: 
+NoConcatenate
+LOAD 
+//	 FileName, 
+//     ShortFileName, 
+//     ExcelRowNo, 
+	 Source,
+      FileTime,
+     if(match(Trim(Project),'','-') or IsNull(Project), 'Undefined',Project) as Project, 
+     if(match(Trim([Issued by]),'','-') or IsNull([Issued by]), 'Undefined',[Issued by]) as [Issued by],
+     if(match(Trim(Section),'','-') or IsNull(Section), 'Undefined',Section) as Section, 
+     if(match(Trim([Sub Section]),'','-') or IsNull([Sub Section]), 'Undefined',[Sub Section]) as [Sub Section], 
+     if(match(Trim([Entity Type]),'','-') or IsNull([Entity Type]), 'Undefined',[Entity Type]) as [Entity Type], 
+     if(match(Trim([Entity Name]),'','-') or IsNull([Entity Name]), 'Undefined',[Entity Name]) as  [Entity Name], 
+     if(match(Trim([NCR Reference]),'','-') or IsNull([NCR Reference]), 'Undefined',[NCR Reference]) as [NCR Reference], 
+//     [NCR Number], 
+     if(match(Trim([Opening Date]),'','-') or IsNull([Opening Date]), 'Undefined',Date(Floor([Opening Date]))) as [NCR Opening Date],
+	 if(match(Trim(Contact),'','-') or IsNull(Contact), 'Undefined',[Contact]) as [NCR Contact],
+	 if(match(Trim(Severity),'','-') or IsNull(Severity), 'Undefined',[Severity]) as [NCR Severity Code],
+	 [Status] as [NCR Origin Status],
+	 if(match(Trim(Status),'','-') or IsNull(Status), 'Open',if(Status='Ready for closure','Open',if(Status='Canceled','',[Status]))) as [NCR Status],
+	 if(match(Trim(Status),'','-') or IsNull(Status), 'Undefined',Status) as [NCR Status Origin],
+	 if(match(Trim([Planned Closure Date]),'','-') or IsNull([Planned Closure Date]), 'Undefined',Date(Floor([Planned Closure Date]))) as [NCR Planned Closure Date],
+	 if(match(Trim([Actual Closure Date]),'','-') or IsNull([Actual Closure Date]),'Undefined',Date(Floor([Actual Closure Date]))) as [NCR Actual Closure Date],	
+	 Date(if(match(Trim([Actual Closure Date]),'','-') or IsNull([Actual Closure Date]) ,'$(vYesterday)',Floor([Actual Closure Date]))) as [NCR Actual Closure Date Fix],//'$(vYesterday)'
+	 if(match(Trim([NCR Title]),'','-') or IsNull([NCR Title]), 'Undefined',[NCR Title]) as [NCR Title Origin],
+	 if(match(Trim(Details),'','-') or IsNull(Details), 'Undefined',[Details]) as [NCR Details],
+	 if(match(Trim([Correction required]),'','-') or IsNull([Correction required]), 'Undefined',[Correction required]) as [NCR Correction required],
+	 if(match(Trim([Corrective Action]),'','-') or IsNull([Corrective Action]), 'Undefined',[Corrective Action]) as [NCR Corrective Action],
+	 if(match(Trim(Discipline),'','-') or IsNull(Discipline), 'Undefined',[Discipline]) as [NCR Discipline],
+	 if(match(Trim([Spec.]),'','-') or IsNull([Spec.]), 'Undefined',[Spec.]) as [NCR Spec.],
+	 if(match(Trim([Safty Related NCR]),'','-') or IsNull([Safty Related NCR]), 'Undefined',[Safty Related NCR]) as [Safty Related NCR],
+	 if(match(Trim([Root Cause Analysis]),'','-') or IsNull([Root Cause Analysis]), 'Undefined',[Root Cause Analysis]) as [NCR Root Cause Analysis],
+	 if(match(Trim([Root Cause Analysis Details]),'','-') or IsNull([Root Cause Analysis Details]), 'Undefined',[Root Cause Analysis Details]) as [NCR Root Cause Analysis Details],
+     if(match(Trim("To be procced By [contact]"),'','-') or IsNull("To be procced By [contact]"), 'Undefined',"To be procced By [contact]") as [NCR Responsible Person], 
+     if(match(Trim("To be procced By [Position]"),'','-') or IsNull("To be procced By [Position]"), 'Undefined',"To be procced By [Position]") as [NCR Responsible Position], 
+     if(match(Trim("To be procced By [opening date]"),'','-') or IsNull("To be procced By [opening date]"), 'Undefined',Date(Floor("To be procced By [opening date]"))) as  [NCR To be procced By opening date], 
+     if(match(Trim("To be procced By [status]"),'','-') or IsNull("To be procced By [status]"), 'Undefined',"To be procced By [status]") as [NCR To be procced By status]
+FROM [$(vLibDataFiles_RAW)/NCR.qvd](qvd)
+Where  Status<>'Canceled';
+Left Join (NCR_T)
+LOAD *
+Resident Data3;
+DROP Table Data3;
+
+//EXIT SCRIPT
+//store NCR_T into $(vLibDataFiles_RAW)/NCR_T.qvd;
+////DROP Table NCR_T;
+
+NCR:
+//LOAD *,
+//	 	TRIM(SUBFIELD(NCRRootCauseAnalysis,' ',1) & ' ' & SUBFIELD(NCRRootCauseAnalysis,' ',2) & CHR(10) & SUBFIELD(NCRRootCauseAnalysis,' ',3) & ' ' & SUBFIELD(NCRRootCauseAnalysis,' ',4) & CHR(10) & SUBFIELD(NCRRootCauseAnalysis,' ',5) & ' ' & SUBFIELD(NCRRootCauseAnalysis,' ',6)) AS [NCR Root Cause Analysis];
+LOAD 
+	 AutoNumber(Source&Project&[Issued by]&Section&[Sub Section]&[Entity Type]&[Entity Name]) as %Proj_Issued_Section_Subsection_EntityType_EntityName,
+	 Num#(Year([NCR Actual Closure Date Fix]) *100 + Num(Month([NCR Actual Closure Date Fix])),'#0') as [YYYYMM],
+	 if(Left([Project],6)='TMT-GL', 'G','P' ) as [קוד קו],
+//	 FileName, 
+//     ShortFileName, 
+//     ExcelRowNo, 
+  	 [NCR Reference], 
+  	 [NCR Origin Status],
+     Project, 
+     [Issued by],
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name], 
+     [NCR Opening Date], 
+     [NCR Contact], 
+     Dual(if( [NCR Severity Code]=1, 'One', if( [NCR Severity Code]=2, 'Two',if( [NCR Severity Code]=3, 'Three','Undefined' ))),[NCR Severity Code]) as [NCR Level],
+     [NCR Severity Code], 
+     [NCR Status], 
+     [NCR Planned Closure Date], 
+     [NCR Actual Closure Date], 
+
+     if([NCR Planned Closure Date]<='$(vYesterday)' and [NCR Status]='Open', '$(vYesterday)'-[NCR Planned Closure Date], 
+      	if([NCR Status]='Closed' and [NCR Planned Closure Date]<[NCR Actual Closure Date Fix], [NCR Actual Closure Date Fix]-[NCR Planned Closure Date])) as [NCR Delayed Days],
+
+     if([NCR Status]='Open', if([NCR Planned Closure Date]<='$(vYesterday)', 'Overdue NCR')) as [NCR Overdue],
+     if([NCR Status]='Open', if([NCR Planned Closure Date]<='$(vYesterday)', 1,0),0) as [NCR Overdue Flag],  
+     if([NCR Planned Closure Date]='Undefined',1,
+     if([NCR Status]='Closed', if([NCR Planned Closure Date]<[NCR Actual Closure Date Fix], 4, 3), 
+	     if([NCR Status]='Open', if([NCR Planned Closure Date]<'$(vYesterday)', 1, 2)))) as [NCR Close On Time Code], 
+     if([NCR Planned Closure Date]='Undefined','Open Overdue',
+     if([NCR Status]='Closed', if([NCR Planned Closure Date]<[NCR Actual Closure Date Fix],'Closed Late','Closed On Time'), 
+	     if([NCR Status]='Open', if([NCR Planned Closure Date]<'$(vYesterday)','Open Overdue','Open - Not Overdue')))) as [NCR Close On Time],
+	     
+     [NCR Actual Closure Date Fix]- [NCR Opening Date] as [NCR Days Duration], 
+     [NCR Actual Closure Date Fix],    
+     if([NCR Reference]='TMTGL-CMEP-NCR-00002','הקבלן ממשיך בעבודות עיבוד שתית ללא העברת אזמיידים',[NCR Title Origin]) as [NCR Title], 
+     if([NCR Reference]='TMTGL-CMEP-NCR-00002',[NCR Title Origin],[NCR Details]) as [NCR Details], 
+     [NCR Correction required], 
+     [NCR Corrective Action], 
+     [NCR Discipline], 
+     [NCR Spec.], 
+     [Safty Related NCR], 
+     if([NCR Root Cause Analysis]='Nonconformity with Regulatory Requirements',
+     TRIM(SUBFIELD( [NCR Root Cause Analysis],' ',1) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',2) & CHR(10) & SUBFIELD( [NCR Root Cause Analysis],' ',3)),
+     TRIM(SUBFIELD( [NCR Root Cause Analysis],' ',1) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',2) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',3) & CHR(10) & SUBFIELD( [NCR Root Cause Analysis],' ',4) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',5) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',6))) as [NCR Root Cause Analysis],//[NCRRootCauseAnalysis], 
+//     TRIM(SUBFIELD( [NCR Root Cause Analysis],' ',1) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',2) & CHR(10) & SUBFIELD( [NCR Root Cause Analysis],' ',3) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',4) & CHR(10) & SUBFIELD( [NCR Root Cause Analysis],' ',5) & ' ' & SUBFIELD( [NCR Root Cause Analysis],' ',6)) as [NCR Root Cause Analysis], 
+     [NCR Root Cause Analysis Details], 
+     [NCR Responsible Person], 
+     [NCR Responsible Position], 
+     [NCR To be procced By opening date], 
+     [NCR To be procced By status], 
+     [NCR Concat Title]
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';// and (not IsNull([NCR Reference]) and not Trim([NCR Reference])='');
+store NCR into $(vLibDataFiles_RAW)/NCR.qvd;
+DROP Fields [YYYYMM],[קוד קו],Project, [Issued by],Section, [Sub Section], [Entity Type], [Entity Name] From NCR; 
+
+///$tab LABOrders
+LABOrder_T:
+LOAD 
+//	 FileName, 
+//     ShortFileName, 
+//     ExcelRowNo, 
+//     Number, 
+     if(match(Trim(Project),'','-') or IsNull(Project), 'Undefined',Project) as Project, 
+     'QC' as [Issued by],
+     if(match(Trim(Number),'','-') or IsNull(Number), 'Undefined',Number) as  [LABOrder Reference],
+	 Source,
+      FileTime,
+     if(match(Trim(Section),'','-') or IsNull(Section), 'Undefined',Section) as Section, 
+     if(match(Trim([Sub Section]),'','-') or IsNull([Sub Section]), 'Undefined',[Sub Section]) as [Sub Section], 
+     if(match(Trim([Entity Type]),'','-') or IsNull([Entity Type]), 'Undefined',[Entity Type]) as [Entity Type], 
+     if(match(Trim([Entity Name]),'','-') or IsNull([Entity Name]), 'Undefined',[Entity Name]) as  [Entity Name], 
+	 Date(MakeDate(Year([Order Date]),num(Month([Order Date]),'#00'),num(Day(Floor([Order Date])),'#00'))) as [LABOrders Order Date],
+	 Year(Floor([Order Date])) as [Year Order Date],
+	 num(Month(Floor([Order Date])),'#00') as [Month Order Date],
+	 num(Day(Floor([Order Date])),'#00') as [Day Order Date],
+//     Date(if(match(Trim([Order Date]),'','-') or IsNull([Order Date]), 'Undefined',trim([Order Date]))) as [LABOrders Order Date],
+     if(match(Trim([Material Type]),'','-') or IsNull([Material Type]), 'Undefined',[Material Type]) as [LABOrders Material Type],
+//     if(match(Trim([Test Acc. To IS] ),'','-') or IsNull([Test Acc. To IS] ), 'Undefined',[Test Acc. To IS]) as [LABOrders Test Acc. To IS],
+     if(match(Trim([Order Status]),'','-') or IsNull([Order Status]), 'Undefined',[Order Status]) as [LABOrders Order Status],
+     if(match(Trim([Order Status]),'','-') or IsNull([Order Status]), 'Undefined',if([Order Status]='Closed', 'Responded', 'Not Responded')) as [Responded/Not Responded],
+//     if(match(Trim([Resualts Status]),'','-') or IsNull([Resualts Status]), 'Reference',if([Resualts Status]='OK','Passed',if([Resualts Status]='NC','Non Compliant'))) as [Lab Test Result]
+     if(match(Trim([Resualts Status]),'','-') or IsNull([Pass/Fail]), 'Reference',if([Pass/Fail]='pass','Passed',if([Pass/Fail]='fail','NC'))) as [Lab Test Result]
+FROM [$(vLibDataFiles_RAW)/LABOrders.qvd](qvd)
+Where ([Order Status]<>'Canceled');
+//store LABOrder into $(vLibDataFiles_RAW)/LABOrder.qvd;
+////DROP Table LABOrder;
+//EXIT SCRIPT
+LABOrder:
+NoConcatenate
+LOAD 	
+ 	 AutoNumber(Source&Project&[Issued by]&Section&[Sub Section]&[Entity Type]&[Entity Name]) as %Proj_Issued_Section_Subsection_EntityType_EntityName,
+ 	 Num#(Year( [LABOrders Order Date]) *100 + Num(Month([LABOrders Order Date])),'#0') as [YYYYMM],
+	 if(Left([Project],6)='TMT-GL', 'G','P' ) as [קוד קו],
+ 	 Project, 
+     [Issued by], 
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name],
+	 [Year Order Date],
+	 [Month Order Date],
+	 [Day Order Date],
+	 [Responded/Not Responded],
+	 [LABOrder Reference],
+     [LABOrders Order Date], 
+     [LABOrders Material Type], 
+     [LABOrders Order Status], 
+     [Lab Test Result]
+Resident LABOrder_T;
+store LABOrder into $(vLibDataFiles_RAW)/LABOrder.qvd;
+DROP Fields [YYYYMM],[קוד קו],Project, [Issued by],Section, [Sub Section], [Entity Type], [Entity Name] From LABOrder; 
+
+///$tab Calendars
+NCR_Dates:
+LOAD Distinct
+     [NCR Opening Date] as NCR_Date,
+     [NCR Reference],
+     '1' AS NCR_Date_ID,
+     'Open' AS NCR_Date_Name
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';
+Concatenate
+LOAD Distinct
+     Date([NCR Actual Closure Date Fix]) as NCR_Date,
+     [NCR Reference],     
+     '2' AS NCR_Date_ID,
+     'Closed' AS NCR_Date_Name
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';
+Concatenate
+LOAD Distinct
+     [NCR Planned Closure Date] as NCR_Date,
+     [NCR Reference],     
+     '3' AS NCR_Date_ID,
+     'Planned' AS NCR_Date_Name
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';
+Left Join
+LOAD Distinct
+     Year as [NCR Year],
+     [שנה/שבוע] as [NCR YearWeek],
+	 YYYYMM  as [NCR YYYYMM], 
+     Date(Date) as NCR_Date, 
+//     Date(Date) as [NCR Date], 
+      Dual([Year-Month],YYYYMM) as [NCR Year-Month], 
+     רבעון as [NCR Quartor],  
+     Month as [NCR Month],
+     DayNum as [NCR DayNum], 
+     WeekNum as [NCR WeekNum], 
+     QuarterNum as [NCR QuarterNum],
+	 MonthNum as [NCR MonthNum], 
+	 WeekDay(Date) as [NCR WeekDay],
+     DateNum as [NCR DateNumar], 
+     Day as [NCR Day],     
+     DayInYearNum as [NCR DayInYearNum], 
+     WeekDayNum as [NCR WeekDayNum],                 
+     MonthSort as [NCR MonthSort], 
+     YearQuarterSort as [NCR YearQuarterSort], 
+     YearMonthSort as [NCR YearMonthSort], 
+     YearWeekSort as [NCR YearWeekSort], 
+     YearDaySort as [NCR YearDaySort], 
+     YearMonthDaySort as [NCR YearMonthDaySort], 
+     QuarterSort as [NCR QuarterSort],  
+     WeekDaySort  as [NCR WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd);
+
+NCR_ActualClosureDate:
+NoConcatenate
+LOAD Distinct
+     [NCR Actual Closure Date Fix]
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';
+Left Join
+LOAD Distinct
+     Year as [NCR Actual Closure Year],
+     [שנה/שבוע] as [NCR Actual Closure Year/Week],
+	 YYYYMM  as [NCR Actual Closure YYYYMM], 
+     Date(Date) as [NCR Actual Closure Date Fix], 
+//     Date(Date) as [NCR Actual Closure Date], 
+      Dual([Year-Month],YYYYMM) as [NCR Actual Closure Year-Month], 
+     רבעון as [NCR Actual Closure Quartor],  
+     Month as [NCR Actual Closure Month],
+     DayNum as [NCR Actual Closure DayNum], 
+     WeekNum as [NCR Actual Closure WeekNum], 
+     QuarterNum as [NCR Actual Closure QuarterNum],
+	 MonthNum as [NCR Actual Closure MonthNum], 
+	 WeekDay(Date) as [NCR Actual Closure WeekDay],
+     DateNum as [NCR Actual Closure DateNumar], 
+     Day as [NCR Actual Closure Day],     
+     DayInYearNum as [NCR Actual Closure DayInYearNum], 
+     WeekDayNum as [NCR Actual Closure WeekDayNum],                 
+     MonthSort as [NCR Actual Closure MonthSort], 
+     YearQuarterSort as [NCR Actual Closure YearQuarterSort], 
+     YearMonthSort as [NCR Actual Closure YearMonthSort], 
+     YearWeekSort as [NCR Actual Closure YearWeekSort], 
+     YearDaySort as [NCR Actual Closure YearDaySort], 
+     YearMonthDaySort as [NCR Actual Closure YearMonthDaySort], 
+     QuarterSort as [NCR Actual Closure QuarterSort],  
+     WeekDaySort  as [NCR Actual Closure WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+NCR_PlannedClosureDate:
+NoConcatenate
+LOAD Distinct
+     [NCR Planned Closure Date]
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';
+Left Join
+LOAD Distinct
+     Year as [NCR Planned Closure Year],
+     [שנה/שבוע] as [NCR Planned Closure Year/Week],
+	 YYYYMM  as [NCR Planned Closure YYYYMM], 
+     Date(Date) as [NCR Planned Closure Date], 
+      Dual([Year-Month],YYYYMM) as [NCR Planned Closure Year-Month], 
+     רבעון as [NCR Planned Closure Quartor],  
+     Month as [NCR Planned Closure Month],
+     DayNum as [NCR Planned Closure DayNum], 
+     WeekNum as [NCR Planned Closure WeekNum], 
+     QuarterNum as [NCR Planned Closure QuarterNum],
+	 MonthNum as [NCR Planned Closure MonthNum], 
+	 WeekDay(Date) as [NCR Planned Closure WeekDay],
+     DateNum as [NCR Planned Closure DateNumar], 
+     Day as [NCR Planned Closure Day],     
+     DayInYearNum as [NCR Planned Closure DayInYearNum], 
+     WeekDayNum as [NCR Planned Closure WeekDayNum],                 
+     MonthSort as [NCR Planned Closure MonthSort], 
+     YearQuarterSort as [NCR Planned Closure YearQuarterSort], 
+     YearMonthSort as [NCR Planned Closure YearMonthSort], 
+     YearWeekSort as [NCR Planned Closure YearWeekSort], 
+     YearDaySort as [NCR Planned Closure YearDaySort], 
+     YearMonthDaySort as [NCR Planned Closure YearMonthDaySort], 
+     QuarterSort as [NCR Planned Closure QuarterSort],  
+     WeekDaySort  as [NCR Planned Closure WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+NCR_OpeningDate:
+NoConcatenate
+LOAD Distinct
+     [NCR Opening Date]
+Resident NCR_T
+Where [NCR Reference]<>'Undefined';
+Left Join
+LOAD Distinct
+     Year as [NCR Opening Year],
+     [שנה/שבוע] as [NCR Opening Year/Week],
+	 YYYYMM  as [NCR Opening YYYYMM], 
+     Date(Date) as [NCR Opening Date], 
+      Dual([Year-Month],YYYYMM) as [NCR Opening Year-Month], 
+     רבעון as [NCR Opening Quartor],  
+     Month as [NCR Opening Month],
+     DayNum as [NCR Opening DayNum], 
+     WeekNum as [NCR Opening WeekNum], 
+     QuarterNum as [NCR Opening QuarterNum],
+	 MonthNum as [NCR Opening MonthNum], 
+	 WeekDay(Date) as [NCR Opening WeekDay],
+     DateNum as [NCR Opening DateNumar], 
+     Day as [NCR Opening Day],     
+     DayInYearNum as [NCR Opening DayInYearNum], 
+     WeekDayNum as [NCR Opening WeekDayNum],                 
+     MonthSort as [NCR Opening MonthSort], 
+     YearQuarterSort as [NCR Opening YearQuarterSort], 
+     YearMonthSort as [NCR Opening YearMonthSort], 
+     YearWeekSort as [NCR Opening YearWeekSort], 
+     YearDaySort as [NCR Opening YearDaySort], 
+     YearMonthDaySort as [NCR Opening YearMonthDaySort], 
+     QuarterSort as [NCR Opening QuarterSort],  
+     WeekDaySort  as [NCR Opening WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+AuditCARs_Dates:
+LOAD Distinct
+	 [Audit CAR Open Date] as Audit_CAR_Date,
+//     if([Audit CAR Due Date Fix]<='$(vYesterday)',[Audit CAR Due Date Fix],'$(vYesterday)') as Audit_CAR_Date_Fix,
+     [Audit CAR Reference],
+     '1' AS Audit_CAR_Date_ID,
+     'Open' AS Audit_CAR_Date_Name
+Resident Audit_T
+Where [Audit CAR Close Date]<>'Undefined';// and (year([Audit CAR Due Date])& num(month([Audit CAR Due Date]),'00'))<=$(vYesterdayYYYYMM);
+Concatenate
+LOAD Distinct
+	[Audit CAR Close Date Fix] as Audit_CAR_Date,
+////     if([Audit CAR Close Date]<='$(vYesterday)',[Audit CAR Close Date],'$(vYesterday)') as Audit_CAR_Date_Fix,
+     [Audit CAR Reference],     
+     '2' AS Audit_CAR_Date_ID,
+     'Closed' AS Audit_CAR_Date_Name
+Resident Audit_T
+Where  [Audit CAR Close Date]<>'Undefined';// and (year([Audit CAR Close Date])& num(month([Audit CAR Close Date]),'00'))<=$(vYesterdayYYYYMM);
+Left Join
+LOAD Distinct
+     Year as [Audit CAR Year],
+     [שנה/שבוע] as [Audit CAR YearWeek],
+	 YYYYMM  as [Audit CAR YYYYMM], 
+     Date(Date) as Audit_CAR_Date, 
+//     Date(Date) as [Audit CAR Date], 
+      Dual([Year-Month],YYYYMM) as [Audit CAR Year-Month], 
+     רבעון as [Audit CAR Quartor],  
+     Month as [Audit CAR Month],
+     DayNum as [Audit CAR DayNum], 
+     WeekNum as [Audit CAR WeekNum], 
+     QuarterNum as [Audit CAR QuarterNum],
+	 MonthNum as [Audit CAR MonthNum], 
+	 WeekDay(Date) as [Audit CAR WeekDay],
+     DateNum as [Audit CAR DateNumar], 
+     Day as [Audit CAR Day],     
+     DayInYearNum as [Audit CAR DayInYearNum], 
+     WeekDayNum as [Audit CAR WeekDayNum],                 
+     MonthSort as [Audit CAR MonthSort], 
+     YearQuarterSort as [Audit CAR YearQuarterSort], 
+     YearMonthSort as [Audit CAR YearMonthSort], 
+     YearWeekSort as [Audit CAR YearWeekSort], 
+     YearDaySort as [Audit CAR YearDaySort], 
+     YearMonthDaySort as [Audit CAR YearMonthDaySort], 
+     QuarterSort as [Audit CAR QuarterSort],  
+     WeekDaySort  as [Audit CAR WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd);
+
+
+Audit_ExecutionDueDate:
+NoConcatenate
+LOAD Distinct
+     [Audit Execution Due Date]
+Resident Audit_T;
+Left Join
+LOAD Distinct
+     Year as [Audit Execution Due Year],
+     if(Date(Date)<='$(vYesterday)', 'Approval Due Date Until Yesterday') as [Audit ExecutionDue Date Until Yesterday],
+     [שנה/שבוע] as [Audit Execution Due Year/Week],
+	 YYYYMM  as [Audit Execution Due YYYYMM], 
+     Date(Date) as [Audit Execution Due Date], 
+      Dual([Year-Month],YYYYMM) as [Audit Execution Due Year-Month], 
+     רבעון as [Audit Execution Due Quartor],  
+     Month as [Audit Execution Due Month],
+     DayNum as [Audit Execution Due DayNum], 
+     WeekNum as [Audit Execution Due WeekNum], 
+     QuarterNum as [Audit Execution Due QuarterNum],
+	 MonthNum as [Audit Execution Due MonthNum], 
+	 WeekDay(Date) as [Audit Execution Due WeekDay],
+     DateNum as [Audit Execution Due DateNumar], 
+     Day as [Audit Execution Due Day],     
+     DayInYearNum as [Audit Execution Due DayInYearNum], 
+     WeekDayNum as [Audit Execution Due WeekDayNum],                 
+     MonthSort as [Audit Execution Due MonthSort], 
+     YearQuarterSort as [Audit Execution Due YearQuarterSort], 
+     YearMonthSort as [Audit Execution Due YearMonthSort], 
+     YearWeekSort as [Audit Execution Due YearWeekSort], 
+     YearDaySort as [Audit Execution Due YearDaySort], 
+     YearMonthDaySort as [Audit Execution Due YearMonthDaySort], 
+     QuarterSort as [Audit Execution Due QuarterSort],  
+     WeekDaySort  as [Audit Execution Due WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+Audit_ExecutionDate:
+NoConcatenate
+LOAD Distinct
+     [Audit Execution Date]
+Resident Audit_T;
+Left Join
+LOAD Distinct
+     Year as [Audit Execution Year],
+     [שנה/שבוע] as [Audit Execution Year/Week],
+	 YYYYMM  as [Audit Execution YYYYMM], 
+     Date(Date) as [Audit Execution Date], 
+      Dual([Year-Month],YYYYMM) as [Audit Execution Year-Month], 
+     רבעון as [Audit Execution Quartor],  
+     Month as [Audit Execution Month],
+     DayNum as [Audit Execution DayNum], 
+     WeekNum as [Audit Execution WeekNum], 
+     QuarterNum as [Audit Execution QuarterNum],
+	 MonthNum as [Audit Execution MonthNum], 
+	 WeekDay(Date) as [Audit Execution WeekDay],
+     DateNum as [Audit Execution DateNumar], 
+     Day as [Audit Execution Day],     
+     DayInYearNum as [Audit Execution DayInYearNum], 
+     WeekDayNum as [Audit Execution WeekDayNum],                 
+     MonthSort as [Audit Execution MonthSort], 
+     YearQuarterSort as [Audit Execution YearQuarterSort], 
+     YearMonthSort as [Audit Execution YearMonthSort], 
+     YearWeekSort as [Audit Execution YearWeekSort], 
+     YearDaySort as [Audit Execution YearDaySort], 
+     YearMonthDaySort as [Audit Execution YearMonthDaySort], 
+     QuarterSort as [Audit Execution QuarterSort],  
+     WeekDaySort  as [Audit Execution WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+Audit_FinalApprovalDate:
+NoConcatenate
+LOAD Distinct
+     [Audit Final Approval Date]
+Resident Audit_T;
+Left Join
+LOAD Distinct
+     Year as [Audit Final Approval Year],
+     [שנה/שבוע] as [Audit Final Approval Year/Week],
+	 YYYYMM  as [Audit Final Approval YYYYMM], 
+     Date(Date) as [Audit Final Approval Date], 
+      Dual([Year-Month],YYYYMM) as [Audit Final Approval Year-Month], 
+     רבעון as [Audit Final Approval Quartor],  
+     Month as [Audit Final Approval Month],
+     DayNum as [Audit Final Approval DayNum], 
+     WeekNum as [Audit Final Approval WeekNum], 
+     QuarterNum as [Audit Final Approval QuarterNum],
+	 MonthNum as [Audit Final Approval MonthNum], 
+	 WeekDay(Date) as [Audit Final Approval WeekDay],
+     DateNum as [Audit Final Approval DateNumar], 
+     Day as [Audit Final Approval Day],     
+     DayInYearNum as [Audit Final Approval DayInYearNum], 
+     WeekDayNum as [Audit Final Approval WeekDayNum],                 
+     MonthSort as [Audit Final Approval MonthSort], 
+     YearQuarterSort as [Audit Final Approval YearQuarterSort], 
+     YearMonthSort as [Audit Final Approval YearMonthSort], 
+     YearWeekSort as [Audit Final Approval YearWeekSort], 
+     YearDaySort as [Audit Final Approval YearDaySort], 
+     YearMonthDaySort as [Audit Final Approval YearMonthDaySort], 
+     QuarterSort as [Audit Final Approval QuarterSort],  
+     WeekDaySort  as [Audit Final Approval WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+Audit_DueDate:
+NoConcatenate
+LOAD Distinct
+     [Audit CAR Due Date]
+Resident Audit_T;
+Left Join
+LOAD Distinct
+     Year as [Audit CAR Due Year],
+     [שנה/שבוע] as [Audit CAR Due Year/Week],
+	 YYYYMM  as [Audit CAR Due YYYYMM], 
+     Date(Date) as [Audit CAR Due Date], 
+      Dual([Year-Month],YYYYMM) as [Audit CAR Due Year-Month], 
+     רבעון as [Audit CAR Due Quartor],  
+     Month as [Audit CAR Due Month],
+     DayNum as [Audit CAR Due DayNum], 
+     WeekNum as [Audit CAR Due WeekNum], 
+     QuarterNum as [Audit CAR Due QuarterNum],
+	 MonthNum as [Audit CAR Due MonthNum], 
+	 WeekDay(Date) as [Audit CAR Due WeekDay],
+     DateNum as [Audit CAR Due DateNumar], 
+     Day as [Audit CAR Due Day],     
+     DayInYearNum as [Audit CAR Due DayInYearNum], 
+     WeekDayNum as [Audit CAR Due WeekDayNum],                 
+     MonthSort as [Audit CAR Due MonthSort], 
+     YearQuarterSort as [Audit CAR Due YearQuarterSort], 
+     YearMonthSort as [Audit CAR Due YearMonthSort], 
+     YearWeekSort as [Audit CAR Due YearWeekSort], 
+     YearDaySort as [Audit CAR Due YearDaySort], 
+     YearMonthDaySort as [Audit CAR Due YearMonthDaySort], 
+     QuarterSort as [Audit CAR Due QuarterSort],  
+     WeekDaySort  as [Audit CAR Due WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+Audit_CloseDate:
+NoConcatenate
+LOAD Distinct
+     [Audit CAR Close Date]
+Resident Audit_T;
+Left Join
+LOAD Distinct
+     Year as [Audit CAR Close Year],
+     [שנה/שבוע] as [Audit CAR Close Year/Week],
+	 YYYYMM  as [Audit CAR Close YYYYMM], 
+     Date(Date) as [Audit CAR Close Date], 
+     Dual([Year-Month],YYYYMM) as [Audit CAR Close Year-Month], 
+     רבעון as [Audit CAR Close Quartor],  
+     Month as [Audit CAR Close Month],
+     DayNum as [Audit CAR Close DayNum], 
+     WeekNum as [Audit CAR Close WeekNum], 
+     QuarterNum as [Audit CAR Close QuarterNum],
+	 MonthNum as [Audit CAR Close MonthNum], 
+	 WeekDay(Date) as [Audit CAR Close WeekDay],
+     DateNum as [Audit CAR Close DateNumar], 
+     Day as [Audit CAR Close Day],     
+     DayInYearNum as [Audit CAR Close DayInYearNum], 
+     WeekDayNum as [Audit CAR Close WeekDayNum],                 
+     MonthSort as [Audit CAR Close MonthSort], 
+     YearQuarterSort as [Audit CAR Close YearQuarterSort], 
+     YearMonthSort as [Audit CAR Close YearMonthSort], 
+     YearWeekSort as [Audit CAR Close YearWeekSort], 
+     YearDaySort as [Audit CAR Close YearDaySort], 
+     YearMonthDaySort as [Audit CAR Close YearMonthDaySort], 
+     QuarterSort as [Audit CAR Close QuarterSort],  
+     WeekDaySort  as [Audit CAR Close WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+
+POC_Approval_Date:
+NoConcatenate
+LOAD Distinct
+     [POC Approval Date]
+Resident POC_T;
+Left Join
+LOAD Distinct
+     Year as [POC Approval Year],
+     [שנה/שבוע] as [POC Approval Year/Week],
+	 YYYYMM  as [POC Approval YYYYMM], 
+     Date(Date) as [POC Approval Date], 
+      Dual([Year-Month],YYYYMM) as [POC Approval Year-Month], 
+     רבעון as [POC Approval Quartor],  
+     Month as [POC Approval Month],
+     DayNum as [POC Approval DayNum], 
+     WeekNum as [POC Approval WeekNum], 
+     QuarterNum as [POC Approval QuarterNum],
+	 MonthNum as [POC Approval MonthNum], 
+	 WeekDay(Date) as [POC Approval WeekDay],
+     DateNum as [POC Approval DateNumar], 
+     Day as [POC Approval Day],     
+     DayInYearNum as [POC Approval DayInYearNum], 
+     WeekDayNum as [POC Approval WeekDayNum],                 
+     MonthSort as [POC Approval MonthSort], 
+     YearQuarterSort as [POC Approval YearQuarterSort], 
+     YearMonthSort as [POC Approval YearMonthSort], 
+     YearWeekSort as [POC Approval YearWeekSort], 
+     YearDaySort as [POC Approval YearDaySort], 
+     YearMonthDaySort as [POC Approval YearMonthDaySort], 
+     QuarterSort as [POC Approval QuarterSort],  
+     WeekDaySort  as [POC Approval WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+POC_ApprovalDue_Date:
+NoConcatenate
+LOAD Distinct
+     [POC Approval Due Date]
+Resident POC_T;
+Left Join
+LOAD Distinct
+     Year as [POC Approval Due Year],
+     if(Date(Date)<='$(vYesterday)', 'Approval Due Date Until Yesterday') as [POC Approval Due Date Until Yesterday],
+     [שנה/שבוע] as [POC Approval Due Year/Week],
+	 YYYYMM  as [POC Approval Due YYYYMM], 
+     Date(Date) as [POC Approval Due Date], 
+      Dual([Year-Month],YYYYMM) as [POC Approval Due Year-Month], 
+     רבעון as [POC Approval Due Quartor],  
+     Month as [POC Approval Due Month],
+     DayNum as [POC Approval Due DayNum], 
+     WeekNum as [POC Approval Due WeekNum], 
+     QuarterNum as [POC Approval Due QuarterNum],
+	 MonthNum as [POC Approval Due MonthNum], 
+	 WeekDay(Date) as [POC Approval Due WeekDay],
+     DateNum as [POC Approval Due DateNumar], 
+     Day as [POC Approval Due Day],     
+     DayInYearNum as [POC Approval Due DayInYearNum], 
+     WeekDayNum as [POC Approval Due WeekDayNum],                 
+     MonthSort as [POC Approval Due MonthSort], 
+     YearQuarterSort as [POC Approval Due YearQuarterSort], 
+     YearMonthSort as [POC Approval Due YearMonthSort], 
+     YearWeekSort as [POC Approval Due YearWeekSort], 
+     YearDaySort as [POC Approval Due YearDaySort], 
+     YearMonthDaySort as [POC Approval Due YearMonthDaySort], 
+     QuarterSort as [POC Approval Due QuarterSort],  
+     WeekDaySort  as [POC Approval Due WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+
+LABOrdersDate:
+NoConcatenate
+LOAD Distinct
+     Date([LABOrders Order Date]) as [LABOrders Order Date]
+Resident LABOrder_T;
+Left Join
+LOAD Distinct
+     Year as [LABOrders Order Year],
+     [שנה/שבוע] as [LABOrders Order Year/Week],
+	 YYYYMM  as [LABOrders Order YYYYMM], 
+     Date(Date) as [LABOrders Order Date], 
+      Dual([Year-Month],YYYYMM) as [LABOrders Order Year-Month], 
+     רבעון as [LABOrders Order Quartor],  
+     Month as [LABOrders Order Month],
+     DayNum as [LABOrders Order DayNum], 
+     WeekNum as [LABOrders Order WeekNum], 
+     QuarterNum as [LABOrders Order QuarterNum],
+	 MonthNum as [LABOrders Order MonthNum], 
+	 WeekDay(Date) as [LABOrders Order WeekDay],
+     DateNum as [LABOrders Order DateNumar], 
+     Day as [LABOrders Order Day],     
+     DayInYearNum as [LABOrders Order DayInYearNum], 
+     WeekDayNum as [LABOrders Order WeekDayNum],                 
+     MonthSort as [LABOrders Order MonthSort], 
+     YearQuarterSort as [LABOrders Order YearQuarterSort], 
+     YearMonthSort as [LABOrders Order YearMonthSort], 
+     YearWeekSort as [LABOrders Order YearWeekSort], 
+     YearDaySort as [LABOrders Order YearDaySort], 
+     YearMonthDaySort as [LABOrders Order YearMonthDaySort], 
+     QuarterSort as [LABOrders Order QuarterSort],  
+     WeekDaySort  as [LABOrders Order WeekDaySort]                            
+//     [Date Diff], 
+//     [Month Diff], 
+//     [Qtr Diff], 
+//     [Year Diff],
+FROM $(vCalendar)(qvd)
+;
+//  Exit Script
+
+
+///$tab KeyTable
+KeyTable_T: 
+LOAD Distinct
+     Project as [Project Code], 
+     Source as DB_Source,
+     FileTime,
+     [Issued by], 
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name],
+     'NCR' as Source
+Resident NCR_T
+Where [NCR Reference]<>'Undefined' and [NCR Origin Status]<>'Canceled';
+DROP Table NCR_T;
+Concatenate
+LOAD Distinct
+     Project as [Project Code], 
+     Source as DB_Source,
+     FileTime,
+     [Issued by], 
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name], 
+     'POC' as Source
+Resident POC_T;
+DROP Table POC_T;
+Concatenate
+LOAD Distinct
+     Project as [Project Code],
+     Source as DB_Source, 
+     FileTime,
+     [Issued by], 
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name], 
+     'Audit' as Source      
+Resident Audit_T;
+DROP Table Audit_T;
+Concatenate
+LOAD Distinct
+     Project as [Project Code], 
+     [Issued by], 
+     FileTime,     
+     Source as DB_Source,
+     Section, 
+     [Sub Section], 
+     [Entity Type], 
+     [Entity Name], 
+     'LABOrder' as Source      
+Resident LABOrder_T;
+DROP Table LABOrder_T;
+Left Join
+Load max(FileTime) as MaxFileTime
+Resident KeyTable_T;
+Let vReloadTime = Date(FieldValue('MaxFileTime',1));
+
+KeyTable:
+NoConcatenate
+LOAD Distinct 
+	 AutoNumber(DB_Source&[Project Code]&[Issued by]&Section&[Sub Section]&[Entity Type]&[Entity Name]) as %Proj_Issued_Section_Subsection_EntityType_EntityName,
+	 if(Left([Project Code],3)='TMT', 'Green Line','Purple Line' ) as Project,
+DB_Source,
+MaxFileTime,
+FileTime,
+	[Project Code], 
+     [Issued by], 
+     TRIM(SUBFIELD(Section,' ',1) & ' ' & SUBFIELD(Section,' ',2) & CHR(10) & SUBFIELD(Section,' ',3) & ' ' & SUBFIELD(Section,' ',4) & CHR(10) & SUBFIELD(Section,' ',5) & ' ' & SUBFIELD(Section,' ',6)) AS Section,
+     TRIM(SUBFIELD([Sub Section],' ',1) & ' ' & SUBFIELD([Sub Section],' ',2) & CHR(10) & SUBFIELD([Sub Section],' ',3) & ' ' & SUBFIELD([Sub Section],' ',4) & CHR(10) & SUBFIELD([Sub Section],' ',5) & ' ' & SUBFIELD([Sub Section],' ',6)) AS [Sub Section], 
+     TRIM(SUBFIELD([Entity Type],' ',1) & ' ' & SUBFIELD([Entity Type],' ',2) & CHR(10) & SUBFIELD([Entity Type],' ',3) & ' ' & SUBFIELD([Entity Type],' ',4) & CHR(10) & SUBFIELD([Entity Type],' ',5) & ' ' & SUBFIELD([Entity Type],' ',6)) AS [Entity Type], 
+	 TRIM(SUBFIELD([Entity Name],' ',1) & ' ' & SUBFIELD([Entity Name],' ',2) & CHR(10) & SUBFIELD([Entity Name],' ',3) & ' ' & SUBFIELD([Entity Name],' ',4) & CHR(10) & SUBFIELD([Entity Name],' ',5) & ' ' & SUBFIELD([Entity Name],' ',6)) AS [Entity Name], 
+     Source
+Resident KeyTable_T;
+DROP Table KeyTable_T;
+
+// Exit Script
+///$tab Section Access
+//////*****************************************************
+
+// Show User Name
+Display_Users:
+LOAD Distinct
+	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
+	[שם משתמש] AS UserName_Full
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM $(vQvdSecurityDB)Authenticated_User.QVD (qvd);
+////---------------------------------------------------
+
+Access_Groups:
+LOAD 
+     USERNAME_DOCGROUP, 
+     USERNAME_DOCGROUPCODE
+FROM [$(vQvdSecurityDW)Access_Groups.QVD] (qvd);
+//---------------------------------------------------
+
+
+////*****************************************************
+
+STAR is *;
+Section Access;
+LOAD 
+	 Upper(NTNAME & '@nta.co.il') as USERID,
+     Upper(ACCESS) as ACCESS,
+     Upper(USERNAME_DOCGROUP) as USERNAME_DOCGROUP,
+     Upper(USERNAME_DEPARTMENT) as USERNAME_DEPARTMENT,
+     Upper(USERNAME_DIVISION) as USERNAME_DIVISION,
+     Upper(USERDATA_OS) as USERDATA_OS
+FROM [$(vQvdSecurityDW)Security_Quality_Infra2.QVD](qvd);
+
+Section Application;
+LOAD * INLINE [
+    USERNAME_DOCGROUP, Project
+    POWERUSER, Green Line
+    POWERUSER, Purple Line
+    GREEN, Green Line
+    PURPLE, Purple Line
+    ADMIN, Green Line
+    ADMIN, Purple Line
+    USER, Green Line
+    USER, Purple Line
+];
+
+
+////*****************************************************
+
+
+
+///$tab Exit Script
+Exit Script
+///$tab Section Access Origin
+/////*****************************************************
+// Show User Name
+Display_Users:
+LOAD 
+	[קוד משתמש] AS UserName_OS,
+    [שם משתמש] AS UserName_Full
+FROM [$(pSecurity)Users_Info.QVD] (qvd);
+
+Access_Groups:
+LOAD 
+     USERNAME_DOCGROUP, 
+     USERNAME_DOCGROUPCODE
+FROM [$(pSecurity)Access_Groups.QVD] (qvd);
+////---------------------------------------------------
+
+Section Access;
+
+LOAD NTNAME, 
+     ACCESS, 
+     USERNAME_DOCGROUP, 
+     USERNAME_DEPARTMENT, 
+     USERNAME_DIVISION,
+     USERDATA_OS
+FROM [$(pSecurity)Security_Quality_Infra2.QVD] (qvd);
+
+
+
+Section Application;
+
+
+LOAD * INLINE [
+    USERNAME_DOCGROUP, Project
+    POWERUSER, Green Line
+    POWERUSER, Purple Line
+    GREEN, Green Line
+    PURPLE, Purple Line
+    ADMIN, Green Line
+    ADMIN, Purple Line
+    USER, Green Line
+    USER, Purple Line
+];
+
