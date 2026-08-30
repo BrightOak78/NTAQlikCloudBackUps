@@ -1,0 +1,192 @@
+
+SHEETS
+{"qInfo":{"qId":"9c732ccb-a639-4120-ada5-646a8f33aa02","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9c732ccb-a639-4120-ada5-646a8f33aa02","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-24T07:52:46.587Z","modifiedDate":"2026-08-30T16:21:07.697Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Sheet Template","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"nPfdJE","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.6144578313253013}}
+{"name":"mmhPmP","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":3.6144578313253013,"width":100,"height":2.4096385542168672}}
+{"name":"PFCSLeN","type":"sn-layout-container","col":0,"row":5,"colspan":42,"rowspan":8,"bounds":{"x":0,"y":6.024096385542169,"width":50,"height":9.638554216867469}}
+{"name":"WtvAmx","type":"sn-layout-container","col":42,"row":5,"colspan":42,"rowspan":8,"bounds":{"x":50,"y":6.024096385542169,"width":50,"height":9.638554216867469}}
+{"name":"jfgfy","type":"barchart","col":0,"row":13,"colspan":39,"rowspan":15,"bounds":{"y":15.66265060240964,"x":0,"width":46.42857142857143,"height":18.072289156626507}}
+{"name":"ZxpeJM","type":"combochart","col":39,"row":13,"colspan":45,"rowspan":15,"bounds":{"y":15.66265060240964,"x":46.42857142857143,"width":53.57142857142857,"height":18.072289156626507}}
+{"name":"VZJume","type":"piechart","col":0,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":0,"width":33.33333333333333,"height":18.072289156626507}}
+{"name":"YWJpmb","type":"piechart","col":28,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":33.33333333333333,"width":33.33333333333333,"height":18.072289156626507}}
+{"name":"TmhsWUE","type":"piechart","col":56,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":66.66666666666666,"width":33.33333333333333,"height":18.072289156626507}}
+{"name":"kGjCy","type":"sn-tabbed-container","col":0,"row":43,"colspan":84,"rowspan":40,"bounds":{"y":51.80722891566265,"x":0,"width":100,"height":48.19277108433735}}
+
+DIMENSIONS
+{"qInfo":{"qId":"BkKzNf","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"BkKzNf","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-24T08:00:32.507Z","modifiedDate":"2026-08-24T08:01:07.585Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Main WF Detailed Status","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"vAmrbR","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"vAmrbR","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-07-08T14:16:51.634Z","modifiedDate":"2026-08-24T08:02:02.693Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"WF_Calculated_Status","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"wbFmRA","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"wbFmRA","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-30T16:21:07.690Z","modifiedDate":"2026-08-30T16:21:07.690Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"LINE","description":"","tags":[]},"qData":[]}
+
+MEASURES
+{"qInfo":{"qId":"uZdyJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"uZdyJ","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T11:04:18.093Z","modifiedDate":"2026-06-28T11:04:18.093Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"MainWFOpen","description":"","tags":[]},"qData":[]}
+
+VARIABLES
+{"qName":"vDocumentName","qDefinition":"Workflow Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f42e28f4-103e-4a11-991a-f21394b32dfd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Workflow_Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e22743b-017d-46a0-982d-dfa4d3adad7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9e546d65-5f60-4604-a461-742e139e9e34","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"56c74f07-e9d3-42bf-937c-30434277ab63","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff76b12d-bbcf-4b94-9df8-67b350a2bf57","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a39516bd-84ed-4dd5-9ae7-d192fc4e3852","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea45f26e-5b5a-48ef-bd90-63a75bef584c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5058e7f7-01a8-4965-9556-4d9c03ece48c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"6b5ec2e6-9636-4b7a-8d8b-fb0aa1424393","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"30\/08\/2026 15:51","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"97b43271-12b0-440e-b3d3-c2aa27ba972c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"cOrangeDark","qDefinition":"=RGB(230,134,0)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"46874af7-4381-4fc7-89fa-7f8dac74b6a8","qType":"variable"},"qData":[]}
+{"qName":"vTrackingCriticalActivitiesMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea7e5ff9-1894-477b-a6c5-6b90e0de192d","qType":"variable"},"qData":[]}
+{"qName":"vTrackingMajorMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"555cb232-2599-4902-93d5-0b4fb5bf786e","qType":"variable"},"qData":[]}
+{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
+{"qName":"vTrackingActivitiesMilestonesType","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"90a5d3fa-8c15-46f4-afd0-86f8e95ea04a","qType":"variable"},"qData":[]}
+{"qName":"vColor_GrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ea45941-e78e-4e99-ad42-ea495cc34d69","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLight","qDefinition":"=RGB(72,172,213)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1434c154-60bc-4bbb-8496-a696a73898ae","qType":"variable"},"qData":[]}
+{"qName":"cGrayDark","qDefinition":"=RGB(85,85,85)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a0cfa735-67d1-4c4f-90a5-22f50ddf24b3","qType":"variable"},"qData":[]}
+{"qName":"cObjHederMenuBack","qDefinition":"ARGB(255,0,39,80)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f451244f-ffe4-49c7-8115-3f92607ce9eb","qType":"variable"},"qData":[]}
+{"qName":"cGrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"50eccd71-c0dd-49a1-8093-d59ea8d274f8","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e3900747-aa86-4e63-b1b9-243d2fbb9b03","qType":"variable"},"qData":[]}
+{"qName":"vTrackingContractualMilestones","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4eb8d15a-421e-4d0c-b70d-e92baf3f2738","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2d0565fe-fc77-4f2f-96e8-ac93b618fc3c","qType":"variable"},"qData":[]}
+{"qName":"cTrafficGreen","qDefinition":"=RGB(163,217,154)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ae6a06f-71a8-4556-bbbd-49a85e8b7986","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLighter","qDefinition":"=RGB(134,213,243)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"04fe4b09-4f53-4dcd-8569-1e06368e6b75","qType":"variable"},"qData":[]}
+{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
+{"qName":"cOrangeLighter","qDefinition":"=RGB(249,227,196)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"44bbbc04-110d-4ee0-94ab-f65fce458ca0","qType":"variable"},"qData":[]}
+{"qName":"cStatusBad","qDefinition":"=ARGB(255,224,54,59)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"da2f1d0a-40e4-42b4-bfb4-cb14740d0078","qType":"variable"},"qData":[]}
+{"qName":"vColor_BlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0936587c-61df-43c4-9ec6-b108acb98632","qType":"variable"},"qData":[]}
+{"qName":"vColor_GreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f583d6d2-61ab-4433-bac5-4c7b38f9e511","qType":"variable"},"qData":[]}
+{"qName":"vColor_BlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ab57f49-e121-432e-ae34-7076a2f8f6de","qType":"variable"},"qData":[]}
+{"qName":"cStatusGood","qDefinition":"=ARGB(255,107,189,69)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"70ba18de-4856-4d62-b309-a72af836d145","qType":"variable"},"qData":[]}
+{"qName":"cStatusFaulty","qDefinition":"=ARGB(255,138,32,36)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1574194c-d95b-468d-a68d-3538b1bc9df7","qType":"variable"},"qData":[]}
+{"qName":"vColor_NegetiveRed","qDefinition":"'RGB(226,68,73)'\r\n\r\nSET cOceanBlue = =RGB(47,124,170)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8af3169a-8e3e-4a5b-8f90-9e68e77ce0d8","qType":"variable"},"qData":[]}
+{"qName":"cRoyalBlue","qDefinition":"=RGB(33,61,146)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db7d1cbb-14db-434d-8a81-69e7d97ce392","qType":"variable"},"qData":[]}
+{"qName":"cOrange","qDefinition":"=RGB(255,184,77)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a9b87c6f-6dfd-45e0-b66a-b9a1b5a7559d","qType":"variable"},"qData":[]}
+{"qName":"cBlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"194c3430-aff9-443f-9952-57d4c4dbb334","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":117,"qTags":["$text","$hidden","$key","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":6,"qTags":["$ascii","$text","$hidden","$key","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":6,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":6,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":80,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$ascii","$text","$hidden","$system"],"qSrcTables":[]}
+{"qName":"ProjectID","qCardinal":6,"qTags":["$numeric","$integer","$keypart"],"qSrcTables":["WF_DW","Documents"]}
+{"qName":"ParentWorkflowId","qCardinal":119589,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowId","qCardinal":295502,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowNumber","qCardinal":1967,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"GraphYYYYMM","qCardinal":52,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWorkflowNumber","qCardinal":1945,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"UpperStepName","qCardinal":76,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Actual_Duration","qCardinal":151,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_UserId","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_Name","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_OrganizationId","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Assignee_OrganizationName","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_UserId","qCardinal":44,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_Name","qCardinal":43,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_OrganizationId","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Reviewer_OrganizationName","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWorkflowStatus","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWorkflowName","qCardinal":2497,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDueDate","qCardinal":119018,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateCompleted","qCardinal":101036,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateIn","qCardinal":109573,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_StepName","qCardinal":51,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_StepOutcome","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_StepStatus","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"SubCounter","qCardinal":461,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"DateCompleted","qCardinal":265740,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DateDue","qCardinal":161755,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DateIn","qCardinal":121243,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DaysLate","qCardinal":111,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DocumentNumber","qCardinal":377222,"qTags":["$text","$keypart"],"qSrcTables":["WF_DW","Documents"]}
+{"qName":"DocumentRevision","qCardinal":85,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"DocumentTitle","qCardinal":29697,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DocumentTrackingId","qCardinal":35551,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DocumentVersion","qCardinal":53,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Duration","qCardinal":25,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"FileName","qCardinal":37950,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"OriginalDueDate","qCardinal":122656,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"StepName","qCardinal":285,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"StepOutcome","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"StepStatus","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowName","qCardinal":2530,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowStatus","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"WorkflowTemplate","qCardinal":1070,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ReasonForIssue","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_Name","qCardinal":215,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_OrganizationId","qCardinal":13,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_OrganizationName","qCardinal":13,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Assignee_UserId","qCardinal":226,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_Name","qCardinal":191,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_OrganizationId","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_OrganizationName","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Reviewer_UserId","qCardinal":198,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Actual_Duration","qCardinal":123,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"Initiator_Name","qCardinal":27,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Initiator_OrganizationName","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDueDateMax","qCardinal":2531,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateCompletedMax","qCardinal":2479,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentDateInMin","qCardinal":2531,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"DateCompletedMax","qCardinal":2498,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_OrgDueDate","qCardinal":2577,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_DateIn","qCardinal":2577,"qTags":["$numeric","$timestamp"],"qSrcTables":["WF_DW"]}
+{"qName":"WF_Calculated_Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"ParentWF_Calculated_Status","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Step Phase","qCardinal":5,"qTags":["$ascii","$text","$key"],"qSrcTables":["WF_DW","StepPhaseRank"]}
+{"qName":"FaultFlag1","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Main_WF_No","qCardinal":31,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Sub WF Detailed Status","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Main WF Detailed Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"MainWF_Duration","qCardinal":145,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"Completed_YYYYMM","qCardinal":52,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"YYYYMM","qCardinal":57,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Year","qCardinal":9,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"YearMonthSort","qCardinal":52,"qTags":["$numeric","$integer"],"qSrcTables":["WF_DW"]}
+{"qName":"\u05e9\u05e0\u05d4\/\u05d7\u05d5\u05d3\u05e9","qCardinal":52,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"MainWFKey","qCardinal":2531,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"SubWFKey","qCardinal":2581,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Sub_WF_Duration","qCardinal":129,"qTags":[],"qSrcTables":["WF_DW"]}
+{"qName":"Line_Owner","qCardinal":84,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Current_User","qCardinal":78,"qTags":["$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Parent_Current_User","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["WF_DW"]}
+{"qName":"Key","qCardinal":376840,"qTags":["$text","$key"],"qSrcTables":["Documents","MenifaTable"]}
+{"qName":"LINE","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"LineCode","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"DocumentVersionNumber","qCardinal":161,"qTags":["$numeric","$integer"],"qSrcTables":["Documents"]}
+{"qName":"DocumentTrackingId","qCardinal":73274,"qTags":["$numeric","$integer"],"qSrcTables":["Documents"]}
+{"qName":"documentid","qCardinal":137986,"qTags":["$numeric","$integer"],"qSrcTables":["Documents"]}
+{"qName":"Document Type","qCardinal":141,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"title","qCardinal":301111,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"revision","qCardinal":991,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"Discipline","qCardinal":49,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Created By","qCardinal":1035,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"ReviewSource","qCardinal":47955,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Review Status","qCardinal":19,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Document Number","qCardinal":376805,"qTags":["$text"],"qSrcTables":["Documents"]}
+{"qName":"Package","qCardinal":126,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"WorkPackage Code","qCardinal":104,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Sub Discipline","qCardinal":225,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Program Phase","qCardinal":312,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Program Phase Code","qCardinal":311,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"WP","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Work Type Code","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv1","qCardinal":206,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv1 Code","qCardinal":206,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv2","qCardinal":166,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"NBS Lv2 Code","qCardinal":161,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Destination","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Originator","qCardinal":21,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"Sub Phase","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["Documents"]}
+{"qName":"ReloadTime","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["Acnx_Reload"]}
+{"qName":"KeyBase_Select","qCardinal":4437,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"KeyBase","qCardinal":2773,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Key_Reversed","qCardinal":4437,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qIsHidden":true,"qName":"%Key_Encrypted","qCardinal":4437,"qTags":["$ascii","$text","$hidden"],"qSrcTables":[]}
+{"qName":"StepPhaseRank","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["StepPhaseRank"]}
+{"qName":"UserName_OS","qCardinal":1350,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1348,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"FULLNAME","qCardinal":1339,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
