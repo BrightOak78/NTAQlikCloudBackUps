@@ -1,0 +1,1504 @@
+///$tab Main & connect
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = Environmental Control; //Free Document Name
+SET pWorkApp = EnvironmentalControl; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+//  Exit Script
+//Sharepoint365
+// LOAD *
+// FROM [lib://API & Connections:Sharepoint365/BIDB/XXXXX/XXXXX.xlsx]
+// (ooxml, embedded labels, table is XXXXX);
+// LIB CONNECT TO '$(vConnectionName)';
+
+
+///$tab TEST
+
+///$tab Test
+
+///$tab Test
+
+///$tab Exit Script
+// Exit Script
+///$tab Fact Tables
+NoConcatenate
+Training:
+LOAD Distinct
+	 ProjectID_ReferenceID_Key, 
+     [מדרגות כמות משתתפים] as [number of participants cluster], 
+     [Training management], 
+     [Number of participants], 
+     if(IsNull([Training type]) or Trim([Training type])='','NA',[Training type]) as [Training type],
+     1  as Training_Flag
+//      if(not IsNull([Training type]),[Training type],'NA') as [Training type]
+//      if(not IsNull([Training type]),1) as Training_Flag
+FROM $(vLibDataFiles_DW)/Training.QVD (qvd);
+
+NoConcatenate
+Energy:
+LOAD Distinct
+	 ProjectID_ReferenceID_Key, 
+     [Diesel (Liters)], 
+     [Electricity (KWH)],
+     if(IsNull([Diesel (Liters)]) and IsNull([Electricity (KWH)]),'',1) as Energy_Flag,
+     Energy
+FROM $(vLibDataFiles_DW)/Energy.QVD (qvd);
+
+NoConcatenate
+Nuisance:
+LOAD Distinct
+	 ProjectID_ReferenceID_Key, 
+     [Number nights Noise above threshold], 
+     Nuisance
+FROM $(vLibDataFiles_DW)/Nuisance.QVD (qvd);
+
+NoConcatenate
+Materials:
+LOAD Distinct
+	 ProjectID_ReferenceID_Key, 
+     Materials, 
+     [Material Type], 
+     [Main Material Type], 
+     [Total Material Usage],
+//     '1' as Material_Flag,
+      if([Total Material Usage]>0,1) as Material_Flag,
+     [Total Wood Usage], 
+     [Total Soil / Rock Usage], 
+     [Total Plastic Usage], 
+     [Total Metals Usage], 
+     [Total Glass Usage], 
+     [Total Concrete Usage], 
+     [Total Brick Usage], 
+     [Total Aggregate Usage], 
+     [Total Other Usage]
+FROM $(vLibDataFiles_DW)/Materials.QVD (qvd)
+Where Materials=1;
+
+NoConcatenate
+WaterMng:
+LOAD Distinct
+	 ProjectID_ReferenceID_Key, 
+     [Water consumption], 
+     Dewatering, 
+     [Main Water Type], 
+     [Total Water Usage], 
+     [Total Waste Water Usage], 
+     [Total Sanitation Water Usage], 
+     [Total Potable water Usage], 
+     [Total Gw.Dc.Sewage Usage], 
+     [Total Gw.Dc.River Usage], 
+     [Total Gw.Injected Usage], 
+     [Total Gw.Pumped Usage]
+FROM $(vLibDataFiles_DW)/WaterMng.QVD (qvd);
+
+NoConcatenate
+Waste:
+LOAD Distinct
+	 ProjectID_ReferenceID_Key, 
+     Waste, 
+     [Theoretical soil volume (tons)], 
+     [Main Waste Type], 
+     [Total Waste], 
+     [Total Packaging Waste], 
+     [Total Electronic Waste], 
+     [Total Contaminated Soil Waste], 
+     [Total Excavated Soil Waste], 
+     [Total Construction Waste], 
+     [Total Metals Waste]
+FROM $(vLibDataFiles_DW)/Waste.QVD (qvd);
+
+Excavation:
+NoConcatenate
+LOAD
+    ProjectID_ReferenceID_Key,
+    "Disposal Net weight (tons)",
+    [Excavation Net weight (tons)],
+    Excavation
+FROM $(vLibDataFiles_DW)/Excavation.QVD (qvd);
+
+
+///$tab Monthly Reports
+NoConcatenate
+Report_t:
+LOAD 
+    DATE(MakeDate([Reporting year], RMonthNum),'DD/MM/YYYY') AS Date,
+	  ProjectID&'/'&ReferenceID as Joint_Key,
+      if(MailID=MailID_TypeID_Max,'https://uk1.aconex.co.uk/Logon?Action=View&ENTITY=MAIL&ID='& MailID) as MaxAconexURL,
+     'https://uk1.aconex.co.uk/Logon?Action=View&ENTITY=MAIL&ID='& MailID as AconexURL,
+//      'Aconex'&'<url>https://uk1.aconex.co.uk/Logon?Action=View&ENTITY=MAIL&ID='& MailID as AconexURL,
+//     Key_MailTypeMailID as Joint_Key_MailTypeMailID, //JPK
+//     Key_MailTypeMailID, //PK
+	[Max Email Fetch Date] as ReloadTime,
+     MailID, //JF
+     Mail_Number,//JF 
+     ProjectID, //JF
+     MailTypeID, //JF
+     ReferenceID, 
+     [Project Name], 
+     Line,
+     ProjectID_ReferenceID_Key, //JF
+      ProjectID&'/'&ReferenceID&YearMonthSort as ProjectID_ReferenceID_YYYYMM_Key,
+     ProjectID&'/'&ReferenceNumber as ProjectID_ReferenceNo_Key, 
+     ReferenceNumber, //JF
+      Attribute1,
+    "Attribute1 CODE",
+    Attribute2,
+    "Attribute2 CODE",
+    Attribute3,
+    "Attribute3 CODE",
+    Attribute4,
+    "Attribute4 CODE",
+	 YearMonthSort,//JF	 
+//     Key_ProjectProjectID_ReferenceID_Key,
+     AwitingResponse,
+     Stage,
+     [Close Date],
+     [Close Year] & '-' &[Close Month] as [Close Year-Month],
+     [Close Month],
+     [Close Year],
+     DaysOpen, 
+     MailTypeName, 
+     MailType, 
+//     Key_ProjectMailID,      
+//     MailSentDate,
+	 Date(SubField( SubField(MailSentDate,'T',1),'-',3) &'/'&SubField( SubField(MailSentDate,'T',1),'-',2) &'/'&SubField( SubField(MailSentDate,'T',1),'-',1) ) as MailSentDate,
+//     SubField(MailSentDate,'T',1) as MailSentDate,
+     SubField(SubField(MailSentDate,'T',2),'.',1) as MailSentTime, 
+//     Mail_SentTimeStamp, 
+     MailSubject, 
+//     MailID_Count, 
+//     Key_ProjectMailID_Min, 
+//     Key_ProjectMailID_Max, 
+     [Reporting month], 
+//      [RL-L-PMC Manager comments],
+//     [L-PMC Status],
+//     [Ref. Status], 
+     if(isnull([L-PMC Status]),'Initial',[L-PMC Status]) as [L-PMC Status],
+	 if(isnull([Ref. Status]),'Open',[Ref. Status]) as [Ref. Status],
+     [Reporting year], 
+     [Project start date (fixed)], 
+     Contractor, 
+     [Contractor sustainability lead], 
+//      [RL-PMC Manager comments], 
+//      [Report written and submitted by], 
+//      [Date of tool submission], 
+//      [Toolkit submitted for approval by], 
+//      [Approved cost of the works (ILS) inc VAT], 
+     [Work Type], 
+	 [Work Type Code],
+     RMonthNum, 
+     [חודש שנה דוח],
+//     From_OrganizationName, 
+//     From_Name, 
+//     To_OrganizationName, 
+//     To_Name,      
+     [Site size (dunam)],
+      MailID_TypeID_Min, // נוסף לטובת סינון לפי מיילים מאותו סוג ולא רק מאותו רפרנס
+      MailID_TypeID_Max // נוסף לטובת סינון לפי מיילים מאותו סוג ולא רק מאותו רפרנס
+//      MailID_TypeID_Count // נוסף לטובת סינון לפי מיילים מאותו סוג ולא רק מאותו רפרנס
+FROM $(vLibDataFiles_DW)/NewReportFact.QVD (qvd)
+where [Reporting year] >='2019' and [חודש שנה דוח]>='201901';
+Left Join
+LOAD Distinct
+	 ProjectID_ReferenceID_Key,
+//      ReferenceNumber,
+// [Reporting year]&RMonthNum as YearMonthSort
+     Concat(Subject,',') as SubjectList
+//      Year, 
+//      Month 
+FROM $(vLibDataFiles_DW)/HitMap.qvd (qvd)
+where Year>='2019'
+Group by ProjectID_ReferenceID_Key;
+Left Join
+LOAD Distinct
+	 ProjectID_ReferenceID_YYYYMM_Key,
+//      ReferenceNumber,
+// [Reporting year]&RMonthNum as YearMonthSort
+     Concat(Subject,',') as SubjectListYYYYMM
+//      Year, 
+//      Month 
+FROM $(vLibDataFiles_DW)/HitMap.qvd (qvd)
+where Year>='2019'
+Group by ProjectID_ReferenceID_YYYYMM_Key;
+Left Join
+LOAD
+    DOCGROUP,
+    Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd)
+Where Match(DOCGROUP,'M1','M2','M3')
+;
+// STORE * FROM Report INTO $(vLibDataFiles_DW)/Report.QVD (QVD);
+// Exit Script
+NoConcatenate
+Report:
+LOAD *,
+ AutoNumber(
+      ProjectID_ReferenceID_Key & '|' &
+       ProjectID_ReferenceNo_Key & '|' &
+      Date & '|' &
+       [MailType] & '|' &
+	   YearMonthSort & '|' &
+        ProjectID & '|' &
+        Line  & '|' &
+       "Attribute1 CODE" & '|' &
+        "Attribute3 CODE" & '|' &
+        "Attribute4 CODE" & '|' &
+        [Work Type Code]
+    ) as TableKey
+Resident Report_t;
+///$tab Weekly Reports
+EnvWeeklyReports_t:
+NoConcatenate
+LOAD Distinct
+	projectId&'/'&"mail no" as ProjectID_ReferenceNo_Key,
+    projectId&'/'&"mail ID" as ProjectID_ReferenceID_Key,
+	projectId&'/'&"mail ID" as project_mail_Key,
+    projectId&'/'&"mail ID"& Num#(Year("Visit Date")*100 + Num(Month("Visit Date")),'#0') as ProjectID_ReferenceID_YYYYMM_Key,
+	projectId as ProjectID,   
+ 	 SubField(Attribute1,';') as Attribute1,
+     "Attribute1 CODE",
+      SubField(Attribute3,';') as Attribute3,
+     "Attribute3 CODE",
+     SubField(Attribute4,';') as  Attribute4,
+     "Attribute4 CODE",
+     [Work Type Code],
+     [Work Type],
+     
+    projectName as [ProjectName],
+    "Line",
+    "mail type ID"  as [Mail Type ID],
+    "mail type"  as [MailType],
+    
+//     "sent date",
+    "To User" as [Recipient Name],
+    ToRecipients as [To Recipients],
+    CcRecipients as [CcRecipients],
+    "To Organization Name" as [Recipient Organization Name],
+    "mail no" as [MailNo],
+    "From Organization Name" as [Sender Organization Name],
+    "from (user)" as [Sender Name],
+    subject  as [Mail Subject],
+    "Reference Number ID" as [Reference ID],
+    "Reference Number" as [Reference Number] ,
+
+//     Status,
+//     Attribute1,
+//     "Attribute1 CODE",
+     SubField(Attribute2,';') as Attribute2,
+    "Attribute2 CODE",
+//     Attribute3,
+//     "Attribute3 CODE",
+//     Attribute4,
+//     "Attribute4 CODE",
+//     "Reason for Issue",
+//     Body,
+    "mail ID" as [Mail ID],
+     "Visit Date" as Date,
+    Num#(Year("Visit Date")*100 + Num(Month("Visit Date")),'#0') as YearMonthSort,//[YYYYMM],
+//     "Current work stage",
+//     "Is the site clean?",
+//     "Site cleanliness - details",
+//     "Is the site fence according to permit?",
+//     "Site fencing details",
+//     "Are there domestic waste containers?",
+//     "Waste containers-domestic waste details",
+//     "Is there leachate flowing in/out site?",
+//     "Leachate details",
+//     "Are entrance/exit access roads clean?",
+//     "Entrance/exit access details",
+//     "Are there spills outside the site?",
+//     "Spill details",
+//     "Is construction waste properly stored?",
+//     "Construction waste details",
+//     "Is clean soil pilled onsite properly?",
+//     "Soil details",
+//     "Are there noisy works on site?",
+//     "Describe means for noise reduction",
+//     "Is there dust?",
+//     "Describe means for dust reduction",
+//     " Are the trucks covered?",
+//     "Trucks cover details",
+//     "Is there stagnant water onsite?",
+//     "Describe prevention means",
+//     "Are hazmats stored properly?",
+//     "Hazardous Material Details",
+//     "Is contaminated soil to be excavated?",
+//     "Means to monitor contaminated soil",
+//     "Hazardous wastes/spills on site ?",
+//     "Describe means to monitor Hazardous",
+//     "Is the municipal drainage protected?",
+//     "Drainage Protective measures",
+//     "Trees marked according apprve survey?",
+//     "Trees Marked Details",
+//     "Are the preserved trees protected?",
+//     "Preserved trees details",
+//     "Is there Invasive vegetation on site?",
+//     "Details on invasive vegetation",
+//     "Were there evidence to pest on site?",
+//     "Details about Pest",
+//     "Additional issues",
+//     "Work Type",
+//     "Work Type Code",
+    "Max Email Fetch Date"
+FROM $(vLibDataFiles_RAW)/EnvSiteVisit_View.qvd (qvd)
+Where "Reference Number ID"="mail ID" 
+and "Visit Date">='01/01/2019' ;
+Concatenate
+Load Distinct
+    projectId&'/'&"mail no" as ProjectID_ReferenceNo_Key,
+    projectId&'/'&"mail ID" as ProjectID_ReferenceID_Key,
+	projectId&'/'&"mail ID" as project_mail_Key,
+	projectId as ProjectID,   
+ 	  SubField(Attribute1,';') as Attribute1,
+     "Attribute1 CODE",
+      SubField(Attribute3,';') as Attribute3,
+     "Attribute3 CODE",
+      SubField(Attribute4,';') as Attribute4,
+     "Attribute4 CODE",
+     [Work Type Code],
+     [Work Type],
+     
+    projectName as [ProjectName],
+    "Line",
+    "mail type ID"  as [Mail Type ID],
+    "mail type"  as [MailType],
+      "To User" as [Recipient Name],
+    ToRecipients as [To Recipients],
+    CcRecipients as [CcRecipients],
+    "To Organization Name" as [Recipient Organization Name],
+    "mail no" as [MailNo],
+    "From Organization Name" as [Sender Organization Name],
+    "from (user)" as [Sender Name],
+    subject  as [Mail Subject],
+    "Reference Number ID" as [Reference ID],
+    "Reference Number" as [Reference Number] ,
+
+//     Status,
+//     Attribute1,
+//     "Attribute1 CODE",
+     SubField(Attribute2,';') as Attribute2,
+    "Attribute2 CODE",
+//     Attribute3,
+//     "Attribute3 CODE",
+//     Attribute4,
+//     "Attribute4 CODE",
+//     "Reason for Issue",
+//     Body,
+    "mail ID" as [Mail ID],
+     Num#(Year( "Date of Report")*100 + Num(Month( "Date of Report")),'#0') as YearMonthSort,//[YYYYMM],
+     "Date of Report" as Date,
+//     "Current work stage",
+//     "Environmental Manager Details",
+//     "Is the Contractor Report Acceptable?",
+//     "LPMC Review-Site's Environmental Hazards",
+//     "Is the site clean?",
+//     "Site cleanliness - details",
+//     "Is the site fence according to permit?",
+//     "Site fencing details",
+//     "Are there domestic waste containers?",
+//     "Waste containers-domestic waste details",
+//     "Is there leachate flowing in/out site?",
+//     "Leachate details",
+//     " Are entrance/exit access roads clean?",
+//     "Entrance/exit access details",
+//     " Are there spills outside the site?",
+//     "Spill details",
+//     "Is construction waste properly stored?",
+//     "Construction waste details",
+//     "Are there noisy works on site?",
+//     "Describe means for noise reduction",
+//     "Is there dust?",
+//     "Describe means for dust reduction",
+//     "Are the trucks covered?",
+//     "Trucks cover details",
+//     "Is there stagnant water onsite?",
+//     "Describe prevention means",
+//     "Are haz mats stored properly?",
+//     "Hazardous Material Details",
+//     "Is contaminated soil to be excavated?",
+//     "Means to monitor contaminated soil",
+//     "Hazardous wastes/spills on site ?",
+//     "Describe means to monitor Hazardous",
+//     "Is the municipal drainage protected?",
+//     "Drainage Protective measures",
+//     "Trees marked according apprve survey?",
+//     "Trees Marked Details",
+//     "Are the preserved trees protected?",
+//     "Preserved trees details",
+//     "Is there Invasive vegetation on site?",
+//     "Details on invasive vegetation",
+//     "Were there evidence to pest on site?",
+//     "Details about Pest",
+//     "Additional issues",
+//     "LPMC Status Review",
+//     "Work Type",
+//     "Work Type Code",
+    "Max Email Fetch Date"
+FROM [$(vLibDataFiles_RAW)/EnvSiteInspec_View.qvd](qvd)
+Where "Reference Number ID"="mail ID"
+and "Date of Report">='01/01/2019' ;
+Left Join
+LOAD Distinct
+	 max(Timestamp(ConvertToLocalTime([Max Email Fetch Date], 'Jerusalem'),'DD/MM/YYYY hh:mm')) as WeeklyReloadTime
+FROM [$(vLibDataFiles_RAW)/EnvMonRep_View.qvd](qvd)
+;
+Left Join
+LOAD
+    DOCGROUP,
+    Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd)
+Where Match(DOCGROUP,'M1','M2','M3')
+;
+
+EnvWeeklyReports:
+NoConcatenate
+Load *,
+ AutoNumber(
+      ProjectID_ReferenceID_Key & '|' &
+       ProjectID_ReferenceNo_Key & '|' &
+      Date & '|' &
+       [MailType] & '|' &
+	   YearMonthSort & '|' &
+        ProjectID & '|' &
+        Line  & '|' &
+       "Attribute1 CODE" & '|' &
+        "Attribute3 CODE" & '|' &
+        "Attribute4 CODE" & '|' &
+        [Work Type Code]
+    ) as TableKey
+Resident EnvWeeklyReports_t;
+
+
+///$tab KeyTable
+Monthly_Reports:
+NoConcatenate
+Load Distinct 
+	ProjectID_ReferenceID_Key,
+	ProjectID_ReferenceNo_Key,
+    ProjectID_ReferenceID_YYYYMM_Key,
+	DATE(MakeDate([Reporting year], RMonthNum),'DD/MM/YYYY') AS Date,
+	 [MailType],
+     [MailType] as [%MailType],
+	 YearMonthSort,
+     Attribute2,
+     "Attribute2 CODE",
+	 ProjectID,
+     Line,
+     DOCGROUP,
+	 if(DOCGROUP>0,DOCGROUP,Line) as [Line Code T],
+ 	 Attribute1,
+     "Attribute1 CODE",
+     Attribute3,
+     "Attribute3 CODE",
+     Attribute4,
+     "Attribute4 CODE",
+     [Work Type Code],
+     [Work Type]// as [Work TypeT]
+Resident Report_t;
+Concatenate
+Load Distinct 
+	 ProjectID_ReferenceID_Key,
+	 ProjectID_ReferenceNo_Key,
+     ProjectID_ReferenceID_YYYYMM_Key,
+	DATE(MakeDate([Reporting year], RMonthNum),'DD/MM/YYYY') AS Date,
+	 [MailType],
+     [MailType] as [%MailType],
+	 YearMonthSort,
+     Attribute2,
+     "Attribute2 CODE",
+	 ProjectID,
+     Line,
+     DOCGROUP,
+	 'ML' as [Line Code T],
+ 	 Attribute1,
+     "Attribute1 CODE",
+     Attribute3,
+     "Attribute3 CODE",
+     Attribute4,
+     "Attribute4 CODE",
+     [Work Type Code],
+     [Work Type]// as [Work TypeT]
+Resident Report_t
+Where DOCGROUP>0;
+Drop Table Report_t;
+
+WeeklyReports:
+NoConcatenate
+Load Distinct
+	 ProjectID_ReferenceID_Key,
+	 ProjectID_ReferenceNo_Key,
+     ProjectID_ReferenceID_YYYYMM_Key,
+	 Date,
+	 [MailType],
+     [MailType] as [%MailType],
+	 YearMonthSort,
+     Attribute2,
+     "Attribute2 CODE",
+	 ProjectID,
+     Line,
+     DOCGROUP,
+	 if(DOCGROUP>0,DOCGROUP,Line) as [Line Code T],
+ 	 Attribute1,
+     "Attribute1 CODE",
+     Attribute3,
+     "Attribute3 CODE",
+     Attribute4,
+     "Attribute4 CODE",
+     [Work Type Code],
+     [Work Type] //as [Work TypeT]
+Resident EnvWeeklyReports_t;
+Concatenate
+Load Distinct
+	 ProjectID_ReferenceID_Key,
+	 ProjectID_ReferenceNo_Key,
+     ProjectID_ReferenceID_YYYYMM_Key,
+	 Date,
+	 [MailType],
+     [MailType] as [%MailType],
+	 YearMonthSort,
+     Attribute2,
+     "Attribute2 CODE",
+	 ProjectID,
+     Line,
+     DOCGROUP,
+	 'ML' as [Line Code T],
+ 	 Attribute1,
+     "Attribute1 CODE",
+     Attribute3,
+     "Attribute3 CODE",
+     Attribute4,
+     "Attribute4 CODE",
+     [Work Type Code],//* as [Work Type CodeT],
+     [Work Type]// as [Work TypeT]
+Resident EnvWeeklyReports_t
+Where DOCGROUP>0;
+Drop Table EnvWeeklyReports_t;
+
+
+KeyTable_T:
+NoConcatenate
+Load *
+Resident Monthly_Reports;
+Drop Table Monthly_Reports;
+Concatenate
+Load *
+Resident WeeklyReports;
+Drop Table WeeklyReports;
+Drop Fields ProjectID_ReferenceID_Key,ProjectID_ReferenceNo_Key,ProjectID_ReferenceID_YYYYMM_Key,Date,[MailType],YearMonthSort,ProjectID,Attribute2,"Attribute2 CODE",DOCGROUP,ProjectID,Line, Attribute1,"Attribute1 CODE",Attribute3,"Attribute3 CODE",Attribute4,"Attribute4 CODE",[Work Type Code],[Work Type] 
+From Report,EnvWeeklyReports;
+
+
+KeyTable:
+NoConcatenate
+LOAD Distinct *,
+	 if([Line Code T]='ML',2,1) as [SortLineCode],
+	  AutoNumber(
+      ProjectID_ReferenceID_Key & '|' &
+       ProjectID_ReferenceNo_Key & '|' &
+      Date & '|' &
+       [MailType] & '|' &
+	   YearMonthSort & '|' &
+        ProjectID & '|' &
+        Line  & '|' &
+       "Attribute1 CODE" & '|' &
+        "Attribute3 CODE" & '|' &
+        "Attribute4 CODE" & '|' &
+        [Work Type Code]
+    ) as TableKey,
+	  AutoNumber(
+        ProjectID & '|' &
+        Line  & '|' &
+       "Attribute1 CODE" & '|' &
+        "Attribute3 CODE" & '|' &
+        "Attribute4 CODE" & '|' &
+        [Work Type Code]
+    ) as Key
+Resident KeyTable_T;
+left join
+LOAD Distinct 
+	 Project_ID as ProjectID,
+     ProjectSort
+FROM [$(vAconex_AddOn)ProjectSort.qvd](qvd)
+//Where match(DOCGROUP,268443625,	268443650,	268443653,	268440115,	268440770,	268440772)
+;
+//STORE * FROM Report INTO $(vLibDataFiles_DW)/KeyTable.QVD (QVD);
+Drop Table KeyTable_T;
+    
+    
+///$tab Menifa_Hierarchy
+
+/*******************************************************
+  בניית KeyBase לפי ההיררכיה החדשה
+*******************************************************/
+
+RawTableTemp:
+NoConcatenate
+LOAD Distinct
+    Key,
+    [Line Code T] 	  as [Line Code],
+    "Attribute1 CODE" as [Work package Code],
+    "Attribute3 CODE" as [NBS LEVEL 1 Code],
+    "Attribute4 CODE" as [NBS LEVEL 2 Code],
+    [Work Type Code] as [Work Type CodeT],
+
+    Attribute1   	  as [Work package],
+    Attribute3   	  as [NBS LEVEL 1],
+    Attribute4   	  as [NBS LEVEL 2],
+    [Work Type] 	  as [Work TypeT],
+
+//    'ML' & '|'   & [Line Code T] & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+    'ML' & '|'   & [Line Code T] & '|' & [Work Type Code] & '|' & "Attribute1 CODE" & '|' & "Attribute3 CODE" & '|' & "Attribute4 CODE" as KeyBase
+
+
+Resident KeyTable
+Where DOCGROUP>0;
+// DROP Table KeyTable;
+Drop Fields [Line Code T] From KeyTable;
+/*******************************************************
+  יצירת KeyBase_Select לפי כל רמה בהיררכיה
+*******************************************************/
+
+Left Join (RawTableTemp)
+LOAD DISTINCT
+    Key,
+
+    // שדה הבחירה היחיד: ערכי KeyBase "מרופדים" לפי רמה
+    If(IterNo()=1,
+        SubField(KeyBase,'|',1) & Repeat('|',5),
+
+    If(IterNo()=2,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & Repeat('|',4),
+
+    If(IterNo()=3,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & Repeat('|',3),
+
+    If(IterNo()=4,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & '|' & SubField(KeyBase,'|',4) & Repeat('|',2),
+
+    If(IterNo()=5,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & '|' & SubField(KeyBase,'|',4) & '|' & SubField(KeyBase,'|',5) & Repeat('|',1),
+
+        // IterNo()=6 => full
+        KeyBase
+    ))))) as KeyBase_Select,
+
+    IterNo() as LevelOrder
+// LOAD DISTINCT
+//     Key,
+
+//     If(IterNo() = 1,
+//         SubField(KeyBase, '|', 1) & Repeat('|', 4),
+
+//     If(IterNo() = 2,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & Repeat('|', 3),
+
+//     If(IterNo() = 3,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & '|' &
+//         SubField(KeyBase, '|', 3) & Repeat('|', 2),
+
+//     If(IterNo() = 4,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & '|' &
+//         SubField(KeyBase, '|', 3) & '|' &
+//         SubField(KeyBase, '|', 4) & Repeat('|', 1),
+
+//         // IterNo() = 5
+//         KeyBase
+//     )))) as KeyBase_Select,
+
+//     IterNo() as LevelOrder
+
+Resident RawTableTemp
+While Len(Trim(KeyBase)) > 0
+  and IterNo() <= 6;
+  
+RawTable:
+NoConcatenate
+LOAD
+    *,
+    RecNo() as RowID
+Resident RawTableTemp;
+DROP Table RawTableTemp;
+
+/********************************************************************
+  3) Reverse: הופכים את KeyBase תו-תו
+*********************************************************************/
+Chars:
+LOAD
+    RowID,
+    IterNo() as Idx,
+    Mid(KeyBase_Select, Len(KeyBase_Select) - IterNo() + 1, 1) as Ch
+Resident RawTable
+While IterNo() <= Len(KeyBase_Select);
+
+/********************************************************************
+  4) Key_Reversed: מאגדים חזרה למחרוזת
+*********************************************************************/
+KeyRev:
+NoConcatenate
+LOAD
+    RowID,
+    Concat(Ch, '', Idx) as Key_Reversed
+Resident Chars
+Group By RowID;
+
+DROP Table Chars;
+
+/********************************************************************
+  5) Key_Encrypted: החלפות אחרי ההיפוך בלבד
+     M = Y3PLD
+     W = 4RZZ
+     IN = 7UP   (כל הופעה של IN)
+*********************************************************************/
+Enc:
+NoConcatenate
+LOAD
+    RowID,
+    Key_Reversed,
+    Replace(
+        Replace(
+            Replace(Key_Reversed, 'IN', '7UP'),
+            'M', 'Y3PLD'
+        ),
+        'W', '4RZZ'
+    ) as %Key_Encrypted
+Resident KeyRev;
+
+DROP Table KeyRev;
+
+/********************************************************************
+  6) Join + Final
+*********************************************************************/
+/*******************************************************
+  טבלת מניפה / היררכיה סופית
+/********************************************************/
+
+Left Join (RawTable)
+LOAD
+    RowID,
+    Key_Reversed,
+    %Key_Encrypted
+Resident Enc;
+DROP Table Enc;
+
+Menifa_Hierarchy:
+NoConcatenate
+LOAD
+
+    AutoNumber(Key & [Line Code]) as %MenifaTable,
+
+    Key,
+    KeyBase,
+    KeyBase_Select,
+    Key_Reversed,
+    %Key_Encrypted,// as Key_Encrypted,
+//     LevelOrder,
+
+    [Line Code],
+    [Work package Code],
+    [NBS LEVEL 1 Code],
+    [NBS LEVEL 2 Code],
+    [Work Type CodeT],
+
+	[Work package],
+    [NBS LEVEL 1],
+    [NBS LEVEL 2],
+    [Work TypeT]
+
+Resident RawTable;
+DROP Table RawTable;
+
+
+///$tab HitMap
+HitMap:
+NoConcatenate 
+LOAD
+ 	 ProjectID&'/'&ReferenceID as ProjectID_ReferenceID_Key,
+// 	 ProjectID&'/'&ReferenceID&Year&Month as ProjectID_ReferenceID_YYYYMM_Key,
+//      ReferenceNumber,
+// [Reporting year]&RMonthNum as YearMonthSort
+     Subject
+//      Year, 
+//      Month 
+FROM $(vLibDataFiles_DW)/HitMap.qvd (qvd)
+where Year>='2019';
+
+///$tab DIM
+// HitMap_Temp:
+// LOAD Distinct
+// 	 ProjectID&'/'&ReferenceID as ProjectID_ReferenceID_Key
+// FROM $(vLibDataFiles_DW)/NewReportFact.QVD(qvd)
+// where [Reporting year] >='2019' and [חודש שנה דוח]>='201901';
+// Left Join
+// LOAD Distinct
+// 	 ProjectID&'/'&ReferenceID as ProjectID_ReferenceID_Key,
+// 	 1 as Excavation
+// FROM $(vLibDataFiles_DW)/HitMap.QVD (qvd)
+// where Year>='2019' and Subject='Excavation';
+
+
+// HitMap:
+// NoConcatenate 
+// LOAD
+// 	 ProjectID&'/'&ReferenceID as ProjectID_ReferenceID_Key, 
+//      Subject, 
+//      Year, 
+//      Month 
+// FROM $(vLibDataFiles_DW)/HitMap.QVD (qvd)
+// where Year>='2019';
+// Left Join
+// LOAD 
+// 	 ProjectID_ReferenceID_Key,
+// 	 if(Excavation<>1,'No', 'Yes') as [Excavation file reported]
+// Resident HitMap_Temp;
+// //Where Excavation<>1;
+// DROP Table HitMap_Temp;
+// STORE HitMap into HitMap.qvd;
+
+///$tab Calander
+//*********************************************************************************************************
+
+// Calendar Tables
+
+// CalendarDatesVars:
+// LOAD DISTINCT
+// 	'01/01/2019' AS Calendar_DateMin,
+// //	DATE(MIN([Mail_SentDate]),'DD/MM/YYYY') AS Calendar_DateMin,
+// 	DATE('01'&MAX(RMonthNum)&MAX([Reporting year]),'DD/MM/YYYY') AS Calendar_DateMax	
+// //	DATE(MAX([Mail_SentDate]),'DD/MM/YYYY') AS Calendar_DateMax	
+// FROM $(vLibDataFiles_DW)/NewReportFact.QVD(qvd);
+
+// LET vCalendar_DateMin = Date#(FIELDVALUE('Calendar_DateMin',1));
+// LET vCalendar_DateMax = Date#(FIELDVALUE('Calendar_DateMax',1));
+// DROP Table CalendarDatesVars;
+
+NoConcatenate
+Calendar:
+Load Distinct 
+Date,YearMonthSort
+Resident KeyTable;
+Left Join
+LOAD Distinct
+    YYYYMM,
+    רבעון as Quarter, 
+    "Year-Month",
+    "Date Diff",
+    "Month Diff",
+    "Qtr Diff",
+    "Year Diff",
+    "חודש נוכחי",
+    "חודש שנה נוכחי",
+    "חודש שנה נוכחי נומרי",
+    "שם רבעון ארוך",
+    "Year",
+    שנה,
+    "שנה/רבעון",
+    "שנה/חודש",
+    "שנה/שבוע",
+    "שנה/יום בשנה",
+    YearQuarterSort,
+    YearMonthSort,
+    YearWeekSort,
+    YearDaySort,
+    YearMonthDaySort,
+    QuarterNum,
+    רבעון,
+    QuarterSort,
+    "שם רבעון",
+    "רבעון/שנה",
+    "רבעון שנה",
+    "רבעון/חודש",
+     "רבעון/שבוע",
+    "רבעון/יום בשנה",
+    "רבעון/יום ברבעון",
+    "תאריך התחלת רבעון",
+    "תאריך סיום רבעון",
+    MonthNum,
+    חודש,
+    "מספר חודש",
+    "Month",
+    MonthSort,
+    "חודש-שנה",
+    "שם חודש קצר",
+    "שם חודש ארוך",
+    "שם חודש קצר אנגלית",
+    "שם חודש ארוך אנגלית",
+    "חודש/שנה",
+    "חודש שנה",
+    "חודש/רבעון",
+    "חודש/שבוע",
+    "חודש/יום בשנה",
+    "תאריך סיום חודש",
+    "מספר ימים בחודש",
+    WeekNum,
+    שבוע,
+    "שבוע/שנה",
+    "שבוע שנה",
+    "שבוע/רבעון",
+    "שבוע/חודש",
+    "שבוע/יום בשנה",
+    "תאריך התחלת שבוע",
+    "תאריך סיום שבוע",
+    DayNum,
+    DayInYearNum,
+    "יום בשנה",
+    "יום שנה",
+    "יום בשנה/שנה",
+    "יום בשנה/חודש",
+    "יום בשנה/שבוע",
+    "יום ברבעון",
+    "יום בשנה/רבעון",
+    "יום ברבעון/רבעון",
+    WeekDayNum,
+    "יום בשבוע",
+    "שם יום בשבוע קצר",
+    "שם יום בשבוע ארוך",
+    "שם יום בשבוע קצר אנגלית",
+    "שם יום בשבוע ארוך אנגלית",
+    WeekDaySort,
+    תאריך,
+    "Date",
+    DateNum,
+    "Day",
+    יום
+FROM [$(vCalendar)](qvd)
+// LOAD 
+// 	שנה, 
+//      [שנה/רבעון], 
+//      [שנה/חודש], 
+//      YearQuarterSort, 
+//      YearMonthSort, 
+//      if(רבעון='Q1','רבעון 1',
+//      	if(רבעון='Q2','רבעון 2',
+//      		if(רבעון='Q3','רבעון 3',
+//      			if(רבעון='Q4','רבעון 4')))) as [שם רבעון ארוך],
+//      Year &'-'&[שם חודש קצר אנגלית] as [Year-Month],
+//      רבעון, 
+//      חודש, 
+//      [שם חודש קצר], 
+//      [שם חודש ארוך], 
+//      [חודש/שנה], 
+//      [יום בשבוע],
+//      WeekDaySort, 
+//      [שם יום בשבוע קצר], 
+//      [שם יום בשבוע ארוך],
+//      ([שם חודש קצר]&' '&שנה) as  [חודש-שנה],
+//       [שם חודש קצר אנגלית], 
+//      [שם חודש ארוך אנגלית], 
+//      [שם יום בשבוע קצר אנגלית], 
+//      [שם יום בשבוע ארוך אנגלית],  
+//      Date,
+//      month(today()) as [חודש נוכחי],
+//      (month(today()) &' '&year(Today())) as [חודש שנה נוכחי],
+//      year(Today()) &''& num(month(Today()),00) as [חודש שנה נוכחי נומרי],
+//      DateNum
+// FROM [lib://QA Back:File_jqvnta01_Qlikview/Production/General/Calendar/Qvd/Calendar.QVD](qvd)
+//WHERE Date>='$(vCalendar_DateMin)' AND Date<='$(vCalendar_DateMax)'
+;
+
+NoConcatenate
+Calendar_Sort:
+load
+*
+Resident Calendar
+where YearMonthSort>='201901' and שנה<=Year(Today())
+Order by YearMonthSort;
+DRop Table Calendar;
+
+STORE Calendar_Sort INTO $(vLibDataFiles_DW)/Calendar_Sort.qvd;
+//DROP TABLEs Calendar_Sort;
+//////*****************************************************
+
+// BaseCalander:
+// LOAD * INLINE [
+//     שם חודש ארוך אנגלית, MonthNum
+//     January, 1
+//     February, 2
+//     March, 3
+//     April, 4
+//     May, 5
+//     June, 6
+//     July, 7
+//     August, 8
+//     September, 9
+//     October, 10
+//     November, 11
+//     December, 12
+// ];
+// STORE BaseCalander INTO $(vLibDataFiles_DW)/BaseCalander.QVD;
+// //DROP TABLE BaseCalander;
+
+///$tab UI
+/////*****************************************************
+
+$(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iColors2026_HEX_only.txt);
+
+// $(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iobjects.txt);
+
+cGenericRed=;
+cGenericYellow=;
+cGenericGreen=;
+//////-----------------------------------------------------
+
+SET cNCRStatusOpen = =cBlue;
+SET cNCRStatusClose = =cTeal;
+
+SET cNCRStateInitial = =cBlueLight;
+SET cNCRStateInProgress = =cBlueDark;
+
+SET cNCRTypeQuality = =cYellowLight;
+SET cNCRTypeEnvironment = =cGreenLight;
+
+SET cNCRLevelOne = =cYellow;
+SET cNCRLevelTwo = =cOrange;
+SET cNCRLevelThree = =cRed;
+
+SET cNCRAgentQC = =cPurple;
+SET cNCRAgentQA = =cPurpleLight;
+
+/////*****************************************************
+
+Let cBronze =rgb(205,127,50);
+Let cMahagony =rgb(192,64,0);
+Let cWheat =rgb(245,222,179);
+Let cUmber =rgb(99,81,71);
+Let cTan =rgb(209,180,140);
+LET cDelivery=rgb(142,102,71);
+LET cDisposal=rgb(178,84,77);
+
+//////-----------------------------------------------------
+
+SET cNCRStatusOpen = =cBlue;
+SET cNCRStatusClose = =cTeal;
+
+
+LET vDisplayAll = 0;
+LET vDisplayButtons = 0;
+
+LET vDisplayDim = 1;
+LET vDisplayDetailsSH01 = 0;
+LET vDisplayDetailsSH11 = 0;
+LET vDisplayDetailsSH12 = 0;
+LET vDisplayDetailsSH13 = 0;
+LET vDisplayDetailsSH14 = 0;
+LET vDisplayDetailsSH15 = 0;
+LET vDisplayDetailsSH21 = 0;
+LET vDisplayDetailsSH22 = 0;
+LET vDisplayDetailsSH23 = 0;
+LET vDisplayDetailsSH24 = 0;
+LET vDisplayDetailsSH25 = 0;
+//////-----------------------------------------------------
+
+LET cGeneric1=null();
+
+
+///$tab Section Access
+//////*****************************************************
+
+// Show User Name
+Display_Users:
+LOAD Distinct
+	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
+	[שם משתמש] AS UserName_Full
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM $(vQvdSecurityDB)Authenticated_User.QVD (qvd);
+////---------------------------------------------------
+
+Access_Groups:
+LOAD 
+     USERNAME_DOCGROUP, 
+     USERNAME_DOCGROUPCODE
+FROM [$(vQvdSecurityDW)Access_Groups.QVD] (qvd);
+//---------------------------------------------------
+
+
+////*****************************************************
+
+STAR is *;
+Section Access;
+LOAD 
+	 Upper(NTNAME & '@nta.co.il') as USERID,
+     Upper(ACCESS) as ACCESS,
+     Upper(USERNAME_DOCGROUP) as USERNAME_DOCGROUP,
+     Upper(USERNAME_DEPARTMENT) as USERNAME_DEPARTMENT,
+     Upper(USERNAME_DIVISION) as USERNAME_DIVISION,
+     Upper(USERDATA_OS) as USERDATA_OS
+FROM [$(vQvdSecurityDW)Security_EnviromentalControl.QVD](qvd);
+
+Section Application;
+Authenticated_Project:
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd)
+Where Project_ID='*';
+Left Join
+LOAD Distinct 
+	 Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd);
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP, 
+     Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd](qvd)
+Where Project_ID<>'*';
+
+
+////*****************************************************
+
+
+
+///$tab Exit Script
+Exit Script
+///$tab Section Access origin
+// //////*****************************************************
+
+// // Show User Name
+// Display_Users:
+// LOAD Distinct
+// 	[קוד משתמש] AS UserName_OS,
+// //	[קוד משתמש] AS NTNAME,
+// 	[שם משתמש] AS UserName_Full
+// FROM [$(pSecurity)Users_Data.QVD] (qvd)
+// WHERE #UserQV='1';
+
+// Left Join
+// LOAD Distinct
+// //RowNumber, 
+//      NTNAME AS UserName_OS, 
+//      FULLNAME    
+// FROM $(pSecDB)Authenticated_User.QVD (qvd);
+// ////---------------------------------------------------
+
+// Access_Groups:
+// LOAD 
+//      USERNAME_DOCGROUP, 
+//      USERNAME_DOCGROUPCODE
+// FROM [$(pSecurity)Access_Groups.QVD] (qvd);
+// //---------------------------------------------------
+
+
+// ////*****************************************************
+
+// STAR is *;
+// Section Access;
+// LOAD NTNAME, 
+//      ACCESS, 
+//      USERNAME_DOCGROUP, 
+//      USERNAME_DEPARTMENT, 
+//      USERNAME_DIVISION,
+//      USERDATA_OS
+// FROM [$(pSecurity)Security_EnviromentalControl.QVD] (qvd);
+
+// Section Application;
+// LOAD 
+// 	 DOCGROUP as USERNAME_DOCGROUP
+// FROM [$(pAconexDB)Authenticated_Project.QVD](qvd)
+// Where Project_ID='*';
+// Left Join
+// LOAD Distinct 
+// 	 Project_ID as ProjectID
+// FROM [$(pAconexDB)Authenticated_Project.QVD](qvd);
+// LOAD 
+// 	 DOCGROUP as USERNAME_DOCGROUP, 
+//      Project_ID as ProjectID
+// FROM [$(pAconexDB)Authenticated_Project.QVD](qvd)
+// Where Project_ID<>'*';
+
+
+// ////*****************************************************
+
+///$tab Main origin
+// //EnviromentControl
+// SET ThousandSep=',';
+// SET DecimalSep='.';
+// SET MoneyThousandSep=',';
+// SET MoneyDecimalSep='.';
+// SET MoneyFormat='₪ #,##0.00;₪-#,##0.00';
+// SET DateFormat='DD/MM/YYYY';
+// SET TimeFormat='HH:mm:ss';
+// SET TimestampFormat='DD/MM/YYYY HH:mm:ss[.fff]';	
+// //SET MonthNames='ינו;פבר;מרץ;אפר;מאי;יונ;יול;אוג;ספט;אוק;נוב;דצמ';
+// SET MonthNames='December;November;October;April;May;June;July;August;September;March;February;January';
+// SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+// SET DayNames='א;ב;ג;ד;ה;ו;ש';
+// SET LongDayNames='ראשון;שני;שלישי;רביעי;חמישי;שישי;שבת';
+// //
+// SET MonthNamesEng='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+// SET LongMonthNamesEng='January;February;March;April;May;June;July;August;September;October;November;December';
+// SET DayNamesEng='Sun;Mon;Tue;Wed;Thu;Fri;Sat';
+// SET LongDayNamesEng='Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday';
+// //
+// SET FirstWeekDay=6;
+// SET BrokenWeeks=1;
+// SET ReferenceDay=0;
+// SET FirstMonthOfYear=1;
+// SET CollationLocale='HE';
+// //
+// SET HidePrefix = '%';
+
+// //  Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+ 
+// LET vSpaceName = replace(GetSysAttr('spaceName'),'UX','Back');//$(vSpaceName)
+// LET vConnectionName ='$(vSpaceName)'&':AconexSQL'; //$(vConnectionName)
+// SET pWorkApp = EnvironmentalControl; //$(pWorkApp)
+// Let vLibDataFiles_RAW='lib://'&'$(vSpaceName)'&':DataFiles/RAW/AconexSQL/Mail/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+// Let vLibDataFiles_DW='lib://'&'$(vSpaceName)'&':DataFiles/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+
+// //lib://QA Back:DataFiles/DW/EnvironmentalControl
+
+// /*SET ThousandSep=',';
+// SET DecimalSep='.';
+// SET MoneyThousandSep=',';
+// SET MoneyDecimalSep='.';
+// SET MoneyFormat='$ ###0.00;-$ ###0.00';
+// SET TimeFormat='h:mm:ss TT';
+// SET DateFormat='M/D/YYYY';
+// SET TimestampFormat='M/D/YYYY h:mm:ss[.fff] TT';
+// SET FirstWeekDay=6;
+// SET BrokenWeeks=1;
+// SET ReferenceDay=0;
+// SET FirstMonthOfYear=1;
+// SET CollationLocale='en-US';
+// SET CreateSearchIndexOnReload=1;
+// SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+// SET LongMonthNames='January;February;March;April;May;June;July;August;September;October;November;December';
+// SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+// SET LongDayNames='Monday;Tuesday;Wednesday;Thursday;Friday;Saturday;Sunday';
+// SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+// */
+
+///$tab Hierarchy backup
+Hierarchy_temp:
+NoConcatenate
+LOAD DISTINCT
+
+    // מזהה רשומה - אם יש ID אמיתי במקור עדיף להשתמש בו
+   Key,
+    Trim([Line Code] & '')          as [Line Code],
+    Trim("Attribute1 CODE" & '')    as [Work package Code],
+    Trim("Attribute3 CODE" & '')    as [NBS LEVEL 1 Code],
+    Trim("Attribute4 CODE" & '')    as [NBS LEVEL 2 Code],
+    Trim([Work Type Code] & '')     as [Work Type Code],
+
+    // אם יש תיאורים - להכניס גם אותם
+//     Trim(Line & '')             	as Line,
+    Trim(Attribute1 & '')       	as [Work package],
+    Trim(Attribute3 & '')     		as [NBS LEVEL 1],
+    Trim(Attribute4 & '')     		as [NBS LEVEL 2],
+    Trim([Work Type] & '')      	as [Work Type]
+
+from $(vLibDataFiles_DW)/Report.QVD (QVD)
+Where DOCGROUP>0; 
+Concatenate
+LOAD DISTINCT
+
+    // מזהה רשומה - אם יש ID אמיתי במקור עדיף להשתמש בו
+   '999999' as Key,
+   'ML'                  as [Line Code],
+    [Work package Code],
+    [NBS LEVEL 1 Code],
+    [NBS LEVEL 2 Code],
+    [Work Type Code],
+    // אם יש תיאורים - להכניס גם אותם
+//     'ML'            				as Line,
+    [Work package],
+    [NBS LEVEL 1],
+    [NBS LEVEL 2],
+    [Work Type]
+Resident Hierarchy_temp;
+Drop Fields [Work Type Code],[Work Type] From Report;
+// Exit Script
+/*******************************************************
+  בניית KeyBase לפי ההיררכיה החדשה
+*******************************************************/
+
+Hierarchy_temp1:
+NoConcatenate
+LOAD
+    Key,
+    [Line Code],
+    [Work package Code],
+    [NBS LEVEL 1 Code],
+    [NBS LEVEL 2 Code],
+    [Work Type Code],
+
+    [Work package],
+    [NBS LEVEL 1],
+    [NBS LEVEL 2],
+    [Work Type],
+
+    [Line Code] & '|' & [Work package Code] & '|' & [NBS LEVEL 1 Code] & '|' & [NBS LEVEL 2 Code] & '|' & [Work Type Code] as KeyBase
+
+Resident Hierarchy_temp;
+DROP Table Hierarchy_temp;
+
+/*******************************************************
+  יצירת KeyBase_Select לפי כל רמה בהיררכיה
+*******************************************************/
+
+Left Join (Hierarchy_temp1)
+LOAD DISTINCT
+    Key,
+
+    If(IterNo() = 1,
+        SubField(KeyBase, '|', 1) & Repeat('|', 4),
+
+    If(IterNo() = 2,
+        SubField(KeyBase, '|', 1) & '|' &
+        SubField(KeyBase, '|', 2) & Repeat('|', 3),
+
+    If(IterNo() = 3,
+        SubField(KeyBase, '|', 1) & '|' &
+        SubField(KeyBase, '|', 2) & '|' &
+        SubField(KeyBase, '|', 3) & Repeat('|', 2),
+
+    If(IterNo() = 4,
+        SubField(KeyBase, '|', 1) & '|' &
+        SubField(KeyBase, '|', 2) & '|' &
+        SubField(KeyBase, '|', 3) & '|' &
+        SubField(KeyBase, '|', 4) & Repeat('|', 1),
+
+        // IterNo() = 5
+        KeyBase
+    )))) as KeyBase_Select,
+
+    IterNo() as LevelOrder
+
+Resident Hierarchy_temp1
+While Len(Trim(KeyBase)) > 0
+  and IterNo() <= 5;
+  
+Hierarchy_temp2:
+NoConcatenate
+LOAD
+    *,
+    RecNo() as RowID
+Resident Hierarchy_temp1;
+
+DROP Table Hierarchy_temp1;
+
+
+/*******************************************************
+  טבלת מניפה / היררכיה סופית
+*******************************************************/
+
+MenifaTable_Hierarchy:
+NoConcatenate
+LOAD
+
+    AutoNumber(Key & [Line Code]) as %MenifaTable,
+
+    Key,
+    KeyBase,
+    KeyBase_Select,
+    LevelOrder,
+
+    [Line Code],
+    [Work package Code],
+    [NBS LEVEL 1 Code],
+    [NBS LEVEL 2 Code],
+    [Work Type Code],
+
+	[Work package],
+    [NBS LEVEL 1],
+    [NBS LEVEL 2],
+    [Work Type]
+
+Resident Hierarchy_temp2;
+
+DROP Table Hierarchy_temp2;
+
+
+///$tab Section
+//  if([Main Material Type]='Aggregate',ffa53a,
+// if([Main Material Type]='Wood',6e372f,
+// if([Main Material Type]='Brick',0a79a9,
+// if([Main Material Type]='Concrete',c0c0c0,
+// if([Main Material Type]='Glass',19b7d0,
+// if([Main Material Type]='Metals',ab2368,
+// if([Main Material Type]='Other',cOther,
+// if([Main Material Type]='Plastic',fbacc6,
+// if([Main Material Type]='Soil',f47942, cBlack)))))))))
+
+//  if([Main Water Type]='Gw.Discharged River',cGroundWaterDischargeRiver,
+// if([Main Water Type]='Gw.Discharged Sewage',cGroundWaterDischargeSewage,
+// if([Main Water Type]='Gw.Recharged',cGroundWaterInjected,
+// if([Main Water Type]='Gw.Extracted',cGroundwaterpumped,
+// if([Main Water Type]='Potable water Consumption',cPortableWater,
+// if([Main Water Type]='Waste Water - Sanitation',cSanitationWater,
+// if([Main Water Type]='Waste Water - Works',cWasteWater,
+// cBlack)))))))
+
+//  if([Main Water Type]='Gw.Discharged River',19b7d0,
+// if([Main Water Type]='Gw.Discharged Sewage',6e372f,
+// if([Main Water Type]='Gw.Recharged',6cba5f,
+// if([Main Water Type]='Gw.Extracted',0a78a9,
+// if([Main Water Type]='Potable water Consumption',4cbcb6,
+// if([Main Water Type]='Waste Water - Sanitation',0080ff,
+// if([Main Water Type]='Waste Water - Works',8080c0,
+// cBlack)))))))
+
+// if([Main Waste Type]='Construction',cConstruction,19b7d0,8a7f74
+// if([Main Waste Type]='Contaminated Soil',cContaminatedSoil,9b5149
+// if([Main Waste Type]='Electronic',cElectronic,f42064
+// if([Main Waste Type]='Excavated Soil',cExcavatedSoil,6e372f
+// if([Main Waste Type]='Metals',cMetals,ab2368
+// if([Main Waste Type]='Packaging',cPackaging,4cbcb6
+// cBlack))))))
