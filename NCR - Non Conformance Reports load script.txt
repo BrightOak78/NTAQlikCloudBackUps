@@ -1244,70 +1244,6 @@ RESIDENT Geography_Table_Temp;
 DROP TABLE Geography_Table_Temp;
 
 
-///$tab 13. UI
-/////*****************************************************
-
-$(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iColors2026_HEX_only.txt);
-
-// $(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iobjects.txt);
-
-cGenericRed=;
-cGenericYellow=;
-cGenericGreen=;
-//////-----------------------------------------------------
-
-SET cNCRStatusOpen = =cBlue;
-SET cNCRStatusClose = =cTeal;
-
-SET cNCRStateInitial = =cBlueLight;
-SET cNCRStateInProgress = =cBlueDark;
-
-SET cNCRTypeQuality = =cYellowLight;
-SET cNCRTypeEnvironment = =cGreenLight;
-
-SET cNCRLevelOne = =cYellow;
-SET cNCRLevelTwo = =cOrange;
-SET cNCRLevelThree = =cRed;
-
-SET cNCRAgentQC = =cPurple;
-SET cNCRAgentQA = =cPurpleLight;
-
-/////*****************************************************
-
-Let cBronze =rgb(205,127,50);
-Let cMahagony =rgb(192,64,0);
-Let cWheat =rgb(245,222,179);
-Let cUmber =rgb(99,81,71);
-Let cTan =rgb(209,180,140);
-LET cDelivery=rgb(142,102,71);
-LET cDisposal=rgb(178,84,77);
-
-//////-----------------------------------------------------
-
-SET cNCRStatusOpen = =cBlue;
-SET cNCRStatusClose = =cTeal;
-
-
-LET vDisplayAll = 0;
-LET vDisplayButtons = 0;
-
-LET vDisplayDim = 1;
-LET vDisplayDetailsSH01 = 0;
-LET vDisplayDetailsSH11 = 0;
-LET vDisplayDetailsSH12 = 0;
-LET vDisplayDetailsSH13 = 0;
-LET vDisplayDetailsSH14 = 0;
-LET vDisplayDetailsSH15 = 0;
-LET vDisplayDetailsSH21 = 0;
-LET vDisplayDetailsSH22 = 0;
-LET vDisplayDetailsSH23 = 0;
-LET vDisplayDetailsSH24 = 0;
-LET vDisplayDetailsSH25 = 0;
-//////-----------------------------------------------------
-
-LET cGeneric1=null();
-
-
 ///$tab Menifa_Hierarchy
 
 /*******************************************************
@@ -1329,7 +1265,8 @@ LOAD Distinct
     Attribute4   	  as [NBS LEVEL 2],
     [Work Type] 	  as [Work TypeT],
 
-    'ML' & '|'   &  Line & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+ //   'ML' & '|'   &  Line & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+      'ML' & '|'   & Line & '|' & [Work Type Code] & '|' & "Attribute1 CODE" & '|' & "Attribute3 CODE" & '|' & "Attribute4 CODE" as KeyBase
 
 Resident NcrLogic;
 // DROP Table KeyTable;
@@ -1491,6 +1428,70 @@ Resident RawTable;
 DROP Table RawTable;
 
 
+///$tab 13. UI
+/////*****************************************************
+
+$(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iColors2026_HEX_only.txt);
+
+// $(Include=lib://QA Back:File_jqvnta01_Qlikview/Production/GeneralConfig/Include/iobjects.txt);
+
+cGenericRed=;
+cGenericYellow=;
+cGenericGreen=;
+//////-----------------------------------------------------
+
+SET cNCRStatusOpen = =cBlue;
+SET cNCRStatusClose = =cTeal;
+
+SET cNCRStateInitial = =cBlueLight;
+SET cNCRStateInProgress = =cBlueDark;
+
+SET cNCRTypeQuality = =cYellowLight;
+SET cNCRTypeEnvironment = =cGreenLight;
+
+SET cNCRLevelOne = =cYellow;
+SET cNCRLevelTwo = =cOrange;
+SET cNCRLevelThree = =cRed;
+
+SET cNCRAgentQC = =cPurple;
+SET cNCRAgentQA = =cPurpleLight;
+
+/////*****************************************************
+
+Let cBronze =rgb(205,127,50);
+Let cMahagony =rgb(192,64,0);
+Let cWheat =rgb(245,222,179);
+Let cUmber =rgb(99,81,71);
+Let cTan =rgb(209,180,140);
+LET cDelivery=rgb(142,102,71);
+LET cDisposal=rgb(178,84,77);
+
+//////-----------------------------------------------------
+
+SET cNCRStatusOpen = =cBlue;
+SET cNCRStatusClose = =cTeal;
+
+
+LET vDisplayAll = 0;
+LET vDisplayButtons = 0;
+
+LET vDisplayDim = 1;
+LET vDisplayDetailsSH01 = 0;
+LET vDisplayDetailsSH11 = 0;
+LET vDisplayDetailsSH12 = 0;
+LET vDisplayDetailsSH13 = 0;
+LET vDisplayDetailsSH14 = 0;
+LET vDisplayDetailsSH15 = 0;
+LET vDisplayDetailsSH21 = 0;
+LET vDisplayDetailsSH22 = 0;
+LET vDisplayDetailsSH23 = 0;
+LET vDisplayDetailsSH24 = 0;
+LET vDisplayDetailsSH25 = 0;
+//////-----------------------------------------------------
+
+LET cGeneric1=null();
+
+
 ///$tab 14. Section Access
 //////*****************************************************
 
@@ -1551,6 +1552,191 @@ Where Project_ID<>'*';
 
 ///$tab exit
 exit script;
+///$tab Menifa_Hierarchy
+
+/*******************************************************
+  בניית KeyBase לפי ההיררכיה החדשה
+*******************************************************/
+
+RawTableTemp:
+NoConcatenate
+LOAD Distinct
+    Key,
+    [Line Code T]   as [Line Code],
+    "Attribute1 CODE" as [Work package Code],
+    "Attribute3 CODE" as [NBS LEVEL 1 Code],
+    "Attribute4 CODE" as [NBS LEVEL 2 Code],
+    [Work Type Code] as [Work Type CodeT],
+
+    Attribute1         as [Work package],
+    Attribute3         as [NBS LEVEL 1],
+    Attribute4         as [NBS LEVEL 2],
+    [Work Type]     as [Work TypeT],
+
+//    'ML' & '|'   & [Line Code T] & '|' & "Attribute1 CODE" & '|' &"Attribute3 CODE" & '|' & "Attribute4 CODE" & '|' & [Work Type Code] as KeyBase
+    'ML' & '|'   & [Line Code T] & '|' & [Work Type Code] & '|' & "Attribute1 CODE" & '|' & "Attribute3 CODE" & '|' & "Attribute4 CODE" as KeyBase
+
+
+Resident KeyTable
+Where DOCGROUP>0;
+// DROP Table KeyTable;
+Drop Fields [Line Code T] From KeyTable;
+/*******************************************************
+  יצירת KeyBase_Select לפי כל רמה בהיררכיה
+*******************************************************/
+
+Left Join (RawTableTemp)
+LOAD DISTINCT
+    Key,
+
+    // שדה הבחירה היחיד: ערכי KeyBase "מרופדים" לפי רמה
+    If(IterNo()=1,
+        SubField(KeyBase,'|',1) & Repeat('|',5),
+
+    If(IterNo()=2,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & Repeat('|',4),
+
+    If(IterNo()=3,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & Repeat('|',3),
+
+    If(IterNo()=4,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & '|' & SubField(KeyBase,'|',4) & Repeat('|',2),
+
+    If(IterNo()=5,
+        SubField(KeyBase,'|',1) & '|' & SubField(KeyBase,'|',2) & '|' & SubField(KeyBase,'|',3) & '|' & SubField(KeyBase,'|',4) & '|' & SubField(KeyBase,'|',5) & Repeat('|',1),
+
+        // IterNo()=6 => full
+        KeyBase
+    ))))) as KeyBase_Select,
+
+    IterNo() as LevelOrder
+// LOAD DISTINCT
+//     Key,
+
+//     If(IterNo() = 1,
+//         SubField(KeyBase, '|', 1) & Repeat('|', 4),
+
+//     If(IterNo() = 2,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & Repeat('|', 3),
+
+//     If(IterNo() = 3,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & '|' &
+//         SubField(KeyBase, '|', 3) & Repeat('|', 2),
+
+//     If(IterNo() = 4,
+//         SubField(KeyBase, '|', 1) & '|' &
+//         SubField(KeyBase, '|', 2) & '|' &
+//         SubField(KeyBase, '|', 3) & '|' &
+//         SubField(KeyBase, '|', 4) & Repeat('|', 1),
+
+//         // IterNo() = 5
+//         KeyBase
+//     )))) as KeyBase_Select,
+
+//     IterNo() as LevelOrder
+
+Resident RawTableTemp
+While Len(Trim(KeyBase)) > 0
+  and IterNo() <= 6;
+  
+RawTable:
+NoConcatenate
+LOAD
+    *,
+    RecNo() as RowID
+Resident RawTableTemp;
+DROP Table RawTableTemp;
+
+/********************************************************************
+  3) Reverse: הופכים את KeyBase תו-תו
+*********************************************************************/
+Chars:
+LOAD
+    RowID,
+    IterNo() as Idx,
+    Mid(KeyBase_Select, Len(KeyBase_Select) - IterNo() + 1, 1) as Ch
+Resident RawTable
+While IterNo() <= Len(KeyBase_Select);
+
+/********************************************************************
+  4) Key_Reversed: מאגדים חזרה למחרוזת
+*********************************************************************/
+KeyRev:
+NoConcatenate
+LOAD
+    RowID,
+    Concat(Ch, '', Idx) as Key_Reversed
+Resident Chars
+Group By RowID;
+
+DROP Table Chars;
+
+/********************************************************************
+  5) Key_Encrypted: החלפות אחרי ההיפוך בלבד
+     M = Y3PLD
+     W = 4RZZ
+     IN = 7UP   (כל הופעה של IN)
+*********************************************************************/
+Enc:
+NoConcatenate
+LOAD
+    RowID,
+    Key_Reversed,
+    Replace(
+        Replace(
+            Replace(Key_Reversed, 'IN', '7UP'),
+            'M', 'Y3PLD'
+        ),
+        'W', '4RZZ'
+    ) as %Key_Encrypted
+Resident KeyRev;
+
+DROP Table KeyRev;
+
+/********************************************************************
+  6) Join + Final
+*********************************************************************/
+/*******************************************************
+  טבלת מניפה / היררכיה סופית
+/********************************************************/
+
+Left Join (RawTable)
+LOAD
+    RowID,
+    Key_Reversed,
+    %Key_Encrypted
+Resident Enc;
+DROP Table Enc;
+
+Menifa_Hierarchy:
+NoConcatenate
+LOAD
+
+    AutoNumber(Key & [Line Code]) as %MenifaTable,
+
+    Key,
+    KeyBase,
+    KeyBase_Select,
+    Key_Reversed,
+    %Key_Encrypted,// as Key_Encrypted,
+//     LevelOrder,
+
+    [Line Code],
+    [Work package Code],
+    [NBS LEVEL 1 Code],
+    [NBS LEVEL 2 Code],
+    [Work Type CodeT],
+
+                [Work package],
+    [NBS LEVEL 1],
+    [NBS LEVEL 2],
+    [Work TypeT]
+
+Resident RawTable;
+DROP Table RawTable;
+
 ///$tab Report
 /////*****************************************************
 
