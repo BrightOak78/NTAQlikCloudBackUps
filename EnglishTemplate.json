@@ -1,0 +1,174 @@
+
+SHEETS
+{"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-09-01T14:47:35.245Z","modifiedDate":"2026-09-01T14:47:35.245Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
+{"qInfo":{"qId":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","approved":false,"published":true,"publishTime":"2026-09-02T05:01:04.772Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-01T14:47:35.246Z","modifiedDate":"2026-09-01T14:47:35.246Z","encrypted":true,"privileges":["read","publish"],"title":"Dashboard","description":""},"qData":[]}
+{"qInfo":{"qId":"ebe789b3-9c9b-4cf0-bfb2-1bc6b38351d9","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"ebe789b3-9c9b-4cf0-bfb2-1bc6b38351d9","approved":false,"published":true,"publishTime":"2026-09-02T05:01:08.063Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-02T05:00:37.555Z","modifiedDate":"2026-09-02T05:01:08.011Z","encrypted":true,"privileges":["read","publish"],"title":"Detailed","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"89eaf001-311a-4b9a-a96d-1192faee8cda","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.8461538461538467}}
+{"name":"30365cf2-cdb5-4475-97ff-e9f8c4d82be3","type":"filterpane","col":0,"row":3,"colspan":52,"rowspan":2,"bounds":{"x":0,"y":3.846153846153846,"width":61.904761904761905,"height":2.564102564102564}}
+{"name":"73a7389a-b348-421f-ad7f-2023481ad0e6","type":"sn-layout-container","col":52,"row":3,"colspan":10,"rowspan":2,"bounds":{"x":61.904761904761905,"y":3.846153846153846,"width":11.904761904761903,"height":2.564102564102564}}
+{"name":"910de1bc-d2ac-44e6-8f78-914792d5a1a9","type":"sn-layout-container","col":62,"row":3,"colspan":9,"rowspan":2,"bounds":{"x":73.80952380952381,"y":3.846153846153846,"width":10.714285714285714,"height":2.564102564102564}}
+{"name":"60e4c3d7-3ad3-49a6-8843-592a17dff095","type":"sn-layout-container","col":71,"row":3,"colspan":8,"rowspan":2,"bounds":{"x":84.52380952380952,"y":3.846153846153846,"width":9.523809523809524,"height":2.564102564102564}}
+{"name":"58f0a00b-bd90-442d-bbb2-b3eb32e070f4","type":"kpi","col":8,"row":7,"colspan":8,"rowspan":4,"bounds":{"x":9.523809523809524,"y":8.974358974358973,"width":9.523809523809524,"height":5.128205128205128}}
+{"name":"bd47becd-5a37-43f7-a289-78a07cfcc7ef","type":"kpi","col":16,"row":7,"colspan":8,"rowspan":4,"bounds":{"x":19.047619047619047,"y":8.974358974358973,"width":9.523809523809524,"height":5.128205128205128}}
+{"name":"2304ce2d-f03a-48b7-8057-7a94015089ea","type":"kpi","col":24,"row":7,"colspan":8,"rowspan":4,"bounds":{"x":28.57142857142857,"y":8.974358974358973,"width":9.523809523809524,"height":5.128205128205128}}
+{"name":"771c51bf-b866-468b-b797-9c3c14dcffa0","type":"kpi","col":32,"row":7,"colspan":17,"rowspan":4,"bounds":{"x":38.095238095238095,"y":8.974358974358973,"width":20.238095238095237,"height":5.128205128205128}}
+{"name":"a182aa74-629f-40b2-a776-822834411b1e","type":"kpi","col":61,"row":7,"colspan":12,"rowspan":4,"bounds":{"x":72.61904761904762,"y":8.974358974358973,"width":14.285714285714285,"height":5.128205128205128}}
+{"name":"ea1a7af9-3fa7-49d2-b733-9c495f01e3a6","type":"kpi","col":49,"row":7,"colspan":12,"rowspan":4,"bounds":{"x":58.333333333333336,"y":8.974358974358973,"width":14.285714285714285,"height":5.128205128205128}}
+{"name":"31ac60a9-6edd-4ff2-ba26-c3bb3f131e73","type":"kpi","col":73,"row":7,"colspan":11,"rowspan":4,"bounds":{"x":86.90476190476191,"y":8.974358974358973,"width":13.095238095238097,"height":5.128205128205128}}
+{"name":"60022642-0fd3-40bf-9f8f-0b4e2826f37d","type":"barchart","col":0,"row":11,"colspan":31,"rowspan":12,"bounds":{"x":0,"y":14.102564102564102,"width":36.904761904761905,"height":15.384615384615387}}
+{"name":"bed98020-eb98-450f-90bf-37e86006f6ba","type":"barchart","col":31,"row":11,"colspan":19,"rowspan":12,"bounds":{"x":36.904761904761905,"y":14.102564102564102,"width":22.61904761904762,"height":15.384615384615387}}
+{"name":"734ad9ce-ffef-4dbc-a572-169b50fb80ac","type":"barchart","col":0,"row":23,"colspan":28,"rowspan":17,"bounds":{"x":0,"y":29.487179487179485,"width":33.33333333333333,"height":21.794871794871796}}
+{"name":"977278d2-a7c2-4fea-b843-1b9e32151681","type":"barchart","col":28,"row":23,"colspan":28,"rowspan":17,"bounds":{"x":33.33333333333333,"y":29.487179487179485,"width":33.33333333333333,"height":21.794871794871796}}
+{"name":"2e1393c8-5eb7-434c-8761-3d2d12ef8fb0","type":"barchart","col":56,"row":23,"colspan":28,"rowspan":17,"bounds":{"x":66.66666666666666,"y":29.487179487179485,"width":33.33333333333333,"height":21.794871794871796}}
+{"name":"d7692e0f-cd8b-4728-a229-9c26691fc9a6","type":"sn-tabbed-container","col":50,"row":11,"colspan":34,"rowspan":12,"bounds":{"x":59.523809523809526,"y":14.102564102564102,"width":40.476190476190474,"height":15.384615384615387}}
+{"name":"f9b25fbb-2eef-4f17-8668-834c81a36642","type":"sn-layout-container","col":79,"row":3,"colspan":5,"rowspan":2,"bounds":{"x":94.04761904761905,"y":3.846153846153846,"width":5.952380952380952,"height":2.564102564102564}}
+{"name":"7cc787c3-d6ca-49e3-9bd9-df1a54773117","type":"kpi","col":0,"row":7,"colspan":8,"rowspan":4,"bounds":{"x":0,"y":8.974358974358973,"width":9.523809523809524,"height":5.128205128205128}}
+{"name":"19ff9866-c605-41ef-8123-168ee5bc4a82","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":6.410256410256409,"width":100,"height":2.564102564102564}}
+{"name":"7a53e5a2-f6a4-4d00-9e80-3d5632d8c66a","type":"sn-tabbed-container","col":0,"row":40,"colspan":84,"rowspan":38,"bounds":{"y":51.28205128205128,"x":0,"width":100,"height":48.717948717948715}}
+{"name":"543bbea1-1f7a-4453-b165-7ed077a313a1","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
+{"name":"195e1bac-d7dd-458e-a9e8-7e24171a5f1c","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
+
+DIMENSIONS
+
+MEASURES
+
+VARIABLES
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9c200753-d937-457a-b349-68ea05b2c10c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"36eef347-77f7-4f3b-b2f0-280dd82a798c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vYesterday","qDefinition":"01\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38a1f01d-e850-4f31-99a7-33e38aae578d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vToday","qDefinition":"02\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vAconex_AddOn","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Aconex_AddOn\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"32ba3bb2-ea02-4c4c-90b8-bdf22db27887","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"247adf22-7b86-4dd8-b5c3-fa953a61da7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLM_Yesterday","qDefinition":"01\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCurrentYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8278e550-632d-4bdf-b7b2-d5afd304ccbf","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"5bf68faf-54d7-4af6-9715-6d079fd561c6","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"120103ea-6caf-4856-a66b-a4cbe24e64c1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Budget_Raw","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"rRunStart","qDefinition":"02\/09\/2026 4:52:54 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"LongDayNamesEng","qDefinition":"Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"40c4119c-ef9d-4a39-94df-1f44650ec2ab","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"MonthNamesEng","qDefinition":"Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fa63338f-3336-482c-9588-aebfbad60428","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"LongMonthNamesEng","qDefinition":"January;February;March;April;May;June;July;August;September;October;November;December","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b8088229-9f10-4663-9ce4-e98f02ddb8f1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Settings 4 English Template","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"95c39e63-c67f-4582-bf05-aee9fb12ba2d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCurrentYear","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"59df1c3c-f13e-4817-a68a-81aa96a3a4e5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"57283e08-9603-45c9-9627-ebf06b63de10","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"Model Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3804b7d6-ec52-4deb-a6e5-85de9bceb9df","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"01\/09\/2026 17:55","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5965fdd8-96fd-45d7-b6ca-42735bd5ad40","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Budget_DW","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bfd26ee-8bfc-43c1-aca5-f3f6841fd776","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"ModelName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a23e08f-164b-4643-bc44-95f628ea09e4","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLM_YYYYMM","qDefinition":"202608","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ffff7f68-69ca-44a2-82f6-0fa34955ac96","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vYesterdayYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d4bf40ab-946f-4759-8efd-bc87ef5cea8b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"DayNamesEng","qDefinition":"Sun;Mon;Tue;Wed;Thu;Fri;Sat","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1365a2a7-f89c-4893-9236-ba48ca3fbc69","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pQvd_PaymentEthics","qDefinition":"lib:\/\/API & Connections:File_jqvnta01_Qlikview\/Production\/Finance\/PaymentEthics\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"796e3387-4570-44f4-b125-ff8385d6abbe","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vMaxNCR_OpenYearMonth","qDefinition":"=max({<[NCR Opening YYYYMM]={\"<=$(vCurrentYYYYMM)\"}>}[NCR Opening YYYYMM])","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3ec0dcf5-b0bf-47df-b04e-edb2ed953d06","qType":"variable"},"qData":[]}
+{"qName":"vUserOS","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ee9050bf-44ef-44a9-b33a-bb1abb1e15ac","qType":"variable"},"qData":[]}
+{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
+{"qName":"vBI_KPI","qDefinition":"LTI","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb1814c7-0a55-4afb-870c-307df6294d8c","qType":"variable"},"qData":[]}
+{"qName":"vNCR_PlannedClosureDateTo","qDefinition":"=Date(MonthEnd(max({<[NCR Overdue]=,[NCR Planned Closure Date]={\"<=$(vToday)\"}>}[NCR Planned Closure Date])))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"26a63435-c54f-4e4d-a162-590fb814cd9b","qType":"variable"},"qData":[]}
+{"qName":"vMaxYB","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5679a179-9cd9-405a-9072-77c4164c0697","qType":"variable"},"qData":[]}
+{"qName":"vEvent_DateMax","qDefinition":"12\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef2239ec-7757-48e7-aebe-c52e049c4a6a","qType":"variable"},"qData":[]}
+{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
+{"qName":"vQuantityPercentage","qDefinition":"Quantity","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e4a5a094-eebc-4b04-a462-23360c9d7cda","qType":"variable"},"qData":[]}
+{"qName":"vNas02Temp","qDefinition":"\\\\ntanas02\\bi\\Quality_green_IN2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"405cdc24-15d5-41e9-802d-e5e56b7e0c15","qType":"variable"},"qData":[]}
+{"qName":"vODBC","qDefinition":"QualityIN2;DBQ=\\\\ntanas02\\bi\\Quality_green_IN2\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"82d40cbc-3378-43fc-a4e2-86178ed274c0","qType":"variable"},"qData":[]}
+{"qName":"vFileList","qDefinition":"\\\\ntanas02\\bi\\Quality_green_IN2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0181d815-598f-492a-98dc-d015cc4cae01","qType":"variable"},"qData":[]}
+{"qName":"vEvent_DateMin","qDefinition":"01\/01\/2017","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4f005f09-6332-4f72-ac04-185d34fc5e05","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=Only({$<UserName_OS={$(=vUserOS)}>}FULLNAME)\/\/=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
+{"qName":"vMaxNCR_CloseYearMonth","qDefinition":"=max({<[NCR Actual Closure YYYYMM]={\"<=$(vCurrentYYYYMM)\"}>}[NCR Actual Closure YYYYMM])","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1010ae4a-d5a0-4c66-bb4d-9ba5875e080e","qType":"variable"},"qData":[]}
+{"qName":"vNCR_PlannedClosureDateFrom","qDefinition":"=Date(YearStart(max({1<NCRPlannedClosureDateFlag={1},[NCR Planned Closure Date]={\"<=$(vToday)\"}>}[NCR Planned Closure Date])))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"34d398a5-04d5-4d7a-bc69-842b054e210f","qType":"variable"},"qData":[]}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":85,"qTags":["$text","$key","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":2,"qTags":["$ascii","$text","$key","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":2,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":2,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":82,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$ascii","$text","$hidden","$system"],"qSrcTables":[]}
+{"qName":"YYYYMM","qCardinal":216,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"Year-Month","qCardinal":216,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"Date Diff","qCardinal":6575,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"Month Diff","qCardinal":216,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"Qtr Diff","qCardinal":72,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"Year Diff","qCardinal":18,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e0\u05d5\u05db\u05d7\u05d9","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e9\u05e0\u05d4 \u05e0\u05d5\u05db\u05d7\u05d9","qCardinal":1,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e9\u05e0\u05d4 \u05e0\u05d5\u05db\u05d7\u05d9 \u05e0\u05d5\u05de\u05e8\u05d9","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05e8\u05d1\u05e2\u05d5\u05df \u05d0\u05e8\u05d5\u05da","qCardinal":4,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"Year","qCardinal":18,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05e0\u05d4","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qIsHidden":true,"qName":"%\u05e9\u05e0\u05d4","qCardinal":12,"qTags":["$numeric","$integer","$hidden"],"qSrcTables":[]}
+{"qName":"\u05e9\u05e0\u05d4\/\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":72,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05e0\u05d4\/\u05d7\u05d5\u05d3\u05e9","qCardinal":216,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05e0\u05d4\/\u05e9\u05d1\u05d5\u05e2","qCardinal":955,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05e0\u05d4\/\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4","qCardinal":6575,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"YearQuarterSort","qCardinal":72,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"YearMonthSort","qCardinal":216,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"YearWeekSort","qCardinal":955,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"YearDaySort","qCardinal":558,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"YearMonthDaySort","qCardinal":6575,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"QuarterNum","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":72,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df\/\u05e9\u05e0\u05d4","qCardinal":72,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df \u05e9\u05e0\u05d4","qCardinal":72,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df\/\u05d7\u05d5\u05d3\u05e9","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df\/\u05e9\u05d1\u05d5\u05e2","qCardinal":59,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df\/\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4","qCardinal":366,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e8\u05d1\u05e2\u05d5\u05df\/\u05d9\u05d5\u05dd \u05d1\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":366,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d4\u05ea\u05d7\u05dc\u05ea \u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":72,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05e1\u05d9\u05d5\u05dd \u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":72,"qTags":["$numeric","$timestamp"],"qSrcTables":["Calendar"]}
+{"qName":"MonthNum","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d7\u05d5\u05d3\u05e9","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"Month","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"MonthSort","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9-\u05e9\u05e0\u05d4","qCardinal":216,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d7\u05d5\u05d3\u05e9 \u05e7\u05e6\u05e8","qCardinal":12,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d7\u05d5\u05d3\u05e9 \u05d0\u05e8\u05d5\u05da","qCardinal":12,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d7\u05d5\u05d3\u05e9 \u05e7\u05e6\u05e8 \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d7\u05d5\u05d3\u05e9 \u05d0\u05e8\u05d5\u05da \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9\/\u05e9\u05e0\u05d4","qCardinal":216,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e9\u05e0\u05d4","qCardinal":216,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9\/\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9\/\u05e9\u05d1\u05d5\u05e2","qCardinal":75,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d7\u05d5\u05d3\u05e9\/\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4","qCardinal":366,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05e1\u05d9\u05d5\u05dd \u05d7\u05d5\u05d3\u05e9","qCardinal":216,"qTags":["$numeric","$timestamp"],"qSrcTables":["Calendar"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d9\u05de\u05d9\u05dd \u05d1\u05d7\u05d5\u05d3\u05e9","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"WeekNum","qCardinal":54,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05d1\u05d5\u05e2","qCardinal":54,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05d1\u05d5\u05e2\/\u05e9\u05e0\u05d4","qCardinal":955,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05d1\u05d5\u05e2 \u05e9\u05e0\u05d4","qCardinal":955,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05d1\u05d5\u05e2\/\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":59,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05d1\u05d5\u05e2\/\u05d7\u05d5\u05d3\u05e9","qCardinal":75,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05d1\u05d5\u05e2\/\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4","qCardinal":723,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d4\u05ea\u05d7\u05dc\u05ea \u05e9\u05d1\u05d5\u05e2","qCardinal":940,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05e1\u05d9\u05d5\u05dd \u05e9\u05d1\u05d5\u05e2","qCardinal":940,"qTags":["$numeric","$timestamp"],"qSrcTables":["Calendar"]}
+{"qName":"DayNum","qCardinal":31,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"DayInYearNum","qCardinal":366,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4","qCardinal":366,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05e9\u05e0\u05d4","qCardinal":558,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4\/\u05e9\u05e0\u05d4","qCardinal":6575,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4\/\u05d7\u05d5\u05d3\u05e9","qCardinal":366,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4\/\u05e9\u05d1\u05d5\u05e2","qCardinal":723,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":92,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05e0\u05d4\/\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":366,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e8\u05d1\u05e2\u05d5\u05df\/\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":366,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"WeekDayNum","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2 \u05e7\u05e6\u05e8","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2 \u05d0\u05e8\u05d5\u05da","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2 \u05e7\u05e6\u05e8 \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"\u05e9\u05dd \u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2 \u05d0\u05e8\u05d5\u05da \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
+{"qName":"WeekDaySort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da","qCardinal":6575,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"Date","qCardinal":6575,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"DateNum","qCardinal":6575,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"Day","qCardinal":31,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"\u05d9\u05d5\u05dd","qCardinal":31,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"UserName_OS","qCardinal":1350,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1348,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"FULLNAME","qCardinal":1339,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
