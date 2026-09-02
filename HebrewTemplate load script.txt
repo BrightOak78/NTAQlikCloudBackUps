@@ -1,0 +1,197 @@
+///$tab Main & Connect
+SET MonthNamesEng='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNamesEng='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNamesEng='Sun;Mon;Tue;Wed;Thu;Fri;Sat';
+SET LongDayNamesEng='Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday';
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='ינו;פבר;מרץ;אפר;מאי;יונ;יול;אוג;ספט;אוק;נוב;דצמ';
+SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+SET DayNames='א;ב;ג;ד;ה;ו;ש';
+SET LongDayNames='ראשון;שני;שלישי;רביעי;חמישי;שישי;שבת';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = 'שם המודל'; //Free Document Name
+SET pWorkApp = 'ModelName'; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Budget_Raw';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Budget_DW';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+// LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+
+
+///$tab משתני סביבה
+LET rRunStart = Now(1);
+LET vLM_Yesterday=Date(AddMonths( Floor(Now())-1,-1),'DD/MM/YYYY'); // $(vYesterday)
+LET vToday=Date(Floor(Now()),'DD/MM/YYYY'); // $(vToday)
+LET vYesterday=Date(Floor(Now())-1,'DD/MM/YYYY'); // $(vYesterday)
+LET vCurrentYYYYMM = year(vToday)& num(month(vToday),'00'); // $(vCurrentYYYYMM)
+LET vLM_YYYYMM = year(AddMonths(vToday,-1))& num(month(AddMonths(vToday,-1)),'00'); // $(vCurrentYYYYMM)
+LET vYesterdayYYYYMM = year(vYesterday)& num(month(vYesterday),'00'); // $(vCurrentYYYYMM)
+Let vCurrentYear = year(vToday); // $(vCurrentYear)
+
+set pQvd_PaymentEthics= 'lib://API & Connections:File_jqvnta01_Qlikview/Production/Finance/PaymentEthics/Qvd/';
+// //for Prod
+// SET vFileList='\\ntanas02\bi\Quality_green_IN2';
+// SET vODBC='QualityIN2;DBQ=\\ntanas02\bi\Quality_green_IN2\';
+// SET vNas02Temp = '\\ntanas02\bi\Quality_green_IN2' ; // $(vNas02Temp) 
+// //****************************************************************************************//
+
+// Set vQuantityPercentage= 'Quantity';
+///$tab TEST
+
+///$tab Exit Script
+// Exit Script
+///$tab Calendar
+NoConcatenate
+Calendar:
+// Load Distinct 
+// Date,YearMonthSort
+// Resident KeyTable;
+// Left Join
+LOAD 
+	 YYYYMM, 
+     [Year-Month], 
+     [Date Diff], 
+     [Month Diff], 
+     [Qtr Diff], 
+     [Year Diff], 
+     [חודש נוכחי], 
+     [חודש שנה נוכחי], 
+     [חודש שנה נוכחי נומרי], 
+     [שם רבעון ארוך], 
+     Year, 
+     if(שנה<='$(vMaxYB)', שנה) as שנה,
+     if(שנה<='$(vMaxYB)', שנה) as %שנה,
+     [שנה/רבעון], 
+     [שנה/חודש], 
+     [שנה/שבוע], 
+     [שנה/יום בשנה], 
+     YearQuarterSort, 
+     YearMonthSort, 
+     YearWeekSort, 
+     YearDaySort, 
+     YearMonthDaySort, 
+     QuarterNum, 
+     רבעון, 
+     QuarterSort, 
+     [שם רבעון], 
+     [רבעון/שנה], 
+     [רבעון שנה], 
+     [רבעון/חודש], 
+     [רבעון/שבוע], 
+     [רבעון/יום בשנה], 
+     [רבעון/יום ברבעון], 
+     [תאריך התחלת רבעון], 
+     [תאריך סיום רבעון], 
+     num(MonthNum) as MonthNum, 
+     חודש, 
+     [מספר חודש], 
+     Month, 
+     MonthSort, 
+     [חודש-שנה], 
+     [שם חודש קצר], 
+     [שם חודש ארוך], 
+     [שם חודש קצר אנגלית], 
+     [שם חודש ארוך אנגלית], 
+     [חודש/שנה], 
+     [חודש שנה], 
+     [חודש/רבעון], 
+     [חודש/שבוע], 
+     [חודש/יום בשנה], 
+     [תאריך סיום חודש], 
+     [מספר ימים בחודש], 
+     WeekNum, 
+     שבוע, 
+     [שבוע/שנה], 
+     [שבוע שנה], 
+     [שבוע/רבעון], 
+     [שבוע/חודש], 
+     [שבוע/יום בשנה], 
+     [תאריך התחלת שבוע], 
+     [תאריך סיום שבוע], 
+     DayNum, 
+     DayInYearNum, 
+     [יום בשנה], 
+     [יום שנה], 
+     [יום בשנה/שנה], 
+     [יום בשנה/חודש], 
+     [יום בשנה/שבוע], 
+     [יום ברבעון], 
+     [יום בשנה/רבעון], 
+     [יום ברבעון/רבעון], 
+     WeekDayNum, 
+     [יום בשבוע], 
+     [שם יום בשבוע קצר], 
+     [שם יום בשבוע ארוך], 
+     [שם יום בשבוע קצר אנגלית], 
+     [שם יום בשבוע ארוך אנגלית], 
+     WeekDaySort, 
+     תאריך, 
+     Date, 
+     DateNum, 
+     Day, 
+     יום
+FROM [$(vCalendar)](qvd)
+;
+
+
+///$tab Section Access
+
+//*****************************************************
+
+// Show User Name
+Display_Users:
+LOAD Distinct
+	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
+	[שם משתמש] AS UserName_Full
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM [$(vQvdSecurityDB)Authenticated_User.QVD] (qvd);
+
+///$tab Exit Script
+Exit Script
