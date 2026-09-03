@@ -1,8 +1,8 @@
 
 SHEETS
 {"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-09-01T14:47:35.245Z","modifiedDate":"2026-09-01T14:47:35.245Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
-{"qInfo":{"qId":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","approved":false,"published":true,"publishTime":"2026-09-02T05:01:04.772Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-01T14:47:35.246Z","modifiedDate":"2026-09-01T14:47:35.246Z","encrypted":true,"privileges":["read","publish"],"title":"Dashboard","description":""},"qData":[]}
-{"qInfo":{"qId":"ebe789b3-9c9b-4cf0-bfb2-1bc6b38351d9","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"ebe789b3-9c9b-4cf0-bfb2-1bc6b38351d9","approved":false,"published":true,"publishTime":"2026-09-02T05:01:08.063Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-02T05:00:37.555Z","modifiedDate":"2026-09-02T05:01:08.011Z","encrypted":true,"privileges":["read","publish"],"title":"Detailed","description":""},"qData":[]}
+{"qInfo":{"qId":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","approved":false,"published":true,"publishTime":"2026-09-03T11:13:10.531Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-01T14:47:35.246Z","modifiedDate":"2026-09-03T11:13:10.345Z","encrypted":true,"privileges":["read","publish"],"title":"Dashboard","description":""},"qData":[]}
+{"qInfo":{"qId":"9599ec42-6300-436c-aa29-68554fa1a8e2","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9599ec42-6300-436c-aa29-68554fa1a8e2","approved":false,"published":true,"publishTime":"2026-09-03T11:16:07.550Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:13:10.343Z","modifiedDate":"2026-09-03T11:16:07.463Z","encrypted":true,"privileges":["read","publish"],"title":"Reports","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
 {"name":"89eaf001-311a-4b9a-a96d-1192faee8cda","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.8461538461538467}}
@@ -28,34 +28,45 @@ OBJECTS ON SHEETS
 {"name":"19ff9866-c605-41ef-8123-168ee5bc4a82","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":6.410256410256409,"width":100,"height":2.564102564102564}}
 {"name":"7a53e5a2-f6a4-4d00-9e80-3d5632d8c66a","type":"sn-tabbed-container","col":0,"row":40,"colspan":84,"rowspan":38,"bounds":{"y":51.28205128205128,"x":0,"width":100,"height":48.717948717948715}}
 {"name":"543bbea1-1f7a-4453-b165-7ed077a313a1","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
-{"name":"195e1bac-d7dd-458e-a9e8-7e24171a5f1c","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
+{"name":"UJpdpT","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":7.894736842105263,"x":0,"width":100,"height":5.263157894736842}}
+{"name":"PjAe","type":"kpi","col":0,"row":5,"colspan":23,"rowspan":4,"bounds":{"y":13.157894736842104,"x":0,"width":27.380952380952383,"height":10.526315789473683}}
+{"name":"pHUm","type":"combochart","col":0,"row":21,"colspan":42,"rowspan":17,"bounds":{"y":55.26315789473685,"x":0,"width":50,"height":44.73684210526316}}
+{"name":"GXhPQtJ","type":"combochart","col":42,"row":21,"colspan":42,"rowspan":17,"bounds":{"y":55.26315789473685,"x":50,"width":50,"height":44.73684210526316}}
+{"name":"HBxsD","type":"combochart","col":42,"row":5,"colspan":42,"rowspan":16,"bounds":{"y":13.157894736842104,"x":50,"width":50,"height":42.10526315789473}}
+{"name":"ba531564-1d7d-49cb-8554-e56b7381bf7a","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
+{"name":"a2688e65-8910-44b1-b7a7-774256fa12c8","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":7.894736842105263,"x":0,"width":100,"height":5.263157894736842}}
+{"name":"07191eee-b35a-478d-906f-1e2ab88e1943","type":"kpi","col":0,"row":5,"colspan":23,"rowspan":4,"bounds":{"y":13.157894736842104,"x":0,"width":27.380952380952383,"height":10.526315789473683}}
+{"name":"ZMhkx","type":"sn-table","col":0,"row":21,"colspan":84,"rowspan":17,"bounds":{"y":55.26315789473685,"x":0,"width":100,"height":44.73684210526316}}
 
 DIMENSIONS
+{"qInfo":{"qId":"ba5ad18c-4a69-4535-9a57-75e29f9a6a77","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"ba5ad18c-4a69-4535-9a57-75e29f9a6a77","approved":false,"published":false,"owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:10:33.332Z","modifiedDate":"2026-09-03T11:10:33.332Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Month","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"kQwWu","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"kQwWu","approved":false,"published":false,"owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:10:28.268Z","modifiedDate":"2026-09-03T11:10:28.268Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Quarter","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"qNqjvs","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"qNqjvs","approved":false,"published":false,"owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:06:06.554Z","modifiedDate":"2026-09-03T11:06:06.554Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Year","description":"","tags":[]},"qData":[]}
 
 MEASURES
 
 VARIABLES
 {"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9c200753-d937-457a-b349-68ea05b2c10c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"36eef347-77f7-4f3b-b2f0-280dd82a798c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vYesterday","qDefinition":"01\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vYesterday","qDefinition":"02\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38a1f01d-e850-4f31-99a7-33e38aae578d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vToday","qDefinition":"02\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vToday","qDefinition":"03\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"247adf22-7b86-4dd8-b5c3-fa953a61da7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vLM_Yesterday","qDefinition":"01\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLM_Yesterday","qDefinition":"02\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8278e550-632d-4bdf-b7b2-d5afd304ccbf","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentNameFN","qDefinition":"5bf68faf-54d7-4af6-9715-6d079fd561c6","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"120103ea-6caf-4856-a66b-a4cbe24e64c1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Budget_Raw","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"rRunStart","qDefinition":"02\/09\/2026 5:05:08 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/ModelName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"rRunStart","qDefinition":"03\/09\/2026 11:07:05 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongDayNamesEng","qDefinition":"Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"40c4119c-ef9d-4a39-94df-1f44650ec2ab","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"MonthNamesEng","qDefinition":"Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fa63338f-3336-482c-9588-aebfbad60428","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongMonthNamesEng","qDefinition":"January;February;March;April;May;June;July;August;September;October;November;December","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b8088229-9f10-4663-9ce4-e98f02ddb8f1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vDocumentTitleFN","qDefinition":"Settings 4 English Template","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"95c39e63-c67f-4582-bf05-aee9fb12ba2d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"EnglishTemplate","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"95c39e63-c67f-4582-bf05-aee9fb12ba2d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYear","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"59df1c3c-f13e-4817-a68a-81aa96a3a4e5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"57283e08-9603-45c9-9627-ebf06b63de10","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentName","qDefinition":"Model Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3804b7d6-ec52-4deb-a6e5-85de9bceb9df","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"02\/09\/2026 07:52","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"03\/09\/2026 13:12","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5965fdd8-96fd-45d7-b6ca-42735bd5ad40","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Budget_DW","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/ModelName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bfd26ee-8bfc-43c1-aca5-f3f6841fd776","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pWorkApp","qDefinition":"ModelName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a23e08f-164b-4643-bc44-95f628ea09e4","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLM_YYYYMM","qDefinition":"202608","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ffff7f68-69ca-44a2-82f6-0fa34955ac96","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -85,8 +96,7 @@ FIELDS
 {"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e9\u05e0\u05d4 \u05e0\u05d5\u05db\u05d7\u05d9 \u05e0\u05d5\u05de\u05e8\u05d9","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05dd \u05e8\u05d1\u05e2\u05d5\u05df \u05d0\u05e8\u05d5\u05da","qCardinal":4,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"Year","qCardinal":18,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
-{"qName":"\u05e9\u05e0\u05d4","qCardinal":0,"qTags":[],"qSrcTables":["Calendar"]}
-{"qIsHidden":true,"qName":"%\u05e9\u05e0\u05d4","qCardinal":0,"qTags":["$hidden"],"qSrcTables":[]}
+{"qName":"\u05e9\u05e0\u05d4","qCardinal":18,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4\/\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":72,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4\/\u05d7\u05d5\u05d3\u05e9","qCardinal":216,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4\/\u05e9\u05d1\u05d5\u05e2","qCardinal":955,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
@@ -97,6 +107,7 @@ FIELDS
 {"qName":"YearDaySort","qCardinal":558,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"YearMonthDaySort","qCardinal":6575,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"QuarterNum","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"Quarter","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
 {"qName":"QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05dd \u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":72,"qTags":["$text"],"qSrcTables":["Calendar"]}
