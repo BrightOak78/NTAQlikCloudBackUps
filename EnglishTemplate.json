@@ -1,8 +1,8 @@
 
 SHEETS
 {"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-09-01T14:47:35.245Z","modifiedDate":"2026-09-01T14:47:35.245Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
-{"qInfo":{"qId":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","approved":false,"published":true,"publishTime":"2026-09-03T11:13:10.531Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-01T14:47:35.246Z","modifiedDate":"2026-09-03T11:13:10.345Z","encrypted":true,"privileges":["read","publish"],"title":"Dashboard","description":""},"qData":[]}
-{"qInfo":{"qId":"9599ec42-6300-436c-aa29-68554fa1a8e2","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9599ec42-6300-436c-aa29-68554fa1a8e2","approved":false,"published":true,"publishTime":"2026-09-03T11:22:22.572Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:13:10.343Z","modifiedDate":"2026-09-03T11:22:22.476Z","encrypted":true,"privileges":["read","publish"],"title":"Reports","description":""},"qData":[]}
+{"qInfo":{"qId":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5bebdcaf-52b7-42bc-9c64-d7eb7f208c95","approved":false,"published":true,"publishTime":"2026-09-03T13:01:23.594Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-01T14:47:35.246Z","modifiedDate":"2026-09-03T13:01:14.177Z","encrypted":true,"privileges":["read","publish"],"title":"Dashboard","description":""},"qData":[]}
+{"qInfo":{"qId":"9599ec42-6300-436c-aa29-68554fa1a8e2","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9599ec42-6300-436c-aa29-68554fa1a8e2","approved":false,"published":true,"publishTime":"2026-09-03T13:01:26.182Z","owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:13:10.343Z","modifiedDate":"2026-09-03T13:01:23.499Z","encrypted":true,"privileges":["read","publish"],"title":"Reports","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
 {"name":"89eaf001-311a-4b9a-a96d-1192faee8cda","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.8461538461538467}}
@@ -27,16 +27,16 @@ OBJECTS ON SHEETS
 {"name":"7cc787c3-d6ca-49e3-9bd9-df1a54773117","type":"kpi","col":0,"row":7,"colspan":8,"rowspan":4,"bounds":{"x":0,"y":8.974358974358973,"width":9.523809523809524,"height":5.128205128205128}}
 {"name":"19ff9866-c605-41ef-8123-168ee5bc4a82","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":6.410256410256409,"width":100,"height":2.564102564102564}}
 {"name":"7a53e5a2-f6a4-4d00-9e80-3d5632d8c66a","type":"sn-tabbed-container","col":0,"row":40,"colspan":84,"rowspan":38,"bounds":{"y":51.28205128205128,"x":0,"width":100,"height":48.717948717948715}}
-{"name":"543bbea1-1f7a-4453-b165-7ed077a313a1","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
-{"name":"UJpdpT","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":7.894736842105263,"x":0,"width":100,"height":5.263157894736842}}
-{"name":"PjAe","type":"kpi","col":0,"row":5,"colspan":23,"rowspan":4,"bounds":{"y":13.157894736842104,"x":0,"width":27.380952380952383,"height":10.526315789473683}}
-{"name":"pHUm","type":"combochart","col":0,"row":21,"colspan":42,"rowspan":17,"bounds":{"y":55.26315789473685,"x":0,"width":50,"height":44.73684210526316}}
-{"name":"GXhPQtJ","type":"combochart","col":42,"row":21,"colspan":42,"rowspan":17,"bounds":{"y":55.26315789473685,"x":50,"width":50,"height":44.73684210526316}}
-{"name":"HBxsD","type":"combochart","col":42,"row":5,"colspan":42,"rowspan":16,"bounds":{"y":13.157894736842104,"x":50,"width":50,"height":42.10526315789473}}
-{"name":"ba531564-1d7d-49cb-8554-e56b7381bf7a","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
-{"name":"a2688e65-8910-44b1-b7a7-774256fa12c8","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":7.894736842105263,"x":0,"width":100,"height":5.263157894736842}}
-{"name":"07191eee-b35a-478d-906f-1e2ab88e1943","type":"kpi","col":0,"row":5,"colspan":23,"rowspan":4,"bounds":{"y":13.157894736842104,"x":0,"width":27.380952380952383,"height":10.526315789473683}}
-{"name":"ZMhkx","type":"sn-table","col":0,"row":21,"colspan":84,"rowspan":17,"bounds":{"y":55.26315789473685,"x":0,"width":100,"height":44.73684210526316}}
+{"name":"543bbea1-1f7a-4453-b165-7ed077a313a1","type":"sn-layout-container","col":0,"row":0,"colspan":76,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
+{"name":"UJpdpT","type":"filterpane","col":0,"row":3,"colspan":76,"rowspan":2,"bounds":{"y":7.894736842105263,"x":0,"width":100,"height":5.263157894736842}}
+{"name":"PjAe","type":"kpi","col":0,"row":5,"colspan":20,"rowspan":4,"bounds":{"y":13.157894736842104,"x":0,"width":27.380952380952383,"height":10.526315789473683}}
+{"name":"pHUm","type":"combochart","col":0,"row":21,"colspan":38,"rowspan":17,"bounds":{"y":55.26315789473685,"x":0,"width":50,"height":44.73684210526316}}
+{"name":"GXhPQtJ","type":"combochart","col":38,"row":21,"colspan":38,"rowspan":17,"bounds":{"y":55.26315789473685,"x":50,"width":50,"height":44.73684210526316}}
+{"name":"HBxsD","type":"combochart","col":38,"row":5,"colspan":38,"rowspan":16,"bounds":{"y":13.157894736842104,"x":50,"width":50,"height":42.10526315789473}}
+{"name":"ba531564-1d7d-49cb-8554-e56b7381bf7a","type":"sn-layout-container","col":0,"row":0,"colspan":76,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":7.894736842105265}}
+{"name":"a2688e65-8910-44b1-b7a7-774256fa12c8","type":"filterpane","col":0,"row":3,"colspan":76,"rowspan":2,"bounds":{"y":7.894736842105263,"x":0,"width":100,"height":5.263157894736842}}
+{"name":"07191eee-b35a-478d-906f-1e2ab88e1943","type":"kpi","col":0,"row":5,"colspan":20,"rowspan":4,"bounds":{"y":13.157894736842104,"x":0,"width":27.380952380952383,"height":10.526315789473683}}
+{"name":"ZMhkx","type":"sn-table","col":0,"row":21,"colspan":76,"rowspan":17,"bounds":{"y":55.26315789473685,"x":0,"width":100,"height":44.73684210526316}}
 
 DIMENSIONS
 {"qInfo":{"qId":"ba5ad18c-4a69-4535-9a57-75e29f9a6a77","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"ba5ad18c-4a69-4535-9a57-75e29f9a6a77","approved":false,"published":false,"owner":"KerenAA@nta.co.il","ownerId":"695b9f93b7c7ad24f1ea5f59","createdDate":"2026-09-03T11:10:33.332Z","modifiedDate":"2026-09-03T11:10:33.332Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Month","description":"","tags":[]},"qData":[]}
