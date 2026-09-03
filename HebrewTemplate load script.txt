@@ -46,8 +46,8 @@ LET vDocumentTitleFN=DocumentTitle();//Document Title
 LET vDocumentNameFN=DocumentName(); //Document ID
 SET vDocumentName = 'שם המודל'; //Free Document Name
 SET pWorkApp = 'ModelName'; //$(pWorkApp)
-Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Budget_Raw';//$(vLibDataFiles_RAW)
-Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Budget_DW';//$(vLibDataFiles_DW)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
 LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
 LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
 LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
@@ -98,9 +98,7 @@ LOAD
      [חודש שנה נוכחי נומרי], 
      [שם רבעון ארוך], 
      Year, 
-     if(שנה<='$(vMaxYB)', שנה) as שנה,
-     if(שנה<='$(vMaxYB)', שנה) as %שנה,
-     [שנה/רבעון], 
+     שנה,     [שנה/רבעון], 
      [שנה/חודש], 
      [שנה/שבוע], 
      [שנה/יום בשנה], 
