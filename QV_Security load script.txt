@@ -4271,6 +4271,894 @@ STORE * FROM Security_ThirdPartyLiabilities INTO $(pQvd)Security_ThirdPartyLiabi
 DROP TABLE Security_ThirdPartyLiabilities;
 ////---------------------------------------------------
 
+///$tab 22. Budget
+////---------------------------------------------------
+
+LET vDocName = 'Budget';
+
+//// Admins - Services BI
+Security_BudgetAS:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'ADMIN') AND MATCH(MID(NTNAME,1,2),'QV');
+JOIN (Security_BudgetAS)
+LOAD DISTINCT
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_BudgetAS)
+LOAD DISTINCT
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_BudgetAS INTO $(pQvdTemp)Security_BudgetAS.QVD (QVD); 
+DROP TABLE Security_BudgetAS;
+////---------------------------------------------------
+
+//// Admins - Users
+Security_BudgetAU:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'ADMIN') AND NOT MATCH(MID(NTNAME,1,2),'QV');
+STORE * FROM Security_BudgetAU INTO $(pQvdTemp)Security_BudgetAU.QVD (QVD); 
+DROP TABLE Security_BudgetAU;
+////---------------------------------------------------
+
+//// Managment 
+Security_BudgetM:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'MANAGEMENT');
+STORE * FROM Security_BudgetM INTO $(pQvdTemp)Security_BudgetM.QVD (QVD); 
+DROP TABLE Security_BudgetM;
+////---------------------------------------------------
+
+//// Division - All users in division elase just itself
+Security_BudgetDI9:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'DIVISION');
+LEFT JOIN (Security_BudgetDI9)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION,
+	[קוד חטיבה] AS USERNAME_DIVISION9
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_BudgetDI9)
+LOAD DISTINCT
+	[קוד חטיבה] AS USERNAME_DIVISION9,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+
+Security_BudgetDI:
+LOAD 
+	NTNAME, 
+	ACCESS, 
+	USERNAME_CODE,
+	USERNAME_DOCGROUP,
+	USERNAME_OS,
+	USERNAME_DEPARTMENT,
+	USERNAME_DIVISION,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_OS,USERNAME_OS) AS USERDATA_OS,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_DEPARTMENT,USERNAME_DEPARTMENT) AS USERDATA_DEPARTMENT,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_DIVISION,USERNAME_DIVISION) AS USERDATA_DIVISION
+RESIDENT Security_BudgetDI9;
+DROP TABLE Security_BudgetDI9;
+STORE * FROM Security_BudgetDI INTO $(pQvdTemp)Security_BudgetDI.QVD (QVD); 
+DROP TABLE Security_BudgetDI;
+////---------------------------------------------------
+
+//// Department - All users in division elase just itself
+Security_BudgetDE9:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'DEPARTMENT');
+LEFT JOIN (Security_BudgetDE9)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION,
+	[קוד אגף] AS USERNAME_DEPARTMENT9
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_BudgetDE9)
+LOAD DISTINCT
+	[קוד אגף] AS USERNAME_DEPARTMENT9,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+
+Security_BudgetDE:
+LOAD 
+	NTNAME, 
+	ACCESS, 
+	USERNAME_CODE,
+	USERNAME_DOCGROUP,
+	USERNAME_OS,
+	USERNAME_DEPARTMENT,
+	USERNAME_DIVISION,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_OS,USERNAME_OS) AS USERDATA_OS,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_DEPARTMENT,USERNAME_DEPARTMENT) AS USERDATA_DEPARTMENT,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_DIVISION,USERNAME_DIVISION) AS USERDATA_DIVISION
+RESIDENT Security_BudgetDE9;
+DROP TABLE Security_BudgetDE9;
+STORE * FROM Security_BudgetDE INTO $(pQvdTemp)Security_BudgetDE.QVD (QVD); 
+DROP TABLE Security_BudgetDE;
+////---------------------------------------------------
+
+//// PowerUser 
+Security_BudgetP:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'POWERUSER');
+STORE * FROM Security_BudgetP INTO $(pQvdTemp)Security_BudgetP.QVD (QVD); 
+DROP TABLE Security_BudgetP;
+////---------------------------------------------------
+
+//// User - Itself
+Security_BudgetU:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'USER','MOT');
+LEFT JOIN (Security_BudgetU)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_BudgetU)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_BudgetU INTO $(pQvdTemp)Security_BudgetU.QVD (QVD); 
+DROP TABLE Security_BudgetU;
+////---------------------------------------------------
+
+//// InformationSystems - Sap/Aconex
+Security_BudgetIS:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	BudgetGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE Budget='1' AND MATCH(BudgetGroup,'INFORMATIONSYSTEMS');
+STORE * FROM Security_BudgetIS INTO $(pQvdTemp)Security_BudgetIS.QVD (QVD); 
+DROP TABLE Security_BudgetIS;
+////---------------------------------------------------
+
+////LOAD * From  $(pQvd)Security_Budget.QVD (QVD);
+////// Reduce Mot - Itself
+//Security_BudgetMOT:
+//LOAD DISTINCT
+//	NTNAME, 
+//	ACCESS, 
+//	NTNAME AS USERNAME_CODE,
+//	BudgetGroup AS USERNAME_DOCGROUP
+//FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+//WHERE Budget='1' AND MATCH(BudgetGroup,'MOT');
+//LEFT JOIN (Security_BudgetMOT)
+//LOAD DISTINCT
+//	[קוד משתמש] AS NTNAME,
+//	[קוד משתמש] AS USERNAME_OS,
+//	[קוד אגף] AS USERNAME_DEPARTMENT,
+//	[קוד חטיבה] AS USERNAME_DIVISION
+//FROM [$(pQvd)Users_Data.QVD] (qvd);
+//LEFT JOIN (Security_BudgetMOT)
+//LOAD DISTINCT
+//	[קוד משתמש] AS NTNAME,
+//	[קוד משתמש] AS USERDATA_OS,
+//	[קוד אגף] AS USERDATA_DEPARTMENT,
+//	[קוד חטיבה] AS USERDATA_DIVISION
+//FROM [$(pQvd)Users_Data.QVD] (qvd);
+////STORE * FROM Security_BudgetMOT INTO $(pQvdTemp)Security_BudgetMOT.QVD (QVD); 
+////DROP TABLE Security_BudgetMOT;
+
+////---------------------------------------------------
+
+
+Security_Budget:
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetAS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetAU.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetM.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetDI.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetDE.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetP.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetU.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_BudgetIS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+STORE * FROM Security_Budget INTO $(pQvd)Security_Budget.QVD (QVD); 
+DROP TABLE Security_Budget;
+////---------------------------------------------------
+
+///$tab 23. RiskManagement
+////---------------------------------------------------
+
+LET vDocName = 'RiskManagement';
+
+//// Admins - Services BI
+Security_RiskManagementAS:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'ADMIN') AND MATCH(MID(NTNAME,1,2),'QV');
+JOIN (Security_RiskManagementAS)
+LOAD DISTINCT
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagementAS)
+LOAD DISTINCT
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_RiskManagementAS INTO $(pQvdTemp)Security_RiskManagementAS.QVD (QVD); 
+DROP TABLE Security_RiskManagementAS;
+////---------------------------------------------------
+
+//// Admins - Users
+Security_RiskManagementAU:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'ADMIN') AND NOT MATCH(MID(NTNAME,1,2),'QV');
+STORE * FROM Security_RiskManagementAU INTO $(pQvdTemp)Security_RiskManagementAU.QVD (QVD); 
+DROP TABLE Security_RiskManagementAU;
+////---------------------------------------------------
+
+//// Managment 
+Security_RiskManagementM:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'MANAGEMENT');
+STORE * FROM Security_RiskManagementM INTO $(pQvdTemp)Security_RiskManagementM.QVD (QVD); 
+DROP TABLE Security_RiskManagementM;
+////---------------------------------------------------
+
+//// Division - All users in division elase just itself
+Security_RiskManagementDI9:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'DIVISION');
+LEFT JOIN (Security_RiskManagementDI9)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION,
+	[קוד חטיבה] AS USERNAME_DIVISION9
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagementDI9)
+LOAD DISTINCT
+	[קוד חטיבה] AS USERNAME_DIVISION9,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+
+Security_RiskManagementDI:
+LOAD 
+	NTNAME, 
+	ACCESS, 
+	USERNAME_CODE,
+	USERNAME_DOCGROUP,
+	USERNAME_OS,
+	USERNAME_DEPARTMENT,
+	USERNAME_DIVISION,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_OS,USERNAME_OS) AS USERDATA_OS,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_DEPARTMENT,USERNAME_DEPARTMENT) AS USERDATA_DEPARTMENT,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_DIVISION,USERNAME_DIVISION) AS USERDATA_DIVISION
+RESIDENT Security_RiskManagementDI9;
+DROP TABLE Security_RiskManagementDI9;
+STORE * FROM Security_RiskManagementDI INTO $(pQvdTemp)Security_RiskManagementDI.QVD (QVD); 
+DROP TABLE Security_RiskManagementDI;
+////---------------------------------------------------
+
+//// Department - All users in division elase just itself
+Security_RiskManagementDE9:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'DEPARTMENT');
+LEFT JOIN (Security_RiskManagementDE9)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION,
+	[קוד אגף] AS USERNAME_DEPARTMENT9
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagementDE9)
+LOAD DISTINCT
+	[קוד אגף] AS USERNAME_DEPARTMENT9,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+
+Security_RiskManagementDE:
+LOAD 
+	NTNAME, 
+	ACCESS, 
+	USERNAME_CODE,
+	USERNAME_DOCGROUP,
+	USERNAME_OS,
+	USERNAME_DEPARTMENT,
+	USERNAME_DIVISION,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_OS,USERNAME_OS) AS USERDATA_OS,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_DEPARTMENT,USERNAME_DEPARTMENT) AS USERDATA_DEPARTMENT,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_DIVISION,USERNAME_DIVISION) AS USERDATA_DIVISION
+RESIDENT Security_RiskManagementDE9;
+DROP TABLE Security_RiskManagementDE9;
+STORE * FROM Security_RiskManagementDE INTO $(pQvdTemp)Security_RiskManagementDE.QVD (QVD); 
+DROP TABLE Security_RiskManagementDE;
+////---------------------------------------------------
+
+//// PowerUser 
+Security_RiskManagementP:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'POWERUSER');
+STORE * FROM Security_RiskManagementP INTO $(pQvdTemp)Security_RiskManagementP.QVD (QVD); 
+DROP TABLE Security_RiskManagementP;
+////---------------------------------------------------
+
+//// User - Itself
+Security_RiskManagementU:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'USER');
+LEFT JOIN (Security_RiskManagementU)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagementU)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_RiskManagementU INTO $(pQvdTemp)Security_RiskManagementU.QVD (QVD); 
+DROP TABLE Security_RiskManagementU;
+////---------------------------------------------------
+
+//// InformationSystems - Sap/Aconex
+Security_RiskManagementIS:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagementGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'INFORMATIONSYSTEMS');
+STORE * FROM Security_RiskManagementIS INTO $(pQvdTemp)Security_RiskManagementIS.QVD (QVD); 
+DROP TABLE Security_RiskManagementIS;
+////---------------------------------------------------
+
+//// Reduce sHEET - Itself
+Security_RiskManagementRS:
+LOAD DISTINCT
+    NTNAME, 
+    ACCESS, 
+    NTNAME AS USERNAME_CODE,
+    RiskManagementGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement='1' AND MATCH(RiskManagementGroup,'ORGANIZATIONSHEET','PURPLE','GREEN','PLE','PROJSHEET', 'G000G1','G000G2','G000G4','G000G5','G000G1G000G2','G000G1G000G2G000G4','G000G1G000G2G000G4G000G5','G000G1G000G4','G000G1G000G5','G000G1G000G4G000G5','G000G1G000G2G000G5','G000G2G000G4','G000G2G000G5','G000G2G000G4G000G5','G000G4G000G5','PLW2','PLW1','PLE','PLW2PLW1PLE','PLW2PLW1','PLW2PLE','PLW1PLE');
+LEFT JOIN (Security_RiskManagementRS)
+LOAD DISTINCT
+    [קוד משתמש] AS NTNAME,
+    [קוד משתמש] AS USERNAME_OS,
+    [קוד אגף] AS USERNAME_DEPARTMENT,
+    [קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagementRS)
+LOAD DISTINCT
+    [קוד משתמש] AS NTNAME,
+    [קוד משתמש] AS USERDATA_OS,
+    [קוד אגף] AS USERDATA_DEPARTMENT,
+    [קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_RiskManagementRS INTO $(pQvdTemp)Security_RiskManagementRS.QVD (QVD); 
+DROP TABLE Security_RiskManagementRS;
+
+////---------------------------------------------------
+
+Security_RiskManagement:
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementAS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementAU.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementM.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementDI.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementDE.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementP.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementU.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementIS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagementRS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+STORE * FROM Security_RiskManagement INTO $(pQvd)Security_RiskManagement.QVD (QVD); 
+DROP TABLE Security_RiskManagement;
+////---------------------------------------------------
+
+///$tab 24. RiskManagement_Metro
+////---------------------------------------------------
+
+LET vDocName = 'RiskManagement_Metro';
+
+//// Admins - Services BI
+Security_RiskManagement_MetroAS:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'ADMIN') AND MATCH(MID(NTNAME,1,2),'QV');
+JOIN (Security_RiskManagement_MetroAS)
+LOAD DISTINCT
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagement_MetroAS)
+LOAD DISTINCT
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_RiskManagement_MetroAS INTO $(pQvdTemp)Security_RiskManagement_MetroAS.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroAS;
+////---------------------------------------------------
+
+//// Admins - Users
+Security_RiskManagement_MetroAU:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'ADMIN') AND NOT MATCH(MID(NTNAME,1,2),'QV');
+STORE * FROM Security_RiskManagement_MetroAU INTO $(pQvdTemp)Security_RiskManagement_MetroAU.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroAU;
+////---------------------------------------------------
+
+//// Managment 
+Security_RiskManagement_MetroM:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'MANAGEMENT');
+STORE * FROM Security_RiskManagement_MetroM INTO $(pQvdTemp)Security_RiskManagement_MetroM.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroM;
+////---------------------------------------------------
+
+//// Division - All users in division elase just itself
+Security_RiskManagement_MetroDI9:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'DIVISION');
+LEFT JOIN (Security_RiskManagement_MetroDI9)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION,
+	[קוד חטיבה] AS USERNAME_DIVISION9
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagement_MetroDI9)
+LOAD DISTINCT
+	[קוד חטיבה] AS USERNAME_DIVISION9,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+
+Security_RiskManagement_MetroDI:
+LOAD 
+	NTNAME, 
+	ACCESS, 
+	USERNAME_CODE,
+	USERNAME_DOCGROUP,
+	USERNAME_OS,
+	USERNAME_DEPARTMENT,
+	USERNAME_DIVISION,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_OS,USERNAME_OS) AS USERDATA_OS,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_DEPARTMENT,USERNAME_DEPARTMENT) AS USERDATA_DEPARTMENT,
+	IF(NOT ISNULL(USERNAME_DIVISION9),USERDATA_DIVISION,USERNAME_DIVISION) AS USERDATA_DIVISION
+RESIDENT Security_RiskManagement_MetroDI9;
+DROP TABLE Security_RiskManagement_MetroDI9;
+STORE * FROM Security_RiskManagement_MetroDI INTO $(pQvdTemp)Security_RiskManagement_MetroDI.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroDI;
+////---------------------------------------------------
+
+//// Department - All users in division elase just itself
+Security_RiskManagement_MetroDE9:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'DEPARTMENT');
+LEFT JOIN (Security_RiskManagement_MetroDE9)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION,
+	[קוד אגף] AS USERNAME_DEPARTMENT9
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagement_MetroDE9)
+LOAD DISTINCT
+	[קוד אגף] AS USERNAME_DEPARTMENT9,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+
+Security_RiskManagement_MetroDE:
+LOAD 
+	NTNAME, 
+	ACCESS, 
+	USERNAME_CODE,
+	USERNAME_DOCGROUP,
+	USERNAME_OS,
+	USERNAME_DEPARTMENT,
+	USERNAME_DIVISION,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_OS,USERNAME_OS) AS USERDATA_OS,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_DEPARTMENT,USERNAME_DEPARTMENT) AS USERDATA_DEPARTMENT,
+	IF(NOT ISNULL(USERNAME_DEPARTMENT9),USERDATA_DIVISION,USERNAME_DIVISION) AS USERDATA_DIVISION
+RESIDENT Security_RiskManagement_MetroDE9;
+DROP TABLE Security_RiskManagement_MetroDE9;
+STORE * FROM Security_RiskManagement_MetroDE INTO $(pQvdTemp)Security_RiskManagement_MetroDE.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroDE;
+////---------------------------------------------------
+
+//// PowerUser 
+Security_RiskManagement_MetroP:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'POWERUSER');
+STORE * FROM Security_RiskManagement_MetroP INTO $(pQvdTemp)Security_RiskManagement_MetroP.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroP;
+////---------------------------------------------------
+
+//// User - Itself
+Security_RiskManagement_MetroU:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'USER');
+LEFT JOIN (Security_RiskManagement_MetroU)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERNAME_OS,
+	[קוד אגף] AS USERNAME_DEPARTMENT,
+	[קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagement_MetroU)
+LOAD DISTINCT
+	[קוד משתמש] AS NTNAME,
+	[קוד משתמש] AS USERDATA_OS,
+	[קוד אגף] AS USERDATA_DEPARTMENT,
+	[קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_RiskManagement_MetroU INTO $(pQvdTemp)Security_RiskManagement_MetroU.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroU;
+////---------------------------------------------------
+
+//// InformationSystems - Sap/Aconex
+Security_RiskManagement_MetroIS:
+LOAD DISTINCT
+	NTNAME, 
+	ACCESS, 
+	NTNAME AS USERNAME_CODE,
+	RiskManagement_MetroGroup AS USERNAME_DOCGROUP,
+	'*' AS USERNAME_OS,
+	'*' AS USERNAME_DEPARTMENT,
+	'*' AS USERNAME_DIVISION,	
+	'*' AS USERDATA_OS,
+	'*' AS USERDATA_DEPARTMENT,
+	'*' AS USERDATA_DIVISION
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'INFORMATIONSYSTEMS');
+STORE * FROM Security_RiskManagement_MetroIS INTO $(pQvdTemp)Security_RiskManagement_MetroIS.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroIS;
+////---------------------------------------------------
+
+//// Reduce sHEET - Itself
+Security_RiskManagement_MetroRS:
+LOAD DISTINCT
+    NTNAME, 
+    ACCESS, 
+    NTNAME AS USERNAME_CODE,
+    RiskManagement_MetroGroup AS USERNAME_DOCGROUP
+FROM [$(pQvdDB)Authenticated_User.QVD] (qvd)
+WHERE RiskManagement_Metro='1' AND MATCH(RiskManagement_MetroGroup,'ORGANIZATIONSHEET','PURPLE','GREEN','PLE','PROJSHEET', 'G000G1','G000G2','G000G4','G000G5','G000G1G000G2','G000G1G000G2G000G4','G000G1G000G2G000G4G000G5','G000G1G000G4','G000G1G000G5','G000G1G000G4G000G5','G000G1G000G2G000G5','G000G2G000G4','G000G2G000G5','G000G2G000G4G000G5','G000G4G000G5','PLW2','PLW1','PLE','PLW2PLW1PLE','PLW2PLW1','PLW2PLE','PLW1PLE');
+LEFT JOIN (Security_RiskManagement_MetroRS)
+LOAD DISTINCT
+    [קוד משתמש] AS NTNAME,
+    [קוד משתמש] AS USERNAME_OS,
+    [קוד אגף] AS USERNAME_DEPARTMENT,
+    [קוד חטיבה] AS USERNAME_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+LEFT JOIN (Security_RiskManagement_MetroRS)
+LOAD DISTINCT
+    [קוד משתמש] AS NTNAME,
+    [קוד משתמש] AS USERDATA_OS,
+    [קוד אגף] AS USERDATA_DEPARTMENT,
+    [קוד חטיבה] AS USERDATA_DIVISION
+FROM [$(pQvd)Users_Data.QVD] (qvd);
+STORE * FROM Security_RiskManagement_MetroRS INTO $(pQvdTemp)Security_RiskManagement_MetroRS.QVD (QVD); 
+DROP TABLE Security_RiskManagement_MetroRS;
+
+////---------------------------------------------------
+
+Security_RiskManagement_Metro:
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroAS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroAU.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroM.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroDI.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroDE.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroP.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroU.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroIS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+CONCATENATE
+LOAD DISTINCT
+	NTNAME, ACCESS, USERNAME_CODE, '$(vDocName)' AS USERNAME_DOC, USERNAME_DOCGROUP, USERNAME_OS, USERNAME_DEPARTMENT, USERNAME_DIVISION, USERDATA_OS, USERDATA_DEPARTMENT, USERDATA_DIVISION
+FROM [$(pQvdTemp)Security_RiskManagement_MetroRS.QVD] (qvd)
+WHERE NOT ISNULL(NTNAME);
+STORE * FROM Security_RiskManagement_Metro INTO $(pQvd)Security_RiskManagement_Metro.QVD (QVD); 
+DROP TABLE Security_RiskManagement_Metro;
+////---------------------------------------------------
+
 ///$tab 29. Qlik view
 LET vDocName = 'Qlikview';
 
