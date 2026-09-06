@@ -34,7 +34,7 @@ VARIABLES
 {"qName":"vDocumentName","qDefinition":"\u05d4\u05e8\u05e9\u05d0\u05d5\u05ea","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f42e28f4-103e-4a11-991a-f21394b32dfd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea45f26e-5b5a-48ef-bd90-63a75bef584c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"18\/08\/2026 15:16","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"18\/08\/2026 15:20","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentNameFN","qDefinition":"05d5b9ca-86b3-4dfc-8c18-ddf7b66c8596","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pQvdDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"114d89e3-4e18-4161-90ca-432ab3f594c2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pQvdTemp","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdTemp\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"acbf9ef6-99e2-49e7-82a0-592c123a8c45","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -70,21 +70,21 @@ FIELDS
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":5,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":34,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$text","$ascii"],"qSrcTables":[]}
-{"qName":"UserName_OS","qCardinal":1350,"qTags":["$text","$ascii"],"qSrcTables":["Display_Users"]}
-{"qName":"UserName_Full","qCardinal":1348,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_OS","qCardinal":1363,"qTags":["$text","$ascii"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1361,"qTags":["$text"],"qSrcTables":["Display_Users"]}
 {"qName":"USERNAME_DOCGROUP","qCardinal":1,"qTags":["$text","$ascii"],"qSrcTables":["Access_Groups"]}
 {"qName":"USERNAME_DOCGROUPCODE","qCardinal":1,"qTags":["$text","$ascii"],"qSrcTables":["Access_Groups"]}
-{"qName":"NTA_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":2547,"qTags":["$text","$ascii","$key"],"qSrcTables":["Users_Data","Users_PurchasingGroups_Exchange","Users_PurchasingGroups_CheckUp","Security_Documents"]}
-{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":2489,"qTags":["$text"],"qSrcTables":["Users_Data"]}
-{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05e4\u05e8\u05d8\u05d9","qCardinal":1125,"qTags":["$text"],"qSrcTables":["Users_Data"]}
-{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05de\u05e9\u05e4\u05d7\u05d4","qCardinal":1966,"qTags":["$text"],"qSrcTables":["Users_Data"]}
-{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05d0\u05d9\u05de\u05d9\u05d9\u05dc","qCardinal":2142,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":2566,"qTags":["$text","$ascii","$key"],"qSrcTables":["Users_Data","Users_PurchasingGroups_Exchange","Users_PurchasingGroups_CheckUp","Security_Documents"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":2505,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05e4\u05e8\u05d8\u05d9","qCardinal":1128,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05de\u05e9\u05e4\u05d7\u05d4","qCardinal":1975,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9 \u05d0\u05d9\u05de\u05d9\u05d9\u05dc","qCardinal":2158,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_\u05e7\u05d5\u05d3 \u05d0\u05d2\u05e3","qCardinal":79,"qTags":["$numeric","$integer"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_\u05e9\u05dd \u05d0\u05d2\u05e3","qCardinal":78,"qTags":["$text"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_\u05e7\u05d5\u05d3 \u05d7\u05d8\u05d9\u05d1\u05d4","qCardinal":43,"qTags":[],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_\u05e9\u05dd \u05d7\u05d8\u05d9\u05d1\u05d4","qCardinal":43,"qTags":["$text"],"qSrcTables":["Users_Data"]}
-{"qName":"NTA_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":894,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
-{"qName":"NTA_\u05e9\u05dd \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":884,"qTags":["$text"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":910,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
+{"qName":"NTA_\u05e9\u05dd \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":899,"qTags":["$text"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_\u05e7\u05d5\u05d3 \u05de\u05d5\u05d1\u05d9\u05dc \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":25,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA \u05d9\u05d7\u05d9\u05d3\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea","qCardinal":8,"qTags":["$text"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA \u05e7\u05d5\u05d3 \u05d9\u05d7\u05d9\u05d3\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea","qCardinal":7,"qTags":[],"qSrcTables":["Users_Data"]}
@@ -108,11 +108,11 @@ FIELDS
 {"qName":"NTA_UserQv_TypeName","qCardinal":3,"qTags":["$text"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_UserQv_ClassName","qCardinal":5,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
 {"qName":"NTA_UserQv_HierarchyName","qCardinal":8,"qTags":["$text","$ascii"],"qSrcTables":["Users_Data"]}
-{"qName":"Exchange_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":884,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
-{"qName":"Exchange_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":894,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
-{"qName":"Exchange_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":884,"qTags":["$text"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
-{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":884,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
-{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":1085,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"Exchange_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":899,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
+{"qName":"Exchange_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":910,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
+{"qName":"Exchange_\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":899,"qTags":["$text"],"qSrcTables":["Users_PurchasingGroups_Exchange"]}
+{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05de\u05e9\u05ea\u05de\u05e9","qCardinal":899,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
+{"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9","qCardinal":1101,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
 {"qName":"CheckUp_UserPG_ActiveCode","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
 {"qName":"CheckUp_UserPG_ActiveName","qCardinal":2,"qTags":["$text"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
 {"qName":"CheckUp_\u05e7\u05d5\u05d3 \u05de\u05d5\u05d1\u05d9\u05dc \u05e7\u05d1\u05d5\u05e6\u05ea \u05e8\u05db\u05e9 \u05d0\u05d7\u05e8\u05d5\u05e0\u05d4 \u05dc\u05de\u05e9\u05ea\u05de\u05e9 \u05e4\u05e2\u05d9\u05dc\u05d4","qCardinal":20,"qTags":["$text","$ascii"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
@@ -120,15 +120,15 @@ FIELDS
 {"qName":"CheckUp_\u05db\u05de\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e8\u05db\u05e9 \u05e7\u05d9\u05d9\u05de\u05d5\u05ea \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
 {"qName":"CheckUp_\u05db\u05de\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e8\u05db\u05e9 \u05e4\u05e2\u05d9\u05dc\u05d5\u05ea \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
 {"qName":"CheckUp_\u05db\u05de\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e8\u05db\u05e9 \u05de\u05d1\u05d5\u05d8\u05dc\u05d5\u05ea \u05dc\u05de\u05e9\u05ea\u05de\u05e9","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Users_PurchasingGroups_CheckUp"]}
-{"qName":"NTA_NTNAME","qCardinal":1168,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_NTNAME","qCardinal":1241,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
 {"qName":"NTA_ACCESS","qCardinal":2,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
-{"qName":"NTA_USERNAME_CODE","qCardinal":1168,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
-{"qName":"NTA_USERNAME_DOC","qCardinal":45,"qTags":["$text","$ascii","$key"],"qSrcTables":["Security_Documents","Access_Documents"]}
-{"qName":"NTA_USERNAME_DOCGROUP","qCardinal":61,"qTags":["$text","$ascii","$key"],"qSrcTables":["Security_Documents","Access_Groups-6"]}
-{"qName":"NTA_USERNAME_OS","qCardinal":2548,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_CODE","qCardinal":1241,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERNAME_DOC","qCardinal":46,"qTags":["$text","$ascii","$key"],"qSrcTables":["Security_Documents","Access_Documents"]}
+{"qName":"NTA_USERNAME_DOCGROUP","qCardinal":62,"qTags":["$text","$ascii","$key"],"qSrcTables":["Security_Documents","Access_Groups-6"]}
+{"qName":"NTA_USERNAME_OS","qCardinal":2567,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
 {"qName":"NTA_USERNAME_DEPARTMENT","qCardinal":80,"qTags":["$text","$numeric","$integer","$ascii"],"qSrcTables":["Security_Documents"]}
 {"qName":"NTA_USERNAME_DIVISION","qCardinal":44,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
-{"qName":"NTA_USERDATA_OS","qCardinal":2548,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
+{"qName":"NTA_USERDATA_OS","qCardinal":2567,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
 {"qName":"NTA_USERDATA_DEPARTMENT","qCardinal":80,"qTags":["$text","$numeric","$integer","$ascii"],"qSrcTables":["Security_Documents"]}
 {"qName":"NTA_USERDATA_DIVISION","qCardinal":44,"qTags":["$text","$ascii"],"qSrcTables":["Security_Documents"]}
 {"qName":"NTA_USERNAME_DOCGROUPNUM","qCardinal":58,"qTags":["$numeric","$integer"],"qSrcTables":["Access_Groups-6"]}
