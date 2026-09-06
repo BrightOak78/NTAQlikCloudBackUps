@@ -75,12 +75,13 @@ LOAD
     "Location Description",
     Priority,
     "Finish Work Date"
-FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/MMIS DB/Call center 25-26.xlsx]
+FROM [lib://API & Connections:Sharepoint365/BIDB/תחזוקה/MMIS DB/MMIS_DB.xlsx]
 (ooxml, embedded labels, table is Sheet1)
 where Department<>'NTA';
 STORE MMIS_db INTO [$(vLibDataFiles_RAW)/MMIS_db.qvd] (qvd);
 Drop Table MMIS_db;
 // FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/DB/MMIS/MMIS *.xlsx] (ooxml, embedded labels, table is Sheet1);
+
 
 ///$tab 2. DW- MMIS_1
 
