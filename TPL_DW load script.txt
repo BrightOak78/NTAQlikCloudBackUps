@@ -1,0 +1,648 @@
+///$tab Main
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='‏#,##0.00 ‏₪;‏‎-#,##0.00 ‏₪';
+SET TimeFormat='h:mm:ss';
+SET DateFormat='D.M.YYYY';
+SET TimestampFormat='D.M.YYYY h:mm:ss[.fff]';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='he-IL';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='ינו׳;פבר׳;מרץ;אפר׳;מאי;יוני;יולי;אוג׳;ספט׳;אוק׳;נוב׳;דצמ׳';
+SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+SET DayNames='יום ב׳;יום ג׳;יום ד׳;יום ה׳;יום ו׳;שבת;יום א׳';
+SET LongDayNames='יום שני;יום שלישי;יום רביעי;יום חמישי;יום שישי;יום שבת;יום ראשון';
+SET NumericalAbbreviation='3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = Third Party Liabilities; //Free Document Name
+SET pWorkApp = ThirdPartyLiabilities; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+
+
+//Sharepoint365
+// LOAD *
+// FROM [lib://API & Connections:Sharepoint365/BIDB/XXXXX/XXXXX.xlsx]
+// (ooxml, embedded labels, table is XXXXX);
+// LIB CONNECT TO '$(vConnectionName)';
+
+
+///$tab Contract -  From QV RFC QVD
+
+//********************************************************** ContractsHeader  **********************************************************************// 
+
+NoConcatenate
+RFC_ContractsHeader1:
+LOAD Distinct
+	 SD_CONTRACT as [מספר הסכם], 
+     SD_CONTRACT_TYPE as [סוג ההסכם], 
+     SALES_ORGANIZATION as [ארגון מכירות], 
+     DISTRIBUTION_CHANNEL  as [ערוץ הפצה], 
+     SD_CONTRACT_DESC  as [תיאור ההסכם], 
+     CONTRACT_START_DATE  as [תאריך התחלת הסכם], 
+     CONTRACT_END_DATE  as [תאריך סיום הסכם], 
+     NET_VALUE as [ערך נטו של ההסכם], 
+     CURRENCY as [מטבע], 
+     CUSTOMER  as [לקוח], 
+     CUSTOMER_DESCRIPTION  as  [תיאור לקוח], 
+     CONTACT_PERSON as [קוד איש קשר], 
+     CONTACT_PERSON_DESCRIPTION  as [תיאור איש קשר], 
+     SD_PRFRMA_ITM_OPN_SRVCE_PRICE,  //
+     SD_PAID_AMOUNT, //
+     SD_OPEN_AMOUNT, //
+     SD_BILLING_AMOUNT, //
+     NOT_PAID_BILLING_AMOUNT //
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/ZNSD_BI_GET_SD_DATA_ET_CONTRACT_HEADER.QVD](qvd);
+
+STORE RFC_ContractsHeader1 INTO $(vLibDataFiles_DW)/QvdTemp/RFC_ContractsHeader1.qvd(qvd);
+Drop Table RFC_ContractsHeader1;
+
+//****************************************************************************************
+
+//********************************************************** ContractsLines  ***********************************************************************// 
+
+NoConcatenate
+Contracts_filter:
+LOAD Distinct
+[מספר הסכם]
+FROM $(vLibDataFiles_DW)/QvdTemp/RFC_ContractsHeader1.qvd(qvd);
+
+Left Keep
+
+RFC_ContractsLinesPre1:
+LOAD Distinct
+	 SD_CONTRACT&'-'&num(SD_CONTRACT_ITEM,'000000')  as ContractsKey,
+	 SD_CONTRACT  as [מספר הסכם], 
+     SD_CONTRACT_ITEM  as [מס' שורה בהסכם], 
+     SD_MATERIAL_DESC as [תיאור השירות], 
+     SD_MATERIAL as [שירות], 
+     TARGET_VALUE  as [ערך יעד], 
+     STATUS as [סיבת דחייה - שורת חוזה], 
+     if(isnull(STATUS_DESCRIPTION),'ללא סיבת דחייה') as [תיאור דחייה - שורת חוזה], 
+     CONTRACTAGREEMENT as [מספר הסכם קבלני], 
+     CONTRACTAGREEMENTWBS, //
+     SD_CONTRACT_SUBTYPE as [תאור סוג תהליך גבייה], 
+     WBSELEMENT  as [אלמנט WBS], 
+     WBSELEMENTDESC , 
+     ANNEXPCKG as [סל הצמדה], 
+     ANNEXPCKGEXT as [סל הצמדה מורחב], 
+     ANNEXPCKGDESC  as [תיאור סל הצמדה], 
+     ANNEXPCKGDATE as [תאריך בסיס של סל ההצמדה],      
+     PAYMENTTERMS as [תנאי תשלום], 
+     PAYMENTTERMSDESC as [תיאור תנאי תשלום],                
+     LINE as קו, 
+     if(LINEDESC='Purple Line','קו סגול', if(LINEDESC='Red Line','קו אדום',LINEDESC)) as [תאור קו],
+//     LINEDESC as [תאור קו], 
+     ZSECTION as [מקטע נקי],//[תיאור מקטע],
+     SECTIONDESC as [תיאור מקטע], 
+     SUBSECTION as [תת מקטע נקי] , 
+     SUBSECTIONDESC as [תיאור תת מקטע],//,
+     SD_OPEN_AMOUNT+SD_BILLING_AMOUNT as [ערך ששוחרר],
+     SD_OPEN_AMOUNT as [ערך ששוחרר - Open135], //
+          SD_AMOUNT_WITHOUT_SALES_ORDERS+SD_OPEN_AMOUNT-SD_BILLING_AMOUNT as [יתרת הזמנות-RFC], //
+//     SD_AMOUNT_WITHOUT_SALES_ORDERS as [יתרת סכום שורות חוזה], //
+     SD_BILLING_AMOUNT as [ערך ששוחרר - Bill135], //
+//     SD_PRFRMA_ITM_OPN_SRVCE_PRICE, //
+//     SD_PAID_AMOUNT as [ערך ששוחרר ושולם - Bill135], //
+//     RELEASED_AMOUNT as [סכום מימוש חוזה], //
+     SD_AMT_SALES_ORDERS_PERCENTAGE as [אחוז ביצוע], // Added 06-08-2026 Af
+	 ZZSITE_WORK_COMP_PERC as [אחוז ביצוע העבודה בשטח] , // Added 06-08-2026 Af
+     WORK_COMP_GR_OR_PERC_IND as [האם אחוז התקדמות העבודה גדול מאחוז ביצוע], // Added 06-08-2026 Af
+     OVERHEAD as [תקורות], 
+     MANAGEMENTFEES as [דמי ניהול]   
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/ZNSD_BI_GET_SD_DATA_ET_CONTRACT_ITEMS.QVD](qvd);
+
+DROP Table Contracts_filter;
+
+STORE RFC_ContractsLinesPre1 INTO $(vLibDataFiles_DW)/QvdTemp/RFC_ContractsLinesPre1.qvd(qvd);
+DROP Table RFC_ContractsLinesPre1;
+
+//****************************************************************************************
+
+//*************************************************************** Contract Full  *******************************************************************// 
+
+NoConcatenate
+RFC_ContractsTemp:
+LOAD Distinct
+     [מספר הסכם], 
+     לקוח, 
+     [סוג ההסכם], 
+     [ערך נטו של ההסכם], 
+     מטבע, 
+     [ארגון מכירות], 
+     [ערוץ הפצה], 
+     [תאריך התחלת הסכם], 
+     [תאריך סיום הסכם], 
+     [תיאור ההסכם], 
+//     [תיאור סוג ההסכם], 
+     [תיאור לקוח], 
+     [קוד איש קשר], 
+     [תיאור איש קשר]
+FROM $(vLibDataFiles_DW)/QvdTemp/RFC_ContractsHeader1.qvd(qvd);
+
+Left Join
+
+LOAD Distinct	 
+	 
+	 [אחוז ביצוע], // Added 06-08-2026 Af
+	 [אחוז ביצוע העבודה בשטח] , // Added 06-08-2026 Af
+     [האם אחוז התקדמות העבודה גדול מאחוז ביצוע], // Added 06-08-2026 Af
+     [סיבת דחייה - שורת חוזה],
+	  [תיאור דחייה - שורת חוזה], 
+	 [תאור קו], 
+     קו, 
+     [מקטע נקי], 
+     [תת מקטע נקי],	
+     [תיאור מקטע],
+     [תיאור תת מקטע], 
+	 [סל הצמדה], 
+     [סל הצמדה מורחב], 
+     [תנאי תשלום], 
+     ContractsKey, 
+     [מספר הסכם], 
+     [מס' שורה בהסכם], 
+     שירות, 
+     [תיאור השירות], 
+     [ערך יעד], 
+     [אלמנט WBS], 
+     [תאריך בסיס של סל ההצמדה], 
+     [ערך ששוחרר], 
+     [יתרת הזמנות-RFC],
+     [ערך ששוחרר - Open135], 
+     [ערך ששוחרר - Bill135], 
+     [מספר הסכם קבלני], 
+     [תיאור תנאי תשלום], 
+     [תיאור סל הצמדה]
+FROM $(vLibDataFiles_DW)/QvdTemp/RFC_ContractsLinesPre1.qvd(qvd);
+
+//****************************************************************************************
+
+NoConcatenate
+RFC_Contracts:
+LOAD Distinct
+     [אחוז ביצוע], // Added 06-08-2026 Af
+	 [אחוז ביצוע העבודה בשטח] , // Added 06-08-2026 Af
+     [האם אחוז התקדמות העבודה גדול מאחוז ביצוע], // Added 06-08-2026 Af
+     
+     [מספר הסכם], 
+     לקוח, 
+     [סוג ההסכם], 
+     [ערך נטו של ההסכם], 
+     מטבע, 
+     [ארגון מכירות], 
+     [ערוץ הפצה], 
+     [תאריך התחלת הסכם], 
+     [תאריך סיום הסכם], 
+     [תיאור ההסכם], 
+//     [תיאור סוג ההסכם], 
+     [תיאור לקוח], 
+	 [סיבת דחייה - שורת חוזה],
+ 	 if(not IsNull([תיאור דחייה - שורת חוזה]),[תיאור דחייה - שורת חוזה],'ללא סיבת דחייה') as [תיאור דחייה - שורת חוזה] , 
+     [תיאור איש קשר],     
+      [תאור קו], 
+     קו, 
+     [מקטע נקי], 
+     [תת מקטע נקי],	
+     [תיאור מקטע],
+     [תיאור תת מקטע],  
+	 [סל הצמדה], 
+     [סל הצמדה מורחב], 
+     [תנאי תשלום], 
+     ContractsKey, 
+     [מס' שורה בהסכם], 
+     שירות, 
+     [תיאור השירות], 
+     [ערך יעד], 
+     [אלמנט WBS], 
+     [תאריך בסיס של סל ההצמדה], 
+     [ערך ששוחרר], 
+     [יתרת הזמנות-RFC],
+     [ערך ששוחרר - Open135], 
+     [ערך ששוחרר - Bill135], 
+     [מספר הסכם קבלני], 
+     [תיאור תנאי תשלום], 
+     [תיאור סל הצמדה]
+Resident RFC_ContractsTemp;
+DROP Table RFC_ContractsTemp;
+
+STORE RFC_Contracts into $(vLibDataFiles_DW)/RFC_Contracts.qvd(qvd);
+
+//**************************************************************************//*************************************************************************
+
+///$tab Order -  From QV RFC QVD
+
+//**************************************************************************************** OrdersHeader  ****************************************************************************************// 
+
+NoConcatenate
+RFC_Orders_Temp:
+LOAD Distinct 
+	 SD_CONTRACT&'-'&num(SD_CONTRACT_ITEM,'000000') as ContractsKey,
+	 SD_SALES_ORDER&'-'&num(SD_SALES_ORDER_ITEM,'000000') as OrderKey,
+//	 SD_CONTRACT as [מספר הסכם], 
+//     SD_CONTRACT_ITEM as [מס' שורה בהסכם], 
+     SD_SALES_ORDER as [מספר הזמנה], 
+     SD_SALES_ORDER_ITEM as [מספר שורת הזמנה], 
+//     NETVALUE as [ערך נטו של הזמנה],
+     IHREZ_E  as [חשבונית פיננסית],  //
+	 SD_MATERIAL as  [שירות בהזמנה], //
+     SD_MATERIAL_DESC as  [תיאור השירות בהזמנה], //  
+     VBAP_NETWR as [ערך נטו של הזמנה]
+    // [תיאור סוג תהליך הזמנה] //   
+//     SD_SALES_ORDER_TYPE , 
+//     SD_PRFRMA_ITM_OPN_SRVCE_PRICE, 
+//     SD_PAID_AMOUNT
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/ZNSD_BI_GET_SD_DATA_ET_SALES_ORDER_ITEMS.QVD](qvd);
+
+left join
+
+LOAD Distinct
+	 SD_SALES_ORDER&'-'&num(SD_SALES_ORDER_ITEM,'000000') as OrderKey,
+     SD_BILLING_NUMBER as [מספר חשבונית], 
+     SD_BILLING_HISTORIC_FLAG 
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/ZNSD_BI_GET_SD_DATA_ET_BILLING_ITEMS.QVD](qvd);
+;     
+
+//******************************************************************//
+  
+NoConcatenate
+RFC_Orders:
+LOAD Distinct 
+ 	 ContractsKey,
+	 OrderKey,
+	 [שירות בהזמנה], //
+     [תיאור השירות בהזמנה], 
+     [מספר הזמנה], 
+     [מספר שורת הזמנה], 
+     [ערך נטו של הזמנה],
+     [חשבונית פיננסית],
+     if(SD_BILLING_HISTORIC_FLAG='X','הזמנה רטרו','הזמנה חדשה')  as [תיאור סוג תהליך הזמנה]
+Resident RFC_Orders_Temp ;
+DROP Table RFC_Orders_Temp;
+
+STORE RFC_Orders into $(vLibDataFiles_DW)/RFC_Orders.qvd(qvd);
+//DROP Table RFC_Orders;   
+
+//**************************************************************************************** OrdersHeader  ****************************************************************************************// 
+
+///$tab Billing -  From QV RFC QVD
+
+//**************************************************************************************** BillingHeader  ****************************************************************************************// 
+
+NoConcatenate
+RFC_Invoice:
+LOAD Distinct
+	 SD_BILLING_NUMBER&'-'&num(SD_BILLING_ITEM,'000000') as BillingKey,
+	 SD_SALES_ORDER&'-'&num(SD_SALES_ORDER_ITEM,'000000') as OrderKey,
+ 	 SD_MATERIAL as [השירות בחשבונית], 
+     SD_MATERIAL_DESC as [תיאור השירות בחשבונית], 
+     SD_BILLING_NUMBER as [מספר חשבונית], 
+     SD_BILLING_ITEM as [מספר שורת חשבונית], 
+     SD_BILLING_TYPE as [קוד סוג חשבונית] , 
+     SD_BILLING_CATEGORY  as [קטגוריית סוג מסמך חשבונית], 
+     SD_BILLING_CREATE_DATE as [תאריך חיוב חשבונית],    
+     if(SD_PAID_AMOUNT_IND='X','חשבונית שולמה','חשבונית טרם שולמה') as [סטטוס תשלום חשבונית], //
+//     SD_BILLING_PAID_DATE as [תאריך תשלום חשבונית], 
+     SD_BILLING_PAID_DATE as [תאריך גבייה],
+     SD_BILLING_ITEM_SERVICE_PRICE as [סכום ברוטו של השירות בחשבונית],      
+     SD_INV_NO_PAID_COUNT_DAYS as [משך חיים חשבונית - גיול],     
+     if(SD_INV_NO_PAID_COUNT_DAYS<>'0',1,0) as [דגל אורך חיים -גיול],
+     MANAGEMENT_FEES as [ערך הניהול בחשבונית], 
+     OVERHEAD_FEES as [ערך התקורה בחשבונית], 
+     ANNEXING_AMOUNT as [ערך ההצמדה בחשבונית] , 
+     NOT_PAID_ANEX_AMOUNT*-1 as [ערך ההצמדה שקוזז בחשבונית],
+     SD_BILL_ITEM_AMNT_WITHOUT_VAT as [סכום חשבונית סופי]
+//     SD_BILL_ITEM_AMOUNT_WITH_VAT,
+//     SD_PRFRMA_ITM_OPN_SRVCE_PRICE,  
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/ZNSD_BI_GET_SD_DATA_ET_BILLING_ITEMS.QVD](qvd)
+Where SD_BILLING_CATEGORY='M' and SD_BILLING_HISTORIC_FLAG<>'X' ;
+
+STORE RFC_Invoice into $(vLibDataFiles_DW)/RFC_Invoice.qvd(qvd);
+//DROP Table RFC_Invoice;
+
+//**************************************************************************************** BillingHeader  ****************************************************************************************// 
+
+//**************************************************************************************** HistoricRetroInvoice  ****************************************************************************************// 
+
+NoConcatenate
+RFC_HistoricRetroInvoice:
+LOAD Distinct
+     'R99'&'-'&SD_SALES_ORDER&'-'&num(SD_SALES_ORDER_ITEM,'000000') as BillingKey,
+      SD_SALES_ORDER&'-'&num(SD_SALES_ORDER_ITEM,'000000') as OrderKey,
+     if(SD_BILLING_NUMBER<1,'R99'&'-'&SD_SALES_ORDER,SD_BILLING_NUMBER)as [מספר חשבונית],
+      SD_MATERIAL_DESC as [תיאור השירות בחשבונית],
+      SD_BILLING_CREATE_DATE as [תאריך חיוב חשבונית],
+       SD_BILLING_PAID_DATE as [תאריך גבייה], 
+ 	 '0' as [ערך קיזוז מהמקדמה],
+ 	 'חשבונית רטרו' as [מהות חשבונית],
+	 'R' as [קטגוריית סוג מסמך חשבונית],
+	 'חשבונית שולמה' as [סטטוס תשלום חשבונית],	  
+	 SD_BILLING_ITEM_SERVICE_PRICE as [סכום ברוטו של השירות בחשבונית],
+     SD_SALES_ORDER_ITEM as [מספר שורת חשבונית], 
+	 MANAGEMENT_FEES as [ערך הניהול בחשבונית], 
+     OVERHEAD_FEES as [ערך התקורה בחשבונית], 
+     ANNEXING_AMOUNT as [ערך ההצמדה בחשבונית] , 
+     SD_BILL_ITEM_AMNT_WITHOUT_VAT as [סכום חשבונית סופי]
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/ZNSD_BI_GET_SD_DATA_ET_BILLING_ITEMS.QVD](qvd)
+Where SD_BILLING_HISTORIC_FLAG='X';
+
+STORE RFC_HistoricRetroInvoice into $(vLibDataFiles_DW)/RFC_HistoricRetroInvoice.qvd(qvd);
+//DROP Table HistoricRetroInvoice;
+
+
+
+//**************************************************************************************** HistoricRetroInvoice  ****************************************************************************************// 
+
+//**************************************************************************************** Billing  ****************************************************************************************// 
+
+NoConcatenate
+RFC_Billing:
+LOAD Distinct
+*
+Resident RFC_Invoice;
+DROP Table RFC_Invoice;
+
+Concatenate
+
+LOAD Distinct
+*
+Resident RFC_HistoricRetroInvoice;
+DROP Table RFC_HistoricRetroInvoice;
+
+STORE RFC_Billing into $(vLibDataFiles_DW)/RFC_Billing.qvd(qvd);
+//DROP Table RFC_Billing;
+
+//**************************************************************************************** Billing  ****************************************************************************************// 
+
+///$tab SD Sums Table
+
+//****************************************************************************************
+
+NoConcatenate
+[סכום הסכם לתצוגה]:
+LOAD Distinct
+ContractsKey,
+SUM([ערך יעד]) as [סכום הסכם לתצוגה]
+From $(vLibDataFiles_DW)/RFC_Contracts.qvd(qvd)
+Group By ContractsKey
+;
+
+//****************************
+
+NoConcatenate
+[סכום הזמנה לתצוגה_P]:
+LOAD Distinct
+ContractsKey,
+OrderKey,
+SUM([ערך נטו של הזמנה]) as [סכום הזמנה לתצוגה]
+From $(vLibDataFiles_DW)/RFC_Orders.qvd(qvd)
+//Where [תיאור סוג תהליך הזמנה]<>'הזמנה רטרו'
+Group By ContractsKey,OrderKey
+;
+
+//****************************
+
+NoConcatenate
+[סכום הזמנה לתצוגה]:
+LOAD Distinct
+ContractsKey,
+SUM([סכום הזמנה לתצוגה]) as [סכום הזמנה לתצוגה]
+Resident [סכום הזמנה לתצוגה_P]
+Group By ContractsKey
+;
+DROP Table [סכום הזמנה לתצוגה_P];
+
+//****************************
+//****************************************************************************************
+
+NoConcatenate
+[סכום חשבונית לתצוגה_PRE]:
+LOAD Distinct
+OrderKey,
+BillingKey,
+[סטטוס תשלום חשבונית],
+[סכום ברוטו של השירות בחשבונית]//[סכום נטו כותרת חשבונית],
+FROM $(vLibDataFiles_DW)/RFC_Billing.qvd(qvd)
+;
+
+Left Join
+
+LOAD Distinct
+ContractsKey,
+OrderKey
+From $(vLibDataFiles_DW)/RFC_Orders.qvd(qvd);
+
+//****************************
+
+NoConcatenate
+[סכום חשבונית לתצוגה - שולמה_P]:
+LOAD Distinct
+ContractsKey,
+OrderKey,
+BillingKey,
+'חשבונית שולמה' as BillType,
+SUM([סכום ברוטו של השירות בחשבונית]) AS [סכום חשבונית לתצוגה - שולמה]
+Resident [סכום חשבונית לתצוגה_PRE]
+Where [סטטוס תשלום חשבונית]='חשבונית שולמה'
+Group By ContractsKey,OrderKey,BillingKey
+;
+
+//****************************
+
+NoConcatenate
+[סכום חשבונית לתצוגה - שולמה]:
+LOAD Distinct
+ContractsKey,
+SUM([סכום חשבונית לתצוגה - שולמה]) as [סכום חשבונית לתצוגה - שולמה]
+Resident [סכום חשבונית לתצוגה - שולמה_P]
+Group By ContractsKey
+;
+DROP Table [סכום חשבונית לתצוגה - שולמה_P];
+
+//****************************
+//****************************************************************************************
+
+NoConcatenate
+[סכום חשבונית לתצוגה - טרם שולמה_P]:
+LOAD Distinct
+ContractsKey,
+OrderKey,
+BillingKey,
+'חשבונית טרם שולמה' as BillType,
+SUM([סכום ברוטו של השירות בחשבונית]) AS [סכום חשבונית לתצוגה - טרם שולמה]
+Resident [סכום חשבונית לתצוגה_PRE]
+Where [סטטוס תשלום חשבונית]='חשבונית טרם שולמה'
+Group By ContractsKey,OrderKey,BillingKey
+;
+
+DROP Table [סכום חשבונית לתצוגה_PRE];
+
+//****************************
+
+NoConcatenate
+[סכום חשבונית לתצוגה - טרם שולמה]:
+LOAD Distinct
+ContractsKey,
+SUM([סכום חשבונית לתצוגה - טרם שולמה]) as [סכום חשבונית לתצוגה - טרם שולמה]
+Resident [סכום חשבונית לתצוגה - טרם שולמה_P]
+Group By ContractsKey
+;
+DROP Table [סכום חשבונית לתצוגה - טרם שולמה_P];
+
+//****************************
+//****************************************************************************************
+
+NoConcatenate
+SumsTemp:
+LOAD Distinct
+ContractsKey,
+[סכום הסכם לתצוגה]
+Resident [סכום הסכם לתצוגה];
+DROP Table [סכום הסכם לתצוגה];
+
+Left Join
+
+LOAD Distinct
+ContractsKey,
+[סכום הזמנה לתצוגה]
+Resident [סכום הזמנה לתצוגה];
+DROP Table [סכום הזמנה לתצוגה];
+
+Left Join
+
+LOAD Distinct
+ContractsKey,
+[סכום חשבונית לתצוגה - שולמה]
+Resident [סכום חשבונית לתצוגה - שולמה];
+DROP Table [סכום חשבונית לתצוגה - שולמה];
+
+Left Join
+
+LOAD Distinct
+ContractsKey,
+[סכום חשבונית לתצוגה - טרם שולמה]
+Resident [סכום חשבונית לתצוגה - טרם שולמה];
+DROP Table [סכום חשבונית לתצוגה - טרם שולמה];
+
+//****************************************************************************************
+ 
+NoConcatenate
+Sums:
+LOAD Distinct
+ContractsKey,
+SUM([סכום הסכם לתצוגה]) as [סכום הסכם לתצוגה],
+SUM([סכום חשבונית לתצוגה - טרם שולמה]) as [סכום חשבונית לתצוגה - טרם שולמה],
+SUM([סכום חשבונית לתצוגה - שולמה]) as [סכום חשבונית לתצוגה - שולמה],
+SUM([סכום הסכם לתצוגה])-SUM([סכום הזמנה לתצוגה]) as [יתרת הסכם],
+SUM([סכום הזמנה לתצוגה])-SUM([סכום חשבונית לתצוגה - שולמה])-SUM([סכום חשבונית לתצוגה - טרם שולמה]) as [יתרת הזמנה]
+Resident SumsTemp
+Group By ContractsKey
+;
+DROP Table SumsTemp;
+
+STORE Sums into $(vLibDataFiles_DW)/Sums.qvd(qvd);
+
+//****************************************************************************************
+
+NoConcatenate
+Unified_Sums:
+Load Distinct
+ContractsKey,
+'יתרת הסכם' as Type,
+[יתרת הסכם] as [Sum for pie]
+Resident Sums;
+
+Concatenate
+
+Unified_Sums:
+Load Distinct
+ContractsKey,
+'יתרת הזמנה' as Type,
+[יתרת הזמנה] as [Sum for pie]
+Resident Sums;
+
+Concatenate
+
+Unified_Sums:
+Load Distinct
+ContractsKey,
+'חשבוניות שטרם שולמו' as Type,
+[סכום חשבונית לתצוגה - טרם שולמה] as [Sum for pie]
+Resident Sums;
+
+Concatenate
+
+Unified_Sums: // Sum for pie
+Load Distinct
+ContractsKey,
+'חשובניות ששולמו' as Type,
+[סכום חשבונית לתצוגה - שולמה] as [Sum for pie]
+Resident Sums;
+
+// STORE Unified_Sums into $(vLibDataFiles_DW)/Unified_Sums.qvd(qvd);
+
+//****************************************************************************************
+
+Left Join
+
+// NoConcatenate
+Sums_TypeSort:
+load *
+Inline [
+Type,TypeSort
+'חשובניות ששולמו',4
+'חשבוניות שטרם שולמו',3
+'יתרת הזמנה',2
+'יתרת הסכם',1
+];
+
+STORE Unified_Sums into $(vLibDataFiles_DW)/Unified_Sums.qvd(qvd);
+
+///$tab Reload
+
+NoConcatenate
+TPL_Reload: // DATA+App
+LOAD
+    now() as AppReloadTime, // APP
+    ReloadTimeDB as DataReloadTimeDB, // DATA
+    ReloadDateDB as DataReloadDateDB, // DATA
+    LastReloadTime,
+    SAPClient,
+    SAPLanguage
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/SD/SD_LastReload.QVD](qvd);
+
+STORE TPL_Reload INTO $(vLibDataFiles_DW)/TPL_Reload.qvd(qvd);
+
+///$tab END
+Exit Script
