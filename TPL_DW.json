@@ -1,0 +1,121 @@
+
+SHEETS
+{"qInfo":{"qId":"DHEYAq","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"DHEYAq","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T08:54:32.563Z","modifiedDate":"2026-08-23T10:07:08.010Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"My new sheet","description":""},"qData":[]}
+
+OBJECTS ON SHEETS
+{"name":"nXLHLq","type":"piechart","col":12,"row":3,"colspan":12,"rowspan":5,"bounds":{"y":25,"x":50,"width":50,"height":41.66666666666667}}
+{"name":"MncGfbz","type":"barchart","col":0,"row":3,"colspan":12,"rowspan":5,"bounds":{"y":25,"x":0,"width":50,"height":41.66666666666667}}
+{"name":"GPCKfWg","type":"barchart","col":0,"row":8,"colspan":12,"rowspan":4,"bounds":{"y":66.66666666666666,"x":0,"width":50,"height":33.33333333333333}}
+
+DIMENSIONS
+{"qInfo":{"qId":"HvLfJt","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"HvLfJt","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T13:22:47.252Z","modifiedDate":"2026-08-20T13:33:16.984Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"LineH1","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"QHPabN","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"QHPabN","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T13:06:35.105Z","modifiedDate":"2026-08-20T13:08:35.326Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Sums Type","description":"","tags":[]},"qData":[]}
+
+MEASURES
+{"qInfo":{"qId":"eLrpjJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"eLrpjJ","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-20T13:23:27.435Z","modifiedDate":"2026-08-20T13:23:27.435Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Sum for pie","description":"","tags":[]},"qData":[]}
+
+VARIABLES
+{"qName":"pWorkApp","qDefinition":"ThirdPartyLiabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8ea1b33c-5027-4e9a-8729-be9ec903a844","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"26bfd726-1a4c-45b8-b726-b495276e33f8","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4272105f-ce00-4770-a1d8-bbcfe3a86d9c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"20\/08\/2026 15:00","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"79618d60-7422-4d4e-942c-d53649c02919","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"c38ef681-6b1e-4269-8000-6a8a8802d895","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/ThirdPartyLiabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4bf03f2d-7b87-41d8-9cad-849e48b05790","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a20447ab-5da8-4c85-8d48-6a70d31ee03a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"TPL_DW","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0c47b1a3-f73f-4289-9270-fd3e161b3774","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"79d4002c-8c83-4e82-a4d6-7afe7f0d6fe7","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea99626f-8eae-4661-9395-4d6aa41be029","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"af985d9f-e662-45b5-8527-5e4fd1741e54","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1d70967f-bcd2-44ad-995a-cbdbc132ab5d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentName","qDefinition":"Third Party Liabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b7728e5c-6457-4bf6-b6a9-ab376eda290b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/ThirdPartyLiabilities","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"de0e8302-b46f-40e8-90ac-8120154832f2","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff983fcc-ae6a-4929-9954-cdf93ac12002","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+
+FIELDS
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":82,"qTags":["$text","$hidden","$system","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":6,"qTags":["$ascii","$text","$hidden","$system","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":6,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":5,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":40,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$ascii","$text","$hidden","$system"],"qSrcTables":[]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d4\u05e1\u05db\u05dd","qCardinal":26,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05dc\u05e7\u05d5\u05d7","qCardinal":16,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05d5\u05d2 \u05d4\u05d4\u05e1\u05db\u05dd","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e0\u05d8\u05d5 \u05e9\u05dc \u05d4\u05d4\u05e1\u05db\u05dd","qCardinal":25,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05d8\u05d1\u05e2","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05e8\u05d2\u05d5\u05df \u05de\u05db\u05d9\u05e8\u05d5\u05ea","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05d5\u05e5 \u05d4\u05e4\u05e6\u05d4","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d4\u05ea\u05d7\u05dc\u05ea \u05d4\u05e1\u05db\u05dd","qCardinal":22,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05e1\u05d9\u05d5\u05dd \u05d4\u05e1\u05db\u05dd","qCardinal":24,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05d4\u05e1\u05db\u05dd","qCardinal":26,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05dc\u05e7\u05d5\u05d7","qCardinal":16,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d0\u05d9\u05e9 \u05e7\u05e9\u05e8","qCardinal":15,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05d7\u05d5\u05d6 \u05d1\u05d9\u05e6\u05d5\u05e2","qCardinal":39,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05d7\u05d5\u05d6 \u05d1\u05d9\u05e6\u05d5\u05e2 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u05d1\u05e9\u05d8\u05d7","qCardinal":3,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d4\u05d0\u05dd \u05d0\u05d7\u05d5\u05d6 \u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u05d2\u05d3\u05d5\u05dc \u05de\u05d0\u05d7\u05d5\u05d6 \u05d1\u05d9\u05e6\u05d5\u05e2","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05d9\u05d1\u05ea \u05d3\u05d7\u05d9\u05d9\u05d4 - \u05e9\u05d5\u05e8\u05ea \u05d7\u05d5\u05d6\u05d4","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d3\u05d7\u05d9\u05d9\u05d4 - \u05e9\u05d5\u05e8\u05ea \u05d7\u05d5\u05d6\u05d4","qCardinal":1,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05d5\u05e8 \u05e7\u05d5","qCardinal":4,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e7\u05d5","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05e7\u05d8\u05e2 \u05e0\u05e7\u05d9","qCardinal":11,"qTags":[],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05ea \u05de\u05e7\u05d8\u05e2 \u05e0\u05e7\u05d9","qCardinal":44,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05de\u05e7\u05d8\u05e2","qCardinal":11,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05ea\u05ea \u05de\u05e7\u05d8\u05e2","qCardinal":44,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05dc \u05d4\u05e6\u05de\u05d3\u05d4","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e1\u05dc \u05d4\u05e6\u05de\u05d3\u05d4 \u05de\u05d5\u05e8\u05d7\u05d1","qCardinal":5,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05e0\u05d0\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"ContractsKey","qCardinal":172,"qTags":["$ascii","$text","$key"],"qSrcTables":["RFC_Contracts","RFC_Orders","Sums","Unified_Sums"]}
+{"qName":"\u05de\u05e1' \u05e9\u05d5\u05e8\u05d4 \u05d1\u05d4\u05e1\u05db\u05dd","qCardinal":77,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e9\u05d9\u05e8\u05d5\u05ea","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea","qCardinal":170,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05d9\u05e2\u05d3","qCardinal":166,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d0\u05dc\u05de\u05e0\u05d8 WBS","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d1\u05e1\u05d9\u05e1 \u05e9\u05dc \u05e1\u05dc \u05d4\u05d4\u05e6\u05de\u05d3\u05d4","qCardinal":24,"qTags":[],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e9\u05e9\u05d5\u05d7\u05e8\u05e8","qCardinal":109,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05d9\u05ea\u05e8\u05ea \u05d4\u05d6\u05de\u05e0\u05d5\u05ea-RFC","qCardinal":126,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e9\u05e9\u05d5\u05d7\u05e8\u05e8 - Open135","qCardinal":32,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05e2\u05e8\u05da \u05e9\u05e9\u05d5\u05d7\u05e8\u05e8 - Bill135","qCardinal":87,"qTags":["$numeric"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d4\u05e1\u05db\u05dd \u05e7\u05d1\u05dc\u05e0\u05d9","qCardinal":45,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05ea\u05e0\u05d0\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd","qCardinal":5,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05e1\u05dc \u05d4\u05e6\u05de\u05d3\u05d4","qCardinal":6,"qTags":["$text"],"qSrcTables":["RFC_Contracts"]}
+{"qName":"OrderKey","qCardinal":148,"qTags":["$ascii","$text","$key"],"qSrcTables":["RFC_Orders","RFC_Billing"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":137,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05e9\u05d5\u05e8\u05ea \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":12,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05e4\u05d9\u05e0\u05e0\u05e1\u05d9\u05ea","qCardinal":29,"qTags":[],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":122,"qTags":["$text"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05e2\u05e8\u05da \u05e0\u05d8\u05d5 \u05e9\u05dc \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":140,"qTags":["$numeric"],"qSrcTables":["RFC_Orders"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05e1\u05d5\u05d2 \u05ea\u05d4\u05dc\u05d9\u05da \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":2,"qTags":["$text"],"qSrcTables":["RFC_Orders"]}
+{"qName":"BillingKey","qCardinal":118,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":96,"qTags":["$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":92,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05e9\u05d5\u05e8\u05ea \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":13,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e7\u05d5\u05d3 \u05e1\u05d5\u05d2 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d9\u05ea \u05e1\u05d5\u05d2 \u05de\u05e1\u05de\u05da \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d7\u05d9\u05d5\u05d1 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":29,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05d8\u05d8\u05d5\u05e1 \u05ea\u05e9\u05dc\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":2,"qTags":["$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05d2\u05d1\u05d9\u05d9\u05d4","qCardinal":25,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d1\u05e8\u05d5\u05d8\u05d5 \u05e9\u05dc \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":112,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05e9\u05da \u05d7\u05d9\u05d9\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea - \u05d2\u05d9\u05d5\u05dc","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05d3\u05d2\u05dc \u05d0\u05d5\u05e8\u05da \u05d7\u05d9\u05d9\u05dd -\u05d2\u05d9\u05d5\u05dc","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05e0\u05d9\u05d4\u05d5\u05dc \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":8,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05ea\u05e7\u05d5\u05e8\u05d4 \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":20,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05d4\u05e6\u05de\u05d3\u05d4 \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":22,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05d4\u05d4\u05e6\u05de\u05d3\u05d4 \u05e9\u05e7\u05d5\u05d6\u05d6 \u05d1\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":4,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05e1\u05d5\u05e4\u05d9","qCardinal":113,"qTags":["$numeric"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e2\u05e8\u05da \u05e7\u05d9\u05d6\u05d5\u05d6 \u05de\u05d4\u05de\u05e7\u05d3\u05de\u05d4","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05de\u05d4\u05d5\u05ea \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":1,"qTags":["$text"],"qSrcTables":["RFC_Billing"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d4\u05e1\u05db\u05dd \u05dc\u05ea\u05e6\u05d5\u05d2\u05d4","qCardinal":167,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05dc\u05ea\u05e6\u05d5\u05d2\u05d4 - \u05e9\u05d5\u05dc\u05de\u05d4","qCardinal":87,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05e1\u05db\u05d5\u05dd \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea \u05dc\u05ea\u05e6\u05d5\u05d2\u05d4 - \u05d8\u05e8\u05dd \u05e9\u05d5\u05dc\u05de\u05d4","qCardinal":2,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05d9\u05ea\u05e8\u05ea \u05d4\u05e1\u05db\u05dd","qCardinal":109,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"\u05d9\u05ea\u05e8\u05ea \u05d4\u05d6\u05de\u05e0\u05d4","qCardinal":35,"qTags":["$numeric"],"qSrcTables":["Sums"]}
+{"qName":"Type","qCardinal":4,"qTags":["$text"],"qSrcTables":["Unified_Sums"]}
+{"qName":"Sum for pie","qCardinal":230,"qTags":["$numeric"],"qSrcTables":["Unified_Sums"]}
+{"qName":"TypeSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Unified_Sums"]}
+{"qName":"AppReloadTime","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["TPL_Reload"]}
+{"qName":"DataReloadTimeDB","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["TPL_Reload"]}
+{"qName":"DataReloadDateDB","qCardinal":1,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["TPL_Reload"]}
+{"qName":"LastReloadTime","qCardinal":1,"qTags":["$numeric","$timestamp"],"qSrcTables":["TPL_Reload"]}
+{"qName":"SAPClient","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["TPL_Reload"]}
+{"qName":"SAPLanguage","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["TPL_Reload"]}
