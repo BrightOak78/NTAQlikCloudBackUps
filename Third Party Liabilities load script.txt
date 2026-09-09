@@ -125,6 +125,13 @@ FROM $(vQvdSecurityDW)Authenticated_User.QVD (qvd);
 
 //---------------------------------------------------
 
+Access_Groups:
+LOAD 
+	 DOCGROUP as USERNAME_DOCGROUP, 
+     קו 
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Data/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups);
+
 
 
 //*****************************************************
