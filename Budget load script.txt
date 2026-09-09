@@ -1,0 +1,1151 @@
+///$tab Main & Connect
+SET MonthNamesEng='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNamesEng='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNamesEng='Sun;Mon;Tue;Wed;Thu;Fri;Sat';
+SET LongDayNamesEng='Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday';
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='ינו;פבר;מרץ;אפר;מאי;יונ;יול;אוג;ספט;אוק;נוב;דצמ';
+SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+SET DayNames='א;ב;ג;ד;ה;ו;ש';
+SET LongDayNames='ראשון;שני;שלישי;רביעי;חמישי;שישי;שבת';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = 'תקציב'; //Free Document Name
+SET pWorkApp = 'Budget'; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+
+
+///$tab משתני סביבה
+LET rRunStart = Now(1);
+LET vLM_Yesterday=Date(AddMonths( Floor(Now())-1,-1),'DD/MM/YYYY'); // $(vYesterday)
+LET vToday=Date(Floor(Now()),'DD/MM/YYYY'); // $(vToday)
+LET vYesterday=Date(Floor(Now())-1,'DD/MM/YYYY'); // $(vYesterday)
+LET vCurrentYYYYMM = year(vToday)& num(month(vToday),'00'); // $(vCurrentYYYYMM)
+LET vLM_YYYYMM = year(AddMonths(vToday,-1))& num(month(AddMonths(vToday,-1)),'00'); // $(vCurrentYYYYMM)
+LET vYesterdayYYYYMM = year(vYesterday)& num(month(vYesterday),'00'); // $(vCurrentYYYYMM)
+Let vCurrentYear = year(vToday); // $(vCurrentYear)
+Let vProjectTypeDescription='פרויקטלי';
+Let vSelectHierarchy='חלופית';
+let vWBS_UI_CheckboxOnOff=0;
+set pQvd_PaymentEthics= 'lib://API & Connections:File_jqvnta01_Qlikview/Production/Finance/PaymentEthics/Qvd/';
+// //for Prod
+// SET vFileList='\\ntanas02\bi\Quality_green_IN2';
+// SET vODBC='QualityIN2;DBQ=\\ntanas02\bi\Quality_green_IN2\';
+// SET vNas02Temp = '\\ntanas02\bi\Quality_green_IN2' ; // $(vNas02Temp) 
+// //****************************************************************************************//
+
+// Set vQuantityPercentage= 'Quantity';
+///$tab TEST
+
+///$tab Exit Script
+// Exit Script
+///$tab UI
+LOAD * INLINE [
+    %ShowWBS
+    WBS# הצגת 
+];
+
+LOAD * INLINE [
+    %ShowEmpty
+     
+];
+
+
+///$tab WBS
+WBS:
+LOAD
+    "WBS מס' ושם",
+    PDOBJNR,
+    P_O_Project,
+    "WBS מס.",
+    אחריות_ASTNR,
+    KeyObjnr,
+    FKSTL,
+    ProjectName,
+    NodeID,
+    "פרויקט נוכחי",
+    "קוד נושא תקציבי ל-BI",
+    "WBSמס. 4",
+    "WBSמס. 3",
+    "WBSמס. 2",
+    "WBSמס. 1",
+    "WBS5 מס.",
+    PRART,
+    WBSELEMENT,
+    "היררכית הנהלה",
+    WBS1_f,
+    WBS2_f,
+    WBS3_f,
+    WBS4_f,
+    WBS5_f,
+    WBS,
+    WBS_1,
+    WBS_2,
+    WBS_3,
+    WBS_4,
+    WBS_5,
+    WBS1,
+    WBS2,
+    WBS3,
+    WBS4,
+    WBS5,
+    %PSPNR,
+    if([תאור סוג פרויקט]='תקציב ארגוני','ארגוני','פרויקטלי') as [פרויקטלי/ארגוני],
+    LOEVM,
+    ProjectManagerCode,
+    "מנהל פרוייקט",
+    "תת נושא",
+    "קוד קו",
+    קו,
+    פרויקט,
+    "דגל אלמנט חיוב",
+    POSKI,
+    "סוג פרוייקט",
+    דגל_הפקעות,
+    "פרויקט מלא",
+    תאור_מלא_WBS,
+    תאור_מלא_WBS1,
+    תאור_מלא_WBS2,
+    תאור_מלא_WBS3,
+    תאור_מלא_WBS4,
+    תאור_מלא_WBS5,
+    "%תאור סוג פרויקט",
+    "WBS תיאור",
+    "WBSתיאור 1",
+    "WBSתיאור 2",
+    "WBSתיאור 3",
+    "WBSתיאור 4",
+    "WBSתיאור 5",
+    "WBS תאור",
+    "WBSתאור 1",
+    "WBSתאור 2",
+    "WBSתאור 3",
+    "WBSתאור 4",
+    "WBSתאור 5",
+    "נושא תקציבי ל-BI",
+    "%סינון לגרף",
+    GP_flag,
+    FlagBI_BEZEM,
+    FlagBI,
+    FlagBI2,
+    FlagBI3,
+    FlagBI4,
+    "WBS סוג",
+    "תת פרויקט",
+    PSPID,
+    "מספר פרויקט",
+    "מספר ושם פרויקט",
+    STSPD,
+    STSPR,
+    "Type",
+    NodeIP,
+    STSMA,
+    statuskey,
+    "גורם אחראי",
+    מרכז_עלות,
+    תיאור_מרכז_עלות,
+    "תיאור שלב בפרויקט",
+    ZZN_CODE_NUMBER,
+    ZZN_Depth,
+    ZZN_HierarchyLevel,
+    ZZN_NodePath,
+    ZZN_ParentID,
+    ZZN_CODE_NUMBER_DESCRIPTION,
+    ZZN_CODE_NUMBER_DESCRIPTION1,
+    ZZN_CODE_NUMBER_DESCRIPTION2,
+    ZZN_CODE_NUMBER_DESCRIPTION3,
+    ZZN_CODE_NUMBER_DESCRIPTION4,
+    ZZN_CODE_NUMBER_DESCRIPTION5,
+    ZZN_HierarchyKey,
+    ZZN_ELEMENT_NUM,
+    ZZN_MOT
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd);
+
+
+///$tab Hierarchy-s
+LOAD
+    AncestorWBS,
+//      OBJNR,
+    "מספר מרכבה",
+    POSNR,
+    POSID,
+    "קוד מרכבה",
+    קוד_תקנה,
+    "טקסט משרד התחבורה",
+    "הוראת משרד התחבורה",
+    "תקציב מרכבה",
+    _OBJNR,
+     WBSELEMENT
+FROM [$(vLibDataFiles_DW)/IpHier.qvd](qvd);
+
+LOAD
+    NodeID,
+    ParentSourceNum,
+    IDElement,
+    "רמה 1",
+    "רמה 2",
+    "רמה 3",
+    "רמה 4",
+    "רמה 5",
+    "רמה 6",
+    "רמה 7",
+    ParentName,
+    Path,
+    %NodeKey,
+    %ParentKey,
+    ElementName,
+    ParentSourceName,
+    ParentElementID,
+    LevelNo,
+    SiblingOrder,
+    PROJECT_REL,
+    OBJNR,
+    RELEVANT_TO_BI,
+    WBS_LINK,
+    WBS_RISK_Indicator,
+    CATEGORY,
+    BASELINE_START_DATE,
+    BASELINE_FINISH_DATE,
+    FORECAST_START_DATE,
+    FORECAST_FINISH_DATE,
+    ACTUAL_START_DATE,
+    ACTUAL_FINISH_DATE,
+    STATUS,
+    VERNR,
+    PRIMAVERA_ID,
+    Depth,
+    WBS_RISK_STATUS,
+    CURRENCY,
+    NOTE,
+    COST,
+    "סבירות סיכון",
+    WBS_RISK,
+    WBS_RISK_DESCTIPTION,
+    ElementID
+FROM [$(vLibDataFiles_DW)/Alternative_Hierarchy.qvd](qvd);
+
+LOAD
+    ZZN_ELEMENT_NUM,
+    Key,
+    KeyBase_Select,
+    "Line",
+    Networking,
+    "Line Code",
+    LINE4SA,
+    "Work Type Code",
+    "Work package Code",
+    "NBS LEVEL 1 Code",
+    "NBS LEVEL 2 Code",
+    KeyBase,
+    Key_Reversed,
+    %Key_Encrypted
+FROM [$(vLibDataFiles_DW)/MenifaTable.qvd](qvd);
+
+LOAD
+    "קו הנהלה חדש",
+    WBSELEMENT,
+    "קוד קו הנהלה חדש",
+    NewSortLine
+FROM [$(vLibDataFiles_DW)/דוח_הנהלה.qvd](qvd);
+
+
+
+
+///$tab FACT 558
+EKKO_LIFNR:
+LOAD Distinct
+     num#([EBELN])  as EBELN,
+     LIFNR
+FROM $(vLibDataFiles_RAW)/EKKO.qvd(qvd);
+
+EKPO_Distinct:
+LOAD 
+	 num#(EBELN)&num#(EBELP) as %EBELN_EBELP,
+	 num#(KONNR) as [מספר הסכם], 
+     num#(KTPNR) as [שורת הסכם]
+FROM $(vLibDataFiles_RAW)/EKPO.qvd(qvd)
+Where ([LOEKZ])=' ';
+
+KeyObjnr_%PSPNR:
+LOAD Distinct
+	 KeyObjnr
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd)
+Where LOEVM <> 'X';;
+WBS_Distinct:
+LOAD Distinct
+     KeyObjnr,1 as ObjnrFlag
+Resident KeyObjnr_%PSPNR;
+DROP Table KeyObjnr_%PSPNR;
+//Exit Script
+Fact_558_t1:
+//תשלומים:
+LOAD 
+     'COFP' as Source, 
+	 SourceCOFP,
+     [קוד מעמ], 
+      if(left(BELNR1,2)='52' and Year(COFP_Date)='9999',0,1) as %COFP_Flag,
+     if(left(BELNR1,2)='52', if(Year(COFP_Date)='9999', 'עכבונות עתידי','עכבונות'),'פוטנציאל ללא עכבונות') as %PotentialDelay,
+     if(left(BELNR1,2)='52', if(Year(COFP_Date)='9999', '3','2'),'1') as %PotentialDelaySort,
+//     Year(COFP_Date) as Year_COFP,
+//     COFP_Date,
+//     Date as OrgDate,
+//	 Date2,
+     num#([שנת כספים]) as [שנת כספים], 
+     BELNR1, 
+     BELNR, 
+     LIFNR as %LIFNR_COFP,
+     %EBELN_EBELP,
+     EBELN, 
+     EBELP,
+     if(Trim(SGTXT)='',[כותרת מסמך ידני], SGTXT) as [תאור מסמך לתשלום], 
+     KBLPOS, 
+     KeyObjnr4Fact as KeyObjnr, 
+	[קוד סטטוס חשבונית],
+	 if(IsNull([קוד תנאי תשלום ספק]) or Trim([קוד תנאי תשלום ספק])='', ZTERM,[קוד תנאי תשלום ספק]) as [קוד תנאי תשלום ספק], 
+	 if(IsNull([תאור תנאי תשלום ספק]) or Trim([תאור תנאי תשלום ספק])='', TEXT1,[תאור תנאי תשלום ספק]) as [תאור תנאי תשלום ספק],
+ 	 [תאריך צפי לתשלום לחשבונית] as [תאריך צפי לתשלום לחשבונית ממודל מוסר תשלומים],
+	 [תאור סטטוס חשבונית],
+	 [ימים לתשלום],
+	 
+     Date(if(SourceCOFP='תשלומים',COFP_Date,
+     if(IsNull([תאריך צפי לתשלום לחשבונית]) or Trim([תאריך צפי לתשלום לחשבונית])='', 
+     if(IsNull(Date),if(IsNull(Date2),COFP_Date,Date2),Date),[תאריך צפי לתשלום לחשבונית]))) as Date,
+//     	  if(IsNull(Date), Date(COFP_Date+if(IsNull([ימים לתשלום]) or Trim([ימים לתשלום])='',0,[ימים לתשלום])),
+//	     	  Date(Date+if(IsNull([ימים לתשלום]) or Trim([ימים לתשלום])='',0,[ימים לתשלום]))),[תאריך צפי לתשלום לחשבונית]))) as Date,
+     VRGNG, 
+     BELTP, 
+     [סוג ערך],
+     [מספר מסמך],
+     if(BKPF_DA_DR_Flag=1 or BKPF_DA_DR_Flag2=1,1,0) as [תשלומים דגל הכנסה],//,'DA'
+     [פוטנציאל תשלומים],
+     [דגל קיזוזי מקדמות ותשלום מקדמות],
+ 	 [תנועה פיננסית],
+//     if([דגל קיזוזי מקדמות]=1,תשלומים) as 
+	 תשלומים,
+     KSTAR,
+     BLART
+FROM [$(vLibDataFiles_DW)/COFP.qvd](qvd)
+Where SourceCOFP_flag=1 and (HASAVA_Flag=1 or HASAVA_Flag2=1 or IsNull(HASAVA_Flag) or IsNull(HASAVA_Flag2)) 
+and (if(IsNull(BLART),1,if(BLART='AA' or BLART='AP',0,1)) or if(IsNull(BLART2),1,if(BLART2='AA' or BLART2='AP' or IsNull(BLART),0,1)))
+//and [דגל קיזוזי מקדמות]=1
+;
+// Exit Script
+Fact_558_t:
+LOAD *,Num#(Year(Date) *100 + Num(Month(Date)),'#0') as [YYYYMM]
+Resident Fact_558_t1
+Where  %COFP_Flag=1;
+DROP Table Fact_558_t1;
+Concatenate
+//הכנסות_עלות_בפועל_בהמתנה:
+LOAD 
+	 KSTAR,
+	 OriginBELNR, 
+     Date, 
+	 Num#(Year(Date) *100 + Num(Month(Date)),'#0') as [YYYYMM],     
+     KOKRS, 
+     BELNR, 
+     BLART,
+     PERIO, 
+     בהמתנה,
+     LEDNR, 
+     'COEP' as Source,
+//     if(match(BLART,'AA','AP') or BKPF_DA_DR_Flag=1,1,0) as [תשלומים דגל הכנסה],
+     SourceCOEP,
+     בפועל,
+//     if([דגל הצמדות והפרשי שער]<>1, בפועל) as בפועל, //	 בפועל as [בפועל כולל הצמדות והפרשי שער],
+     [הכנסות בפועל], 
+     KeyObjnr, 
+     num#([שנת כספים]) as [שנת כספים], 
+     [סוג ערך], 
+     VRGNG, 
+     %EBELN_EBELP,
+     EBELN, 
+     EBELP, 
+     BELTP, 
+     LIFNR as %LIFNR_COEP, 
+//     טקסט_SGTXT,
+	 if(EBELN=' ',if(trim(טקסט_SGTXT)='',BLTXT,טקסט_SGTXT)) as [תיאור הכנסות_עלות_בפועל_בהמתנה],
+     [קוד מעמ]
+FROM $(vLibDataFiles_DW)/COEP.qvd(qvd)
+Where SourceCOEP_flag=1 and (HASAVA_Flag=1 or IsNull(HASAVA_Flag)) and if(IsNull(BLART),1,if(BLART='AA' /*or BLART='AP' or trim(BLART)=''*/,0,1)) and NOT WildMatch(BLTXT, '*הסבה*') 
+;
+//aa רישום לנכס, AP - פקודות מיון ידניות
+Concatenate
+LOAD 
+	 'EKBE' as Source, 
+	 %EBELN_EBELP,
+	 EBELN, 
+	 EBELP, 
+	 BELNR,
+//	 חוזה,
+     KeyObjnr4Fact as KeyObjnr, 
+     LIFNR as %LIFNR_EKBE, 
+     ERNAM, 
+     LFBNR,
+	 LFPOS,
+     num#([שנת כספים]) as [שנת כספים],
+     [מספר מסמך],
+     ZTERM as [קוד תנאי תשלום ספק],
+     TEXT1 as [תאור תנאי תשלום ספק],
+ 	 [ימים לתשלום],
+	 Date(Date+if(IsNull([ימים לתשלום]) or Trim([ימים לתשלום])='',0,[ימים לתשלום])) as Date,
+	 Num#(Year(Date(Date+if(IsNull([ימים לתשלום]) or Trim([ימים לתשלום])='',0,[ימים לתשלום]))) *100 
+	 	+ Num(Month(Date(Date+if(IsNull([ימים לתשלום]) or Trim([ימים לתשלום])='',0,[ימים לתשלום])))),'#0') as [YYYYMM],
+     BLART,
+     SourceEKBE,
+     RSEG_toFilter2,LAREWR,LWRBTR,AREWR,WRBTR,
+     [קוד מעמ],
+//     if(KBLK_flag=1, [EMF 'מס]) as [EMF 'מס],
+//	 if(KBLK_flag=1, [כותרת מסמך EMF]) as [כותרת מסמך EMF],
+     KSTAR,  
+     EKBE_flag, 
+//     כמות, 
+     [פוטנציאל תשלומים t1]-[פוטנציאל תשלומים t2] as [פוטנציאל תשלומים]
+FROM [$(vLibDataFiles_DW)/EKBE.qvd](qvd)
+Where EKKN_flag=1 and EKKO_flag=1 and EKPO_flag=1 and EKBE_flag=1 and if(RSEG_toFilter2=1,0,1) and if(fAbs(num#(LAREWR))=fAbs(num#(LWRBTR)),0,1) and if(fAbs(num#(AREWR))=fAbs(num#(WRBTR)),0,1) and (HASAVA_Flag=1 or IsNull(HASAVA_Flag));
+Concatenate
+//התחייבויות:
+LOAD 
+//	  if(left(REFBN,1) = 4,REFBN,
+//		if(not isnull(KONNR),KONNR , REFBN)) as EBELN,//חיבור ל'הסכמים והזמנות','דרישות'
+//	 if(not isnull( KONNR), KONNR, REFBN) as [מסמך רכש התחייבות],
+	 %EBELN_EBELP,
+	 EBELN, 
+	 EBELP, 
+REFBN, 
+REFBT,
+RFPOS, 
+//FLIEF, 
+KONNR,
+הסכם, 
+	  Num#(Year(Date) *100 + Num(Month(Date)),'#0') as [YYYYMM],
+     Date, 
+     num#([שנת כספים]) as [שנת כספים], 
+     if(LIFNR>0,LIFNR,if(FLIEF>0,FLIEF,if(ספק>0,ספק))) as %LIFNR_COOI, 
+     if([מספר מסמך רכש]>0, [מספר מסמך רכש], if([מספר דרישת רכש]>0,[מספר דרישת רכש], if([מספר קרנות מיועדים]>0,[מספר קרנות מיועדים]))) as [מספר מסמך],
+     if([מספר מסמך רכש]>0,[תאור מסמך רכש], if([מספר דרישת רכש]>0,[תאור דרישת רכש], if([מספר קרנות מיועדים]>0,[תאור קרנות מיועדים]))) as [תאור מסמך],
+     [תאריך מסמך], 
+     KOKRS, 
+     LEDNR,      
+     KeyObjnr, 
+     KSTAR,//[סעיף הוצאה], 
+     VRGNG, 
+     [סוג ערך], 
+     'COOI' as Source, 
+     SourceCOOI, 
+     [חוזי קבלנים], 
+     [הזמנות רכש], 
+     [דרישות רכש], 
+    // [התחייבות ללא מקדמות],
+     התחייבויות,
+//     התחייבויות_T,
+     [תיאור התחייבות],
+	[סכום צריכה],
+	[סכום פתוח],
+	[סכום שריון],
+	flag_sum_0, 
+//     RFTRM, 
+//     RFTYP, 
+//     KONNR, 
+     [קוד מעמ]
+FROM [$(vLibDataFiles_DW)/COOI.qvd](qvd)
+Where SourceCOOI_flag=1;
+/////////////////////////////////////////////////////
+left join
+LOAD *
+Resident EKPO_Distinct;
+DROP Table EKPO_Distinct;
+Left Join
+LOAD *
+Resident EKKO_LIFNR;
+DROP Table EKKO_LIFNR;
+//EXIT SCRIPT
+/////////////////////////////////////////////////////
+Concatenate
+LOAD 	
+	 [מספר הסכם], 
+     [שורת הסכם], 
+     '' as %EBELN_EBELP,
+	 '' as EBELN, 
+	 '' as EBELP, 
+//     %PSPNR, 
+     KeyObjnr, 
+     KSTAR, 
+     LIFNR as LIFNR, 
+     [שם הסכם], 
+     [קוד אגף - מקור], 
+     [תאריך סיום תוקף מקורי], 
+     [תאריך תחילת תוקף מקורי], 
+     [תחילת תוקף עדכני], 
+     [קוד מספר הליך], 
+     [סיום תוקף עדכני], 
+     [סוג הסכם], 
+     [קוד מפעיל הסכם], 
+     [קוד קבוצת רכש], 
+     [קוד סוג מסמך רכש], 
+     [סווג הסכם], 
+//     [ערך הסכם מקורי], 
+     [תאור שורת הסכם], 
+     [כמות יעד שורת הסכם], 
+     [מחיר שורת הסכם], 
+     [ערך שורת הסכם עדכני], 
+     [יחידת מידה הסכם], 
+     [ערך שורה נטו מטבע מקור], 
+     [קטגורית פריט], 
+     [קוד מס] as [קוד מעמ],
+//     if(KBLK_flag=1, [EMF 'מס]) as [EMF 'מס],
+//	 if(KBLK_flag=1, [כותרת מסמך EMF]) as [כותרת מסמך EMF],
+     'הסכמים' as Source, 
+     Num#(Year(Date) *100 + Num(Month(Date)),'#0') as [YYYYMM], 
+     Year(Date) as [שנת כספים], 
+     Date, 
+     [הוראות שינוי שאושרו]
+FROM [$(vLibDataFiles_DW)/הסכמים.qvd](qvd);
+/////////////////////////////////////////////////////
+Left Join
+LOAD [קוד מעמ], 
+     num#(1+SumKBETR) as [אחוז מעמ]
+FROM $(vLibDataFiles_DW)/NewVat.qvd(qvd)
+//Where Left([קוד מעמ],1)='V' Or [קוד מעמ]='T9'
+;
+/////////////////////////////////////////////////////
+Concatenate
+LOAD
+	  
+	 KeyObjnr, 
+	 Date,
+     Num#(Year(Date) *100 + Num(Month(Date)),'#0') as [YYYYMM], 
+     [שנת כספים], 
+     'COSP' as Source,
+     BELTP, 
+     KSTAR,
+     גרסה, 
+     [סוג ערך], 
+//     LEDNR, 
+//     Month, 
+     [תקציב שנתי],
+     YB_Source 
+//     KSTAR
+FROM [$(vLibDataFiles_DW)/YearlyBudget.qvd](qvd)
+Where COSP_Flag=1;
+/////////////////////////////////////////////////////
+Concatenate
+//תקציב:
+LOAD 
+	 '' as Date, 
+	 '' as YYYYMM, 
+     '' as [שנת כספים], 
+     'RPSCO' as Source, 
+     VORGA,
+     גרסה,
+     BELTP, 
+     LEDNR, 
+     [סוג ערך], 
+     RPSCO.WLP00,
+     KeyObjnr, 
+     [אומדן רב נשתי], 
+     [אומדן בצמ רב נשתי],
+     [תקציב רב שנתי]
+FROM [$(vLibDataFiles_DW)/RPSCO.qvd](qvd);
+//EXIT SCRIPT
+/////////////////////////////////////////////////////
+//Concatenate
+//LOAD 
+//	 '' as Date, 
+//	 '' as YYYYMM, 
+//     '' as [שנת כספים], 
+//     'BPEG' as Source, 
+// 	 KeyObjnr, 
+//     [תקציב מרכבה], 
+//     LEDNR, 
+//     [סוג ערך], 
+//     גרסה, 
+//     VORGA
+//FROM [$(vLibDataFiles_DW)/BPEG.qvd](qvd);
+/////////////////////////////////////////////////////
+left join 
+LOAD 
+	 TXT as [סוג תקציב רב שנתי], 
+     ACTIVITY as VORGA
+FROM $(vLibDataFiles_RAW)/T022T.qvd (qvd)
+where LANGU='B';
+//EXIT SCRIPT
+Left Join
+LOAD 
+     KeyObjnr,1 as ObjnrFlag
+Resident WBS_Distinct;
+DROP Table WBS_Distinct;
+//FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd); 
+//EXIT SCRIPT
+Left join
+LOAD 
+     VERSI as גרסה, 
+    VTEXT as [גרסת תקציב]
+FROM $(vLibDataFiles_RAW)/TKVST.qvd(qvd)
+where SPRAS='B';
+//EXIT SCRIPT
+Left Join
+LOAD 
+	 1 as [דגל הצמדות והפרשי שער],
+	  num#([KSTAR]) as KSTAR,
+	 If(Left([KSTAR],6)='006009','הצמדות',If(Left([KSTAR],4)='0068','הפרשי שער', 'מקדמות')) as [הצמדות / הפרשי שער]
+FROM [$(vLibDataFiles_RAW)/TBPFK.qvd](qvd);
+STORE Fact_558_t into $(vLibDataFiles_DW)/Fact_558_t.qvd;
+//EXIT SCRIPT
+
+Fact_558:
+NoConcatenate
+LOAD 
+	 BELTP, 
+	 %PotentialDelay,
+	 %PotentialDelaySort, 
+	 OriginBELNR, 	 
+     [קוד מעמ], 
+     text(IF(Source='COEP',if(IsNull(%LIFNR_COEP) or Trim(%LIFNR_COEP)='','NA',%LIFNR_COEP)
+										     ,IF(Source='COOI',if(IsNull(%LIFNR_COOI) or Trim(%LIFNR_COOI)='','NA',%LIFNR_COOI)
+										     ,IF(Source='COFP',if(IsNull(%LIFNR_COFP) or Trim(%LIFNR_COFP)='','NA',%LIFNR_COFP)
+										     ,IF(Source='EKBE',if(IsNull(%LIFNR_EKBE) or Trim(%LIFNR_EKBE)='','NA',%LIFNR_EKBE)))))) as %LIFNR,
+     text(if(IsNull(LIFNR) or Trim(LIFNR)='',IF(Source='COEP',if(IsNull(%LIFNR_COEP) or Trim(%LIFNR_COEP)='','NA',%LIFNR_COEP)
+										     ,IF(Source='COOI',if(IsNull(%LIFNR_COOI) or Trim(%LIFNR_COOI)='','NA',%LIFNR_COOI)
+										     ,IF(Source='COFP',if(IsNull(%LIFNR_COFP) or Trim(%LIFNR_COFP)='','NA',%LIFNR_COFP)
+										     ,IF(Source='EKBE',if(IsNull(%LIFNR_EKBE) or Trim(%LIFNR_EKBE)='','NA',%LIFNR_EKBE))))),LIFNR)) as LIFNR,
+//	 [תקציב מרכבה], 
+     VRGNG, 
+     KeyObjnr, 
+     ObjnrFlag, 
+     KSTAR, 
+     Date(floor(Date)) as Date, 
+     KOKRS, 
+     BELNR, 
+     PERIO, 
+//     בהמתנה as %בהמתנה,
+//     if(Year(Date)>=2023, בהמתנה,בהמתנה*([אחוז מעמ]+1)) as 
+בהמתנה,
+//     בהמתנה as [בהמתנה מקורי], 
+//     if([דגל הצמדות והפרשי שער]=1,0,בהמתנה) as בהמתנה, 
+     Source, 
+     SourceCOEP, 
+//     בפועל as %בפועל,
+//     if(Year(Date)>=2023, בפועל,בפועל*([אחוז מעמ]+1)) as 
+בפועל,
+//     בפועל as [בפועל מקורי],
+//     if([דגל הצמדות והפרשי שער]=1,0,בפועל) as בפועל, 
+//     if([דגל הצמדות והפרשי שער]=1,0,בפועל)+תשלומים as [פוטנציאל],
+//	 [הכנסות בפועל] as [%הכנסות בפועל],
+//     if(Year(Date)>=2023, [הכנסות בפועל],[הכנסות בפועל]*([אחוז מעמ]+1)) as 
+[הכנסות בפועל], 
+     num#([שנת כספים]) as [שנת כספים], 
+     [תאור מסמך לתשלום],
+     [סוג ערך],
+     %EBELN_EBELP,
+//     EKKN_flag, EKKO_flag, EKPO_flag, RSEG_toFilter1, RSEG_toFilter2, 
+	 EBELN, 
+	 EBELP,
+	 [תאור סטטוס חשבונית],
+	  SourceEKBE,
+//	 [EMF 'מס],
+//	 [כותרת מסמך EMF],
+	 IF([מספר הסכם]>0, [מספר הסכם],IF(NUM#(KONNR)>0,NUM#(KONNR),IF(NUM#(הסכם)>0,הסכם))) AS [מספר הסכם], 
+     [שורת הסכם], 
+     [שם הסכם], 
+     [קוד אגף - מקור], 
+     [תאריך סיום תוקף מקורי], 
+     [תאריך תחילת תוקף מקורי], 
+     [תחילת תוקף עדכני], 
+     [קוד מספר הליך], 
+     [סיום תוקף עדכני], 
+     [סוג הסכם], 
+     [קוד מפעיל הסכם], 
+     [קוד קבוצת רכש], 
+     [קוד סוג מסמך רכש], 
+     [סווג הסכם], 
+//     [ערך הסכם מקורי], 
+     [תאור שורת הסכם], 
+     [כמות יעד שורת הסכם], 
+     [מחיר שורת הסכם], 
+//     if(Year(Date)>=2023, [ערך שורת הסכם עדכני],[ערך שורת הסכם עדכני]*([אחוז מעמ]+1)) as 
+[ערך שורת הסכם עדכני], 
+     [יחידת מידה הסכם], 
+//     if(Year(Date)>=2023, [ערך שורה נטו מטבע מקור],[ערך שורה נטו מטבע מקור]*([אחוז מעמ]+1)) as 
+[ערך שורה נטו מטבע מקור], 
+     [קטגורית פריט], 
+
+//     if(Year(Date)>=2023, [הוראות שינוי שאושרו],[הוראות שינוי שאושרו]*([אחוז מעמ]+1)) as 
+[הוראות שינוי שאושרו],
+	 [אחוז מעמ],
+     [תיאור הכנסות_עלות_בפועל_בהמתנה], 
+     SourceCOFP, 
+//     EBELP, 
+//     טקסט_SGTXT, 
+     KBLPOS, 
+     [תשלומים דגל הכנסה],
+     [פוטנציאל תשלומים], 
+//     as [%פוטנציאל תשלומים],
+//     if(Year(Date)<2023, [פוטנציאל תשלומים],[פוטנציאל תשלומים]/([אחוז מעמ]+1)) as [פוטנציאל תשלומים],
+     תשלומים, 
+//     as %תשלומים,
+//     if(Year(Date)<2023, תשלומים,תשלומים/([אחוז מעמ]+1)) as תשלומים, 
+     [מספר מסמך],
+     [תאור מסמך],
+     BLART as %BLART, 
+     [תאריך מסמך], 
+     SourceCOOI, 
+     [חוזי קבלנים], 
+     [הזמנות רכש],
+     [דרישות רכש],
+//     התחייבויות as %התחייבויות,
+//	 if(Year(Date)>=2023, התחייבויות,התחייבויות*([אחוז מעמ]+1)) as 
+	 התחייבויות,
+//	 התחייבויות_T as %התחייבויות_T,
+//	 if(Year(Date)>=2023, התחייבויות_T,התחייבויות_T*([אחוז מעמ]+1)) as התחייבויות_T,
+     [תיאור התחייבות], 
+     LEDNR, 
+     [אומדן בצמ רב נשתי],
+     [אומדן רב נשתי], 
+     [תקציב רב שנתי], 
+     [סוג תקציב רב שנתי], 
+     if([דגל הצמדות והפרשי שער]=1,1,0) as [דגל הצמדות והפרשי שער], 
+     [הצמדות / הפרשי שער], 
+     [תקציב שנתי], 
+     YYYYMM, 
+     YB_Source, 
+//////////////////////////////////////////     
+     [גרסת תקציב],
+//////////////////////////////     
+     RPSCO.WLP00,
+//////////////////////////
+     גרסה
+Resident Fact_558_t
+Where ObjnrFlag=1;
+DROP Table Fact_558_t;
+STORE Fact_558 into $(vLibDataFiles_DW)/Fact_558.qvd;
+//EXIT SCRIPT
+
+///$tab Dims
+סוג_ערך:
+NoConcatenate
+LOAD Distinct [סוג ערך]
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull([סוג ערך]) and not trim([סוג ערך])='';
+left join
+LOAD 
+	DOMNAME,
+     (DOMVALUE_L) as [סוג ערך],
+     DDTEXT as [תאור סוג ערך]
+FROM [$(vLibDataFiles_RAW)/DD07T.qvd](qvd)
+Where match(DOMNAME,'CO_WRTTP') and DDLANGUAGE ='B';
+
+BELTP:
+NoConcatenate
+LOAD Distinct BELTP
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(BELTP) and not trim(BELTP)='';
+left join
+LOAD * INLINE [
+    BELTP, סוג חיוב
+    1, חיוב
+    2, זיכוי
+];
+
+ספק:
+NoConcatenate
+LOAD Distinct LIFNR
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(LIFNR) and not trim(LIFNR)='' and LIFNR<>'NA';
+left join
+LOAD 
+     text([LIFNR]) as LIFNR, 
+     NAME1 as ספק
+FROM $(vLibDataFiles_RAW)/LFA1.qvd(qvd)
+Where not IsNull(LIFNR) and not trim(LIFNR)='';
+Concatenate
+LOAD 'NA' as LIFNR,
+	 'NA' as ספק
+AutoGenerate(1);
+
+תנועה_עיסקית:
+NoConcatenate
+LOAD Distinct VRGNG
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(VRGNG) and not trim(VRGNG)='';;
+left join
+LOAD 
+     VRGNG, 
+     TXT  as [תנועה עיסקית]
+FROM $(vLibDataFiles_RAW)/TJ01T.qvd (qvd)
+where SPRAS='B';
+
+SKAT:
+NoConcatenate
+LOAD Distinct KSTAR
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(KSTAR) and not trim(KSTAR)='';;
+left join
+LOAD
+     num#([SAKNR]) as KSTAR,
+     [KTOPL] as KTOPL,
+     [SAKNR] as חשבון,
+     [TXT20] as [חשבון תיאור קצר], 
+     [TXT50] as [חשבון תיאור ארוך]
+FROM $(vLibDataFiles_RAW)/SKAT.qvd(qvd)
+where  SPRAS='B' and [KTOPL]='MATZ';//MATZ-תרשים חשבונות - נת"ע
+
+BLART:
+LOAD Distinct %BLART
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(%BLART) and not trim(%BLART)='';;
+left join
+LOAD 
+    
+     [BLART] as %BLART, 
+     LTEXT as [תיאור סוג מסמך]
+FROM $(vLibDataFiles_RAW)/T003T.qvd(qvd)
+where   SPRAS='B';
+
+EKKO:
+NoConcatenate
+LOAD Distinct  EBELN 
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(EBELN) and not trim(EBELN)='';
+left join
+LOAD  distinct
+	 num#([EBELN])  as EBELN,
+	 [EBELN] as [מספר מסמך רכש],
+//     if(match( [EKKO.סוג מסמך_BSART],'ZMK0','ZMK1') and BSTYP='K',[EKKO.מסמך רכש_EBELN]) as %ConstructorsContractsEBELN,
+//    if( ([BSTYP]  = 'K' or EKKO.הסכם_KONNR=' ') and [EKKO.סוג מסמך_BSART] <> 'ZNE4' ,'חוזה','חשבון') as [הזמנה\חשבון],
+     BSTYP as %BSTYP,
+     [BSART] as %EKKO_BSART, 
+     LIFNR as  [קוד ספק],   
+     [EKGRP]as [קוד מפעיל],
+	date([BEDAT]) as [תאריך יצירת מסמך]
+FROM $(vLibDataFiles_RAW)/EKKO.qvd(qvd)
+Where [LOEKZ]<>'';
+left join
+LOAD 
+     [EKGRP] as [קוד מפעיל], 
+    [EKNAM] as [מפעיל חוזה]
+FROM [$(vLibDataFiles_RAW)/T024.qvd](qvd);
+//left join
+//LOAD [Purch.Doc. (EKKO-EBELN)] as EBELN, 
+//     [long text (LONG_TEXT)] as [תאור מסמך רכש Q]
+//FROM $(pSapQueries)Query_Header_Text.qvd (qvd);
+left join
+LOAD 
+     [BSTYP] as %BSTYP, 
+     [BSART] as %EKKO_BSART, 
+     BATXT as [סוג מסמך רכש]
+FROM $(vLibDataFiles_RAW)/T161T.qvd(qvd)
+Where SPRAS='B';
+
+EKPO_t:
+NoConcatenate
+LOAD Distinct %EBELN_EBELP
+FROM [$(vLibDataFiles_DW)/Fact_558.qvd](qvd)
+Where not IsNull(%EBELN_EBELP) and not trim(%EBELN_EBELP)='';
+Left Join
+LOAD Distinct
+	 num#(EBELN)&num#(EBELP) as %EBELN_EBELP,
+     EBELN as [מספר מסמך רכש], 
+//     TXZ01 as [תאור מסמך רכש],//   תאור מהשורה ולא מהכותרת
+     PACKNO
+FROM $(vLibDataFiles_RAW)/EKPO.qvd(qvd)
+Where [LOEKZ]<>'';
+Left Join
+LOAD Distinct	 
+     EBELN as [מספר מסמך רכש], 
+     ES_STRING as [תאור מסמך רכש]
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/SAP/QvdDB/ZNCA_READ_TEXT_ES_STRING.QVD](qvd);
+
+Left Join
+LOAD
+     PACKNO, 
+     sum([ACTVALUE]) as [Actual Value], 
+    sum(SUMLIMIT) as [Overall Limit]
+FROM $(vLibDataFiles_RAW)/ESUH.qvd(qvd)
+Group by PACKNO;
+Left Join
+LOAD	
+//	 %BSTYP, 
+//     %EKKO_BSART, 
+     [מספר מסמך רכש],
+//     [מספר הסכם],  
+     [קוד מפעיל], 
+     [קוד ספק], 
+     [תאריך יצירת מסמך], 
+     [מפעיל חוזה], 
+//     [תאור מסמך רכש Q], 
+     [סוג מסמך רכש]
+Resident EKKO;
+DROP Table EKKO;
+
+EKKO_EKPO:
+NoConcatenate
+LOAD  
+	 %EBELN_EBELP,
+	 [מספר מסמך רכש],
+	 [תאור מסמך רכש],
+	 [קוד מפעיל],
+//	 [מספר הסכם],  
+     [קוד ספק], 
+     [תאריך יצירת מסמך], 
+     [מפעיל חוזה], 
+//     [תאור מסמך רכש Q], 
+     [סוג מסמך רכש],
+	 [Actual Value],
+	 [Overall Limit]
+Resident EKPO_t;
+DROP Table EKPO_t;
+
+///$tab Manager
+V_USERNAME:
+Mapping LOAD
+     [קוד משתמש], 
+     [שם משתמש]
+//FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Qvd/Users_Data.qvd](qvd);
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd);
+
+ManagerTemp:
+LOAD distinct
+     KeyObjnr
+Resident Fact_558;
+left join
+LOAD distinct
+    ApplyMap('V_USERNAME',IF(UPPER(TRIM(PARNR))='GALITP','GALITPO',PARNR),'לא הוגדר') as [מנהל תקציב],
+    IF(UPPER(TRIM(PARNR))='GALITP','GALITPO',PARNR) AS PARNR_Bgt,
+    [OBJNR] as KeyObjnr
+FROM [$(vLibDataFiles_RAW)/IHPA.qvd] (qvd)
+where PARVW <> 'X' and PARVW = 'BM';
+Concatenate
+LOAD distinct
+    ApplyMap('V_USERNAME',IF(UPPER(TRIM(PARNR))='GALITP','GALITPO',PARNR),'לא הוגדר') as [מנהל מחלקה מקצועית],
+    IF(UPPER(TRIM(PARNR))='GALITP','GALITPO',PARNR) AS PARNR_Dep,
+    [OBJNR] as KeyObjnr
+FROM [$(vLibDataFiles_RAW)/IHPA.qvd] (qvd)
+where PARVW <> 'X' and PARVW = 'D2';
+left join
+LOAD distinct
+     [קוד משתמש] as PARNR_Bgt, 
+     [קוד חטיבה] as [קוד חטיבה מנהל תקציב], 
+     [שם חטיבה] as [שם חטיבה מנהל תקציב],
+     [יחידה ארגונית] as [יחידה ארגונית מנהל תקציב]
+// FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Qvd/Users_Data.qvd](qvd);
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd);
+left join
+LOAD distinct
+     [קוד משתמש] as PARNR_Dep, 
+     [קוד חטיבה] as [קוד חטיבה מנהל מחלקה מקצועית], 
+     [שם חטיבה] as [שם חטיבה מנהל מחלקה מקצועית],
+     [יחידה ארגונית] as [יחידה ארגונית מנהל מחלקה מקצועית]
+// FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Qvd/Users_Data.qvd](qvd);
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd);
+
+Manager:
+NoConcatenate
+//Load 
+//	*,
+//	PARNR as BM_REDUCE;
+LOAD  
+	if(NOT ISNULL( PARNR_Bgt),PARNR_Bgt,'לא הוגדר') as PARNR_Bgt,
+	if(NOT ISNULL( PARNR_Dep),PARNR_Dep,'לא הוגדר') as PARNR_Dep,
+	[מנהל מחלקה מקצועית],
+	[מנהל תקציב],
+//    if(NOT ISNULL([מנהל מחלקת ביצוע]),[מנהל מחלקת ביצוע],'לא הוגדר') as [מנהל מחלקת ביצוע],
+//    if(NOT ISNULL([מנהל תקציב]),[מנהל תקציב],'לא הוגדר') as [מנהל תקציב],
+//    if(NOT ISNULL( [אחראי תקציב]), [אחראי תקציב],'לא הוגדר') as  [אחראי תקציב],
+	if(NOT ISNULL([יחידה ארגונית מנהל תקציב]),[יחידה ארגונית מנהל תקציב],'לא הוגדר') as [יחידה ארגונית מנהל תקציב],
+	if(NOT ISNULL([יחידה ארגונית מנהל מחלקה מקצועית]),[יחידה ארגונית מנהל מחלקה מקצועית],'לא הוגדר') as [יחידה ארגונית מנהל מחלקה מקצועית],
+	if(NOT ISNULL([שם חטיבה מנהל מחלקה מקצועית]),[שם חטיבה מנהל מחלקה מקצועית],'לא הוגדר') as [שם חטיבה מנהל מחלקה מקצועית],
+    if(NOT ISNULL([שם חטיבה מנהל תקציב]),[שם חטיבה מנהל תקציב],'לא הוגדר') as [שם חטיבה מנהל תקציב],
+    [קוד חטיבה מנהל מחלקה מקצועית],
+    [קוד חטיבה מנהל תקציב], 
+     KeyObjnr
+//    KeyObjnr as MngObjnr
+resident ManagerTemp;
+drop table ManagerTemp;
+// store Manager into [$(vLibDataFiles_DW)/Manager.qvd];
+
+
+///$tab Calendar
+YearlyBudget:
+NoConcatenate
+LOAD Distinct
+    MaxYB
+FROM [$(vLibDataFiles_DW)/YearlyBudget.qvd](qvd);
+LET vMaxYB =FieldValue('MaxYB',1);
+Drop Table YearlyBudget;
+
+
+Calendar:
+LOAD Date,
+	 YYYYMM
+Resident Fact_558
+Where Year(Date)<=(Year(today())+2);//'$(vMaxYB)';
+Left Join
+LOAD 
+	 YYYYMM, 
+     [Year-Month], 
+     [Date Diff], 
+     [Month Diff], 
+     [Qtr Diff], 
+     [Year Diff], 
+     [חודש נוכחי], 
+     [חודש שנה נוכחי], 
+     [חודש שנה נוכחי נומרי], 
+     [שם רבעון ארוך], 
+     Year, 
+     if(שנה<='$(vMaxYB)', שנה) as שנה,
+//      if(שנה<='$(vMaxYB)', שנה) as %שנה,
+     [שנה/רבעון], 
+     [שנה/חודש], 
+     [שנה/שבוע], 
+     [שנה/יום בשנה], 
+     YearQuarterSort, 
+     YearMonthSort, 
+     YearWeekSort, 
+     YearDaySort, 
+     YearMonthDaySort, 
+     QuarterNum, 
+     רבעון as Quarter,
+     רבעון, 
+     QuarterSort, 
+     [שם רבעון], 
+     [רבעון/שנה], 
+     [רבעון שנה], 
+     [רבעון/חודש], 
+     [רבעון/שבוע], 
+     [רבעון/יום בשנה], 
+     [רבעון/יום ברבעון], 
+     [תאריך התחלת רבעון], 
+     [תאריך סיום רבעון], 
+     num(MonthNum) as MonthNum, 
+     חודש, 
+     [מספר חודש], 
+     Month, 
+     MonthSort, 
+     [חודש-שנה], 
+     [שם חודש קצר], 
+     [שם חודש ארוך], 
+     [שם חודש קצר אנגלית], 
+     [שם חודש ארוך אנגלית], 
+     [חודש/שנה], 
+     [חודש שנה], 
+     [חודש/רבעון], 
+     [חודש/שבוע], 
+     [חודש/יום בשנה], 
+     [תאריך סיום חודש], 
+     [מספר ימים בחודש], 
+     WeekNum, 
+     שבוע, 
+     [שבוע/שנה], 
+     [שבוע שנה], 
+     [שבוע/רבעון], 
+     [שבוע/חודש], 
+     [שבוע/יום בשנה], 
+     [תאריך התחלת שבוע], 
+     [תאריך סיום שבוע], 
+     DayNum, 
+     DayInYearNum, 
+     [יום בשנה], 
+     [יום שנה], 
+     [יום בשנה/שנה], 
+     [יום בשנה/חודש], 
+     [יום בשנה/שבוע], 
+     [יום ברבעון], 
+     [יום בשנה/רבעון], 
+     [יום ברבעון/רבעון], 
+     WeekDayNum, 
+     [יום בשבוע], 
+     [שם יום בשבוע קצר], 
+     [שם יום בשבוע ארוך], 
+     [שם יום בשבוע קצר אנגלית], 
+     [שם יום בשבוע ארוך אנגלית], 
+     WeekDaySort, 
+     תאריך, 
+     Date, 
+     DateNum, 
+     Day, 
+     יום
+FROM [$(vCalendar)](qvd);
+
+///$tab Section Access
+//////*****************************************************
+// Show User Name
+Display_Users:
+LOAD Distinct
+	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
+	[שם משתמש] AS UserName_Full
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM [$(vQvdSecurityDB)Authenticated_User.QVD] (qvd);
+
+Star is *;
+Section Access;
+LOAD
+	 Upper(NTNAME & '@nta.co.il') as USERID,
+// 	 NTNAME, 
+     ACCESS, 
+     QVGROUP,
+     ORIGINAL_DOCGROUP,
+     [WBS 'מס] as WBSELEMENT
+FROM [$(vLibDataFiles_DW)/UserBudgetNew.qvd] (qvd)
+where match(QVGROUP,'ADMIN','POWERUSER','MANAGEMENT','USERS','USERSEX') //and NTNAME<>'KERENAA';//'SHLOMIK'
+;
+
+Section Application;
+Sheets:
+LOAD 
+     ORIGINAL_DOCGROUP,
+     if(ORIGINAL_DOCGROUP='MOT',0,1) as VIEW
+FROM [$(vLibDataFiles_DW)/UserBudgetNew.qvd] (qvd);
+
+
+///$tab Exit Script
+Exit Script
