@@ -63,27 +63,28 @@ VARIABLES
 {"qName":"vCurrentYear","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"59df1c3c-f13e-4817-a68a-81aa96a3a4e5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"247adf22-7b86-4dd8-b5c3-fa953a61da7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"36eef347-77f7-4f3b-b2f0-280dd82a798c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vLM_Yesterday","qDefinition":"08\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLM_Yesterday","qDefinition":"10\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"57283e08-9603-45c9-9627-ebf06b63de10","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vYesterday","qDefinition":"08\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vYesterday","qDefinition":"10\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Budget","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38a1f01d-e850-4f31-99a7-33e38aae578d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentName","qDefinition":"Budget_DW","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3804b7d6-ec52-4deb-a6e5-85de9bceb9df","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bfd26ee-8bfc-43c1-aca5-f3f6841fd776","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"09\/09\/2026 15:34","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"09\/09\/2026 16:05","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pWorkApp","qDefinition":"Budget","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a23e08f-164b-4643-bc44-95f628ea09e4","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vToday","qDefinition":"09\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vToday","qDefinition":"11\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8278e550-632d-4bdf-b7b2-d5afd304ccbf","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLM_YYYYMM","qDefinition":"202608","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ffff7f68-69ca-44a2-82f6-0fa34955ac96","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vYesterdayYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d4bf40ab-946f-4759-8efd-bc87ef5cea8b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentNameFN","qDefinition":"1e7c89c1-2588-4ea2-8b49-fb83926d05ed","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"120103ea-6caf-4856-a66b-a4cbe24e64c1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Budget","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"rRunStart","qDefinition":"09\/09\/2026 1:05:03 PM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"rRunStart","qDefinition":"11\/09\/2026 8:44:52 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vAconex_AddOn","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Aconex_AddOn\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"32ba3bb2-ea02-4c4c-90b8-bdf22db27887","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongDayNamesEng","qDefinition":"Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"40c4119c-ef9d-4a39-94df-1f44650ec2ab","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"MonthNamesEng","qDefinition":"Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fa63338f-3336-482c-9588-aebfbad60428","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongMonthNamesEng","qDefinition":"January;February;March;April;May;June;July;August;September;October;November;December","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b8088229-9f10-4663-9ce4-e98f02ddb8f1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"DayNamesEng","qDefinition":"Sun;Mon;Tue;Wed;Thu;Fri;Sat","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1365a2a7-f89c-4893-9236-ba48ca3fbc69","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vMaxYB","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5679a179-9cd9-405a-9072-77c4164c0697","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"pQvd_PaymentEthics","qDefinition":"lib:\/\/API & Connections:File_jqvnta01_Qlikview\/Production\/Finance\/PaymentEthics\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"796e3387-4570-44f4-b125-ff8385d6abbe","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQuantityPercentage","qDefinition":"Quantity","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e4a5a094-eebc-4b04-a462-23360c9d7cda","qType":"variable"},"qData":[]}
 {"qName":"vNas02Temp","qDefinition":"\\\\ntanas02\\bi\\Quality_green_IN2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"405cdc24-15d5-41e9-802d-e5e56b7e0c15","qType":"variable"},"qData":[]}
@@ -100,14 +101,13 @@ VARIABLES
 {"qName":"vNCR_PlannedClosureDateFrom","qDefinition":"=Date(YearStart(max({1<NCRPlannedClosureDateFlag={1},[NCR Planned Closure Date]={\"<=$(vToday)\"}>}[NCR Planned Closure Date])))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"34d398a5-04d5-4d7a-bc69-842b054e210f","qType":"variable"},"qData":[]}
 {"qName":"vUserOS","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ee9050bf-44ef-44a9-b33a-bb1abb1e15ac","qType":"variable"},"qData":[]}
 {"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
-{"qName":"vMaxYB","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5679a179-9cd9-405a-9072-77c4164c0697","qType":"variable"},"qData":[]}
 
 FIELDS
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":36,"qTags":["$text","$key","$hidden","$system"],"qSrcTables":[]}
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":1,"qTags":["$ascii","$text","$key","$hidden","$system"],"qSrcTables":[]}
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":1,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":1,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
-{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":36,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":100,"qTags":["$text","$hidden","$system","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":5,"qTags":["$ascii","$text","$hidden","$system","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":5,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":5,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":43,"qTags":["$numeric","$integer","$hidden","$system"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$ascii","$text","$hidden","$system"],"qSrcTables":[]}
 {"qName":"COFP_Date","qCardinal":2110,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["COFP"]}
 {"qName":"\u05e9\u05e0\u05ea \u05db\u05e1\u05e4\u05d9\u05dd","qCardinal":17,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
@@ -122,7 +122,7 @@ FIELDS
 {"qName":"KOKRS","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
 {"qName":"SGTXT","qCardinal":27496,"qTags":["$text"],"qSrcTables":["COFP"]}
 {"qName":"KBLPOS","qCardinal":327,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
-{"qName":"KeyObjnr","qCardinal":2797,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
+{"qName":"KeyObjnr","qCardinal":3533,"qTags":["$ascii","$text","$key"],"qSrcTables":["COFP","KeyObjnr_%PSPNR"]}
 {"qName":"\u05de\u05e1\u05e4\u05e8 \u05de\u05e1\u05de\u05da_KBLNR","qCardinal":416,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
 {"qName":"PERIO","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
 {"qName":"VRGNG","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
@@ -136,7 +136,7 @@ FIELDS
 {"qName":"SourceCOFP","qCardinal":2,"qTags":["$text"],"qSrcTables":["COFP"]}
 {"qName":"\u05ea\u05d0\u05d5\u05e8 \u05e1\u05d5\u05d2 \u05e2\u05e8\u05da","qCardinal":5,"qTags":["$text"],"qSrcTables":["COFP"]}
 {"qName":"\u05de\u05e1\u05e4\u05e8 \u05de\u05e1\u05de\u05da","qCardinal":112772,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
-{"qName":"\u05de\u05e1\u05e4\u05e8 \u05de\u05e1\u05de\u05daNUM","qCardinal":112772,"qTags":["$numeric","$integer"],"qSrcTables":["COFP"]}
+{"qName":"\u05de\u05e1\u05e4\u05e8 \u05de\u05e1\u05de\u05daNUM","qCardinal":113703,"qTags":["$ascii","$text","$numeric","$integer","$key"],"qSrcTables":["COFP","FromPaymentEthics"]}
 {"qName":"\u05d3\u05d2\u05dc \u05e7\u05d9\u05d6\u05d5\u05d6\u05d9 \u05de\u05e7\u05d3\u05de\u05d5\u05ea \u05d5\u05ea\u05e9\u05dc\u05d5\u05dd \u05de\u05e7\u05d3\u05de\u05d5\u05ea","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["COFP"]}
 {"qName":"\u05ea\u05e0\u05d5\u05e2\u05d4 \u05e4\u05d9\u05e0\u05e0\u05e1\u05d9\u05ea","qCardinal":2,"qTags":["$text"],"qSrcTables":["COFP"]}
 {"qName":"GJAHR1","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["COFP"]}
@@ -145,3 +145,67 @@ FIELDS
 {"qName":"KSTAR","qCardinal":193,"qTags":[],"qSrcTables":["COFP"]}
 {"qName":"\u05d3\u05e8\u05d9\u05e9\u05d5\u05ea \u05e8\u05db\u05e9","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["COFP"]}
 {"qName":"\u05d4\u05d6\u05de\u05e0\u05d5\u05ea \u05e8\u05db\u05e9","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["COFP"]}
+{"qName":"Key","qCardinal":1018,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Networking","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"KeyBase","qCardinal":950,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"KeyBase_Select","qCardinal":950,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Key_Reversed","qCardinal":950,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qIsHidden":true,"qName":"%Key_Encrypted","qCardinal":950,"qTags":["$ascii","$text","$hidden"],"qSrcTables":[]}
+{"qName":"ZZN_ELEMENT_NUM","qCardinal":1018,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Line","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Line Code","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"LINE4SA","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Work Type Code","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"Work package Code","qCardinal":96,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"NBS LEVEL 1 Code","qCardinal":226,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"NBS LEVEL 2 Code","qCardinal":61,"qTags":["$ascii","$text"],"qSrcTables":["MenifaTable"]}
+{"qName":"ParentSourceNum","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"ParentSourceName","qCardinal":7,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"PROJECT_REL","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"OBJNR","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"RELEVANT_TO_BI","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"ElementName","qCardinal":463,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"ParentElementID","qCardinal":84,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"LevelNo","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"SiblingOrder","qCardinal":24,"qTags":["$numeric","$integer"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"WBS_LINK","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"WBS_RISK_Indicator","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"CATEGORY","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"BASELINE_START_DATE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"BASELINE_FINISH_DATE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"FORECAST_START_DATE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"FORECAST_FINISH_DATE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"ACTUAL_START_DATE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"ACTUAL_FINISH_DATE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"STATUS","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"VERNR","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"PRIMAVERA_ID","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qIsHidden":true,"qName":"%NodeKey","qCardinal":628,"qTags":["$ascii","$text","$hidden"],"qSrcTables":[]}
+{"qIsHidden":true,"qName":"%ParentKey","qCardinal":124,"qTags":["$ascii","$text","$hidden"],"qSrcTables":[]}
+{"qName":"ParentName","qCardinal":96,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"Path","qCardinal":628,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"Depth","qCardinal":5,"qTags":["$numeric","$integer"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"NodeID","qCardinal":960,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"WBS_RISK_STATUS","qCardinal":0,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"CURRENCY","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"NOTE","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"COST","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"WBS_RISK","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"WBS_RISK_DESCTIPTION","qCardinal":0,"qTags":[],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e1\u05d1\u05d9\u05e8\u05d5\u05ea \u05e1\u05d9\u05db\u05d5\u05df","qCardinal":0,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"IDElement","qCardinal":306,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 1","qCardinal":3,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 2","qCardinal":20,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 3","qCardinal":105,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 4","qCardinal":224,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 5","qCardinal":91,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 6","qCardinal":83,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e8\u05de\u05d4 7","qCardinal":40,"qTags":["$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"ElementID","qCardinal":64,"qTags":["$ascii","$text"],"qSrcTables":["Alternative_Hierarchy"]}
+{"qName":"\u05e7\u05d5\u05d3 \u05e1\u05d8\u05d8\u05d5\u05e1 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":22,"qTags":["$ascii","$text"],"qSrcTables":["FromPaymentEthics"]}
+{"qName":"\u05ea\u05d0\u05d5\u05e8 \u05e1\u05d8\u05d8\u05d5\u05e1 \u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":18,"qTags":["$text"],"qSrcTables":["FromPaymentEthics"]}
+{"qName":"Count_STAT","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["FromPaymentEthics"]}
+{"qName":"\u05e7\u05d5\u05d3 \u05ea\u05e0\u05d0\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd \u05e1\u05e4\u05e7","qCardinal":14,"qTags":["$ascii","$text"],"qSrcTables":["FromPaymentEthics"]}
+{"qName":"\u05ea\u05d0\u05d5\u05e8 \u05ea\u05e0\u05d0\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd \u05e1\u05e4\u05e7","qCardinal":14,"qTags":["$text"],"qSrcTables":["FromPaymentEthics"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da \u05e6\u05e4\u05d9 \u05dc\u05ea\u05e9\u05dc\u05d5\u05dd \u05dc\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05ea","qCardinal":3037,"qTags":["$numeric","$timestamp"],"qSrcTables":["FromPaymentEthics"]}
+{"qName":"KeyObjnr4Fact","qCardinal":1498,"qTags":["$ascii","$text"],"qSrcTables":["KeyObjnr_%PSPNR"]}
