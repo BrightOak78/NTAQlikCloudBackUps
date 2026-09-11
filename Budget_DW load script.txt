@@ -76,65 +76,7 @@ set pQvd_PaymentEthics= 'lib://API & Connections:File_jqvnta01_Qlikview/Producti
 
 // Set vQuantityPercentage= 'Quantity';
 ///$tab TEST
-COFP:
-NoConcatenate
-// LOAD  *
-// Resident KeyObjnr_%PSPNR;
-// DROP Table KeyObjnr_%PSPNR;
-// Left Join (COFP)
-//	 54 – חשבונית נקלטה, עלות בפועל.
-//	 57 = תשלומים בפועל (Actual Payments).
-//	 60 – חשבונית בהמתנה/בטיוטה, עדיין לא עלות בפועל.	 
-//	 61 = מקדמות לספקים (Down Payments).
-//	 63 = התאמות/קיזוז מקדמות (Down Payment Clearing).
-//	 64 = העברות/שינויים בקרנות (Fund Transfers).
-LOAD 
-	 Date(ZHLDT) as COFP_Date,
-	 GJAHR as [שנת כספים], 
-     BELNR,  //PS cash Document
-     MWSKZ as [קוד מעמ], 
-     LIFNR, //Account Number of Vendor or Creditor
-//     [ח-ן G/L_HKONT], //General Ledger Account
-     BELNR2, //Accounting Document Number - BELNR2 – מספר מסמך FI משלים/קשור (לרוב מסמך תשלום/קיזוז/התאמה בפועל
-     GJAHR2, 
-	 num#(EBELN)& num#(EBELP) as %EBELN_EBELP,
-     num#(EBELN) as EBELN, 
-     num#(EBELP) as EBELP,  //Item Number of Purchasing Document
-     KOKRS, //Controlling Area
-     SGTXT, //Item Text
-     [KBLPOS] as KBLPOS, //Earmarked Funds: Document Item
-     text(OBJNR) as KeyObjnr,
-     KBLNR as [מספר מסמך_KBLNR], //Document Number for Earmarked Funds
-     PERIO, 
-     VRGNG, //CO Business Transaction
-     BELTP, //Debit type
-     WRTTP as [סוג ערך], //Value Type
-	if(match(WRTTP,54,60),WKGBTR*-1,0) as [פוטנציאל תשלומים],//*-1
-	 if(match(WRTTP,57,64),WKGBTR*-1,if(match(WRTTP,'61','63') and Left(BELNR2,3)='200' and match([HI_FIVOR],'90','60'),WKGBTR*-1,0)) as [תשלומים],//*-1
-     POSIT, //Internal commitment item (8 chars)
-     ZHLDT, //Funds Management - Update Date
-     1 as SourceCOFP_flag,
-     If(Match(WRTTP,57,61,63,64), 'תשלומים',If(Match(WRTTP,54,60), 'פוטנציאל תשלומים')) as SourceCOFP,
-     if(WRTTP='57','תשלומים',if(WRTTP='60','מסמך בהתאמה',if(WRTTP='61','מקדמות',if(WRTTP='63','התאמות מקדמות',if(WRTTP='64','העברת קרנות'))))) as [תאור סוג ערך], 
 
- 	 if(WRTTP='64' and (IsNull(BELNR2) or Trim(BELNR2)=''), KBLNR,BELNR2) as [מספר מסמך],     
- 	 num#(if(WRTTP='64' and (IsNull(BELNR2) or Trim(BELNR2)=''), KBLNR,BELNR2)) as [מספר מסמךNUM],  
- 	 if(match(WRTTP,'61','63') and Left(BELNR2,3)='200' and match([HI_FIVOR],'90','60'), 0,1) as [דגל קיזוזי מקדמות ותשלום מקדמות],
- 	 if([HI_FIVOR]='60','תשלום מקדמה',if([HI_FIVOR]='90','קיזוז מקדמה')) as [תנועה פיננסית],
-// 	  if(WRTTP='61' and Left([מספר מסמך_BELNR1],3)='200', 0,1) as [דגל קיזוזי מקדמות],
-     GJAHR1, 
-     BELNR1,  //Accounting Document Number - BELNR1 – מספר מסKBLNRמך FI מקורי שממנו נבעה התנועה (למשל חשבונית ספק).
-     BUZEI2 as BUZEI1, //Number of Line Item Within Accounting Document
-     num#([LO_ACCOUNT]) as KSTAR,//General Ledger Account
-     if(match(WRTTP,50),WKGBTR*-1,0) as [דרישות רכש],
-     if(match(WRTTP,51),WKGBTR*-1,0) as [הזמנות רכש]    
-FROM [$(vLibDataFiles_RAW)/COFP.qvd](qvd)
-Where Match(WRTTP,57,61,63,64,54,60)
-	and WKGBTR<>0
-	and OBJNR<>'PR00001933' //PR00001933 - סגירת תקופה הוצאות
-	and OBJNR<>'PR00001935' //PR00001935 - סגירת תקופה הכנסות
-	and OBJNR<>'OR000000600000' 
- ;
 ///$tab Exit Script
 // Exit Script
 ///$tab Vat
@@ -1375,6 +1317,7 @@ LOAD Distinct
 	 KeyObjnr4Fact
 Resident KeyObjnr_%PSPNR_t;
 DROP Table KeyObjnr_%PSPNR_t;
+
  
 COFP:
 NoConcatenate
