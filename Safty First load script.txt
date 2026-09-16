@@ -1,0 +1,893 @@
+///$tab Main & Connect
+SET MonthNamesEng='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNamesEng='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNamesEng='Sun;Mon;Tue;Wed;Thu;Fri;Sat';
+SET LongDayNamesEng='Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday';
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='ינו;פבר;מרץ;אפר;מאי;יונ;יול;אוג;ספט;אוק;נוב;דצמ';
+SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+SET DayNames='א;ב;ג;ד;ה;ו;ש';
+SET LongDayNames='ראשון;שני;שלישי;רביעי;חמישי;שישי;שבת';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = 'Safty First'; //Free Document Name
+SET pWorkApp = 'Safty First'; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+
+
+///$tab משתני סביבה
+LET rRunStart = Now(1);
+LET vLM_Yesterday=Date(AddMonths( Floor(Now())-1,-1),'DD/MM/YYYY'); // $(vYesterday)
+LET vToday=Date(Floor(Now()),'DD/MM/YYYY'); // $(vToday)
+LET vYesterday=Date(Floor(Now())-1,'DD/MM/YYYY'); // $(vYesterday)
+LET vCurrentYYYYMM = year(vToday)& num(month(vToday),'00'); // $(vCurrentYYYYMM)
+LET vLM_YYYYMM = year(AddMonths(vToday,-1))& num(month(AddMonths(vToday,-1)),'00'); // $(vCurrentYYYYMM)
+LET vYesterdayYYYYMM = year(vYesterday)& num(month(vYesterday),'00'); // $(vCurrentYYYYMM)
+Let vCurrentYear = year(vToday); // $(vCurrentYear)
+
+//for Prod
+SET vFileList='\\ntanas02\bi\Quality_green_IN2';
+SET vODBC='QualityIN2;DBQ=\\ntanas02\bi\Quality_green_IN2\';
+SET vNas02Temp = '\\ntanas02\bi\Quality_green_IN2' ; // $(vNas02Temp) 
+//****************************************************************************************//
+
+Set vQuantityPercentage= 'Quantity';
+///$tab TEST
+// // Exit Script
+// filename() as FileName,
+// RowNo() as ExcelRowNo, 
+// PurgeChar(filename(),'.xlsx') as ShortFileName
+///$tab IncAccRep_View
+
+LIB CONNECT TO 'API & Connections:AconexSQL';
+
+[IncAccRep_View]:
+LOAD 
+     projectId as     ProjectID,
+     YEAR(DATE(Date,'DD/MM/YYYY')) &  NUM(MONTH(DATE(Date,'DD/MM/YYYY')),'00') as YYYYMM,
+    projectId, 
+	projectName, 
+	Line, 
+	[mail type ID], 
+	[mail type], 
+	[sent date], 
+	[To User], 
+	ToRecipients, 
+	CcRecipients, 
+	[To Organization Name], 
+	[mail no], 
+	[From Organization Name], 
+	[from (user)], 
+	subject, 
+	[Reference Number ID], 
+	[Reference Number], 
+	Status, 
+	Attribute1, 
+	[Attribute1 CODE], 
+	Attribute2, 
+	[Attribute2 CODE], 
+	Attribute3, 
+	[Attribute3 CODE], 
+	Attribute4, 
+	[Attribute4 CODE], 
+	[Reason for Issue], 
+	Body, 
+	[mail ID], 
+	Date, 
+	HsAccidentUnder1945Ordinance, 
+	WasMethodStatementIssued, 
+	TimeRange, 
+	Contractor, 
+	Priority, 
+    [Phase],
+	[Detailed Description of Incident/Acciden], 
+	[Injury Specification], 
+	TypeInjury, 
+	InjuredBodyPart, 
+	[Other injured part], 
+	PropertyDamage, 
+	PdOtherDetailsInComments, 
+	EnvironmentalDamage, 
+	EaOtherDetailsInComments, 
+	IncidentNearmiss, 
+	SecondaryClassification, 
+	OseOtherSevereEvent, 
+	WhatAcitivitiesWereBeingCarriedOut, 
+	ActivityDuringIncidentaccidentCause, 
+	IfOtherCausePleaseSpecify, 
+	WhereDidTheIncidentOccur, 
+	IncidentaccidentMechanism, 
+	OtherAccidentincidentMechanism, 
+	WhatWereTheWorkingConditions, 
+	DescribeEventsLeadingToEvent, 
+	AffectedPersonsIdpassport, 
+	AffectedPersonsFullName, 
+	AgeOfAffectedPerson, 
+	SexOfPerson, 
+	PersonsNumberOfMonthsExperience, 
+	TotalDayHoursPriorToAccident, 
+	ImmediateCorrectiveActionsToBeTaken, 
+	NameOfWitness1AndEmployer, 
+	NameOfWitness2AndEmployer, 
+	WhatTimeDidPersonStartShift, 
+	IfNoAssessmentSentDescribeWhy, 
+	ContInvestigationCompetentPerson, 
+	CauseForIncidentAccidentReport, 
+	RootCauseForPropertyDamage, 
+	RecordOrigin, 
+	Sender, 
+	Sections, 
+	[Work Type], 
+	[Work Type Code], 
+	[Max Email Fetch Date];
+
+SELECT projectId,
+	projectName,
+	Line,Phase,
+	"mail type ID",
+	"mail type",
+	"sent date",
+	"To User",
+	ToRecipients,
+	CcRecipients,
+	"To Organization Name",
+	"mail no",
+	"From Organization Name",
+	"from (user)",
+	subject,
+	"Reference Number ID",
+	"Reference Number",
+	Status,
+	Attribute1,
+	"Attribute1 CODE",
+	Attribute2,
+	"Attribute2 CODE",
+	Attribute3,
+	"Attribute3 CODE",
+	Attribute4,
+	"Attribute4 CODE",
+	"Reason for Issue",
+	Body,
+	"mail ID",
+	"Date",
+	HsAccidentUnder1945Ordinance,
+	WasMethodStatementIssued,
+	TimeRange,
+	Contractor,
+	Priority,
+	"Detailed Description of Incident/Acciden",
+	"Injury Specification",
+	TypeInjury,
+	InjuredBodyPart,
+	"Other injured part",
+	PropertyDamage,
+	PdOtherDetailsInComments,
+	EnvironmentalDamage,
+	EaOtherDetailsInComments,
+	IncidentNearmiss,
+	SecondaryClassification,
+	OseOtherSevereEvent,
+	WhatAcitivitiesWereBeingCarriedOut,
+	ActivityDuringIncidentaccidentCause,
+	IfOtherCausePleaseSpecify,
+	WhereDidTheIncidentOccur,
+	IncidentaccidentMechanism,
+	OtherAccidentincidentMechanism,
+	WhatWereTheWorkingConditions,
+	DescribeEventsLeadingToEvent,
+	AffectedPersonsIdpassport,
+	AffectedPersonsFullName,
+	AgeOfAffectedPerson,
+	SexOfPerson,
+	PersonsNumberOfMonthsExperience,
+	TotalDayHoursPriorToAccident,
+	ImmediateCorrectiveActionsToBeTaken,
+	NameOfWitness1AndEmployer,
+	NameOfWitness2AndEmployer,
+	WhatTimeDidPersonStartShift,
+	IfNoAssessmentSentDescribeWhy,
+	ContInvestigationCompetentPerson,
+	CauseForIncidentAccidentReport,
+	RootCauseForPropertyDamage,
+	RecordOrigin,
+	Sender,
+	Sections,
+	"Work Type",
+	"Work Type Code",
+	"Max Email Fetch Date"
+FROM AconexMailDB.dbo."IncAccRep_View";
+
+STORE [IncAccRep_View] INTO [$(vLibDataFiles_RAW)/IncAccRep_View.qvd](qvd);
+
+Drop Table IncAccRep_View;
+
+
+///$tab Projects
+
+Projects:
+
+
+LOAD
+    DOCGROUP,
+    Project_ID as ProjectID
+FROM [$(vAconex_AddOn)Authenticated_Project.qvd]
+(qvd);
+
+
+left join
+LOAD Distinct 
+     Project_ID as ProjectID,
+     ProjectSort
+FROM [$(vAconex_AddOn)ProjectSort.qvd](qvd);
+
+STORE * from Projects INTO [$(vLibDataFiles_DW)/Projects.QVD] (qvd);
+drop table Projects;
+
+///$tab LTI
+set vBI_KPI=LTI; 
+
+// ============================================================
+// 1. טעינת שעות עבודה
+// ============================================================
+
+
+// CrossTable (Project, TotalManHours, 2)
+// LOAD
+//     Num(
+//         Year(Date#(Replace(תאריך,'.','/'),'D/M/YYYY')) * 100 +
+//         Month(Date#(Replace(תאריך,'.','/'),'D/M/YYYY'))
+//     ) as YYYYMM,
+
+//     Date#(Replace(תאריך,'.','/'),'D/M/YYYY') as WorkDate,
+
+//     "קו אדום",
+//     "קו ירוק",
+//     "קו סגול"
+
+// FROM [lib://API & Connections:Sharepoint365/BIDB/בטיחות SF/שעות עבודה קבלנים בכלל הקוים.xlsx]
+// (ooxml, embedded labels, table is Sheet1);
+
+
+United_WH_NEW:
+CrossTable (Project, TotalManHours, 2)
+LOAD
+    Num(
+        Year(Date#(Replace(תאריך,'.','/'),'D/M/YYYY')) * 100 +
+        Month(Date#(Replace(תאריך,'.','/'),'D/M/YYYY'))
+    ) as YYYYMM,
+
+    Date#(Replace(תאריך,'.','/'),'D/M/YYYY') as WorkDate,
+    "Red Line",
+    "Red Line Extension",
+    "Green Line-Infra 1",
+    "Green Line-Infra 2",
+    "Purple Line-Infra 1",
+    "Purple Line-Infra 2",
+    M1,
+    M2,
+    M3
+FROM [lib://API & Connections:Sharepoint365/BIDB/בטיחות SF/שעות עבודה קבלנים בכלל הקוים.xlsx]
+(ooxml, embedded labels, table is Sheet1);
+
+
+
+// ============================================================
+// 2. הוספת ProjectID
+// ============================================================
+
+Left Join (United_WH_NEW)
+Load * Inline [
+Project	,	ProjectID
+קו אדום	,	268440115
+Purple Line-Infra 1ל	,	268440770
+Green Line-Infra 1	,	268440772
+]
+;
+
+// ============================================================
+// 3. סיכום שעות לפי חודש
+// ============================================================
+
+ProjectHoursMonthly:
+NoConcatenate
+LOAD
+    ProjectID,
+    Project,
+    YYYYMM,
+    Sum(Num#(TotalManHours)) as MonthlyManHours
+Resident United_WH_NEW
+Group By
+    ProjectID,
+    Project,
+    YYYYMM;
+
+Drop Table United_WH_NEW;
+
+
+// ============================================================
+// 4. מציאת חודש ראשון לכל פרויקט
+// ============================================================
+
+ProjectStartMonth:
+LOAD
+    ProjectID,
+    Project,
+    Min(YYYYMM) as StartYYYYMM
+Resident ProjectHoursMonthly
+Group By
+    ProjectID,
+    Project;
+
+
+// ============================================================
+// 5. יצירת כל החודשים מתחילת הפרויקט ועד החודש הנוכחי
+// ============================================================
+
+ProjectMonths:
+NoConcatenate
+LOAD
+    ProjectID,
+    Project,
+
+    Num(
+        Year(AddMonths(StartMonthDate, IterNo()-1)) * 100 +
+        Month(AddMonths(StartMonthDate, IterNo()-1))
+    ) as YYYYMM
+
+While AddMonths(StartMonthDate, IterNo()-1) <= MonthStart(Today());
+
+LOAD
+    ProjectID,
+    Project,
+    MakeDate(
+        Floor(StartYYYYMM / 100),
+        Mod(StartYYYYMM,100),
+        1
+    ) as StartMonthDate
+Resident ProjectStartMonth;
+
+Drop Table ProjectStartMonth;
+
+
+// ============================================================
+// 6. חיבור נתוני השעות החודשיים
+// ============================================================
+
+Left Join (ProjectMonths)
+
+LOAD
+    ProjectID,
+    YYYYMM,
+    MonthlyManHours
+Resident ProjectHoursMonthly;
+
+Drop Table ProjectHoursMonthly;
+
+
+// ============================================================
+// 7. הפיכת חודשים חסרים ל-0
+// ============================================================
+
+ProjectHoursComplete:
+NoConcatenate
+LOAD
+    ProjectID,
+    Project,
+    YYYYMM,
+
+    Alt(MonthlyManHours,0) as MonthlyManHours
+
+Resident ProjectMonths;
+
+Drop Table ProjectMonths;
+
+
+// ============================================================
+// 8. חישוב מצטבר
+// ============================================================
+
+ProjectHoursAccumulated:
+NoConcatenate
+LOAD
+    ProjectID,
+    Project,
+    YYYYMM,
+
+    MonthlyManHours,
+
+    If(
+        ProjectID = Previous(ProjectID),
+        RangeSum(
+            Peek('AccumulatedManHours'),
+            MonthlyManHours
+        ),
+        MonthlyManHours
+    ) as AccumulatedManHours
+
+Resident ProjectHoursComplete
+Order By
+    ProjectID,
+    YYYYMM;
+
+Drop Table ProjectHoursComplete;
+
+
+// ============================================================
+// 9. שמירה
+// ============================================================
+
+STORE ProjectHoursAccumulated
+INTO [$(vLibDataFiles_DW)/ProjectHoursAccumulated.QVD] (qvd);
+
+Drop Table ProjectHoursAccumulated;
+// ============================================================
+// 1. טעינת אירועי LTI
+// ============================================================
+
+LTITemp:
+LOAD
+    projectId as ProjectID,
+
+    Num(
+        Year(Date(Date,'DD/MM/YYYY')) * 100 +
+        Month(Date(Date,'DD/MM/YYYY'))
+    ) as LTI_YearMonth,
+
+    If(
+        [Injury Specification] = 'LTI - Lost Time Injury',
+        1,
+        0
+    ) as Damage_LTI_Flag
+
+FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
+(qvd)
+where (match(projectId,'268440770','268440772') and Phase = 'Infra1') or not match(projectId,'268440770','268440772');
+
+
+// ============================================================
+// 2. סיכום אירועים לפי חודש
+// ============================================================
+
+LTIMonthly:
+NoConcatenate
+LOAD
+    ProjectID,
+    LTI_YearMonth,
+
+    Sum(Damage_LTI_Flag) as LTI_InjuryLtiCountPerMonth
+
+Resident LTITemp
+Group By
+    ProjectID,
+    LTI_YearMonth;
+
+Drop Table LTITemp;
+
+
+// ============================================================
+// 3. חודש ראשון לכל פרויקט
+// ============================================================
+
+LTIProjectStart:
+LOAD
+    ProjectID,
+    Min(LTI_YearMonth) as StartYYYYMM
+Resident LTIMonthly
+Group By ProjectID;
+
+
+// ============================================================
+// 4. יצירת כל החודשים עד החודש הנוכחי
+// ============================================================
+
+LTIProjectMonths:
+NoConcatenate
+LOAD
+    ProjectID,
+
+    Year(AddMonths(StartMonthDate,IterNo()-1)) as LTI_Year,
+
+    Num(
+        Month(AddMonths(StartMonthDate,IterNo()-1)),
+        '00'
+    ) as LTI_Month,
+
+    Num(
+        Year(AddMonths(StartMonthDate,IterNo()-1)) * 100 +
+        Month(AddMonths(StartMonthDate,IterNo()-1))
+    ) as LTI_YearMonth
+
+While AddMonths(StartMonthDate,IterNo()-1) <= MonthStart(Today());
+
+LOAD
+    ProjectID,
+
+    MakeDate(
+        Floor(StartYYYYMM/100),
+        Mod(StartYYYYMM,100),
+        1
+    ) as StartMonthDate
+
+Resident LTIProjectStart;
+
+Drop Table LTIProjectStart;
+
+
+// ============================================================
+// 5. חיבור נתוני ה-LTI
+// ============================================================
+
+Left Join (LTIProjectMonths)
+
+LOAD
+    ProjectID,
+    LTI_YearMonth,
+    LTI_InjuryLtiCountPerMonth
+Resident LTIMonthly;
+
+Drop Table LTIMonthly;
+
+
+// ============================================================
+// 6. חודשים ללא אירוע = 0
+// ============================================================
+
+LTIComplete:
+NoConcatenate
+LOAD
+    ProjectID,
+    LTI_Year,
+    LTI_Month,
+    LTI_YearMonth,
+
+    Alt(LTI_InjuryLtiCountPerMonth,0)
+        as LTI_InjuryLtiCountPerMonth
+
+Resident LTIProjectMonths;
+
+Drop Table LTIProjectMonths;
+
+
+// ============================================================
+// 7. חישוב LTI מצטבר
+// ============================================================
+
+LTIAccYYYYMM:
+NoConcatenate
+LOAD
+    ProjectID,
+    LTI_Year,
+    LTI_Month,
+    LTI_YearMonth,
+
+    LTI_InjuryLtiCountPerMonth,
+
+    If(
+        ProjectID = Previous(ProjectID),
+        RangeSum(
+            Peek('LTI_InjuryLtiCountAccumulated'),
+            LTI_InjuryLtiCountPerMonth
+        ),
+        LTI_InjuryLtiCountPerMonth
+    ) as LTI_InjuryLtiCountAccumulated
+
+Resident LTIComplete
+Order By
+    ProjectID,
+    LTI_YearMonth;
+
+Drop Table LTIComplete;
+
+
+// ============================================================
+// 8. שמירה
+// ============================================================
+
+STORE *
+FROM LTIAccYYYYMM
+INTO [$(vLibDataFiles_DW)/LTIAccYYYYMM.QVD] (qvd);
+
+Drop Table LTIAccYYYYMM;
+///$tab Calendar
+
+LET vEvent_DateMin =DATE(MAKEDATE(2017,01,01),'DD/MM/YYYY');
+LET vEvent_DateMax = DATE(TODAY(),'DD/MM/YYYY');
+
+///////*****************************************************
+Calendar:
+LOAD DISTINCT
+	Date,// AS Event_Date,
+	תאריך,
+    [יום בשבוע],
+    WeekDaySort,
+   	[שם יום בשבוע קצר],
+    [שם יום בשבוע ארוך],
+    [שם יום בשבוע קצר אנגלית] AS WeekDayNameS_EN,
+    [שם יום בשבוע ארוך אנגלית] AS WeekDayNameL_EN,
+	Year & MonthNum AS YYYYMM,
+	Year & MonthNum AS YearMonth,
+	שנה,
+	QuarterNum AS [רבעון-מספר],
+	REPLACE(רבעון,'Q','ר') AS רבעון,
+    רבעון AS Quarter_EN,
+    
+    שנה & '-' & REPLACE(רבעון,'Q','ר') AS [רבעון-שנה],
+    שנה & '-' & REPLACE(רבעון,'Q','רבעון') AS YearQuarterL_HE,
+    שנה & '-' & רבעון AS YearQuarter_EN,
+	MonthNum AS [חודש-מספר],
+    [שם חודש קצר] AS חודש,
+    [שם חודש ארוך] AS MonthNameL_HE,
+    [שם חודש קצר אנגלית] AS MonthNameS_EN,
+    [שם חודש ארוך אנגלית] AS MonthNameL_EN,
+	שנה & '-' & [שם חודש קצר] AS [חודש-שנה],
+	שנה & '-' & [שם חודש קצר אנגלית] AS YearMonthS_EN,
+	MonthNum AS MonthSort,
+	QuarterNum AS QuarterSort,
+    YearQuarterSort,
+    YearMonthSort,
+    YearMonthDaySort, 
+    SUBFIELD(שנה & '-' & [שם חודש קצר],'-',1) & CHR(10) & SUBFIELD(שנה & '-' & [שם חודש קצר],'-',2) AS [חודש שנה],
+	SUBFIELD(שנה & '-' & REPLACE(רבעון,'Q','ר'),'-',1) & CHR(10) & SUBFIELD(שנה & '-' & REPLACE(רבעון,'Q','ר'),'-',2) AS [רבעון שנה],
+	SUBFIELD(שנה & '-' & [שם חודש קצר],'-',2) & CHR(10) & SUBFIELD(שנה & '-' & [שם חודש קצר],'-',1) AS [שנה חודש],
+	SUBFIELD(שנה & '-' & REPLACE(רבעון,'Q','ר'),'-',2) & CHR(10) & SUBFIELD(שנה & '-' & REPLACE(רבעון,'Q','ר'),'-',1) AS [שנה רבעון]
+FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/General/Calendar/Qvd/Calendar.QVD]
+(qvd)
+WHERE Date>='$(vEvent_DateMin)' AND Date<='$(vEvent_DateMax)';
+STORE * FROM Calendar INTO [$(vLibDataFiles_DW)/Calendar.QVD] (qvd);
+DROP TABLE Calendar;
+
+
+
+
+Calendar:
+LOAD 
+	YYYYMM,
+	 שנה & '-' & Quarter_EN AS YearQuarter, 
+     תאריך, 
+     [יום בשבוע], 
+     WeekDaySort, 
+     [שם יום בשבוע קצר], 
+     [שם יום בשבוע ארוך], 
+     WeekDayNameS_EN, 
+     WeekDayNameL_EN, 
+     
+     YearMonth, 
+     שנה, 
+     [רבעון-מספר], 
+     רבעון, 
+     Quarter_EN, 
+     [רבעון-שנה], 
+     YearQuarterL_HE, 
+     YearQuarter_EN, 
+     [חודש-מספר], 
+     חודש, 
+     MonthNameL_HE, 
+     MonthNameS_EN, 
+     MonthNameL_EN, 
+     [חודש-שנה], 
+     YearMonthS_EN, 
+     MonthSort, 
+     QuarterSort, 
+     YearQuarterSort, 
+     YearMonthSort, 
+     YearMonthDaySort, 
+     [חודש שנה], 
+     [רבעון שנה], 
+     [שנה חודש], 
+     [שנה רבעון]
+FROM [$(vLibDataFiles_DW)/Calendar.QVD](qvd);
+
+///$tab KeyTable
+KeyBase:
+LOAD distinct
+    
+      ProjectID,
+      YYYYMM
+FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
+(qvd);
+
+Concatenate
+
+
+LOAD
+    ProjectID ,
+    YYYYMM
+FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/ProjectHoursAccumulated.QVD]
+(qvd);
+
+
+Concatenate
+
+LOAD
+    LTI_YearMonth as YYYYMM,
+    ProjectID
+FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/LTIAccYYYYMM.QVD]
+(qvd);
+
+KeyTable:
+Load
+ProjectID &'-'& YYYYMM as KeyProjectYYMM,
+ ProjectID ,
+    YYYYMM
+resident KeyBase;
+drop table KeyBase;
+
+///$tab Load
+IncAccRep_View:
+LOAD
+   ProjectID &'-'& YYYYMM as KeyProjectYYMM,
+    "Date"          as     Event_Date,
+     IF( [Injury Specification]='LTI - Lost Time Injury',NUM('1'),NUM('0')) AS Damage_LTI_Flag,
+       IF( [Injury Specification]='LTI - Lost Time Injury','Yes','No') AS [LTI Yes/No],
+   If(
+    IncidentNearmiss = 'N/A'
+    or IsNull(IncidentNearmiss)
+    or Len(Trim(IncidentNearmiss)) = 0, 0,  1) as IncidentNearmissFlag,
+   
+   
+   if (IncidentNearmiss <> 'N/A',subfield(IncidentNearmiss,'-',2)) as IncidentNearmissEvent,
+     if(PropertyDamage <> 'N/A'
+        or IsNull(PropertyDamage)
+    or Len(Trim(PropertyDamage)) = 0, 0,  1) as PropertyDamageFlag,
+     
+     if(PropertyDamage <> 'N/A',PropertyDamage) as PropertyDamageEvent,
+     
+      if([Injury Specification] <> 'N/A'
+           or IsNull([Injury Specification])
+    or Len(Trim([Injury Specification])) = 0, 0,  1)  as DamageTypeFlag,
+      
+      
+      if([Injury Specification]= 'LTI - Lost Time Injury','LTI',
+      	if([Injury Specification]='MTI - Medical Treatment Injury','MTI',
+        	if([Injury Specification] =	'FI - Fatal Injury','FI','Others'))) as DamageTypeEvent, 
+     
+
+    projectName,
+    [Phase],
+   
+    "mail type ID",
+    "mail type",
+    "sent date",
+    "To User",
+    ToRecipients,
+    CcRecipients,
+    "To Organization Name",
+    "mail no",
+    "From Organization Name",
+    "from (user)",
+    subject,
+    "Reference Number ID",
+    "Reference Number",
+    Status,
+    Attribute1,
+    "Attribute1 CODE",
+    Attribute2,
+    "Attribute2 CODE",
+    Attribute3,
+    "Attribute3 CODE",
+    Attribute4,
+    "Attribute4 CODE",
+    "Reason for Issue",
+    Body,
+    "mail ID",
+    "Date",
+    HsAccidentUnder1945Ordinance,
+    WasMethodStatementIssued,
+    TimeRange,
+    Contractor,
+    Priority,
+    "Detailed Description of Incident/Acciden",
+    "Injury Specification",
+    TypeInjury,
+    InjuredBodyPart,
+    "Other injured part",
+    PropertyDamage,
+    PdOtherDetailsInComments,
+    EnvironmentalDamage,
+    EaOtherDetailsInComments,
+   IncidentNearmiss,
+    SecondaryClassification,
+    OseOtherSevereEvent,
+    WhatAcitivitiesWereBeingCarriedOut,
+    ActivityDuringIncidentaccidentCause,
+    IfOtherCausePleaseSpecify,
+    WhereDidTheIncidentOccur,
+    IncidentaccidentMechanism,
+    OtherAccidentincidentMechanism,
+    WhatWereTheWorkingConditions,
+    DescribeEventsLeadingToEvent,
+    AffectedPersonsIdpassport,
+    AffectedPersonsFullName,
+    AgeOfAffectedPerson,
+    SexOfPerson,
+    PersonsNumberOfMonthsExperience,
+    TotalDayHoursPriorToAccident,
+    ImmediateCorrectiveActionsToBeTaken,
+    NameOfWitness1AndEmployer,
+    NameOfWitness2AndEmployer,
+    WhatTimeDidPersonStartShift,
+    IfNoAssessmentSentDescribeWhy,
+    ContInvestigationCompetentPerson,
+    CauseForIncidentAccidentReport,
+    RootCauseForPropertyDamage,
+    RecordOrigin,
+    Sender,
+    Sections,
+    "Work Type",
+    "Work Type Code",
+    "Max Email Fetch Date"
+FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
+(qvd);
+
+LOAD
+    ProjectID,
+   DOCGROUP,
+    ProjectSort
+FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/Projects.QVD]
+(qvd);
+
+
+LOAD
+   ProjectID &'-'& LTI_YearMonth as KeyProjectYYMM,
+    LTI_InjuryLtiCountPerMonth,LTI_InjuryLtiCountAccumulated
+FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/LTIAccYYYYMM.QVD]
+(qvd);
+
+
+LOAD
+    ProjectID &'-'& YYYYMM as KeyProjectYYMM,
+    MonthlyManHours,AccumulatedManHours
+FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/ProjectHoursAccumulated.QVD]
+(qvd);
+
+LOAD distinct
+    
+      ProjectID,
+      Line
+FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
+(qvd);
+
+///$tab Exit Script
+Exit Script
