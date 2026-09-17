@@ -1528,9 +1528,6 @@ LOAD
 FROM [$(vQvdSecurityDW)Security_NCR.QVD](qvd);
 
 
-
-
-
 Section Application;
 Authenticated_Project:
 LOAD 
