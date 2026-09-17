@@ -51,8 +51,8 @@ Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(
 LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
 LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
 LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
-LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
-LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDB) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDW) 
 LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
 
 
@@ -299,17 +299,12 @@ LOAD
     ) as YYYYMM,
 
     Date#(Replace(תאריך,'.','/'),'D/M/YYYY') as WorkDate,
-    "Red Line",
-    "Red Line Extension",
-    "Green Line-Infra 1",
-    "Green Line-Infra 2",
-    "Purple Line-Infra 1",
-    "Purple Line-Infra 2",
-    M1,
-    M2,
-    M3
+     "קו אדום",
+    "קו ירוק",
+    "קו סגול"
 FROM [lib://API & Connections:Sharepoint365/BIDB/בטיחות SF/שעות עבודה קבלנים בכלל הקוים.xlsx]
 (ooxml, embedded labels, table is Sheet1);
+
 
 
 
@@ -321,8 +316,8 @@ Left Join (United_WH_NEW)
 Load * Inline [
 Project	,	ProjectID
 קו אדום	,	268440115
-Purple Line-Infra 1ל	,	268440770
-Green Line-Infra 1	,	268440772
+קו סגול 	,	268440770
+קו ירוק	,	268440772
 ]
 ;
 
@@ -888,6 +883,26 @@ LOAD distinct
       Line
 FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
 (qvd);
+
+///$tab Section Access
+//////*****************************************************
+
+// Show User Name
+Display_Users:
+LOAD Distinct
+	[קוד משתמש] AS UserName_OS,
+//	[קוד משתמש] AS NTNAME,
+	[שם משתמש] AS UserName_Full
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+WHERE #UserQV='1';
+
+Left Join
+LOAD Distinct
+//RowNumber, 
+     NTNAME AS UserName_OS, 
+     FULLNAME    
+FROM $(vQvdSecurityDB)Authenticated_User.QVD (qvd);
+
 
 ///$tab Exit Script
 Exit Script
