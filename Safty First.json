@@ -2,7 +2,6 @@
 SHEETS
 {"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-12T12:03:28.046Z","modifiedDate":"2026-08-12T12:03:28.046Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
 {"qInfo":{"qId":"6446ac4c-58bf-4da1-9424-0692af41e4f4","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6446ac4c-58bf-4da1-9424-0692af41e4f4","approved":false,"published":true,"publishTime":"2026-09-17T09:35:34.642Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-16T12:16:23.266Z","modifiedDate":"2026-09-17T09:35:34.378Z","encrypted":true,"privileges":["read","publish"],"title":"Damage Report","description":""},"qData":[]}
-{"qInfo":{"qId":"825bb2fe-19e7-4544-8649-424e85ce6387","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"825bb2fe-19e7-4544-8649-424e85ce6387","approved":false,"published":true,"publishTime":"2026-09-17T09:35:30.951Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-17T09:23:26.938Z","modifiedDate":"2026-09-17T09:35:30.714Z","encrypted":true,"privileges":["read","publish"],"title":"Workplace Safety","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
 {"name":"89eaf001-311a-4b9a-a96d-1192faee8cda","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.8461538461538467}}
@@ -41,17 +40,6 @@ OBJECTS ON SHEETS
 {"name":"MAXmxt","type":"linechart","visible":true,"col":55,"row":24,"colspan":29,"rowspan":14,"bounds":{"y":34.285714285714285,"x":65.47619047619048,"width":34.523809523809526,"height":20}}
 {"name":"MPXACQj","type":"kpi","visible":true,"col":0,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":0,"width":15.476190476190476,"height":7.142857142857142}}
 {"name":"uPymjT","type":"kpi","visible":true,"col":14,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":16.666666666666664,"width":15.476190476190476,"height":7.142857142857142}}
-{"name":"537b2a82-e636-4bcd-9555-9dd972e22452","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":5.263157894736843}}
-{"name":"b4d963b3-8a3c-4a3f-ae43-05be3f030203","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":5.2631578947368425,"width":100,"height":3.508771929824561}}
-{"name":"3c99b262-dfe5-474c-86a1-205f2d59742e","type":"kpi","col":0,"row":5,"colspan":17,"rowspan":4,"bounds":{"y":8.771929824561402,"x":0,"width":20.238095238095237,"height":7.017543859649122}}
-{"name":"1dabca4a-7315-4a81-8e29-35b61eb3876a","type":"kpi","col":17,"row":5,"colspan":16,"rowspan":4,"bounds":{"y":8.771929824561402,"x":20.238095238095237,"width":19.047619047619047,"height":7.017543859649122}}
-{"name":"b15b3144-bd4f-4aee-afdb-00fd5e53546a","type":"kpi","col":33,"row":5,"colspan":18,"rowspan":4,"bounds":{"y":8.771929824561402,"x":39.285714285714285,"width":21.428571428571427,"height":7.017543859649122}}
-{"name":"8fc59c0b-58c4-42cc-8222-9c96a9ee35b4","type":"kpi","col":51,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":60.71428571428571,"width":16.666666666666664,"height":7.017543859649122}}
-{"name":"0906030a-eb59-4a0c-83a8-0ffb84ec92f1","type":"kpi","col":65,"row":5,"colspan":11,"rowspan":4,"bounds":{"y":8.771929824561402,"x":77.38095238095238,"width":13.095238095238097,"height":7.017543859649122}}
-{"name":"ffe281da-d816-4a3f-82e9-e84dea7de7c8","type":"kpi","col":76,"row":5,"colspan":8,"rowspan":4,"bounds":{"y":8.771929824561402,"x":90.47619047619048,"width":9.523809523809524,"height":7.017543859649122}}
-{"name":"48316568-2f92-44eb-b034-b770e9ec10cb","type":"combochart","col":0,"row":9,"colspan":84,"rowspan":15,"bounds":{"y":15.789473684210526,"x":0,"width":100,"height":26.31578947368421}}
-{"name":"08309359-d83e-497e-b0a9-28060c50e130","type":"combochart","col":0,"row":24,"colspan":84,"rowspan":14,"bounds":{"y":42.10526315789473,"x":0,"width":100,"height":24.561403508771928}}
-{"name":"d91db413-dfc5-49fb-a221-4c1c33edab3a","type":"sn-tabbed-container","col":0,"row":38,"colspan":84,"rowspan":19,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
 
 DIMENSIONS
 {"qInfo":{"qId":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:23:55.590Z","modifiedDate":"2026-09-17T07:55:07.109Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Quarter","description":"","tags":[]},"qData":[]}
@@ -71,7 +59,7 @@ DIMENSIONS
 MEASURES
 {"qInfo":{"qId":"440919bd-40e9-429a-8bc6-a58fc15aee40","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"440919bd-40e9-429a-8bc6-a58fc15aee40","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T12:27:43.865Z","modifiedDate":"2026-08-26T12:28:44.092Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#YtdNearMiss","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"9fd35345-a83d-4fdf-a1fc-f356f849e25c","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"9fd35345-a83d-4fdf-a1fc-f356f849e25c","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T14:10:42.597Z","modifiedDate":"2026-08-26T14:11:17.716Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#PropertyDamage","description":"","tags":[]},"qData":[]}
-{"qInfo":{"qId":"DFshzkP","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"DFshzkP","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T14:59:49.889Z","modifiedDate":"2026-08-12T15:06:45.775Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#LTI","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"DFshzkP","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"DFshzkP","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T14:59:49.889Z","modifiedDate":"2026-09-17T09:46:57.597Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#LTI","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"DhztbGJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"DhztbGJ","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T12:21:38.171Z","modifiedDate":"2026-08-26T12:23:08.300Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#NearMiss","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"GJkmuX","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"GJkmuX","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-13T14:00:21.487Z","modifiedDate":"2026-08-13T14:00:21.487Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#AccLTI","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"UdjSZE","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"UdjSZE","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T13:21:24.532Z","modifiedDate":"2026-08-12T13:31:36.732Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#IncidentAccident","description":"","tags":[]},"qData":[]}
@@ -88,7 +76,7 @@ VARIABLES
 {"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"57283e08-9603-45c9-9627-ebf06b63de10","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vYesterday","qDefinition":"16\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQuantityPercentage","qDefinition":"Quantity","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e4a5a094-eebc-4b04-a462-23360c9d7cda","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"17\/09\/2026 11:47","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"17\/09\/2026 12:07","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vYesterdayYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d4bf40ab-946f-4759-8efd-bc87ef5cea8b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYear","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"59df1c3c-f13e-4817-a68a-81aa96a3a4e5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -98,7 +86,7 @@ VARIABLES
 {"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38a1f01d-e850-4f31-99a7-33e38aae578d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"247adf22-7b86-4dd8-b5c3-fa953a61da7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"rRunStart","qDefinition":"17\/09\/2026 9:07:10 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"rRunStart","qDefinition":"17\/09\/2026 10:03:19 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vToday","qDefinition":"17\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8278e550-632d-4bdf-b7b2-d5afd304ccbf","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLM_YYYYMM","qDefinition":"202608","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ffff7f68-69ca-44a2-82f6-0fa34955ac96","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -135,7 +123,7 @@ FIELDS
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":4,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":83,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$ascii","$text"],"qSrcTables":[]}
-{"qName":"YYYYMM","qCardinal":141,"qTags":["$numeric","$integer","$key"],"qSrcTables":["Calendar","KeyTable"]}
+{"qName":"YYYYMM","qCardinal":117,"qTags":["$numeric","$integer","$key"],"qSrcTables":["Calendar","KeyTable"]}
 {"qName":"YearQuarter","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05ea\u05d0\u05e8\u05d9\u05da","qCardinal":3547,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
 {"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
@@ -168,9 +156,9 @@ FIELDS
 {"qName":"\u05e8\u05d1\u05e2\u05d5\u05df \u05e9\u05e0\u05d4","qCardinal":39,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4 \u05d7\u05d5\u05d3\u05e9","qCardinal":117,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4 \u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":39,"qTags":["$text"],"qSrcTables":["Calendar"]}
-{"qName":"ProjectID","qCardinal":9,"qTags":["$numeric","$integer","$key"],"qSrcTables":["KeyTable","Projects","IncAccRep_View-6"]}
-{"qName":"KeyProjectYYMM","qCardinal":323,"qTags":["$ascii","$text","$key"],"qSrcTables":["KeyTable","IncAccRep_View","LTIAccYYYYMM","ProjectHoursAccumulated"]}
-{"qName":"Event_Date","qCardinal":1023,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ProjectID","qCardinal":8,"qTags":["$numeric","$integer","$key"],"qSrcTables":["KeyTable","Projects","IncAccRep_View-6"]}
+{"qName":"KeyProjectYYMM","qCardinal":182,"qTags":["$ascii","$text","$key"],"qSrcTables":["KeyTable","IncAccRep_View","LTIAccYYYYMM","ProjectHoursAccumulated"]}
+{"qName":"Event_Date","qCardinal":529,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Damage_LTI_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"LTI Yes\/No","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"IncidentNearmissFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
@@ -179,86 +167,86 @@ FIELDS
 {"qName":"PropertyDamageEvent","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"DamageTypeFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"DamageTypeEvent","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"projectName","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"projectName","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Phase","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"mail type ID","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"mail type","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"sent date","qCardinal":1918,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"To User","qCardinal":780,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ToRecipients","qCardinal":555,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"CcRecipients","qCardinal":312,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"To Organization Name","qCardinal":222,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"mail no","qCardinal":1715,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"From Organization Name","qCardinal":30,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"from (user)","qCardinal":79,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"subject","qCardinal":1665,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Reference Number ID","qCardinal":1476,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Reference Number","qCardinal":1314,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute1","qCardinal":35,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute1 CODE","qCardinal":28,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute2","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute2 CODE","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute3","qCardinal":165,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute3 CODE","qCardinal":42,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"sent date","qCardinal":891,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"To User","qCardinal":190,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ToRecipients","qCardinal":101,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"CcRecipients","qCardinal":97,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"To Organization Name","qCardinal":93,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"mail no","qCardinal":760,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"From Organization Name","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"from (user)","qCardinal":29,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"subject","qCardinal":734,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Reference Number ID","qCardinal":803,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Reference Number","qCardinal":687,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Status","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute1","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute1 CODE","qCardinal":10,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute2","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute2 CODE","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute3","qCardinal":91,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute3 CODE","qCardinal":26,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute4","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute4 CODE","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Reason for Issue","qCardinal":0,"qTags":[],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Body","qCardinal":585,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"mail ID","qCardinal":1918,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Date","qCardinal":1023,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Body","qCardinal":86,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"mail ID","qCardinal":891,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Date","qCardinal":529,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"HsAccidentUnder1945Ordinance","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"WasMethodStatementIssued","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"TimeRange","qCardinal":14,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Contractor","qCardinal":46,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"TimeRange","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Contractor","qCardinal":30,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Priority","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Detailed Description of Incident\/Acciden","qCardinal":1347,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Detailed Description of Incident\/Acciden","qCardinal":679,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Injury Specification","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"TypeInjury","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"InjuredBodyPart","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Other injured part","qCardinal":249,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"TypeInjury","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"InjuredBodyPart","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Other injured part","qCardinal":116,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"PropertyDamage","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"PdOtherDetailsInComments","qCardinal":260,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"PdOtherDetailsInComments","qCardinal":193,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"EnvironmentalDamage","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"EaOtherDetailsInComments","qCardinal":136,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"EaOtherDetailsInComments","qCardinal":107,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"IncidentNearmiss","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"SecondaryClassification","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"OseOtherSevereEvent","qCardinal":105,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhatAcitivitiesWereBeingCarriedOut","qCardinal":1087,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ActivityDuringIncidentaccidentCause","qCardinal":20,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"IfOtherCausePleaseSpecify","qCardinal":362,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhereDidTheIncidentOccur","qCardinal":1048,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"IncidentaccidentMechanism","qCardinal":23,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"OtherAccidentincidentMechanism","qCardinal":391,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhatWereTheWorkingConditions","qCardinal":783,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"DescribeEventsLeadingToEvent","qCardinal":1056,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"AffectedPersonsIdpassport","qCardinal":253,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"AffectedPersonsFullName","qCardinal":279,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"OseOtherSevereEvent","qCardinal":71,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhatAcitivitiesWereBeingCarriedOut","qCardinal":461,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ActivityDuringIncidentaccidentCause","qCardinal":11,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"IfOtherCausePleaseSpecify","qCardinal":189,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhereDidTheIncidentOccur","qCardinal":468,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"IncidentaccidentMechanism","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"OtherAccidentincidentMechanism","qCardinal":212,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhatWereTheWorkingConditions","qCardinal":334,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"DescribeEventsLeadingToEvent","qCardinal":426,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"AffectedPersonsIdpassport","qCardinal":102,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"AffectedPersonsFullName","qCardinal":117,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"AgeOfAffectedPerson","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"SexOfPerson","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"PersonsNumberOfMonthsExperience","qCardinal":37,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"TotalDayHoursPriorToAccident","qCardinal":25,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ImmediateCorrectiveActionsToBeTaken","qCardinal":1083,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"NameOfWitness1AndEmployer","qCardinal":863,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"NameOfWitness2AndEmployer","qCardinal":241,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhatTimeDidPersonStartShift","qCardinal":208,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"IfNoAssessmentSentDescribeWhy","qCardinal":140,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ContInvestigationCompetentPerson","qCardinal":431,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"PersonsNumberOfMonthsExperience","qCardinal":28,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"TotalDayHoursPriorToAccident","qCardinal":22,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ImmediateCorrectiveActionsToBeTaken","qCardinal":453,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"NameOfWitness1AndEmployer","qCardinal":372,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"NameOfWitness2AndEmployer","qCardinal":165,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhatTimeDidPersonStartShift","qCardinal":109,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"IfNoAssessmentSentDescribeWhy","qCardinal":101,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ContInvestigationCompetentPerson","qCardinal":260,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"CauseForIncidentAccidentReport","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"RootCauseForPropertyDamage","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"RecordOrigin","qCardinal":2,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Sender","qCardinal":57,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Sections","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Sender","qCardinal":46,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Sections","qCardinal":0,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Work Type","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Work Type Code","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Max Email Fetch Date","qCardinal":4,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"DOCGROUP","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["Projects"]}
-{"qName":"ProjectSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Projects"]}
-{"qName":"LTI_InjuryLtiCountPerMonth","qCardinal":13,"qTags":["$numeric","$integer"],"qSrcTables":["LTIAccYYYYMM"]}
-{"qName":"LTI_InjuryLtiCountAccumulated","qCardinal":79,"qTags":["$numeric","$integer"],"qSrcTables":["LTIAccYYYYMM"]}
-{"qName":"MonthlyManHours","qCardinal":185,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
-{"qName":"AccumulatedManHours","qCardinal":188,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
-{"qName":"Line","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View-6"]}
+{"qName":"Max Email Fetch Date","qCardinal":3,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"DOCGROUP","qCardinal":14,"qTags":["$ascii","$text"],"qSrcTables":["Projects"]}
+{"qName":"ProjectSort","qCardinal":6,"qTags":["$numeric","$integer"],"qSrcTables":["Projects"]}
+{"qName":"LTI_InjuryLtiCountPerMonth","qCardinal":8,"qTags":["$numeric","$integer"],"qSrcTables":["LTIAccYYYYMM"]}
+{"qName":"LTI_InjuryLtiCountAccumulated","qCardinal":35,"qTags":["$numeric","$integer"],"qSrcTables":["LTIAccYYYYMM"]}
+{"qName":"MonthlyManHours","qCardinal":148,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
+{"qName":"AccumulatedManHours","qCardinal":150,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
+{"qName":"Line","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View-6"]}
 {"qName":"UserName_OS","qCardinal":1363,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
 {"qName":"UserName_Full","qCardinal":1361,"qTags":["$text"],"qSrcTables":["Display_Users"]}
 {"qName":"FULLNAME","qCardinal":1351,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
