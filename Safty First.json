@@ -1,8 +1,8 @@
 
 SHEETS
 {"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-12T12:03:28.046Z","modifiedDate":"2026-08-12T12:03:28.046Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
-{"qInfo":{"qId":"4f7afaa5-95a7-4101-816b-9534adeb28ce","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"4f7afaa5-95a7-4101-816b-9534adeb28ce","approved":false,"published":true,"publishTime":"2026-09-16T10:18:16.492Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-31T10:04:06.947Z","modifiedDate":"2026-09-16T10:18:16.322Z","encrypted":true,"privileges":["read","publish"],"title":"\u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d1\u05e2\u05d1\u05d5\u05d3\u05d4","description":""},"qData":[]}
-{"qInfo":{"qId":"5fb454cd-79de-4c36-8137-e63cb2a8b963","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"5fb454cd-79de-4c36-8137-e63cb2a8b963","approved":false,"published":true,"publishTime":"2026-09-16T12:14:30.242Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-31T12:31:32.908Z","modifiedDate":"2026-09-16T12:14:30.050Z","encrypted":true,"privileges":["read","publish"],"title":"\u05d3\u05d5\u05d7 \u05e0\u05d6\u05e7","description":""},"qData":[]}
+{"qInfo":{"qId":"6446ac4c-58bf-4da1-9424-0692af41e4f4","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6446ac4c-58bf-4da1-9424-0692af41e4f4","approved":false,"published":true,"publishTime":"2026-09-17T09:35:34.642Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-16T12:16:23.266Z","modifiedDate":"2026-09-17T09:35:34.378Z","encrypted":true,"privileges":["read","publish"],"title":"Damage Report","description":""},"qData":[]}
+{"qInfo":{"qId":"825bb2fe-19e7-4544-8649-424e85ce6387","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"825bb2fe-19e7-4544-8649-424e85ce6387","approved":false,"published":true,"publishTime":"2026-09-17T09:35:30.951Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-17T09:23:26.938Z","modifiedDate":"2026-09-17T09:35:30.714Z","encrypted":true,"privileges":["read","publish"],"title":"Workplace Safety","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
 {"name":"89eaf001-311a-4b9a-a96d-1192faee8cda","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.8461538461538467}}
@@ -27,45 +27,45 @@ OBJECTS ON SHEETS
 {"name":"7cc787c3-d6ca-49e3-9bd9-df1a54773117","type":"kpi","col":0,"row":7,"colspan":8,"rowspan":4,"bounds":{"x":0,"y":8.974358974358973,"width":9.523809523809524,"height":5.128205128205128}}
 {"name":"19ff9866-c605-41ef-8123-168ee5bc4a82","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":6.410256410256409,"width":100,"height":2.564102564102564}}
 {"name":"7a53e5a2-f6a4-4d00-9e80-3d5632d8c66a","type":"sn-tabbed-container","col":0,"row":40,"colspan":84,"rowspan":38,"bounds":{"y":51.28205128205128,"x":0,"width":100,"height":48.717948717948715}}
-{"name":"53012085-6c1a-44d7-a746-a27500e5ee84","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":5.263157894736843}}
-{"name":"fcb93d20-b669-45f1-8006-324598b3c60b","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":5.2631578947368425,"width":100,"height":3.508771929824561}}
-{"name":"89814d31-c44e-4a47-b396-cfd84560af4c","type":"kpi","col":67,"row":5,"colspan":17,"rowspan":4,"bounds":{"y":8.771929824561402,"x":79.76190476190477,"width":20.238095238095237,"height":7.017543859649122}}
-{"name":"966b63e3-ab6a-43cc-b7f7-9c6477f8c86c","type":"kpi","col":51,"row":5,"colspan":16,"rowspan":4,"bounds":{"y":8.771929824561402,"x":60.71428571428571,"width":19.047619047619047,"height":7.017543859649122}}
-{"name":"fcfb37b2-a8d2-46b4-b3a9-df8cd0cd0fab","type":"kpi","col":33,"row":5,"colspan":18,"rowspan":4,"bounds":{"y":8.771929824561402,"x":39.285714285714285,"width":21.428571428571427,"height":7.017543859649122}}
-{"name":"732d46a5-a344-47de-9b56-ef24d5f2e2e3","type":"kpi","col":19,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":22.61904761904762,"width":16.666666666666664,"height":7.017543859649122}}
-{"name":"fff4e4b0-3423-465c-a996-416a04802977","type":"kpi","col":8,"row":5,"colspan":11,"rowspan":4,"bounds":{"y":8.771929824561402,"x":9.523809523809524,"width":13.095238095238097,"height":7.017543859649122}}
-{"name":"5f98642e-8b49-43fd-a70f-e1280a60fabd","type":"kpi","col":0,"row":5,"colspan":8,"rowspan":4,"bounds":{"y":8.771929824561402,"x":0,"width":9.523809523809524,"height":7.017543859649122}}
-{"name":"7b6ff511-89da-43b2-ad21-18b86011ea2d","type":"combochart","col":0,"row":9,"colspan":84,"rowspan":15,"bounds":{"y":15.789473684210526,"x":0,"width":100,"height":26.31578947368421}}
-{"name":"d0179bf6-e807-4e29-9b95-2b977de59f42","type":"combochart","col":0,"row":24,"colspan":84,"rowspan":14,"bounds":{"y":42.10526315789473,"x":0,"width":100,"height":24.561403508771928}}
-{"name":"278e05d9-ee40-476e-b8a4-1d5b68a36e07","type":"sn-tabbed-container","col":0,"row":38,"colspan":84,"rowspan":19,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
-{"name":"a9c85fba-8f6f-4f88-831c-94520e72d361","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":4.2857142857142865}}
-{"name":"ac4ff682-5e05-4dd1-839a-c3dbed40534a","type":"kpi","col":71,"row":5,"colspan":13,"rowspan":5,"bounds":{"x":84.52380952380952,"y":7.142857142857142,"width":15.476190476190476,"height":7.142857142857142}}
-{"name":"0d257663-d9c6-4d32-9de0-136f6821e21b","type":"kpi","col":57,"row":5,"colspan":13,"rowspan":5,"bounds":{"x":67.85714285714286,"y":7.142857142857142,"width":15.476190476190476,"height":7.142857142857142}}
-{"name":"be783861-2660-4204-8248-769582c42993","type":"kpi","col":43,"row":5,"colspan":13,"rowspan":5,"bounds":{"x":51.19047619047619,"y":7.142857142857142,"width":15.476190476190476,"height":7.142857142857142}}
-{"name":"0f5ac83f-5f29-491d-9687-3934e379d710","type":"kpi","col":29,"row":5,"colspan":13,"rowspan":5,"bounds":{"x":34.523809523809526,"y":7.142857142857142,"width":15.476190476190476,"height":7.142857142857142}}
-{"name":"4626bd6a-346c-49f1-867b-378b10532b3c","type":"kpi","col":0,"row":5,"colspan":28,"rowspan":5,"bounds":{"x":0,"y":7.142857142857142,"width":33.33333333333333,"height":7.142857142857142}}
-{"name":"bb33e98e-435a-458f-8b5b-0339067dae9d","type":"barchart","col":29,"row":10,"colspan":55,"rowspan":14,"bounds":{"x":34.523809523809526,"y":14.285714285714285,"width":65.47619047619048,"height":20}}
-{"name":"1adcfece-cf0a-4d50-8bec-351750357840","type":"linechart","col":0,"row":10,"colspan":28,"rowspan":14,"bounds":{"x":0,"y":14.285714285714285,"width":33.33333333333333,"height":20}}
-{"name":"7dfaf317-df9e-4d7e-bee7-59c56e089824","type":"barchart","col":29,"row":24,"colspan":55,"rowspan":14,"bounds":{"x":34.523809523809526,"y":34.285714285714285,"width":65.47619047619048,"height":20}}
-{"name":"1c12a5cd-2c6a-4191-a86e-db2c4e23b781","type":"linechart","col":0,"row":24,"colspan":29,"rowspan":14,"bounds":{"x":0,"y":34.285714285714285,"width":34.523809523809526,"height":20}}
-{"name":"fead63ac-4cf3-4aa2-8127-2a94b10f5822","type":"piechart","col":0,"row":38,"colspan":29,"rowspan":14,"bounds":{"x":0,"y":54.28571428571427,"width":34.523809523809526,"height":20}}
-{"name":"92baed96-92ab-49c1-9bf7-5df1b17b55c8","type":"barchart","col":29,"row":38,"colspan":55,"rowspan":14,"bounds":{"x":34.523809523809526,"y":54.28571428571427,"width":65.47619047619048,"height":20}}
-{"name":"eLhKtV","type":"sn-tabbed-container","col":0,"row":52,"colspan":84,"rowspan":18,"bounds":{"y":74.28571428571429,"x":0,"width":100,"height":25.71428571428571}}
-{"name":"HKLHEUz","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.285714285714286,"x":0,"width":100,"height":2.857142857142857}}
+{"name":"331a7c08-5344-426e-bfa4-d8ed4489b8f9","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":4.2857142857142865}}
+{"name":"ae2b066c-58ca-4460-8b50-5f9e4a2c9cc9","type":"kpi","col":42,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":50,"width":15.476190476190476,"height":7.142857142857142}}
+{"name":"c715052d-8dbc-4177-bf2a-e715b5a55241","type":"kpi","col":28,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":33.33333333333333,"width":15.476190476190476,"height":7.142857142857142}}
+{"name":"272aaa0e-278e-48bd-9185-7c545ff9ae53","type":"kpi","col":55,"row":5,"colspan":29,"rowspan":5,"bounds":{"y":7.142857142857142,"x":65.47619047619048,"width":34.523809523809526,"height":7.142857142857142}}
+{"name":"e95a775f-b6c4-4f90-af6e-47bd28cb0fac","type":"barchart","col":0,"row":10,"colspan":55,"rowspan":14,"bounds":{"y":14.285714285714285,"x":0,"width":65.47619047619048,"height":20}}
+{"name":"31ad3d13-505a-409f-8feb-ae8a219f33ea","type":"barchart","col":0,"row":24,"colspan":55,"rowspan":14,"bounds":{"y":34.285714285714285,"x":0,"width":65.47619047619048,"height":20}}
+{"name":"d18ad883-3929-477a-83b8-465cdb809417","type":"piechart","col":0,"row":38,"colspan":29,"rowspan":14,"bounds":{"x":0,"y":54.28571428571427,"width":34.523809523809526,"height":20}}
+{"name":"e697d0c4-24de-464e-b2e4-289a922537e7","type":"barchart","col":29,"row":38,"colspan":55,"rowspan":14,"bounds":{"x":34.523809523809526,"y":54.28571428571427,"width":65.47619047619048,"height":20}}
+{"name":"70d0eff6-fb61-4cfd-a8f4-5d6371cc5aaf","type":"sn-tabbed-container","col":0,"row":52,"colspan":84,"rowspan":18,"bounds":{"y":74.28571428571429,"x":0,"width":100,"height":25.71428571428571}}
+{"name":"MmbGJC","type":"filterpane","visible":true,"col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"y":4.285714285714286,"x":0,"width":100,"height":2.857142857142857}}
+{"name":"TNvRhn","type":"linechart","visible":true,"col":55,"row":10,"colspan":29,"rowspan":14,"bounds":{"y":14.285714285714285,"x":65.47619047619048,"width":34.523809523809526,"height":20}}
+{"name":"MAXmxt","type":"linechart","visible":true,"col":55,"row":24,"colspan":29,"rowspan":14,"bounds":{"y":34.285714285714285,"x":65.47619047619048,"width":34.523809523809526,"height":20}}
+{"name":"MPXACQj","type":"kpi","visible":true,"col":0,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":0,"width":15.476190476190476,"height":7.142857142857142}}
+{"name":"uPymjT","type":"kpi","visible":true,"col":14,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":16.666666666666664,"width":15.476190476190476,"height":7.142857142857142}}
+{"name":"537b2a82-e636-4bcd-9555-9dd972e22452","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":5.263157894736843}}
+{"name":"b4d963b3-8a3c-4a3f-ae43-05be3f030203","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":5.2631578947368425,"width":100,"height":3.508771929824561}}
+{"name":"3c99b262-dfe5-474c-86a1-205f2d59742e","type":"kpi","col":0,"row":5,"colspan":17,"rowspan":4,"bounds":{"y":8.771929824561402,"x":0,"width":20.238095238095237,"height":7.017543859649122}}
+{"name":"1dabca4a-7315-4a81-8e29-35b61eb3876a","type":"kpi","col":17,"row":5,"colspan":16,"rowspan":4,"bounds":{"y":8.771929824561402,"x":20.238095238095237,"width":19.047619047619047,"height":7.017543859649122}}
+{"name":"b15b3144-bd4f-4aee-afdb-00fd5e53546a","type":"kpi","col":33,"row":5,"colspan":18,"rowspan":4,"bounds":{"y":8.771929824561402,"x":39.285714285714285,"width":21.428571428571427,"height":7.017543859649122}}
+{"name":"8fc59c0b-58c4-42cc-8222-9c96a9ee35b4","type":"kpi","col":51,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":60.71428571428571,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"0906030a-eb59-4a0c-83a8-0ffb84ec92f1","type":"kpi","col":65,"row":5,"colspan":11,"rowspan":4,"bounds":{"y":8.771929824561402,"x":77.38095238095238,"width":13.095238095238097,"height":7.017543859649122}}
+{"name":"ffe281da-d816-4a3f-82e9-e84dea7de7c8","type":"kpi","col":76,"row":5,"colspan":8,"rowspan":4,"bounds":{"y":8.771929824561402,"x":90.47619047619048,"width":9.523809523809524,"height":7.017543859649122}}
+{"name":"48316568-2f92-44eb-b034-b770e9ec10cb","type":"combochart","col":0,"row":9,"colspan":84,"rowspan":15,"bounds":{"y":15.789473684210526,"x":0,"width":100,"height":26.31578947368421}}
+{"name":"08309359-d83e-497e-b0a9-28060c50e130","type":"combochart","col":0,"row":24,"colspan":84,"rowspan":14,"bounds":{"y":42.10526315789473,"x":0,"width":100,"height":24.561403508771928}}
+{"name":"d91db413-dfc5-49fb-a221-4c1c33edab3a","type":"sn-tabbed-container","col":0,"row":38,"colspan":84,"rowspan":19,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
 
 DIMENSIONS
-{"qInfo":{"qId":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:23:55.590Z","modifiedDate":"2026-08-12T12:23:55.590Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e8\u05d1\u05e2\u05d5\u05df","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:23:55.590Z","modifiedDate":"2026-09-17T07:55:07.109Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Quarter","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"385b2739-c171-4566-a3d5-a11d3b12a939","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"385b2739-c171-4566-a3d5-a11d3b12a939","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:27:55.936Z","modifiedDate":"2026-08-12T12:27:55.936Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05de\u05d9\u05e7\u05d5\u05dd \u05d2\u05d9\u05d0\u05d5\u05d2\u05e8\u05e4\u05d9","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"387c6edc-a015-40f8-a3ac-139ca0ea21a8","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"387c6edc-a015-40f8-a3ac-139ca0ea21a8","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:35:32.736Z","modifiedDate":"2026-08-12T12:35:32.736Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Work Type","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"JXDJzM","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"JXDJzM","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:35:17.646Z","modifiedDate":"2026-08-12T12:35:17.646Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"NBS 2","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"MgwfJ","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"MgwfJ","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:23:30.446Z","modifiedDate":"2026-08-12T12:23:30.446Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05d4\u05e1\u05db\u05dd","description":"","tags":[]},"qData":[]}
-{"qInfo":{"qId":"aBXDPX","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"aBXDPX","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:18:17.927Z","modifiedDate":"2026-08-12T12:18:17.927Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05e7\u05d5","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"aBXDPX","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"aBXDPX","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:18:17.927Z","modifiedDate":"2026-09-17T08:53:29.337Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Line","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"chuLq","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"chuLq","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T15:26:35.828Z","modifiedDate":"2026-08-26T15:49:12.287Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"IncidentNearmissEvent","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"hBhyMC","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"hBhyMC","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T16:28:24.173Z","modifiedDate":"2026-08-30T12:49:03.410Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Injury Specification","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"jbjREF","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"jbjREF","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:18:59.473Z","modifiedDate":"2026-08-31T12:24:20.415Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Year","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"kVtWJCx","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"kVtWJCx","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T16:03:49.481Z","modifiedDate":"2026-08-30T12:46:32.419Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"PropertyDamageEvent","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"pPtFFyv","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"pPtFFyv","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T15:52:17.473Z","modifiedDate":"2026-09-16T09:58:17.199Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"gCalender","description":"","tags":[]},"qData":[]}
-{"qInfo":{"qId":"sJDPyn","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"sJDPyn","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:34:41.996Z","modifiedDate":"2026-08-12T12:34:41.996Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"\u05d7\u05d5\u05d3\u05e9","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"sJDPyn","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"sJDPyn","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:34:41.996Z","modifiedDate":"2026-09-17T07:55:57.218Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Month","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"sbsnvjK","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"sbsnvjK","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T16:32:54.220Z","modifiedDate":"2026-08-26T16:37:15.494Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Damage Type","description":"","tags":[]},"qData":[]}
 
 MEASURES
@@ -84,11 +84,11 @@ MEASURES
 VARIABLES
 {"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9c200753-d937-457a-b349-68ea05b2c10c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5965fdd8-96fd-45d7-b6ca-42735bd5ad40","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vDocumentTitleFN","qDefinition":"Safty First VNew","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"95c39e63-c67f-4582-bf05-aee9fb12ba2d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"57283e08-9603-45c9-9627-ebf06b63de10","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vYesterday","qDefinition":"15\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentTitleFN","qDefinition":"Safty First ","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"95c39e63-c67f-4582-bf05-aee9fb12ba2d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"57283e08-9603-45c9-9627-ebf06b63de10","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vYesterday","qDefinition":"16\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQuantityPercentage","qDefinition":"Quantity","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e4a5a094-eebc-4b04-a462-23360c9d7cda","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"16\/09\/2026 17:11","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"17\/09\/2026 11:47","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vYesterdayYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d4bf40ab-946f-4759-8efd-bc87ef5cea8b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYear","qDefinition":"2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"59df1c3c-f13e-4817-a68a-81aa96a3a4e5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -98,16 +98,16 @@ VARIABLES
 {"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38a1f01d-e850-4f31-99a7-33e38aae578d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"247adf22-7b86-4dd8-b5c3-fa953a61da7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"rRunStart","qDefinition":"16\/09\/2026 2:14:46 PM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vToday","qDefinition":"16\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"rRunStart","qDefinition":"17\/09\/2026 9:07:10 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vToday","qDefinition":"17\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCurrentYYYYMM","qDefinition":"202609","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8278e550-632d-4bdf-b7b2-d5afd304ccbf","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLM_YYYYMM","qDefinition":"202608","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ffff7f68-69ca-44a2-82f6-0fa34955ac96","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vFileList","qDefinition":"\\\\ntanas02\\bi\\Quality_green_IN2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0181d815-598f-492a-98dc-d015cc4cae01","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vNas02Temp","qDefinition":"\\\\ntanas02\\bi\\Quality_green_IN2","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"405cdc24-15d5-41e9-802d-e5e56b7e0c15","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentName","qDefinition":"Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3804b7d6-ec52-4deb-a6e5-85de9bceb9df","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"36eef347-77f7-4f3b-b2f0-280dd82a798c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bfd26ee-8bfc-43c1-aca5-f3f6841fd776","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vLM_Yesterday","qDefinition":"15\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bfd26ee-8bfc-43c1-aca5-f3f6841fd776","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLM_Yesterday","qDefinition":"16\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"MonthNamesEng","qDefinition":"Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fa63338f-3336-482c-9588-aebfbad60428","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongMonthNamesEng","qDefinition":"January;February;March;April;May;June;July;August;September;October;November;December","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b8088229-9f10-4663-9ce4-e98f02ddb8f1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"DayNamesEng","qDefinition":"Sun;Mon;Tue;Wed;Thu;Fri;Sat","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1365a2a7-f89c-4893-9236-ba48ca3fbc69","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -115,7 +115,7 @@ VARIABLES
 {"qName":"vAconex_AddOn","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Aconex_AddOn\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"32ba3bb2-ea02-4c4c-90b8-bdf22db27887","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vBI_KPI","qDefinition":"LTI","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb1814c7-0a55-4afb-870c-307df6294d8c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vEvent_DateMin","qDefinition":"01\/01\/2017","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4f005f09-6332-4f72-ac04-185d34fc5e05","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vEvent_DateMax","qDefinition":"16\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef2239ec-7757-48e7-aebe-c52e049c4a6a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vEvent_DateMax","qDefinition":"17\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef2239ec-7757-48e7-aebe-c52e049c4a6a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vNCR_PlannedClosureDateTo","qDefinition":"=Date(MonthEnd(max({<[NCR Overdue]=,[NCR Planned Closure Date]={\"<=$(vToday)\"}>}[NCR Planned Closure Date])))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"26a63435-c54f-4e4d-a162-590fb814cd9b","qType":"variable"},"qData":[]}
 {"qName":"vUserName","qDefinition":"=Only({$<UserName_OS={$(=vUserOS)}>}FULLNAME)\/\/=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
 {"qName":"vNCR_PlannedClosureDateFrom","qDefinition":"=Date(YearStart(max({1<NCRPlannedClosureDateFlag={1},[NCR Planned Closure Date]={\"<=$(vToday)\"}>}[NCR Planned Closure Date])))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"34d398a5-04d5-4d7a-bc69-842b054e210f","qType":"variable"},"qData":[]}
@@ -129,15 +129,15 @@ VARIABLES
 {"qName":"vDate_YearMonthMax","qDefinition":"=YEAR(TODAY()) & NUM(MONTH(TODAY()),'00')","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e5d5cff7-4c1c-4bad-9afb-5f0ad43958df","qType":"variable"},"qData":[]}
 
 FIELDS
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":124,"qTags":["$hidden","$system","$text","$key"],"qSrcTables":[]}
-{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":7,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":127,"qTags":["$hidden","$system","$text","$key"],"qSrcTables":[]}
+{"qIsHidden":true,"qIsSystem":true,"qName":"$Table","qCardinal":8,"qTags":["$hidden","$system","$ascii","$text","$key"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Rows","qCardinal":7,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Fields","qCardinal":4,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$FieldNo","qCardinal":83,"qTags":["$hidden","$system","$numeric","$integer"],"qSrcTables":[]}
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$ascii","$text"],"qSrcTables":[]}
 {"qName":"YYYYMM","qCardinal":141,"qTags":["$numeric","$integer","$key"],"qSrcTables":["Calendar","KeyTable"]}
 {"qName":"YearQuarter","qCardinal":39,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
-{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da","qCardinal":3546,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da","qCardinal":3547,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
 {"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"WeekDaySort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05dd \u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2 \u05e7\u05e6\u05e8","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
@@ -163,14 +163,14 @@ FIELDS
 {"qName":"QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"YearQuarterSort","qCardinal":39,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"YearMonthSort","qCardinal":117,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
-{"qName":"YearMonthDaySort","qCardinal":3546,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"YearMonthDaySort","qCardinal":3547,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e9\u05e0\u05d4","qCardinal":117,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e8\u05d1\u05e2\u05d5\u05df \u05e9\u05e0\u05d4","qCardinal":39,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4 \u05d7\u05d5\u05d3\u05e9","qCardinal":117,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4 \u05e8\u05d1\u05e2\u05d5\u05df","qCardinal":39,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"ProjectID","qCardinal":9,"qTags":["$numeric","$integer","$key"],"qSrcTables":["KeyTable","Projects","IncAccRep_View-6"]}
-{"qName":"KeyProjectYYMM","qCardinal":404,"qTags":["$key"],"qSrcTables":["KeyTable","IncAccRep_View","LTIAccYYYYMM","ProjectHoursAccumulated"]}
-{"qName":"Event_Date","qCardinal":1022,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"KeyProjectYYMM","qCardinal":323,"qTags":["$ascii","$text","$key"],"qSrcTables":["KeyTable","IncAccRep_View","LTIAccYYYYMM","ProjectHoursAccumulated"]}
+{"qName":"Event_Date","qCardinal":1023,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Damage_LTI_Flag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"LTI Yes\/No","qCardinal":2,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"IncidentNearmissFlag","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
@@ -183,67 +183,67 @@ FIELDS
 {"qName":"Phase","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"mail type ID","qCardinal":1,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"mail type","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"sent date","qCardinal":1917,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"To User","qCardinal":779,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"sent date","qCardinal":1918,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"To User","qCardinal":780,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"ToRecipients","qCardinal":555,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"CcRecipients","qCardinal":311,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"To Organization Name","qCardinal":221,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"mail no","qCardinal":1714,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"CcRecipients","qCardinal":312,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"To Organization Name","qCardinal":222,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"mail no","qCardinal":1715,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"From Organization Name","qCardinal":30,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"from (user)","qCardinal":79,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"subject","qCardinal":1664,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Reference Number ID","qCardinal":1475,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Reference Number","qCardinal":1313,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"subject","qCardinal":1665,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Reference Number ID","qCardinal":1476,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Reference Number","qCardinal":1314,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Status","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute1","qCardinal":35,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute1 CODE","qCardinal":28,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute2","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute2 CODE","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute3","qCardinal":164,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Attribute3 CODE","qCardinal":41,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute3","qCardinal":165,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Attribute3 CODE","qCardinal":42,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute4","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Attribute4 CODE","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Reason for Issue","qCardinal":0,"qTags":[],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Body","qCardinal":584,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"mail ID","qCardinal":1917,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Date","qCardinal":1022,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Body","qCardinal":585,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"mail ID","qCardinal":1918,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Date","qCardinal":1023,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"HsAccidentUnder1945Ordinance","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"WasMethodStatementIssued","qCardinal":2,"qTags":["$numeric","$integer"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"TimeRange","qCardinal":14,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Contractor","qCardinal":45,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Contractor","qCardinal":46,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Priority","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"Detailed Description of Incident\/Acciden","qCardinal":1346,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"Detailed Description of Incident\/Acciden","qCardinal":1347,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Injury Specification","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"TypeInjury","qCardinal":15,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"InjuredBodyPart","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"Other injured part","qCardinal":249,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"PropertyDamage","qCardinal":12,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"PdOtherDetailsInComments","qCardinal":259,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"PdOtherDetailsInComments","qCardinal":260,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"EnvironmentalDamage","qCardinal":7,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"EaOtherDetailsInComments","qCardinal":136,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"IncidentNearmiss","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"SecondaryClassification","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"OseOtherSevereEvent","qCardinal":105,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhatAcitivitiesWereBeingCarriedOut","qCardinal":1086,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhatAcitivitiesWereBeingCarriedOut","qCardinal":1087,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"ActivityDuringIncidentaccidentCause","qCardinal":20,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"IfOtherCausePleaseSpecify","qCardinal":361,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhereDidTheIncidentOccur","qCardinal":1047,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"IfOtherCausePleaseSpecify","qCardinal":362,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhereDidTheIncidentOccur","qCardinal":1048,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"IncidentaccidentMechanism","qCardinal":23,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"OtherAccidentincidentMechanism","qCardinal":391,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"WhatWereTheWorkingConditions","qCardinal":782,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"DescribeEventsLeadingToEvent","qCardinal":1055,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"WhatWereTheWorkingConditions","qCardinal":783,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"DescribeEventsLeadingToEvent","qCardinal":1056,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"AffectedPersonsIdpassport","qCardinal":253,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"AffectedPersonsFullName","qCardinal":279,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"AgeOfAffectedPerson","qCardinal":8,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"SexOfPerson","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"PersonsNumberOfMonthsExperience","qCardinal":37,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"TotalDayHoursPriorToAccident","qCardinal":25,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ImmediateCorrectiveActionsToBeTaken","qCardinal":1082,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"NameOfWitness1AndEmployer","qCardinal":862,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ImmediateCorrectiveActionsToBeTaken","qCardinal":1083,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"NameOfWitness1AndEmployer","qCardinal":863,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"NameOfWitness2AndEmployer","qCardinal":241,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"WhatTimeDidPersonStartShift","qCardinal":208,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"IfNoAssessmentSentDescribeWhy","qCardinal":140,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ContInvestigationCompetentPerson","qCardinal":430,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ContInvestigationCompetentPerson","qCardinal":431,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"CauseForIncidentAccidentReport","qCardinal":6,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"RootCauseForPropertyDamage","qCardinal":5,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"RecordOrigin","qCardinal":2,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
@@ -256,6 +256,9 @@ FIELDS
 {"qName":"ProjectSort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Projects"]}
 {"qName":"LTI_InjuryLtiCountPerMonth","qCardinal":13,"qTags":["$numeric","$integer"],"qSrcTables":["LTIAccYYYYMM"]}
 {"qName":"LTI_InjuryLtiCountAccumulated","qCardinal":79,"qTags":["$numeric","$integer"],"qSrcTables":["LTIAccYYYYMM"]}
-{"qName":"MonthlyManHours","qCardinal":74,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
-{"qName":"AccumulatedManHours","qCardinal":76,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
+{"qName":"MonthlyManHours","qCardinal":185,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
+{"qName":"AccumulatedManHours","qCardinal":188,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
 {"qName":"Line","qCardinal":4,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View-6"]}
+{"qName":"UserName_OS","qCardinal":1363,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1361,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"FULLNAME","qCardinal":1351,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
