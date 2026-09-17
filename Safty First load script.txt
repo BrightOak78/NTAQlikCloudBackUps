@@ -746,7 +746,8 @@ Load
 ProjectID &'-'& YYYYMM as KeyProjectYYMM,
  ProjectID ,
     YYYYMM
-resident KeyBase;
+resident KeyBase
+Where ProjectID <> 268440115;
 drop table KeyBase;
 
 ///$tab Load
@@ -854,35 +855,40 @@ LOAD
     "Work Type Code",
     "Max Email Fetch Date"
 FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
-(qvd);
+(qvd)
+Where ProjectID <> 268440115;
 
 LOAD
     ProjectID,
    DOCGROUP,
     ProjectSort
 FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/Projects.QVD]
-(qvd);
+(qvd)
+Where ProjectID <> 268440115;
 
 
 LOAD
    ProjectID &'-'& LTI_YearMonth as KeyProjectYYMM,
     LTI_InjuryLtiCountPerMonth,LTI_InjuryLtiCountAccumulated
 FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/LTIAccYYYYMM.QVD]
-(qvd);
+(qvd)
+Where ProjectID <> 268440115;
 
 
 LOAD
     ProjectID &'-'& YYYYMM as KeyProjectYYMM,
     MonthlyManHours,AccumulatedManHours
 FROM [lib://Data Files:DataFiles/DEV/DW/Safty First/ProjectHoursAccumulated.QVD]
-(qvd);
+(qvd)
+Where ProjectID <> 268440115;
 
 LOAD distinct
     
       ProjectID,
       Line
 FROM [$(vLibDataFiles_RAW)/IncAccRep_View.qvd]
-(qvd);
+(qvd)
+Where ProjectID <> 268440115;
 
 ///$tab Section Access
 //////*****************************************************
