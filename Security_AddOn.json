@@ -1,0 +1,18 @@
+
+SHEETS
+
+OBJECTS ON SHEETS
+
+DIMENSIONS
+
+MEASURES
+
+VARIABLES
+{"qName":"vDocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cf8b2388-9a4a-45ca-82f5-2a2be81c8bf4","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"Security_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"47838f34-0915-472d-ab32-825dc100c35d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Security_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"d846cc3d-ffbf-45d6-82b3-5d2cb09006fb","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security_AddOn","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4a508292-642c-4270-aadc-3a9b85bf97fe","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSecurity_AddOn","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Security_AddOn\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"715f969b-fe26-4177-b781-b0e64487835c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"920a0a15-032a-4f38-8653-1c243a11b018","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+
+FIELDS
