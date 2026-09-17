@@ -627,7 +627,7 @@ INTO [$(vLibDataFiles_DW)/LTIAccYYYYMM.QVD] (qvd);
 Drop Table LTIAccYYYYMM;
 ///$tab Calendar
 
-LET vEvent_DateMin =DATE(MAKEDATE(2017,01,01),'DD/MM/YYYY');
+LET vEvent_DateMin =DATE(MAKEDATE(2020,01,01),'DD/MM/YYYY');
 LET vEvent_DateMax = DATE(TODAY(),'DD/MM/YYYY');
 
 ///////*****************************************************
