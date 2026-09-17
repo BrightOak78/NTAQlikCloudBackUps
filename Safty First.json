@@ -2,6 +2,7 @@
 SHEETS
 {"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-12T12:03:28.046Z","modifiedDate":"2026-08-12T12:03:28.046Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
 {"qInfo":{"qId":"6446ac4c-58bf-4da1-9424-0692af41e4f4","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6446ac4c-58bf-4da1-9424-0692af41e4f4","approved":false,"published":true,"publishTime":"2026-09-17T09:35:34.642Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-16T12:16:23.266Z","modifiedDate":"2026-09-17T09:35:34.378Z","encrypted":true,"privileges":["read","publish"],"title":"Damage Report","description":""},"qData":[]}
+{"qInfo":{"qId":"825bb2fe-19e7-4544-8649-424e85ce6387","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"825bb2fe-19e7-4544-8649-424e85ce6387","approved":false,"published":true,"publishTime":"2026-09-17T10:10:23.229Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-17T09:23:26.938Z","modifiedDate":"2026-09-17T10:10:23.079Z","encrypted":true,"privileges":["read","publish"],"title":"Workplace Safety","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
 {"name":"89eaf001-311a-4b9a-a96d-1192faee8cda","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.8461538461538467}}
@@ -40,6 +41,17 @@ OBJECTS ON SHEETS
 {"name":"MAXmxt","type":"linechart","visible":true,"col":55,"row":24,"colspan":29,"rowspan":14,"bounds":{"y":34.285714285714285,"x":65.47619047619048,"width":34.523809523809526,"height":20}}
 {"name":"MPXACQj","type":"kpi","visible":true,"col":0,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":0,"width":15.476190476190476,"height":7.142857142857142}}
 {"name":"uPymjT","type":"kpi","visible":true,"col":14,"row":5,"colspan":13,"rowspan":5,"bounds":{"y":7.142857142857142,"x":16.666666666666664,"width":15.476190476190476,"height":7.142857142857142}}
+{"name":"537b2a82-e636-4bcd-9555-9dd972e22452","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":5.263157894736843}}
+{"name":"b4d963b3-8a3c-4a3f-ae43-05be3f030203","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":5.2631578947368425,"width":100,"height":3.508771929824561}}
+{"name":"3c99b262-dfe5-474c-86a1-205f2d59742e","type":"kpi","col":0,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":0,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"1dabca4a-7315-4a81-8e29-35b61eb3876a","type":"kpi","col":14,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":16.666666666666664,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"b15b3144-bd4f-4aee-afdb-00fd5e53546a","type":"kpi","col":28,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":33.33333333333333,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"8fc59c0b-58c4-42cc-8222-9c96a9ee35b4","type":"kpi","col":42,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":50,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"0906030a-eb59-4a0c-83a8-0ffb84ec92f1","type":"kpi","col":56,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":66.66666666666666,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"ffe281da-d816-4a3f-82e9-e84dea7de7c8","type":"kpi","col":70,"row":5,"colspan":14,"rowspan":4,"bounds":{"y":8.771929824561402,"x":83.33333333333334,"width":16.666666666666664,"height":7.017543859649122}}
+{"name":"48316568-2f92-44eb-b034-b770e9ec10cb","type":"combochart","col":0,"row":9,"colspan":84,"rowspan":15,"bounds":{"y":15.789473684210526,"x":0,"width":100,"height":26.31578947368421}}
+{"name":"08309359-d83e-497e-b0a9-28060c50e130","type":"combochart","col":0,"row":24,"colspan":84,"rowspan":14,"bounds":{"y":42.10526315789473,"x":0,"width":100,"height":24.561403508771928}}
+{"name":"d91db413-dfc5-49fb-a221-4c1c33edab3a","type":"sn-tabbed-container","col":0,"row":38,"colspan":84,"rowspan":19,"bounds":{"y":66.66666666666666,"x":0,"width":100,"height":33.33333333333333}}
 
 DIMENSIONS
 {"qInfo":{"qId":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"37d7cb02-0be6-4c0e-b795-6d8c4c5e48a0","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T12:23:55.590Z","modifiedDate":"2026-09-17T07:55:07.109Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"Quarter","description":"","tags":[]},"qData":[]}
