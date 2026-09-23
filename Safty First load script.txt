@@ -764,7 +764,7 @@ LOAD
    
    
    if (IncidentNearmiss <> 'N/A',subfield(IncidentNearmiss,'-',2)) as IncidentNearmissEvent,
-     if(PropertyDamage <> 'N/A'
+     if(PropertyDamage = 'N/A'
         or IsNull(PropertyDamage)
     or Len(Trim(PropertyDamage)) = 0, 0,  1) as PropertyDamageFlag,
      
