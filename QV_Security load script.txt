@@ -5234,6 +5234,104 @@ Star is *;
 //////*****************************************************
 
 
+///$tab 30. Lines Security
+
+//***************  Aconex  ************************
+
+Security_Line_Aconex:
+//Authenticated_Project:
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where Aconex_Project_ID='*';
+Left Join
+LOAD Distinct 
+	 Aconex_Project_ID as ProjectID
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where  Aconex_Project_ID<>'*' and not IsNull(Aconex_Project_ID) ;
+
+Concatenate
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP, 
+     Aconex_Project_ID as ProjectID
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where Aconex_Project_ID<>'*' and not IsNull(Aconex_Project_ID);
+
+// הוספת ProjectSort
+Left Join
+LOAD Distinct 
+	 Aconex_Project_ID as ProjectID,
+     Aconex_ProjectSort as ProjectSort
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where not IsNull(Aconex_ProjectSort) ;
+
+STORE [Security_Line_Aconex] INTO [$(pQvd)Security_Line_Aconex.qvd](qvd);
+Drop Table Security_Line_Aconex;
+
+
+//***************  General ( SAP) ************************
+
+Security_Line_General:
+//Authenticated_Project:
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where קו='*';
+Left Join
+LOAD Distinct 
+	   קו,
+      "תאור קו מלא"
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where  קו<>'*' ;
+
+Concatenate
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP, 
+	  קו,
+      "תאור קו מלא"
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where Privavera_Line_Code<>'*';
+
+
+STORE [Security_Line_General] INTO [$(pQvd)Security_Line_General.qvd](qvd);
+drop Table Security_Line_General;
+
+//***************  Primavera  ************************
+Security_Line_Primavera:
+//Authenticated_Project:
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where Privavera_Line_Code='*';
+Left Join
+LOAD Distinct 
+	 Privavera_Line_Code as [Line Code]
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where  Privavera_Line_Code<>'*' and not IsNull(Privavera_Line_Code) ;
+
+Concatenate
+LOAD Distinct
+	 DOCGROUP as USERNAME_DOCGROUP, 
+     Privavera_Line_Code as [Line Code]
+FROM [lib://API & Connections:Sharepoint365/BIDB/Security/Security_AddOn.xlsx]
+(ooxml, embedded labels, table is LinesGroups)
+Where Privavera_Line_Code<>'*' and not IsNull(Privavera_Line_Code);
+
+
+STORE [Security_Line_Primavera] INTO [$(pQvd)Security_Line_Primavera.qvd](qvd);
+
+drop Table Security_Line_Primavera;
+
+
 ///$tab 31. Final LOAD
 //////*****************************************************
 
