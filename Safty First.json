@@ -1,7 +1,7 @@
 
 SHEETS
 {"qInfo":{"qId":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"48d8f81a-8406-4645-a55c-cc3e439c1c1c","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-12T12:03:28.046Z","modifiedDate":"2026-08-12T12:03:28.046Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"NCR Dashboard (1)","description":""},"qData":[]}
-{"qInfo":{"qId":"6446ac4c-58bf-4da1-9424-0692af41e4f4","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6446ac4c-58bf-4da1-9424-0692af41e4f4","approved":false,"published":true,"publishTime":"2026-09-23T10:11:27.758Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-16T12:16:23.266Z","modifiedDate":"2026-09-23T10:11:27.474Z","encrypted":true,"privileges":["read","publish"],"title":"Damage Report","description":""},"qData":[]}
+{"qInfo":{"qId":"6446ac4c-58bf-4da1-9424-0692af41e4f4","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"6446ac4c-58bf-4da1-9424-0692af41e4f4","approved":false,"published":true,"publishTime":"2026-09-23T13:14:30.274Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-16T12:16:23.266Z","modifiedDate":"2026-09-23T13:14:30.159Z","encrypted":true,"privileges":["read","publish"],"title":"Damage Report","description":""},"qData":[]}
 {"qInfo":{"qId":"825bb2fe-19e7-4544-8649-424e85ce6387","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"825bb2fe-19e7-4544-8649-424e85ce6387","approved":false,"published":true,"publishTime":"2026-09-23T10:10:07.277Z","owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-09-17T09:23:26.938Z","modifiedDate":"2026-09-23T10:10:07.024Z","encrypted":true,"privileges":["read","publish"],"title":"Workplace Safety","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
@@ -28,8 +28,8 @@ OBJECTS ON SHEETS
 {"name":"19ff9866-c605-41ef-8123-168ee5bc4a82","type":"sn-layout-container","col":0,"row":5,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":6.410256410256409,"width":100,"height":2.564102564102564}}
 {"name":"7a53e5a2-f6a4-4d00-9e80-3d5632d8c66a","type":"sn-tabbed-container","col":0,"row":40,"colspan":84,"rowspan":38,"bounds":{"y":51.28205128205128,"x":0,"width":100,"height":48.717948717948715}}
 {"name":"331a7c08-5344-426e-bfa4-d8ed4489b8f9","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":4.2857142857142865}}
-{"name":"ae2b066c-58ca-4460-8b50-5f9e4a2c9cc9","type":"kpi","col":41,"row":5,"colspan":14,"rowspan":5,"bounds":{"y":7.142857142857142,"x":48.80952380952381,"width":16.666666666666664,"height":7.142857142857142}}
-{"name":"c715052d-8dbc-4177-bf2a-e715b5a55241","type":"kpi","col":27,"row":5,"colspan":14,"rowspan":5,"bounds":{"y":7.142857142857142,"x":32.142857142857146,"width":16.666666666666664,"height":7.142857142857142}}
+{"name":"ae2b066c-58ca-4460-8b50-5f9e4a2c9cc9","type":"kpi","col":27,"row":5,"colspan":14,"rowspan":5,"bounds":{"y":7.142857142857142,"x":32.142857142857146,"width":16.666666666666664,"height":7.142857142857142}}
+{"name":"c715052d-8dbc-4177-bf2a-e715b5a55241","type":"kpi","col":41,"row":5,"colspan":14,"rowspan":5,"bounds":{"y":7.142857142857142,"x":48.80952380952381,"width":16.666666666666664,"height":7.142857142857142}}
 {"name":"272aaa0e-278e-48bd-9185-7c545ff9ae53","type":"kpi","col":55,"row":5,"colspan":29,"rowspan":5,"bounds":{"y":7.142857142857142,"x":65.47619047619048,"width":34.523809523809526,"height":7.142857142857142}}
 {"name":"e95a775f-b6c4-4f90-af6e-47bd28cb0fac","type":"barchart","col":0,"row":10,"colspan":55,"rowspan":14,"bounds":{"y":14.285714285714285,"x":0,"width":65.47619047619048,"height":20}}
 {"name":"31ad3d13-505a-409f-8feb-ae8a219f33ea","type":"barchart","col":0,"row":24,"colspan":55,"rowspan":14,"bounds":{"y":34.285714285714285,"x":0,"width":65.47619047619048,"height":20}}
@@ -70,7 +70,7 @@ DIMENSIONS
 
 MEASURES
 {"qInfo":{"qId":"440919bd-40e9-429a-8bc6-a58fc15aee40","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"440919bd-40e9-429a-8bc6-a58fc15aee40","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T12:27:43.865Z","modifiedDate":"2026-08-26T12:28:44.092Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#YtdNearMiss","description":"","tags":[]},"qData":[]}
-{"qInfo":{"qId":"9fd35345-a83d-4fdf-a1fc-f356f849e25c","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"9fd35345-a83d-4fdf-a1fc-f356f849e25c","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T14:10:42.597Z","modifiedDate":"2026-08-26T14:11:17.716Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#PropertyDamage","description":"","tags":[]},"qData":[]}
+{"qInfo":{"qId":"9fd35345-a83d-4fdf-a1fc-f356f849e25c","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"9fd35345-a83d-4fdf-a1fc-f356f849e25c","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T14:10:42.597Z","modifiedDate":"2026-09-23T11:58:54.645Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#PropertyDamage","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"DFshzkP","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"DFshzkP","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-12T14:59:49.889Z","modifiedDate":"2026-09-17T09:46:57.597Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#LTI","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"DhztbGJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"DhztbGJ","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T12:21:38.171Z","modifiedDate":"2026-08-26T12:23:08.300Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#NearMiss","description":"","tags":[]},"qData":[]}
 {"qInfo":{"qId":"GJkmuX","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"GJkmuX","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-13T14:00:21.487Z","modifiedDate":"2026-08-13T14:00:21.487Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#AccLTI","description":"","tags":[]},"qData":[]}
@@ -82,10 +82,10 @@ MEASURES
 {"qInfo":{"qId":"wfGvbJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"wfGvbJ","approved":false,"published":false,"owner":"ShauliB@nta.co.il","ownerId":"695b9f738303746fd78aa681","createdDate":"2026-08-26T14:31:07.207Z","modifiedDate":"2026-08-26T14:34:46.798Z","encrypted":true,"privileges":["read","update","delete","publish"],"title":"#YtdTotalInjury","description":"","tags":[]},"qData":[]}
 
 VARIABLES
-{"qName":"vYesterday","qDefinition":"21\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vYesterday","qDefinition":"22\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"145f971b-57ac-4520-a9b2-17b26eac06c7","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQuantityPercentage","qDefinition":"Quantity","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e4a5a094-eebc-4b04-a462-23360c9d7cda","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"17\/09\/2026 18:30","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"rRunStart","qDefinition":"22\/09\/2026 8:59:23 AM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"22\/09\/2026 12:00","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd6d175e-c94f-43cf-a6fb-045e39f696ca","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"rRunStart","qDefinition":"23\/09\/2026 1:20:20 PM","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"62d3787e-657d-4918-b6ee-9ccdd3e7866a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongMonthNamesEng","qDefinition":"January;February;March;April;May;June;July;August;September;October;November;December","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"b8088229-9f10-4663-9ce4-e98f02ddb8f1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"7ea9ab82-7432-413f-b9de-ef01b0943e6e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vODBC","qDefinition":"QualityIN2;DBQ=\\\\ntanas02\\bi\\Quality_green_IN2\\","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"82d40cbc-3378-43fc-a4e2-86178ed274c0","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -93,7 +93,7 @@ VARIABLES
 {"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db87df33-8b08-40f9-be41-e17f58b1c37b","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"38a1f01d-e850-4f31-99a7-33e38aae578d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"247adf22-7b86-4dd8-b5c3-fa953a61da7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vToday","qDefinition":"22\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vToday","qDefinition":"23\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cd25ae15-4bff-4b10-9b40-9b498a812d0c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"36eef347-77f7-4f3b-b2f0-280dd82a798c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bfd26ee-8bfc-43c1-aca5-f3f6841fd776","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vBI_KPI","qDefinition":"LTI","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb1814c7-0a55-4afb-870c-307df6294d8c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -103,7 +103,7 @@ VARIABLES
 {"qName":"vDocumentNameFN","qDefinition":"28cefde7-aed7-42e7-9167-ea58057ef06e","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"120103ea-6caf-4856-a66b-a4cbe24e64c1","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLM_YYYYMM","qDefinition":"202608","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ffff7f68-69ca-44a2-82f6-0fa34955ac96","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentName","qDefinition":"Safty First","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"3804b7d6-ec52-4deb-a6e5-85de9bceb9df","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vLM_Yesterday","qDefinition":"21\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vLM_Yesterday","qDefinition":"22\/08\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9a2526b1-f73a-4cc5-a142-bc260ca29c42","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vEvent_DateMin","qDefinition":"01\/01\/2020","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4f005f09-6332-4f72-ac04-185d34fc5e05","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9c200753-d937-457a-b349-68ea05b2c10c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentTitleFN","qDefinition":"Safty First ","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"95c39e63-c67f-4582-bf05-aee9fb12ba2d","qType":"variable"},"qData":[],"qIsScriptCreated":true}
@@ -115,7 +115,7 @@ VARIABLES
 {"qName":"DayNamesEng","qDefinition":"Sun;Mon;Tue;Wed;Thu;Fri;Sat","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1365a2a7-f89c-4893-9236-ba48ca3fbc69","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"LongDayNamesEng","qDefinition":"Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"40c4119c-ef9d-4a39-94df-1f44650ec2ab","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vAconex_AddOn","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/Aconex_AddOn\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"32ba3bb2-ea02-4c4c-90b8-bdf22db27887","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vEvent_DateMax","qDefinition":"22\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef2239ec-7757-48e7-aebe-c52e049c4a6a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vEvent_DateMax","qDefinition":"23\/09\/2026","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ef2239ec-7757-48e7-aebe-c52e049c4a6a","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vNCR_PlannedClosureDateTo","qDefinition":"=Date(MonthEnd(max({<[NCR Overdue]=,[NCR Planned Closure Date]={\"<=$(vToday)\"}>}[NCR Planned Closure Date])))","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"26a63435-c54f-4e4d-a162-590fb814cd9b","qType":"variable"},"qData":[]}
 {"qName":"vUserOS","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ee9050bf-44ef-44a9-b33a-bb1abb1e15ac","qType":"variable"},"qData":[]}
 {"qName":"vUserName","qDefinition":"=Only({$<UserName_OS={$(=vUserOS)}>}FULLNAME)\/\/=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
@@ -137,7 +137,7 @@ FIELDS
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Info","qCardinal":1,"qTags":["$hidden","$system","$ascii","$text"],"qSrcTables":[]}
 {"qName":"YYYYMM","qCardinal":86,"qTags":["$numeric","$integer","$key"],"qSrcTables":["Calendar","KeyTable"]}
 {"qName":"YearQuarter","qCardinal":27,"qTags":["$ascii","$text"],"qSrcTables":["Calendar"]}
-{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da","qCardinal":2457,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
+{"qName":"\u05ea\u05d0\u05e8\u05d9\u05da","qCardinal":2458,"qTags":["$numeric","$integer","$timestamp","$date"],"qSrcTables":["Calendar"]}
 {"qName":"\u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"WeekDaySort","qCardinal":7,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05dd \u05d9\u05d5\u05dd \u05d1\u05e9\u05d1\u05d5\u05e2 \u05e7\u05e6\u05e8","qCardinal":7,"qTags":["$text"],"qSrcTables":["Calendar"]}
@@ -163,7 +163,7 @@ FIELDS
 {"qName":"QuarterSort","qCardinal":4,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"YearQuarterSort","qCardinal":27,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"YearMonthSort","qCardinal":81,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
-{"qName":"YearMonthDaySort","qCardinal":2457,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
+{"qName":"YearMonthDaySort","qCardinal":2458,"qTags":["$numeric","$integer"],"qSrcTables":["Calendar"]}
 {"qName":"\u05d7\u05d5\u05d3\u05e9 \u05e9\u05e0\u05d4","qCardinal":81,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e8\u05d1\u05e2\u05d5\u05df \u05e9\u05e0\u05d4","qCardinal":27,"qTags":["$text"],"qSrcTables":["Calendar"]}
 {"qName":"\u05e9\u05e0\u05d4 \u05d7\u05d5\u05d3\u05e9","qCardinal":81,"qTags":["$text"],"qSrcTables":["Calendar"]}
@@ -185,8 +185,8 @@ FIELDS
 {"qName":"mail type","qCardinal":1,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"sent date","qCardinal":891,"qTags":["$numeric","$timestamp"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"To User","qCardinal":190,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"ToRecipients","qCardinal":111,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
-{"qName":"CcRecipients","qCardinal":113,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"ToRecipients","qCardinal":101,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
+{"qName":"CcRecipients","qCardinal":97,"qTags":["$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"To Organization Name","qCardinal":93,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"mail no","qCardinal":760,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
 {"qName":"From Organization Name","qCardinal":18,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View"]}
@@ -259,6 +259,6 @@ FIELDS
 {"qName":"MonthlyManHours","qCardinal":148,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
 {"qName":"AccumulatedManHours","qCardinal":150,"qTags":["$numeric","$integer"],"qSrcTables":["ProjectHoursAccumulated"]}
 {"qName":"Line","qCardinal":3,"qTags":["$ascii","$text"],"qSrcTables":["IncAccRep_View-6"]}
-{"qName":"UserName_OS","qCardinal":1363,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
-{"qName":"UserName_Full","qCardinal":1361,"qTags":["$text"],"qSrcTables":["Display_Users"]}
-{"qName":"FULLNAME","qCardinal":1351,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_OS","qCardinal":1372,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
+{"qName":"UserName_Full","qCardinal":1370,"qTags":["$text"],"qSrcTables":["Display_Users"]}
+{"qName":"FULLNAME","qCardinal":1360,"qTags":["$ascii","$text"],"qSrcTables":["Display_Users"]}
