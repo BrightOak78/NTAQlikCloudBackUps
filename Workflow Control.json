@@ -1,6 +1,7 @@
 
 SHEETS
-{"qInfo":{"qId":"9c732ccb-a639-4120-ada5-646a8f33aa02","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9c732ccb-a639-4120-ada5-646a8f33aa02","approved":false,"published":true,"publishTime":"2026-08-31T13:48:26.883Z","owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-24T07:52:46.587Z","modifiedDate":"2026-08-31T11:41:08.870Z","encrypted":true,"privileges":["read","publish","change_owner"],"title":"Documents Control","description":""},"qData":[]}
+{"qInfo":{"qId":"9c732ccb-a639-4120-ada5-646a8f33aa02","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"9c732ccb-a639-4120-ada5-646a8f33aa02","approved":false,"published":true,"publishTime":"2026-09-24T09:15:27.772Z","owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-24T07:52:46.587Z","modifiedDate":"2026-09-24T09:15:27.484Z","encrypted":true,"privileges":["read","publish","change_owner"],"title":"Documents Control","description":""},"qData":[]}
+{"qInfo":{"qId":"f881d5f1-4a6b-462a-8abb-14f8f43db59f","qType":"sheet"},"qMeta":{"_resourcetype":"app.object","_objecttype":"sheet","id":"f881d5f1-4a6b-462a-8abb-14f8f43db59f","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-09-24T09:10:40.372Z","modifiedDate":"2026-09-24T09:10:40.372Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Documents Control (1)","description":""},"qData":[]}
 
 OBJECTS ON SHEETS
 {"name":"nPfdJE","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.6144578313253013}}
@@ -13,6 +14,16 @@ OBJECTS ON SHEETS
 {"name":"YWJpmb","type":"piechart","col":28,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":33.33333333333333,"width":33.33333333333333,"height":18.072289156626507}}
 {"name":"TmhsWUE","type":"piechart","col":56,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":66.66666666666666,"width":33.33333333333333,"height":18.072289156626507}}
 {"name":"kGjCy","type":"sn-tabbed-container","col":0,"row":43,"colspan":84,"rowspan":40,"bounds":{"y":51.80722891566265,"x":0,"width":100,"height":48.19277108433735}}
+{"name":"879abfd4-e76d-4bd2-bce6-1f935af58acf","type":"sn-layout-container","col":0,"row":0,"colspan":84,"rowspan":3,"bounds":{"x":0,"y":0,"width":100,"height":3.6144578313253013}}
+{"name":"5e03c0ec-39e3-4f0d-9dcb-41a547e7c914","type":"filterpane","col":0,"row":3,"colspan":84,"rowspan":2,"bounds":{"x":0,"y":3.6144578313253013,"width":100,"height":2.4096385542168672}}
+{"name":"c60e9039-1c1b-4921-8608-6ee8077af0bf","type":"sn-layout-container","col":0,"row":5,"colspan":42,"rowspan":8,"bounds":{"x":0,"y":6.024096385542169,"width":50,"height":9.638554216867469}}
+{"name":"2b722c2f-0ddd-421a-8540-7b362abc2c13","type":"sn-layout-container","col":42,"row":5,"colspan":42,"rowspan":8,"bounds":{"x":50,"y":6.024096385542169,"width":50,"height":9.638554216867469}}
+{"name":"a73d627d-7d7c-431d-b0a5-fa60c48190f3","type":"barchart","col":0,"row":13,"colspan":39,"rowspan":15,"bounds":{"y":15.66265060240964,"x":0,"width":46.42857142857143,"height":18.072289156626507}}
+{"name":"9bf0cfd3-997f-4f0a-81aa-f2691db0c821","type":"combochart","col":39,"row":13,"colspan":45,"rowspan":15,"bounds":{"y":15.66265060240964,"x":46.42857142857143,"width":53.57142857142857,"height":18.072289156626507}}
+{"name":"6afe3a91-171f-44dd-a71d-04c714f6c0cc","type":"piechart","col":0,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":0,"width":33.33333333333333,"height":18.072289156626507}}
+{"name":"d3c537c3-55e4-4eed-bc69-48d0e162f703","type":"piechart","col":28,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":33.33333333333333,"width":33.33333333333333,"height":18.072289156626507}}
+{"name":"7daf6010-5407-45c4-888f-2c9de6c7cf84","type":"piechart","col":56,"row":28,"colspan":28,"rowspan":15,"bounds":{"y":33.734939759036145,"x":66.66666666666666,"width":33.33333333333333,"height":18.072289156626507}}
+{"name":"18845525-06c0-4537-8a8d-6a0cab108135","type":"sn-tabbed-container","col":0,"row":43,"colspan":84,"rowspan":40,"bounds":{"y":51.80722891566265,"x":0,"width":100,"height":48.19277108433735}}
 
 DIMENSIONS
 {"qInfo":{"qId":"BkKzNf","qType":"dimension"},"qMeta":{"_resourcetype":"app.object","_objecttype":"dimension","id":"BkKzNf","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-08-24T08:00:32.507Z","modifiedDate":"2026-08-24T08:01:07.585Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"Main WF Detailed Status","description":"","tags":[]},"qData":[]}
@@ -23,48 +34,48 @@ MEASURES
 {"qInfo":{"qId":"uZdyJ","qType":"measure"},"qMeta":{"_resourcetype":"app.object","_objecttype":"measure","id":"uZdyJ","approved":false,"published":false,"owner":"AlonF@nta.co.il","ownerId":"69569e8c0c72ec7f51128606","createdDate":"2026-06-28T11:04:18.093Z","modifiedDate":"2026-06-28T11:04:18.093Z","encrypted":true,"privileges":["read","update","delete","publish","change_owner"],"title":"MainWFOpen","description":"","tags":[]},"qData":[]}
 
 VARIABLES
+{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentName","qDefinition":"Workflow Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f42e28f4-103e-4a11-991a-f21394b32dfd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5058e7f7-01a8-4965-9556-4d9c03ece48c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"56c74f07-e9d3-42bf-937c-30434277ab63","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"pWorkApp","qDefinition":"WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vReloadTime","qDefinition":"31\/08\/2026 14:26","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vDocumentTitleFN","qDefinition":"Workflow Control","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0e22743b-017d-46a0-982d-dfa4d3adad7e","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vQvdSecurityDB","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/Qvd\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9e546d65-5f60-4604-a461-742e139e9e34","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vQvdSecurityDW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Security\/QvdDB\/","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"56c74f07-e9d3-42bf-937c-30434277ab63","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vDocumentNameFN","qDefinition":"6b5ec2e6-9636-4b7a-8d8b-fb0aa1424393","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
+{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"97b43271-12b0-440e-b3d3-c2aa27ba972c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_RAW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/RAW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ff76b12d-bbcf-4b94-9df8-67b350a2bf57","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vSpaceUX_Name","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a39516bd-84ed-4dd5-9ae7-d192fc4e3852","qType":"variable"},"qData":[],"qIsScriptCreated":true}
 {"qName":"vLibDataFiles_DW","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea45f26e-5b5a-48ef-bd90-63a75bef584c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vQAorProdBack","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"cb928538-153b-4d25-af1a-e0ac6e53ed07","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vCalendar","qDefinition":"lib:\/\/Data Files:DataFiles\/DEV\/DW\/Calendar\/Calendar.QVD","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5058e7f7-01a8-4965-9556-4d9c03ece48c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"pWorkApp","qDefinition":"WorkflowControl","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f3f860b7-935c-4e3d-a1c4-26bafb22c7fd","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vDocumentNameFN","qDefinition":"6b5ec2e6-9636-4b7a-8d8b-fb0aa1424393","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1dbdc9bb-1632-43a2-8daf-2cf08c895d85","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vConnectionName","qDefinition":"API & Connections:XXXXX","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"9bf1a9a9-a869-44ba-a44b-4f6bb35bdab5","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vReloadTime","qDefinition":"31\/08\/2026 14:26","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"bc50fa8d-69bb-4597-a051-1a5ca40b1991","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"vSpaceName","qDefinition":"DEV","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"97b43271-12b0-440e-b3d3-c2aa27ba972c","qType":"variable"},"qData":[],"qIsScriptCreated":true}
-{"qName":"cOrangeDark","qDefinition":"=RGB(230,134,0)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"46874af7-4381-4fc7-89fa-7f8dac74b6a8","qType":"variable"},"qData":[]}
-{"qName":"vTrackingCriticalActivitiesMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea7e5ff9-1894-477b-a6c5-6b90e0de192d","qType":"variable"},"qData":[]}
-{"qName":"vTrackingMajorMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"555cb232-2599-4902-93d5-0b4fb5bf786e","qType":"variable"},"qData":[]}
-{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
-{"qName":"vTrackingActivitiesMilestonesType","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"90a5d3fa-8c15-46f4-afd0-86f8e95ea04a","qType":"variable"},"qData":[]}
 {"qName":"vColor_GrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ea45941-e78e-4e99-ad42-ea495cc34d69","qType":"variable"},"qData":[]}
-{"qName":"cOceanBlueLight","qDefinition":"=RGB(72,172,213)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1434c154-60bc-4bbb-8496-a696a73898ae","qType":"variable"},"qData":[]}
-{"qName":"cGrayDark","qDefinition":"=RGB(85,85,85)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a0cfa735-67d1-4c4f-90a5-22f50ddf24b3","qType":"variable"},"qData":[]}
-{"qName":"cObjHederMenuBack","qDefinition":"ARGB(255,0,39,80)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f451244f-ffe4-49c7-8115-3f92607ce9eb","qType":"variable"},"qData":[]}
-{"qName":"cGrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"50eccd71-c0dd-49a1-8093-d59ea8d274f8","qType":"variable"},"qData":[]}
-{"qName":"cBlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e3900747-aa86-4e63-b1b9-243d2fbb9b03","qType":"variable"},"qData":[]}
-{"qName":"vTrackingContractualMilestones","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4eb8d15a-421e-4d0c-b70d-e92baf3f2738","qType":"variable"},"qData":[]}
-{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
-{"qName":"cGreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2d0565fe-fc77-4f2f-96e8-ac93b618fc3c","qType":"variable"},"qData":[]}
-{"qName":"cTrafficGreen","qDefinition":"=RGB(163,217,154)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ae6a06f-71a8-4556-bbbd-49a85e8b7986","qType":"variable"},"qData":[]}
-{"qName":"cOceanBlueLighter","qDefinition":"=RGB(134,213,243)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"04fe4b09-4f53-4dcd-8569-1e06368e6b75","qType":"variable"},"qData":[]}
-{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
 {"qName":"cOrangeLighter","qDefinition":"=RGB(249,227,196)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"44bbbc04-110d-4ee0-94ab-f65fce458ca0","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLight","qDefinition":"=RGB(72,172,213)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1434c154-60bc-4bbb-8496-a696a73898ae","qType":"variable"},"qData":[]}
+{"qName":"cTrafficGreen","qDefinition":"=RGB(163,217,154)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ae6a06f-71a8-4556-bbbd-49a85e8b7986","qType":"variable"},"qData":[]}
 {"qName":"cStatusBad","qDefinition":"=ARGB(255,224,54,59)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"da2f1d0a-40e4-42b4-bfb4-cb14740d0078","qType":"variable"},"qData":[]}
 {"qName":"vColor_BlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"0936587c-61df-43c4-9ec6-b108acb98632","qType":"variable"},"qData":[]}
 {"qName":"vColor_GreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f583d6d2-61ab-4433-bac5-4c7b38f9e511","qType":"variable"},"qData":[]}
 {"qName":"vColor_BlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"5ab57f49-e121-432e-ae34-7076a2f8f6de","qType":"variable"},"qData":[]}
+{"qName":"cOceanBlueLighter","qDefinition":"=RGB(134,213,243)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"04fe4b09-4f53-4dcd-8569-1e06368e6b75","qType":"variable"},"qData":[]}
+{"qName":"cOrangeDark","qDefinition":"=RGB(230,134,0)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"46874af7-4381-4fc7-89fa-7f8dac74b6a8","qType":"variable"},"qData":[]}
 {"qName":"cStatusGood","qDefinition":"=ARGB(255,107,189,69)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"70ba18de-4856-4d62-b309-a72af836d145","qType":"variable"},"qData":[]}
 {"qName":"cStatusFaulty","qDefinition":"=ARGB(255,138,32,36)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"1574194c-d95b-468d-a68d-3538b1bc9df7","qType":"variable"},"qData":[]}
 {"qName":"vColor_NegetiveRed","qDefinition":"'RGB(226,68,73)'\r\n\r\nSET cOceanBlue = =RGB(47,124,170)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"8af3169a-8e3e-4a5b-8f90-9e68e77ce0d8","qType":"variable"},"qData":[]}
 {"qName":"cRoyalBlue","qDefinition":"=RGB(33,61,146)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"db7d1cbb-14db-434d-8a81-69e7d97ce392","qType":"variable"},"qData":[]}
 {"qName":"cOrange","qDefinition":"=RGB(255,184,77)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a9b87c6f-6dfd-45e0-b66a-b9a1b5a7559d","qType":"variable"},"qData":[]}
+{"qName":"cGrayDark","qDefinition":"=RGB(85,85,85)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"a0cfa735-67d1-4c4f-90a5-22f50ddf24b3","qType":"variable"},"qData":[]}
+{"qName":"cObjHederMenuBack","qDefinition":"ARGB(255,0,39,80)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f451244f-ffe4-49c7-8115-3f92607ce9eb","qType":"variable"},"qData":[]}
+{"qName":"cGrayDeep","qDefinition":"ARGB(255,110,110,110)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"50eccd71-c0dd-49a1-8093-d59ea8d274f8","qType":"variable"},"qData":[]}
+{"qName":"cBlueNTA","qDefinition":"ARGB(255,33,65,134)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"e3900747-aa86-4e63-b1b9-243d2fbb9b03","qType":"variable"},"qData":[]}
+{"qName":"vTrackingContractualMilestones","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"4eb8d15a-421e-4d0c-b70d-e92baf3f2738","qType":"variable"},"qData":[]}
 {"qName":"cBlackNTA","qDefinition":"ARGB(255,73,73,73)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"194c3430-aff9-443f-9952-57d4c4dbb334","qType":"variable"},"qData":[]}
+{"qName":"vTrackingCriticalActivitiesMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"ea7e5ff9-1894-477b-a6c5-6b90e0de192d","qType":"variable"},"qData":[]}
+{"qName":"vTrackingMajorMilestones","qDefinition":"0","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"555cb232-2599-4902-93d5-0b4fb5bf786e","qType":"variable"},"qData":[]}
+{"qName":"DocumentName","qDefinition":"Document Name","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"fb7f2f55-cd5d-42ec-9306-1df0da96dc4e","qType":"variable"},"qData":[]}
+{"qName":"vUserName","qDefinition":"=SubField(TextBetween(OSUser(), 'UserId=', ''), '@', 1)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"6d252432-7cb0-4904-83d7-4a97d04225d1","qType":"variable"},"qData":[]}
+{"qName":"vSheetName","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"f4f43e45-e9cc-460c-98b0-d73c2b44abdd","qType":"variable"},"qData":[]}
+{"qName":"cGreenNTA","qDefinition":"ARGB(255,0,193,51)","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"2d0565fe-fc77-4f2f-96e8-ac93b618fc3c","qType":"variable"},"qData":[]}
+{"qName":"vTrackingActivitiesMilestonesType","qDefinition":"1","qMeta":{"privileges":["read","update","delete"]},"qInfo":{"qId":"90a5d3fa-8c15-46f4-afd0-86f8e95ea04a","qType":"variable"},"qData":[]}
 
 FIELDS
 {"qIsHidden":true,"qIsSystem":true,"qName":"$Field","qCardinal":117,"qTags":["$text","$hidden","$key","$system"],"qSrcTables":[]}
