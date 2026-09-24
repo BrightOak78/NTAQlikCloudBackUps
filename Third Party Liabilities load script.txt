@@ -125,12 +125,18 @@ FROM $(vQvdSecurityDW)Authenticated_User.QVD (qvd);
 
 //---------------------------------------------------
 
+// LOAD 
+// 	 DOCGROUP as USERNAME_DOCGROUP, 
+//      קו 
+// FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Data/Security_AddOn.xlsx]
+// (ooxml, embedded labels, table is LinesGroups);
+
 Access_Groups:
-LOAD 
-	 DOCGROUP as USERNAME_DOCGROUP, 
-     קו 
-FROM [lib://API & Connections:File_jqvnta01_Qlikview/Production/GeneralConfig/Security/Data/Security_AddOn.xlsx]
-(ooxml, embedded labels, table is LinesGroups);
+LOAD
+    USERNAME_DOCGROUP,
+    קו
+//     "תאור קו מלא"
+FROM [lib://Data Files:DataFiles/DEV/DW/Security/Qvd/Security_Line_General.qvd](qvd);
 
 
 
