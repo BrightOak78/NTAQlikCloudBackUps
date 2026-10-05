@@ -1,0 +1,235 @@
+///$tab Main & Connect
+SET MonthNamesEng='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET LongMonthNamesEng='January;February;March;April;May;June;July;August;September;October;November;December';
+SET DayNamesEng='Sun;Mon;Tue;Wed;Thu;Fri;Sat';
+SET LongDayNamesEng='Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday';
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$ ###0.00;-$ ###0.00';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff] TT';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='en-US';
+SET CreateSearchIndexOnReload=1;
+SET MonthNames='ינו;פבר;מרץ;אפר;מאי;יונ;יול;אוג;ספט;אוק;נוב;דצמ';
+SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+SET DayNames='א;ב;ג;ד;ה;ו;ש';
+SET LongDayNames='ראשון;שני;שלישי;רביעי;חמישי;שישי;שבת';
+
+// כדי ששבוע ישראלי יתחיל ביום ראשון,
+SET FirstWeekDay=6;
+//מאפשר “שבועות שבורים” בתחילת/סוף שנה. כלומר שבוע 1 יכול להתחיל בדיוק ב־1 בינואר, גם אם זה לא שבוע מלא.
+SET BrokenWeeks=1;
+//רלוונטי בעיקר כש־BrokenWeeks=0, כלומר כשמגדירים ששבוע 1 הוא השבוע שמכיל יום ייחוס מסוים בינואר.
+// אבל אצלך BrokenWeeks=1, אז בפועל ל־ReferenceDay כמעט אין משמעות.
+SET ReferenceDay=0;
+//השנה מתחילה בינואר. זה הסטנדרט הרגיל. אם היו עובדים לפי שנה פיסקלית שמתחילה באפריל למשל, היו שמים 4.
+SET FirstMonthOfYear=1;
+//אומר ל־Qlik להתייחס אליהם לפי כללי מיון עבריים, ולא לפי ברירת מחדל כללית/אנגלית/ASCII.
+SET CollationLocale='HE';
+//המשמעות: כל שדה שמתחיל ב־% יוסתר מרשימות השדות, כל עוד שדות מוסתרים לא מוצגים. 
+//השדות עדיין קיימים במודל ועדיין אפשר להשתמש בהם בביטויים אם מקלידים את השם ידנית.
+//Master Items = דרך ניהול/שימוש חוזר במדדים וממדים למשתמשים
+// HidePrefix = הסתרת שדות טכניים ממודל הנתונים/רשימות השדות
+SET HidePrefix = '%';
+//יש להריץ מתוך הqvd הרלוונטי
+Let vReloadTime = Timestamp(ConvertToLocalTime(ReloadTime(), 'Jerusalem'),'DD/MM/YYYY hh:mm');
+LET vSpaceName = GetSysAttr('spaceName');//$(vSpaceName)
+LET vQAorProdBack =if(Left('$(vSpaceName)',2)='QA','QA',if(Left('$(vSpaceName)',2)='Pr','Production','DEV'));//$(vQAorProdBack)
+LET vDocumentTitleFN=DocumentTitle();//Document Title
+LET vDocumentNameFN=DocumentName(); //Document ID
+SET vDocumentName = 'Budget_DW'; //Free Document Name
+SET pWorkApp = 'Budget'; //$(pWorkApp)
+Let vLibDataFiles_RAW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/'&'$(pWorkApp)';//$(vLibDataFiles_RAW)
+Let vLibDataFiles_DW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/'&'$(pWorkApp)';//$(vLibDataFiles_DW)
+LET vSpaceUX_Name =Replace('$(vSpaceName)','Back','UX');//$(vSpaceUX_Name)
+LET vConnectionName ='API & Connections:XXXXX'; //$(vConnectionName) 
+LET vCalendar='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Calendar/Calendar.QVD'; //$(vCalendar) 
+LET vQvdSecurityDB='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/QvdDB/';//$(vQvdSecurityDW) 
+LET vQvdSecurityDW='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/DW/Security/Qvd/';//$(vQvdSecurityDB) 
+LET vAconex_AddOn='lib://Data Files:DataFiles/'&'$(vQAorProdBack)'&'/RAW/Aconex_AddOn/';//$(vAconex_AddOn) 
+
+
+
+///$tab משתני סביבה
+LET rRunStart = Now(1);
+LET vLM_Yesterday=Date(AddMonths( Floor(Now())-1,-1),'DD/MM/YYYY'); // $(vYesterday)
+LET vToday=Date(Floor(Now()),'DD/MM/YYYY'); // $(vToday)
+LET vYesterday=Date(Floor(Now())-1,'DD/MM/YYYY'); // $(vYesterday)
+LET vCurrentYYYYMM = year(vToday)& num(month(vToday),'00'); // $(vCurrentYYYYMM)
+LET vLM_YYYYMM = year(AddMonths(vToday,-1))& num(month(AddMonths(vToday,-1)),'00'); // $(vCurrentYYYYMM)
+LET vYesterdayYYYYMM = year(vYesterday)& num(month(vYesterday),'00'); // $(vCurrentYYYYMM)
+Let vCurrentYear = year(vToday); // $(vCurrentYear)
+
+set pQvd_PaymentEthics= 'lib://API & Connections:File_jqvnta01_Qlikview/Production/Finance/PaymentEthics/Qvd/';
+// //for Prod
+// SET vFileList='\\ntanas02\bi\Quality_green_IN2';
+// SET vODBC='QualityIN2;DBQ=\\ntanas02\bi\Quality_green_IN2\';
+// SET vNas02Temp = '\\ntanas02\bi\Quality_green_IN2' ; // $(vNas02Temp) 
+// //****************************************************************************************//
+
+// Set vQuantityPercentage= 'Quantity';
+///$tab TEST
+
+///$tab Exit Script
+// Exit Script
+///$tab משתמשים פנימים
+InternalUserOrgStep1:
+LOAD distinct
+     NTNAME as USERNAME_OS
+FROM [$(vQvdSecurityDW)Security_Budget.QVD](qvd);
+//left join
+inner join 
+LOAD  
+     [קוד משתמש] as USERNAME_OS, 
+     [קוד משתמש], 
+     [שם משתמש], 
+     [שם משתמש פרטי], 
+     [שם משתמש משפחה], 
+     [שם משתמש אימייל], 
+     [קוד אגף], 
+     [שם אגף], 
+     [קוד חטיבה], 
+     [שם חטיבה], 
+     [קוד קבוצת רכש], 
+     [שם קבוצת רכש]
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+Where [קוד חטיבה]<>'EXT';// left( [קוד חטיבה],1) <> 9;
+//EXIT SCRIPT
+left join
+LOAD Distinct
+        KOSTL as [מרכז עלות], 
+        num#(VERAK) as [קוד חטיבה]
+FROM [$(vLibDataFiles_RAW)/CSKS.qvd](qvd)
+Where len(KOSTL) > 1;
+left join
+LOAD   
+	 FKSTL as [מרכז עלות], 
+ 	 OBJNR as [מספר אובייקט_OBJNR], 
+     PSPNR as NodeID
+FROM [$(vLibDataFiles_RAW)/PRPS.qvd](qvd)
+Where len(FKSTL) > 1;
+left Join
+///      Wbs אירגוני
+LOAD 
+     "WBS מס." as [WBS 'מס], 
+     NodeID 
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd);
+
+InternalUserOrg:
+Load distinct USERNAME_OS,
+              'USER' as ACCESS,
+              [WBS 'מס] 
+resident InternalUserOrgStep1;
+drop table InternalUserOrgStep1;
+
+store * from InternalUserOrg into [$(vLibDataFiles_DW)/InternalUserOrg.qvd];
+drop table InternalUserOrg; 
+
+
+InternalUserProj:
+LOAD distinct
+     NTNAME as USERNAME_OS
+FROM [$(vQvdSecurityDW)Security_Budget.QVD](qvd);
+//where Budget = 1;
+inner join 
+LOAD  'USER' as ACCESS,
+     [קוד משתמש] as USERNAME_OS
+FROM [$(vQvdSecurityDW)Users_Data.QVD] (qvd)
+Where [קוד חטיבה]<>'EXT'; //left( [קוד חטיבה],1) <> 9;
+join
+LOAD Distinct
+     "WBS מס." as [WBS 'מס]
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd)
+where left([WBS מס.] ,1) = 'P';
+store * from InternalUserProj into [$(vLibDataFiles_DW)/InternalUserProj.qvd];
+drop table InternalUserProj; 
+
+
+
+
+///$tab משתמשים חיצוניים
+OBJNRs:
+LOAD 
+	 PDOBJNR as OBJNR,
+	 WBSELEMENT as [WBS 'מס]
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd);
+Concatenate 
+LOAD   
+    KeyObjnr as OBJNR, 
+    WBSELEMENT as [WBS 'מס]
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd);
+
+ExternalUserProj:
+LOAD Distinct //*,
+	 'USERSEX' as QVGROUP,
+ 	 'USER' as ACCESS,
+// 	 שותף_PARNR as PM,
+     num#(PARNR) as PM,
+     OBJNR
+FROM [$(vLibDataFiles_RAW)/IHPA.qvd](qvd)
+where  PARVW = 'D4' and KZLOESCH<>'X';
+left join
+LOAD *
+Resident OBJNRs;
+DROP Table OBJNRs;
+left join
+LOAD 
+	 BNAME as NTNAME, 
+      num#(PARVA) as PM
+FROM [$(vLibDataFiles_RAW)/USR05.qvd](qvd)
+Where [PARID]='LIF'
+;
+store * from ExternalUserProj into [$(vLibDataFiles_DW)/ExternalUserProj.qvd];
+drop table ExternalUserProj; 
+
+///$tab SuperUser
+Users:
+LOAD 
+	NTNAME, 
+    ACCESS ,
+    USERNAME_DOCGROUP as QVGROUP
+FROM [$(vQvdSecurityDW)Security_Budget.QVD](qvd)
+where USERNAME_DOCGROUP = 'ADMIN' or  USERNAME_DOCGROUP = 'POWERUSER' or  USERNAME_DOCGROUP ='MANAGEMENT' ;
+join
+LOAD Distinct
+     "WBS מס." as [WBS 'מס]
+FROM [$(vLibDataFiles_DW)/WBS.qvd](qvd);
+
+LOAD  
+     NTNAME, 
+     ACCESS, 
+     [WBS 'מס],
+     QVGROUP
+FROM [$(vLibDataFiles_DW)/ExternalUserProj.qvd] (qvd);
+
+LOAD USERNAME_OS as NTNAME,
+     'USERS' as QVGROUP, 
+     ACCESS,
+     [WBS 'מס]
+FROM [$(vLibDataFiles_DW)/InternalUserOrg.qvd] (qvd);
+
+LOAD USERNAME_OS as NTNAME, 
+    'USERS' as QVGROUP, 
+       ACCESS,
+     [WBS 'מס]
+FROM [$(vLibDataFiles_DW)/InternalUserProj.qvd] (qvd);
+Left Join
+LOAD 
+	NTNAME, 
+    ACCESS ,
+    USERNAME_DOCGROUP as ORIGINAL_DOCGROUP
+FROM [$(vQvdSecurityDW)Security_Budget.QVD](qvd);
+
+store * from Users into [$(vLibDataFiles_DW)/UserBudgetNew.qvd];
+//drop table Users; 
+
+
+///$tab Exit Script
+Exit Script
