@@ -311,7 +311,8 @@ Left Join
 LOAD 
      NPRIO as [קוד קו], 
 	 KTEXT as [קו]
-FROM [$(vLibDataFiles_RAW)/TCN7T.qvd](qvd);
+FROM [$(vLibDataFiles_RAW)/TCN7T.qvd](qvd)
+Where LANGU='B';
 Left join// סוג פרוייקט
 LOAD PRART, ////
      PRATX as [סוג פרוייקט]
@@ -353,7 +354,7 @@ LOAD
 	 CODE AS [קוד נושא תקציבי ל-BI], 
      DESCRIPTION AS [נושא תקציבי ל-BI temp]
 FROM $(vLibDataFiles_RAW)/ZNFI_WBS_CHART.qvd(qvd)
-Where SPRAS='B' and  MANDT=400;
+Where SPRAS='B';
 Left Join
 LOAD 
 	 OBJNR as PDOBJNR,
@@ -608,7 +609,6 @@ WHERE (LOEKZ) = ' '
 left join 
 //BPEG:
 LOAD
- 
       WTGES as [תקציב מרכבה],
      OBJNR as _OBJNR
 FROM [$(vLibDataFiles_RAW)/BPEG.qvd] (qvd)
@@ -663,13 +663,10 @@ drop table דוח_הנהלה;
 ///$tab Menifa
 ZNPPM_ELEMENT_ST:
 LOAD Distinct
-
 	 ELEMENT_ID as NodeName,	 
 	 ELEMENT_DESC as PLTXT, 
      ELEMENT_NUM as NodeID,
      SUPERIOR_ELEMENT as ParentID,
-      
-     MANDT, 
      STATUS, 
      PHASE, 
      PSPNR, 
